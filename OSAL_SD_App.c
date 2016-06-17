@@ -99,7 +99,7 @@ void osalInitTasks( void ) /*在OSAL.c中被调用*/
 {
 	uint8 taskID = 0;
 	tasksEvents = (uint16 *)osal_mem_alloc( sizeof( uint16 ) * tasksCnt);
-    osal_memset( tasksEvents, 0, (sizeof( uint16 ) * tasksCnt));/*看出所有任务的状态都被初始化为0。代表了当前任务没有需要响应的事件*/
+        osal_memset( tasksEvents, 0, (sizeof( uint16 ) * tasksCnt));/*看出所有任务的状态都被初始化为0。代表了当前任务没有需要响应的事件*/
 	macTaskInit( taskID++ );
 	nwk_init( taskID++ );
 	Hal_Init( taskID++ );

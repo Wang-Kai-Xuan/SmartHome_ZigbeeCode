@@ -20,6 +20,8 @@
 		2.遵循软件设计的思想：永远不要重复造轮子。（拿来主义）
 
 ------------------------------------------------------*/
+
+
 #include "OSAL.h"
 #include "ZGlobals.h"
 #include "AF.h"
@@ -39,9 +41,8 @@
 #include "string.h"
 
 enum CommonicationProtocol{
-    OPEN_LIGHT = '1',OPEN_CURTAIN,CLOSE_LIGHT,CLOSE_CURTAIN
+    COMMAND_NULL = '0',LIGHT_OPEN,LIGHT_CLOSE,CURTAIN_OPEN,CURTAIN_CLOSE
 };
-
 
 //#define BUF_LEN 2
 //char recv_data[BUF_LEN];
@@ -85,6 +86,11 @@ afAddrType_t SD_App_Broadcast_DstAddr;
  */
 void SD_App_MessageMSGCB( afIncomingMSGPacket_t *pckt );
 void SD_App_SendBroadcastMessage( void );
+
+/**
+ * @brief recvSerialData 这个函数中接收串口的数据，包括手机、电脑端通过AP发送的指令和数据
+ * @param cmdMsg
+ */
 void recvSerialData(mtOSALSerialData_t *cmdMsg);
 
 
@@ -112,8 +118,8 @@ void SD_App_Init( uint8 task_id )
 	MT_UartRegisterTaskID(task_id);//登记任务号
 	HalUARTWrite(0,"Hello World\n",12); //（串口0，'字符'，字符个数。）	
 
-	#if defined ( BUILD_ALL_DEVICES )
-	if ( readCoordinatorJumper() )
+    #if defined ( BUILD_ALL_DEVICES)
+    if (readCoordinatorJumper())
         zgDeviceLogicalType = ZG_DEVICETYPE_COORDINATOR;
 	else
         zgDeviceLogicalType = ZG_DEVICETYPE_ROUTER;
@@ -170,13 +176,12 @@ uint16 SD_App_ProcessEvent( uint8 task_id, uint16 events )
                 break;
 
             case KEY_CHANGE:
-                if(((keyChange_t *)MSGpkt)->keys & 0x01){//按钮5
-				  
+                /*按钮5*/
+                if(((keyChange_t *)MSGpkt)->keys & 0x01){
                    SD_App_SendBroadcastMessage();
-				   
                 }
-                if(((keyChange_t *)MSGpkt)->keys & 0x02){//按钮4
-				  
+                /*按钮4*/
+                if(((keyChange_t *)MSGpkt)->keys & 0x02){
                 }
                 break;
                 // Received when a messages is received (OTA) for this endpoint
@@ -215,17 +220,17 @@ uint16 SD_App_ProcessEvent( uint8 task_id, uint16 events )
 void SD_App_MessageMSGCB( afIncomingMSGPacket_t *pkt )
 {
 	switch ( pkt->clusterId ){
-	case SD_APP_POINT_TO_POINT_CLUSTERID:
-		if(pkt->cmd.Data[0]=='P'){
-		   P0_1 ^=1;      
-		}
-		break;
-	
-	case SD_APP_BROADCAST_CLUSTERID:
-		if(pkt->cmd.Data[0]=='B'){      
-		   P0_4 = ~P0_4;
-		}
-		break;
+        case SD_APP_POINT_TO_POINT_CLUSTERID:
+            if(pkt->cmd.Data[0]=='P'){
+               P0_1 ^=1;
+            }
+            break;
+
+        case SD_APP_BROADCAST_CLUSTERID:
+            if(pkt->cmd.Data[0]=='B'){
+               P0_4 = ~P0_4;
+            }
+            break;
 	}
 }
 
@@ -286,32 +291,47 @@ void recvSerialData(mtOSALSerialData_t *cmdMsg)
 	HalUARTWrite(0,str+i,1 ); 
     HalUARTWrite(0,"\n",1 );//换行
 
-    if(str[1] == OPEN_LIGHT){
+    if(str[1] == LIGHT_OPEN){
         openLight();
     }
-    if(str[1] == CLOSE_LIGHT){
+    if(str[1] == LIGHT_CLOSE){
         closeLight();
     }
-    if(str[1] == OPEN_CURTAIN){
+    if(str[1] == CURTAIN_OPEN){
         openCurtain();
     }
-    if(str[1] == CLOSE_CURTAIN){
+    if(str[1] == CURTAIN_CLOSE){
         closeCurtain();
     }
+//    switch(str[1]){
+//    case LIGHT_OPEN:
+//        openLight();
+//        break;
+//    case LIGHT_CLOSE:
+//        closeLight();
+//        break;
+//    case CURTAIN_OPEN:
+//        openCurtain();
+//        break;
+//    case CURTAIN_CLOSE:
+//        closeCurtain();
+//        break;
+//    }
 }
-void ownInit()
+
+void customInit()
 {
-	P1DIR |=0x01;
-	
-	P0DIR |=0X10;	/* 配置P0_3：串口外设TX引脚映射 */
-	P0DIR |=0X02;	/* 配置P0_3：串口外设RX引脚映射 */
-
-	P0DIR |=0X80; 	/* 用于控制电灯的IO */
-    P0_7 = 0; 		/* 控制打开/关闭电灯的IO */
-
-	P2DIR |= 0x01;	/* 用于控制窗帘的IO */
-	P2_0 = 0;		/* 控制打开/关闭窗帘的IO */
-	
-	LS164_Cfg();    /* 数码管配置 */
-	LS164_BYTE(0);	/* 数码管显示"0" */
+  P1DIR |=0x01;
+  
+  P0DIR |=0X10;	/* 配置P0_3：串口外设TX引脚映射 */
+  P0DIR |=0X02;	/* 配置P0_3：串口外设RX引脚映射 */
+  
+  P0DIR |=0X80; 	/* 用于控制电灯的IO */
+  P0_7 = 0; 		/* 控制打开/关闭电灯的IO */
+  
+  P2DIR |= 0x01;	/* 用于控制窗帘的IO */
+  P2_0 = 0;		/* 控制打开/关闭窗帘的IO */
+  
+  LS164_Cfg();    /* 数码管配置 */
+  LS164_BYTE(0);	/* 数码管显示"0" */
 }

@@ -10,13 +10,14 @@ static void Delay(long z)
 {
     while(--z);
 }
+
 void LS164_Cfg()
 {
     P1SEL &=~0x0C;//xxxx 00xx  配置为普通IO模式
     P1DIR |=0x0C;//xxxx 11xx   配置为输出模式
 }
 void LS164_BYTE(UCHAR Index) //P1.3  DATA   P1.2  CLK
-{  
+{
     UCHAR i=0;
     UCHAR Data=LED_Map[Index];
     for(;i<8;i++)

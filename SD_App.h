@@ -39,7 +39,7 @@
 #ifndef SD_APP_H
 #define SD_APP_H
 
-extern void ownInit();
+void customInit();
 
 #ifdef __cplusplus
 extern "C"
