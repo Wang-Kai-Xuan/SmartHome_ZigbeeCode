@@ -2,12 +2,8 @@
   Filename:       hal_key.c
   Revised:        $Date: 2009-12-16 17:44:49 -0800 (Wed, 16 Dec 2009) $
   Revision:       $Revision: 21351 $
-
   Description:    This file contains the interface to the HAL KEY Service.
-
-
   Copyright 2006-2009 Texas Instruments Incorporated. All rights reserved.
-
   IMPORTANT: Your use of this Software is limited to those specific rights
   granted under the terms of a software license agreement between the user
   who downloaded the software, his/her employer (which must be your employer)
@@ -22,7 +18,7 @@
   its documentation for any purpose.
 
   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
-  PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+  PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -88,12 +84,9 @@
 #include "hal_adc.h"
 #include "hal_key.h"
 #include "osal.h"
+#include "OnBoard.h"
 
 #if (defined HAL_KEY) && (HAL_KEY == TRUE)
-
-/**************************************************************************************************
- *                                              MACROS
- **************************************************************************************************/
 
 /**************************************************************************************************
  *                                            CONSTANTS
@@ -104,13 +97,13 @@
 #define HAL_KEY_DEBOUNCE_VALUE  25
 #define HAL_KEY_POLLING_VALUE   100
 
-/* CPU port interrupt */
+/* CPU port interrupt (key P0.5 J-STICK P2.0)*/
 #define HAL_KEY_CPU_PORT_0_IF P0IF
 #define HAL_KEY_CPU_PORT_2_IF P2IF
 
-/* SW_6 is at P0.1 */
+/* SW_6 is at P0.5 */
 #define HAL_KEY_SW_6_PORT   P0
-#define HAL_KEY_SW_6_BIT    BV(1)
+#define HAL_KEY_SW_6_BIT    BV(5)
 #define HAL_KEY_SW_6_SEL    P0SEL
 #define HAL_KEY_SW_6_DIR    P0DIR
 
@@ -118,12 +111,11 @@
 #define HAL_KEY_SW_6_EDGEBIT  BV(0)
 #define HAL_KEY_SW_6_EDGE     HAL_KEY_FALLING_EDGE
 
-
 /* SW_6 interrupts */
 #define HAL_KEY_SW_6_IEN      IEN1  /* CPU interrupt mask register */
 #define HAL_KEY_SW_6_IENBIT   BV(5) /* Mask bit for all of Port_0 */
 #define HAL_KEY_SW_6_ICTL     P0IEN /* Port Interrupt Control register */
-#define HAL_KEY_SW_6_ICTLBIT  BV(1) /* P0IEN - P0.1 enable/disable bit */
+#define HAL_KEY_SW_6_ICTLBIT  BV(5)//BV(1) /* P0IEN - P0.1 enable/disable bit */
 #define HAL_KEY_SW_6_PXIFG    P0IFG /* Interrupt flag at source */
 
 /* Joy stick move at P2.0 */
@@ -145,12 +137,6 @@
 
 #define HAL_KEY_JOY_CHN   HAL_ADC_CHANNEL_6
 
-
-/**************************************************************************************************
- *                                            TYPEDEFS
- **************************************************************************************************/
-
-
 /**************************************************************************************************
  *                                        GLOBAL VARIABLES
  **************************************************************************************************/
@@ -164,14 +150,6 @@ bool Hal_KeyIntEnable;            /* interrupt enable/disable flag */
  **************************************************************************************************/
 void halProcessKeyInterrupt(void);
 uint8 halGetJoyKeyInput(void);
-
-
-
-/**************************************************************************************************
- *                                        FUNCTIONS - API
- **************************************************************************************************/
-
-
 /**************************************************************************************************
  * @fn      HalKeyInit
  *
@@ -189,8 +167,8 @@ void HalKeyInit( void )
   HAL_KEY_SW_6_SEL &= ~(HAL_KEY_SW_6_BIT);    /* Set pin function to GPIO */
   HAL_KEY_SW_6_DIR &= ~(HAL_KEY_SW_6_BIT);    /* Set pin direction to Input */
 
-  HAL_KEY_JOY_MOVE_SEL &= ~(HAL_KEY_JOY_MOVE_BIT); /* Set pin function to GPIO */
-  HAL_KEY_JOY_MOVE_DIR &= ~(HAL_KEY_JOY_MOVE_BIT); /* Set pin direction to Input */
+ HAL_KEY_JOY_MOVE_SEL &= ~(HAL_KEY_JOY_MOVE_BIT); /* Set pin function to GPIO */
+ HAL_KEY_JOY_MOVE_DIR &= ~(HAL_KEY_JOY_MOVE_BIT); /* Set pin direction to Input */
 
 
   /* Initialize callback function */
@@ -241,26 +219,10 @@ void HalKeyConfig (bool interruptEnable, halKeyCBack_t cback)
     HAL_KEY_SW_6_PXIFG = ~(HAL_KEY_SW_6_BIT);
 
 
-
-    /* Rising/Falling edge configuratinn */
-
-    HAL_KEY_JOY_MOVE_ICTL &= ~(HAL_KEY_JOY_MOVE_EDGEBIT);    /* Clear the edge bit */
-    /* For falling edge, the bit must be set. */
-  #if (HAL_KEY_JOY_MOVE_EDGE == HAL_KEY_FALLING_EDGE)
-    HAL_KEY_JOY_MOVE_ICTL |= HAL_KEY_JOY_MOVE_EDGEBIT;
-  #endif
-
-
-    /* Interrupt configuration:
-     * - Enable interrupt generation at the port
-     * - Enable CPU interrupt
-     * - Clear any pending interrupt
-     */
-    HAL_KEY_JOY_MOVE_ICTL |= HAL_KEY_JOY_MOVE_ICTLBIT;
-    HAL_KEY_JOY_MOVE_IEN |= HAL_KEY_JOY_MOVE_IENBIT;
-    HAL_KEY_JOY_MOVE_PXIFG = ~(HAL_KEY_JOY_MOVE_BIT);
-
-
+      IEN2|=0x02;
+      P2IEN |=0x01;
+      PICTL |=0x08;
+      
     /* Do this only after the hal_key is configured - to work with sleep stuff */
     if (HalKeyConfigured == TRUE)
     {
@@ -320,10 +282,10 @@ void HalKeyPoll (void)
 {
   uint8 keys = 0;
 
-  if ((HAL_KEY_JOY_MOVE_PORT & HAL_KEY_JOY_MOVE_BIT))  /* Key is active HIGH */
-  {
-    keys = halGetJoyKeyInput();
-  }
+//  if ((HAL_KEY_JOY_MOVE_PORT & HAL_KEY_JOY_MOVE_BIT))  /* Key is active HIGH */
+//  {
+//    keys = halGetJoyKeyInput();
+//  }
 
   /* If interrupts are not enabled, previous key status and current key status
    * are compared to find out if a key has changed status.
@@ -341,12 +303,17 @@ void HalKeyPoll (void)
   else
   {
     /* Key interrupt handled here */
+        if (0==P2_0)
+        {
+          keys = 0X02;
+        }
+        if(0==P0_5)
+        {
+          keys = 0X01;
+        }
   }
 
-  if (HAL_PUSH_BUTTON1())
-  {
-    keys |= HAL_KEY_SW_6;
-  }
+
 
   /* Invoke Callback if new keys were depressed */
   if (keys && (pHalKeyProcessFunction))
@@ -482,12 +449,19 @@ uint8 HalKeyExitSleep ( void )
  *
  * @return
  **************************************************************************************************/
-HAL_ISR_FUNCTION( halKeyPort0Isr, P0INT_VECTOR )
+HAL_ISR_FUNCTION( halKeyPort0Isr, P0INT_VECTOR )//°´Å¥5
 {
-  if (HAL_KEY_SW_6_PXIFG & HAL_KEY_SW_6_BIT)
-  {
-    halProcessKeyInterrupt();
-  }
+
+       if (HAL_KEY_SW_6_PXIFG & HAL_KEY_SW_6_BIT)
+      {
+        halProcessKeyInterrupt();
+//               keyChange_t *msgPtr;
+//               msgPtr = (keyChange_t *)osal_msg_allocate( sizeof(keyChange_t) );
+//              msgPtr->hdr.event = KEY_CHANGE;
+//              msgPtr->keys = 0x01;
+//
+//              osal_msg_send( 7, (uint8 *)msgPtr );
+      } 
 
   /*
     Clear the CPU interrupt flag for Port_0
@@ -496,6 +470,7 @@ HAL_ISR_FUNCTION( halKeyPort0Isr, P0INT_VECTOR )
   HAL_KEY_SW_6_PXIFG = 0;
   HAL_KEY_CPU_PORT_0_IF = 0;
 }
+
 
 
 /**************************************************************************************************
@@ -507,12 +482,19 @@ HAL_ISR_FUNCTION( halKeyPort0Isr, P0INT_VECTOR )
  *
  * @return
  **************************************************************************************************/
-HAL_ISR_FUNCTION( halKeyPort2Isr, P2INT_VECTOR )
+HAL_ISR_FUNCTION( halKeyPort2Isr, P2INT_VECTOR )//°´Å¥4
 {
-  if (HAL_KEY_JOY_MOVE_PXIFG & HAL_KEY_JOY_MOVE_BIT)
-  {
-    halProcessKeyInterrupt();
-  }
+
+      if (HAL_KEY_JOY_MOVE_PXIFG & HAL_KEY_JOY_MOVE_BIT)
+      {
+         halProcessKeyInterrupt();
+  //             keyChange_t *msgPtr;
+//               msgPtr = (keyChange_t *)osal_msg_allocate( sizeof(keyChange_t) );
+//              msgPtr->hdr.event = KEY_CHANGE;
+//              msgPtr->keys = 0x02;
+//
+//              osal_msg_send( 7, (uint8 *)msgPtr );        
+      }
 
   /*
     Clear the CPU interrupt flag for Port_2

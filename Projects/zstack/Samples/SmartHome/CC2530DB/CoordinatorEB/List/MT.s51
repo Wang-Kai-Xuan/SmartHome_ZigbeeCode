@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                            /
-// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        05/Sep/2016  09:20:24 /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        05/Sep/2016  17:58:44 /
 // Copyright 2004-2011 IAR Systems AB.                                        /
 //                                                                            /
 //    Core               =  plain                                             /
@@ -9,17 +9,18 @@
 //    Calling convention =  xdata reentrant                                   /
 //    Constant location  =  data_rom                                          /
 //    Dptr setup         =  1,16                                              /
-//    Source file        =  H:\project\SmartHome\Components\mt\MT.c           /
-//    Command line       =  -f H:\project\SmartHome\Projects\zstack\Samples\S /
-//                          martHome\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoor /
-//                          d.cfg (-DCPU32MHZ -DROOT=__near_func              /
+//    Source file        =  H:\project\SmartHome_ZigbeeCode\Components\mt\MT. /
+//                          c                                                 /
+//    Command line       =  -f H:\project\SmartHome_ZigbeeCode\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\Tools\CC253 /
+//                          0DB\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func   /
 //                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
 //                          -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS) -f      /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig. /
-//                          cfg (-DSECURE=0 -DZG_SECURE_DYNAMIC=0             /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\Tools\CC2530DB /
+//                          \f8wConfig.cfg (-DSECURE=0 -DZG_SECURE_DYNAMIC=0  /
 //                          -DREFLECTOR -DDEFAULT_CHANLIST=0x00000800         /
-//                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFF0                      /
 //                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
 //                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
 //                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
@@ -37,73 +38,79 @@
 //                          "-DCONST=const __code" -DGENERIC=__generic        /
 //                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
 //                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
-//                          -DREJOIN_POLL_RATE=440 H:\project\SmartHome\Compo /
-//                          nents\mt\MT.c -D ZTOOL_P1 -D MT_TASK -D           /
-//                          MT_SYS_FUNC -D MT_ZDO_FUNC -D                     /
-//                          LCD_SUPPORTED=DEBUG -lC                           /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\CoordinatorEB\List\ -lA            /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\CoordinatorEB\List\                /
-//                          --diag_suppress Pe001,Pa010 -o                    /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\CoordinatorEB\Obj\ -e --debug      /
-//                          --core=plain --dptr=16,1 --data_model=large       /
-//                          --code_model=banked --calling_convention=xdata_re /
-//                          entrant --place_constants=data_rom                /
-//                          --nr_virtual_regs 16 -I                           /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\ -I H:\project\SmartHome\Projects\ /
-//                          zstack\Samples\SmartHome\CC2530DB\..\SOURCE\ -I   /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\ZMAIN\TI2530DB\ -I        /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\MT\ -I   /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INCL /
-//                          UDE\ -I H:\project\SmartHome\Projects\zstack\Samp /
-//                          les\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ /
-//                          HAL\TARGET\CC2530EB\ -I                           /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\MCU /
-//                          \CCSOC\ -I H:\project\SmartHome\Projects\zstack\S /
+//                          -DREJOIN_POLL_RATE=440 H:\project\SmartHome_Zigbe /
+//                          eCode\Components\mt\MT.c -D ZIGBEEPRO -D          /
+//                          ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D             /
+//                          xMT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG -D            /
+//                          NV_RESTORE -lC H:\project\SmartHome_ZigbeeCode\Pr /
+//                          ojects\zstack\Samples\SmartHome\CC2530DB\Coordina /
+//                          torEB\List\ -lA H:\project\SmartHome_ZigbeeCode\P /
+//                          rojects\zstack\Samples\SmartHome\CC2530DB\Coordin /
+//                          atorEB\List\ --diag_suppress Pe001,Pa010 -o       /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\CoordinatorEB\Obj\ -e   /
+//                          --debug --core=plain --dptr=16,1                  /
+//                          --data_model=large --code_model=banked            /
+//                          --calling_convention=xdata_reentrant              /
+//                          --place_constants=data_rom --nr_virtual_regs 16   /
+//                          -I H:\project\SmartHome_ZigbeeCode\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\ -I                  /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\SOURCE\ -I           /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\ZMAIN\TI2530DB /
+//                          \ -I H:\project\SmartHome_ZigbeeCode\Projects\zst /
+//                          ack\Samples\SmartHome\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MT\ -I H:\project\SmartHome_ZigbeeCode\Pr /
+//                          ojects\zstack\Samples\SmartHome\CC2530DB\..\..\.. /
+//                          \..\..\COMPONENTS\HAL\INCLUDE\ -I                 /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
 //                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
-//                          TS\OSAL\INCLUDE\ -I H:\project\SmartHome\Projects /
-//                          \zstack\Samples\SmartHome\CC2530DB\..\..\..\..\.. /
-//                          \COMPONENTS\STACK\AF\ -I                          /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\NW /
-//                          K\ -I H:\project\SmartHome\Projects\zstack\Sample /
-//                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ST /
-//                          ACK\SEC\ -I H:\project\SmartHome\Projects\zstack\ /
-//                          Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPONE /
-//                          NTS\STACK\SAPI\ -I H:\project\SmartHome\Projects\ /
-//                          zstack\Samples\SmartHome\CC2530DB\..\..\..\..\..\ /
-//                          COMPONENTS\STACK\SYS\ -I                          /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\ZD /
-//                          O\ -I H:\project\SmartHome\Projects\zstack\Sample /
-//                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ZM /
-//                          AC\F8W\ -I H:\project\SmartHome\Projects\zstack\S /
+//                          TS\HAL\TARGET\CC2530EB\ -I                        /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
 //                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
-//                          TS\ZMAC\ -I H:\project\SmartHome\Projects\zstack\ /
-//                          Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPONE /
-//                          NTS\SERVICES\SADDR\ -I H:\project\SmartHome\Proje /
-//                          cts\zstack\Samples\SmartHome\CC2530DB\..\..\..\.. /
-//                          \..\COMPONENTS\SERVICES\SDATA\ -I                 /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\INCL /
-//                          UDE\ -I H:\project\SmartHome\Projects\zstack\Samp /
-//                          les\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ /
-//                          MAC\HIGH_LEVEL\ -I H:\project\SmartHome\Projects\ /
-//                          zstack\Samples\SmartHome\CC2530DB\..\..\..\..\..\ /
-//                          COMPONENTS\MAC\LOW_LEVEL\srf04\ -I                /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\LOW_ /
-//                          LEVEL\srf04\SINGLE_CHIP\ -Ohz                     /
-//                          --require_prototypes                              /
-//    List file          =  H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\CoordinatorEB\List\MT.s51          /
+//                          TS\OSAL\MCU\CCSOC\ -I H:\project\SmartHome_Zigbee /
+//                          Code\Projects\zstack\Samples\SmartHome\CC2530DB\. /
+//                          .\..\..\..\..\COMPONENTS\OSAL\INCLUDE\ -I         /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\STACK\AF\ -I H:\project\SmartHome_ZigbeeCode\P /
+//                          rojects\zstack\Samples\SmartHome\CC2530DB\..\..\. /
+//                          .\..\..\COMPONENTS\STACK\NWK\ -I                  /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\STACK\SEC\ -I H:\project\SmartHome_ZigbeeCode\ /
+//                          Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\STACK\SAPI\ -I                /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\STACK\SYS\ -I H:\project\SmartHome_ZigbeeCode\ /
+//                          Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\STACK\ZDO\ -I                 /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\ZMAC\F8W\ -I H:\project\SmartHome_ZigbeeCode\P /
+//                          rojects\zstack\Samples\SmartHome\CC2530DB\..\..\. /
+//                          .\..\..\COMPONENTS\ZMAC\ -I                       /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\SERVICES\SADDR\ -I H:\project\SmartHome_Zigbee /
+//                          Code\Projects\zstack\Samples\SmartHome\CC2530DB\. /
+//                          .\..\..\..\..\COMPONENTS\SERVICES\SDATA\ -I       /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\MAC\INCLUDE\ -I H:\project\SmartHome_ZigbeeCod /
+//                          e\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\COMPONENTS\MAC\HIGH_LEVEL\ -I          /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\MAC\LOW_LEVEL\srf04\ -I                        /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\ -Ohz          /
+//    List file          =  H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\CoordinatorEB\List\MT.s /
+//                          51                                                /
 //                                                                            /
 //                                                                            /
 ///////////////////////////////////////////////////////////////////////////////
@@ -359,7 +366,6 @@
         CFI ?RET_LOW Frame(CFA_SP, 1)
         CFI EndCommon cfiCommon1
         
-MT_ZdoInit          SYMBOL "MT_ZdoInit"
 MT_SysResetInd      SYMBOL "MT_SysResetInd"
 osal_memcpy         SYMBOL "osal_memcpy"
 MT_TransportAlloc   SYMBOL "MT_TransportAlloc"
@@ -367,14 +373,11 @@ MT_TransportSend    SYMBOL "MT_TransportSend"
 afFindEndPointDesc  SYMBOL "afFindEndPointDesc"
 osal_mem_alloc      SYMBOL "osal_mem_alloc"
 osal_mem_free       SYMBOL "osal_mem_free"
-`?<Name MT_SysCommandProcess 8>` SYMBOL "MT_SysCommandProcessing"
-??MT_SysCommandProcessing?relay SYMBOL "?relay", `?<Name MT_SysCommandProcess 8>`
+`?<Name MT_SysCommandProcess 7>` SYMBOL "MT_SysCommandProcessing"
+??MT_SysCommandProcessing?relay SYMBOL "?relay", `?<Name MT_SysCommandProcess 7>`
 ??MT_SysResetInd?relay SYMBOL "?relay", MT_SysResetInd
 ??MT_TransportAlloc?relay SYMBOL "?relay", MT_TransportAlloc
 ??MT_TransportSend?relay SYMBOL "?relay", MT_TransportSend
-`?<Name MT_ZdoCommandProcess 13>` SYMBOL "MT_ZdoCommandProcessing"
-??MT_ZdoCommandProcessing?relay SYMBOL "?relay", `?<Name MT_ZdoCommandProcess 13>`
-??MT_ZdoInit?relay  SYMBOL "?relay", MT_ZdoInit
 ??afFindEndPointDesc?relay SYMBOL "?relay", afFindEndPointDesc
 ??osal_mem_alloc?relay SYMBOL "?relay", osal_mem_alloc
 ??osal_mem_free?relay SYMBOL "?relay", osal_mem_free
@@ -396,13 +399,6 @@ MT_ReverseBytes     SYMBOL "MT_ReverseBytes"
 MT_Word2Buf         SYMBOL "MT_Word2Buf"
 ??MT_Word2Buf?relay SYMBOL "?relay", MT_Word2Buf
 
-        EXTERN MT_ZdoInit
-        FUNCTION MT_ZdoInit,0202H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 9, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
         EXTERN MT_SysResetInd
         FUNCTION MT_SysResetInd,0202H
         ARGFRAME ISTACK, 0, STACK
@@ -460,10 +456,6 @@ MT_Word2Buf         SYMBOL "MT_Word2Buf"
         FUNCTION ??MT_TransportAlloc?relay,00H
         EXTERN ??MT_TransportSend?relay
         FUNCTION ??MT_TransportSend?relay,00H
-        EXTERN ??MT_ZdoCommandProcessing?relay
-        FUNCTION ??MT_ZdoCommandProcessing?relay,00H
-        EXTERN ??MT_ZdoInit?relay
-        FUNCTION ??MT_ZdoInit?relay,00H
         EXTERN ??afFindEndPointDesc?relay
         FUNCTION ??afFindEndPointDesc?relay,00H
         EXTERN ??osal_mem_alloc?relay
@@ -473,7 +465,7 @@ MT_Word2Buf         SYMBOL "MT_Word2Buf"
         EXTERN ??osal_memcpy?relay
         FUNCTION ??osal_memcpy?relay,00H
 
-// H:\project\SmartHome\Components\mt\MT.c
+// H:\project\SmartHome_ZigbeeCode\Components\mt\MT.c
 //    1 /***************************************************************************************************
 //    2   Filename:       MTEL.c
 //    3   Revised:        $Date: 2009-10-28 00:05:19 -0700 (Wed, 28 Oct 2009) $
@@ -743,17 +735,6 @@ MT_Init:
         CFI Function MT_Init
         CODE
 //  232 {
-        FUNCALL MT_Init, MT_ZdoInit
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 9, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 9, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
         FUNCALL MT_Init, MT_SysResetInd
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -794,8 +775,6 @@ MT_Init:
 //  236   
 //  237 #if defined (MT_ZDO_FUNC)
 //  238   MT_ZdoInit();
-        ; Setup parameters for call to function MT_ZdoInit
-        LCALL   ??MT_ZdoInit?relay
 //  239 #endif
 //  240   MT_SysResetInd();
         ; Setup parameters for call to function MT_SysResetInd
@@ -4115,7 +4094,7 @@ MT_BuildEndpointDesc:
         DW 0H
         DW 0H
         DW 0H
-        DW ??MT_ZdoCommandProcessing?relay
+        DW 0H
         DW 0H
         DW 0H
         DW 0H
@@ -4173,13 +4152,13 @@ MT_BuildEndpointDesc:
 //  528 /***************************************************************************************************
 //  529 ***************************************************************************************************/
 // 
-// 1 171 bytes in segment BANKED_CODE
+// 1 168 bytes in segment BANKED_CODE
 //    48 bytes in segment BANK_RELAYS
 //    20 bytes in segment XDATA_I
 //    20 bytes in segment XDATA_ID
 //     5 bytes in segment XDATA_Z
 // 
-// 1 239 bytes of CODE  memory
+// 1 236 bytes of CODE  memory
 //    25 bytes of XDATA memory
 //
 //Errors: none

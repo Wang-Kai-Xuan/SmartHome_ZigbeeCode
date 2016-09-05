@@ -1,6 +1,6 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         05/Sep/2016  09:20:33 #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         05/Sep/2016  17:58:43 #
 # Copyright 2004-2011 IAR Systems AB.                                         #
 #                                                                             #
 #    Core               =  plain                                              #
@@ -9,18 +9,18 @@
 #    Calling convention =  xdata reentrant                                    #
 #    Constant location  =  data_rom                                           #
 #    Dptr setup         =  1,16                                               #
-#    Source file        =  H:\project\SmartHome\Components\hal\common\hal_dri #
-#                          vers.c                                             #
-#    Command line       =  -f H:\project\SmartHome\Projects\zstack\Samples\Sm #
-#                          artHome\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoord. #
-#                          cfg (-DCPU32MHZ -DROOT=__near_func                 #
+#    Source file        =  H:\project\SmartHome_ZigbeeCode\Components\hal\com #
+#                          mon\hal_drivers.c                                  #
+#    Command line       =  -f H:\project\SmartHome_ZigbeeCode\Projects\zstack #
+#                          \Samples\SmartHome\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func      #
 #                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
 #                          -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS) -f       #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cf #
-#                          g (-DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR    #
-#                          -DDEFAULT_CHANLIST=0x00000800                      #
-#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\Tools\CC2530DB\f #
+#                          8wConfig.cfg (-DSECURE=0 -DZG_SECURE_DYNAMIC=0     #
+#                          -DREFLECTOR -DDEFAULT_CHANLIST=0x00000800          #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFF0                       #
 #                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
 #                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
 #                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
@@ -38,76 +38,86 @@
 #                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
 #                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
 #                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
-#                          H:\project\SmartHome\Components\hal\common\hal_dri #
-#                          vers.c -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D    #
-#                          MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG -lC             #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\List\ -lA              #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\List\ --diag_suppress  #
-#                          Pe001,Pa010 -o H:\project\SmartHome\Projects\zstac #
-#                          k\Samples\SmartHome\CC2530DB\CoordinatorEB\Obj\    #
-#                          -e --debug --core=plain --dptr=16,1                #
+#                          H:\project\SmartHome_ZigbeeCode\Components\hal\com #
+#                          mon\hal_drivers.c -D ZIGBEEPRO -D ZTOOL_P1 -D      #
+#                          MT_TASK -D MT_SYS_FUNC -D xMT_ZDO_FUNC -D          #
+#                          LCD_SUPPORTED=DEBUG -D NV_RESTORE -lC              #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\List\ -lA   #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\List\       #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\Obj\ -e     #
+#                          --debug --core=plain --dptr=16,1                   #
 #                          --data_model=large --code_model=banked             #
 #                          --calling_convention=xdata_reentrant               #
 #                          --place_constants=data_rom --nr_virtual_regs 16    #
-#                          -I H:\project\SmartHome\Projects\zstack\Samples\Sm #
-#                          artHome\CC2530DB\ -I H:\project\SmartHome\Projects #
-#                          \zstack\Samples\SmartHome\CC2530DB\..\SOURCE\ -I   #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\ZMAIN\TI2530DB\ -I          #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\MT\ -I     #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INCLUD #
-#                          E\ -I H:\project\SmartHome\Projects\zstack\Samples #
-#                          \SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\ #
-#                          TARGET\CC2530EB\ -I H:\project\SmartHome\Projects\ #
-#                          zstack\Samples\SmartHome\CC2530DB\..\..\..\..\..\C #
-#                          OMPONENTS\OSAL\MCU\CCSOC\ -I                       #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\INCLU #
-#                          DE\ -I H:\project\SmartHome\Projects\zstack\Sample #
-#                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\STA #
-#                          CK\AF\ -I H:\project\SmartHome\Projects\zstack\Sam #
-#                          ples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ #
-#                          STACK\NWK\ -I H:\project\SmartHome\Projects\zstack #
+#                          -I H:\project\SmartHome_ZigbeeCode\Projects\zstack #
+#                          \Samples\SmartHome\CC2530DB\ -I                    #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\SOURCE\ -I             #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\ZMAIN\TI2530DB\  #
+#                          -I H:\project\SmartHome_ZigbeeCode\Projects\zstack #
 #                          \Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPONE #
-#                          NTS\STACK\SEC\ -I H:\project\SmartHome\Projects\zs #
-#                          tack\Samples\SmartHome\CC2530DB\..\..\..\..\..\COM #
-#                          PONENTS\STACK\SAPI\ -I H:\project\SmartHome\Projec #
-#                          ts\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\. #
-#                          .\COMPONENTS\STACK\SYS\ -I                         #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\ZDO\ #
-#                           -I H:\project\SmartHome\Projects\zstack\Samples\S #
-#                          martHome\CC2530DB\..\..\..\..\..\COMPONENTS\ZMAC\F #
-#                          8W\ -I H:\project\SmartHome\Projects\zstack\Sample #
-#                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ZMA #
-#                          C\ -I H:\project\SmartHome\Projects\zstack\Samples #
-#                          \SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\SERV #
-#                          ICES\SADDR\ -I H:\project\SmartHome\Projects\zstac #
-#                          k\Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPON #
-#                          ENTS\SERVICES\SDATA\ -I H:\project\SmartHome\Proje #
-#                          cts\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\ #
-#                          ..\COMPONENTS\MAC\INCLUDE\ -I                      #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\HIGH_L #
-#                          EVEL\ -I H:\project\SmartHome\Projects\zstack\Samp #
-#                          les\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\M #
-#                          AC\LOW_LEVEL\srf04\ -I H:\project\SmartHome\Projec #
-#                          ts\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\. #
-#                          .\COMPONENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\      #
-#                          -Ohz --require_prototypes                          #
-#    List file          =  H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\List\hal_drivers.lst   #
-#    Object file        =  H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\Obj\hal_drivers.r51    #
+#                          NTS\MT\ -I H:\project\SmartHome_ZigbeeCode\Project #
+#                          s\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\.. #
+#                          \COMPONENTS\HAL\INCLUDE\ -I                        #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\TARGET\CC2530EB\ -I                           #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\MCU\CCSOC\ -I H:\project\SmartHome_ZigbeeCod #
+#                          e\Projects\zstack\Samples\SmartHome\CC2530DB\..\.. #
+#                          \..\..\..\COMPONENTS\OSAL\INCLUDE\ -I              #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\AF\ -I H:\project\SmartHome_ZigbeeCode\Proj #
+#                          ects\zstack\Samples\SmartHome\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\STACK\NWK\ -I                       #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SEC\ -I H:\project\SmartHome_ZigbeeCode\Pro #
+#                          jects\zstack\Samples\SmartHome\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\STACK\SAPI\ -I                     #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SYS\ -I H:\project\SmartHome_ZigbeeCode\Pro #
+#                          jects\zstack\Samples\SmartHome\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\STACK\ZDO\ -I                      #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\F8W\ -I H:\project\SmartHome_ZigbeeCode\Proj #
+#                          ects\zstack\Samples\SmartHome\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\ZMAC\ -I H:\project\SmartHome_Zigbe #
+#                          eCode\Projects\zstack\Samples\SmartHome\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\SERVICES\SADDR\ -I        #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \SERVICES\SDATA\ -I H:\project\SmartHome_ZigbeeCod #
+#                          e\Projects\zstack\Samples\SmartHome\CC2530DB\..\.. #
+#                          \..\..\..\COMPONENTS\MAC\INCLUDE\ -I               #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\HIGH_LEVEL\ -I H:\project\SmartHome_ZigbeeCod #
+#                          e\Projects\zstack\Samples\SmartHome\CC2530DB\..\.. #
+#                          \..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\ -I       #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\SINGLE_CHIP\ -Ohz             #
+#    List file          =  H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\List\hal_dr #
+#                          ivers.lst                                          #
+#    Object file        =  H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\Obj\hal_dri #
+#                          vers.r51                                           #
 #                                                                             #
 #                                                                             #
 ###############################################################################
 
-H:\project\SmartHome\Components\hal\common\hal_drivers.c
+H:\project\SmartHome_ZigbeeCode\Components\hal\common\hal_drivers.c
       1          /**************************************************************************************************
       2            Filename:       hal_drivers.c
       3            Revised:        $Date: 2007-07-06 10:42:24 -0700 (Fri, 06 Jul 2007) $
@@ -132,7 +142,7 @@ H:\project\SmartHome\Components\hal\common\hal_drivers.c
      22            its documentation for any purpose.
      23          
      24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
-     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     25            PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
      26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
      27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
      28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -297,29 +307,27 @@ H:\project\SmartHome\Components\hal\common\hal_drivers.c
     149            /* LCD */
     150          #if (defined HAL_LCD) && (HAL_LCD == TRUE)
     151            HalLcdInit();
-   \   000010                ; Setup parameters for call to function HalLcdInit
-   \   000010   12....       LCALL   ??HalLcdInit?relay
     152          #endif
     153          
     154            /* LED */
     155          #if (defined HAL_LED) && (HAL_LED == TRUE)
     156            HalLedInit();
-   \   000013                ; Setup parameters for call to function HalLedInit
-   \   000013   12....       LCALL   ??HalLedInit?relay
+   \   000010                ; Setup parameters for call to function HalLedInit
+   \   000010   12....       LCALL   ??HalLedInit?relay
     157          #endif
     158          
     159            /* UART */
     160          #if (defined HAL_UART) && (HAL_UART == TRUE)
     161            HalUARTInit();
-   \   000016                ; Setup parameters for call to function HalUARTInit
-   \   000016   12....       LCALL   ??HalUARTInit?relay
+   \   000013                ; Setup parameters for call to function HalUARTInit
+   \   000013   12....       LCALL   ??HalUARTInit?relay
     162          #endif
     163          
     164            /* KEY */
     165          #if (defined HAL_KEY) && (HAL_KEY == TRUE)
-    166            HalKeyInit();
-   \   000019                ; Setup parameters for call to function HalKeyInit
-   \   000019   12....       LCALL   ??HalKeyInit?relay
+    166            HalKeyInit();  
+   \   000016                ; Setup parameters for call to function HalKeyInit
+   \   000016   12....       LCALL   ??HalKeyInit?relay
     167          #endif
     168          
     169            /* SPI */
@@ -332,7 +340,7 @@ H:\project\SmartHome\Components\hal\common\hal_drivers.c
     176            usbHidInit();
     177          #endif
     178          }
-   \   00001C   80..         SJMP    ?Subroutine0
+   \   000019   80..         SJMP    ?Subroutine0
     179          
     180          
     181          /**************************************************************************************************
@@ -358,40 +366,38 @@ H:\project\SmartHome\Components\hal\common\hal_drivers.c
    \   000006   FE           MOV     R6,A
    \   000007   EB           MOV     A,R3
    \   000008   FF           MOV     R7,A
-    193            uint8 *msgPtr;
-    194            
-    195            (void)task_id;  // Intentionally unreferenced parameter
-    196          
-    197            if ( events & SYS_EVENT_MSG )
+    193            uint8 *msgPtr;  
+    194            (void)task_id;  // Intentionally unreferenced parameter
+    195            if ( events & SYS_EVENT_MSG )
    \   000009   5480         ANL     A,#0x80
    \   00000B   6019         JZ      ??Hal_ProcessEvent_0
-    198            {
-    199              msgPtr = osal_msg_receive(Hal_TaskID);
+    196            {
+    197              msgPtr = osal_msg_receive(Hal_TaskID);
    \   00000D                ; Setup parameters for call to function osal_msg_receive
    \   00000D   8003         SJMP    ??Hal_ProcessEvent_1
-    200          
-    201              while (msgPtr)
-    202              {
-    203                /* Do something here - for now, just deallocate the msg and move on */
-    204          
-    205                /* De-allocate */
-    206                osal_msg_deallocate( msgPtr );
+    198          
+    199              while (msgPtr)
+    200              {
+    201                /* Do something here - for now, just deallocate the msg and move on */
+    202          
+    203                /* De-allocate */
+    204                osal_msg_deallocate( msgPtr );
    \                     ??Hal_ProcessEvent_2:
    \   00000F                ; Setup parameters for call to function osal_msg_deallocate
    \   00000F   12....       LCALL   ??osal_msg_deallocate?relay
-    207                /* Next */
-    208                msgPtr = osal_msg_receive( Hal_TaskID );
+    205                /* Next */
+    206                msgPtr = osal_msg_receive( Hal_TaskID );
    \   000012                ; Setup parameters for call to function osal_msg_receive
    \                     ??Hal_ProcessEvent_1:
    \   000012   90....       MOV     DPTR,#Hal_TaskID
    \   000015   E0           MOVX    A,@DPTR
    \   000016   F9           MOV     R1,A
    \   000017   12....       LCALL   ??osal_msg_receive?relay
-    209              }
+    207              }
    \   00001A   EA           MOV     A,R2
    \   00001B   4B           ORL     A,R3
    \   00001C   70F1         JNZ     ??Hal_ProcessEvent_2
-    210              return events ^ SYS_EVENT_MSG;
+    208              return events ^ SYS_EVENT_MSG;
    \   00001E   EE           MOV     A,R6
    \   00001F   FA           MOV     R2,A
    \   000020   EF           MOV     A,R7
@@ -399,48 +405,48 @@ H:\project\SmartHome\Components\hal\common\hal_drivers.c
    \                     ??Hal_ProcessEvent_3:
    \   000023   FB           MOV     R3,A
    \   000024   8036         SJMP    ??Hal_ProcessEvent_4
-    211            }
-    212          
-    213            if ( events & HAL_LED_BLINK_EVENT )
+    209            }
+    210          
+    211            if ( events & HAL_LED_BLINK_EVENT )
    \                     ??Hal_ProcessEvent_0:
    \   000026   EE           MOV     A,R6
    \   000027   5402         ANL     A,#0x2
    \   000029   600A         JZ      ??Hal_ProcessEvent_5
-    214            {
-    215          #if (defined (BLINK_LEDS)) && (HAL_LED == TRUE)
-    216              HalLedUpdate();
+    212            {
+    213          #if (defined (BLINK_LEDS)) && (HAL_LED == TRUE)
+    214              HalLedUpdate();
    \   00002B                ; Setup parameters for call to function HalLedUpdate
    \   00002B   12....       LCALL   ??HalLedUpdate?relay
-    217          #endif /* BLINK_LEDS && HAL_LED */
-    218              return events ^ HAL_LED_BLINK_EVENT;
+    215          #endif /* BLINK_LEDS && HAL_LED */
+    216              return events ^ HAL_LED_BLINK_EVENT;
    \   00002E   EE           MOV     A,R6
    \   00002F   6402         XRL     A,#0x2
    \                     ??Hal_ProcessEvent_6:
    \   000031   FA           MOV     R2,A
    \   000032   EF           MOV     A,R7
    \   000033   80EE         SJMP    ??Hal_ProcessEvent_3
-    219            }
-    220          
-    221            if (events & HAL_KEY_EVENT)
+    217            }
+    218          
+    219            if (events & HAL_KEY_EVENT)
    \                     ??Hal_ProcessEvent_5:
    \   000035   EE           MOV     A,R6
    \   000036   A2E0         MOV     C,0xE0 /* A   */.0
    \   000038   501E         JNC     ??Hal_ProcessEvent_7
-    222            {
-    223          
-    224          #if (defined HAL_KEY) && (HAL_KEY == TRUE)
-    225              /* Check for keys */
-    226              HalKeyPoll();
+    220            {
+    221          
+    222          #if (defined HAL_KEY) && (HAL_KEY == TRUE)
+    223              /* Check for keys */
+    224              HalKeyPoll();
    \   00003A                ; Setup parameters for call to function HalKeyPoll
    \   00003A   12....       LCALL   ??HalKeyPoll?relay
-    227          
-    228              /* if interrupt disabled, do next polling */
-    229              if (!Hal_KeyIntEnable)
+    225          
+    226              /* if interrupt disabled, do next polling */
+    227              if (!Hal_KeyIntEnable)
    \   00003D   90....       MOV     DPTR,#Hal_KeyIntEnable
    \   000040   E0           MOVX    A,@DPTR
    \   000041   7010         JNZ     ??Hal_ProcessEvent_8
-    230              {
-    231                osal_start_timerEx( Hal_TaskID, HAL_KEY_EVENT, 100);
+    228              {
+    229                osal_start_timerEx( Hal_TaskID, HAL_KEY_EVENT, 100);
    \   000043                ; Setup parameters for call to function osal_start_timerEx
    \   000043   7C64         MOV     R4,#0x64
    \   000045   7D00         MOV     R5,#0x0
@@ -450,77 +456,77 @@ H:\project\SmartHome\Components\hal\common\hal_drivers.c
    \   00004E   E0           MOVX    A,@DPTR
    \   00004F   F9           MOV     R1,A
    \   000050   12....       LCALL   ??osal_start_timerEx?relay
-    232              }
-    233          #endif // HAL_KEY
-    234          
-    235              return events ^ HAL_KEY_EVENT;
+    230              }
+    231          #endif // HAL_KEY
+    232          
+    233              return events ^ HAL_KEY_EVENT;
    \                     ??Hal_ProcessEvent_8:
    \   000053   EE           MOV     A,R6
    \   000054   6401         XRL     A,#0x1
    \   000056   80D9         SJMP    ??Hal_ProcessEvent_6
-    236            }
-    237          
-    238          #ifdef POWER_SAVING
-    239            if ( events & HAL_SLEEP_TIMER_EVENT )
-    240            {
-    241              halRestoreSleepLevel();
-    242              return events ^ HAL_SLEEP_TIMER_EVENT;
-    243            }
-    244          #endif
-    245          
-    246            /* Nothing interested, discard the message */
-    247            return 0;
+    234            }
+    235          
+    236          #ifdef POWER_SAVING
+    237            if ( events & HAL_SLEEP_TIMER_EVENT )
+    238            {
+    239              halRestoreSleepLevel();
+    240              return events ^ HAL_SLEEP_TIMER_EVENT;
+    241            }
+    242          #endif
+    243          
+    244            /* Nothing interested, discard the message */
+    245            return 0;
    \                     ??Hal_ProcessEvent_7:
    \   000058   7A00         MOV     R2,#0x0
    \   00005A   7B00         MOV     R3,#0x0
    \                     ??Hal_ProcessEvent_4:
    \   00005C   7F02         MOV     R7,#0x2
    \   00005E   02....       LJMP    ?BANKED_LEAVE_XDATA
+    246          
+    247          }
     248          
-    249          }
-    250          
-    251          /**************************************************************************************************
-    252           * @fn      Hal_ProcessPoll
+    249          /**************************************************************************************************
+    250           * @fn      Hal_ProcessPoll
+    251           *
+    252           * @brief   This routine will be called by OSAL to poll UART, TIMER...
     253           *
-    254           * @brief   This routine will be called by OSAL to poll UART, TIMER...
+    254           * @param   task_id - Hal TaskId
     255           *
-    256           * @param   task_id - Hal TaskId
-    257           *
-    258           * @return  None
-    259           **************************************************************************************************/
+    256           * @return  None
+    257           **************************************************************************************************/
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    260          void Hal_ProcessPoll ()
+    258          void Hal_ProcessPoll ()
    \                     Hal_ProcessPoll:
-    261          {
+    259          {
    \   000000   C082         PUSH    DPL
    \   000002   C083         PUSH    DPH
    \   000004                ; Saved register size: 2
    \   000004                ; Auto size: 0
-    262          
-    263            /* Timer Poll */
-    264          #if (defined HAL_TIMER) && (HAL_TIMER == TRUE)
-    265            HalTimerTick();
-    266          #endif
-    267          
-    268            /* UART Poll */
-    269          #if (defined HAL_UART) && (HAL_UART == TRUE)
-    270            HalUARTPoll();
+    260          
+    261            /* Timer Poll */
+    262          #if (defined HAL_TIMER) && (HAL_TIMER == TRUE)
+    263            HalTimerTick();
+    264          #endif
+    265          
+    266            /* UART Poll */
+    267          #if (defined HAL_UART) && (HAL_UART == TRUE)
+    268            HalUARTPoll();
    \   000004                ; Setup parameters for call to function HalUARTPoll
    \   000004   12....       LCALL   ??HalUARTPoll?relay
-    271          #endif  
-    272          
-    273            /* SPI Poll */
-    274          #if (defined HAL_SPI) && (HAL_SPI == TRUE)
-    275            HalSpiPoll();
-    276          #endif
-    277          
-    278            /* HID poll */
-    279          #if (defined HAL_HID) && (HAL_HID == TRUE)
-    280            usbHidProcessEvents();
-    281          #endif
-    282          
-    283          }
+    269          #endif  
+    270          
+    271            /* SPI Poll */
+    272          #if (defined HAL_SPI) && (HAL_SPI == TRUE)
+    273            HalSpiPoll();
+    274          #endif
+    275          
+    276            /* HID poll */
+    277          #if (defined HAL_HID) && (HAL_HID == TRUE)
+    278            usbHidProcessEvents();
+    279          #endif
+    280          
+    281          }
    \   000007   02....       LJMP    ?Subroutine0 & 0xFFFF
 
    \                                 In  segment BANK_RELAYS, align 1
@@ -542,11 +548,11 @@ H:\project\SmartHome\Components\hal\common\hal_drivers.c
    \                     ??Hal_ProcessPoll?relay:
    \   000000   12....       LCALL   ?BDISPATCH
    \   000003   ......       DC24    Hal_ProcessPoll
-    284          
-    285          
-    286          /**************************************************************************************************
-    287          **************************************************************************************************/
-    288          
+    282          
+    283          
+    284          /**************************************************************************************************
+    285          **************************************************************************************************/
+    286          
 
    Maximum stack usage in bytes:
 
@@ -557,7 +563,6 @@ H:\project\SmartHome\Components\hal\common\hal_drivers.c
        -> HalDmaInit              4      0      0
        -> HalFlashInit            4      0      0
        -> HalAesInit              4      0      0
-       -> HalLcdInit              4      0      0
        -> HalLedInit              4      0      0
        -> HalUARTInit             4      0      0
        -> HalKeyInit              4      0      0
@@ -580,7 +585,7 @@ H:\project\SmartHome\Components\hal\common\hal_drivers.c
      Hal_TaskID                  1
      Hal_Init                    9
      ?Subroutine0                7
-     HalDriverInit              30
+     HalDriverInit              27
      Hal_ProcessEvent           97
      Hal_ProcessPoll            10
      ??Hal_Init?relay            6
@@ -589,11 +594,11 @@ H:\project\SmartHome\Components\hal\common\hal_drivers.c
      ??Hal_ProcessPoll?relay     6
 
  
- 153 bytes in segment BANKED_CODE
+ 150 bytes in segment BANKED_CODE
   24 bytes in segment BANK_RELAYS
    1 byte  in segment XDATA_Z
  
- 177 bytes of CODE  memory
+ 174 bytes of CODE  memory
    1 byte  of XDATA memory
 
 Errors: none

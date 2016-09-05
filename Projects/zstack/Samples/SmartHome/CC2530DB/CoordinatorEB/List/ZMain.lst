@@ -1,6 +1,6 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         05/Sep/2016  09:20:33 #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         05/Sep/2016  17:58:43 #
 # Copyright 2004-2011 IAR Systems AB.                                         #
 #                                                                             #
 #    Core               =  plain                                              #
@@ -9,18 +9,18 @@
 #    Calling convention =  xdata reentrant                                    #
 #    Constant location  =  data_rom                                           #
 #    Dptr setup         =  1,16                                               #
-#    Source file        =  H:\project\SmartHome\Projects\zstack\ZMain\TI2530D #
-#                          B\ZMain.c                                          #
-#    Command line       =  -f H:\project\SmartHome\Projects\zstack\Samples\Sm #
-#                          artHome\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoord. #
-#                          cfg (-DCPU32MHZ -DROOT=__near_func                 #
+#    Source file        =  H:\project\SmartHome_ZigbeeCode\Projects\zstack\ZM #
+#                          ain\TI2530DB\ZMain.c                               #
+#    Command line       =  -f H:\project\SmartHome_ZigbeeCode\Projects\zstack #
+#                          \Samples\SmartHome\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func      #
 #                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
 #                          -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS) -f       #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cf #
-#                          g (-DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR    #
-#                          -DDEFAULT_CHANLIST=0x00000800                      #
-#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\Tools\CC2530DB\f #
+#                          8wConfig.cfg (-DSECURE=0 -DZG_SECURE_DYNAMIC=0     #
+#                          -DREFLECTOR -DDEFAULT_CHANLIST=0x00000800          #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFF0                       #
 #                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
 #                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
 #                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
@@ -38,76 +38,86 @@
 #                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
 #                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
 #                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
-#                          H:\project\SmartHome\Projects\zstack\ZMain\TI2530D #
-#                          B\ZMain.c -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC    #
-#                          -D MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG -lC          #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\List\ -lA              #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\List\ --diag_suppress  #
-#                          Pe001,Pa010 -o H:\project\SmartHome\Projects\zstac #
-#                          k\Samples\SmartHome\CC2530DB\CoordinatorEB\Obj\    #
-#                          -e --debug --core=plain --dptr=16,1                #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\ZM #
+#                          ain\TI2530DB\ZMain.c -D ZIGBEEPRO -D ZTOOL_P1 -D   #
+#                          MT_TASK -D MT_SYS_FUNC -D xMT_ZDO_FUNC -D          #
+#                          LCD_SUPPORTED=DEBUG -D NV_RESTORE -lC              #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\List\ -lA   #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\List\       #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\Obj\ -e     #
+#                          --debug --core=plain --dptr=16,1                   #
 #                          --data_model=large --code_model=banked             #
 #                          --calling_convention=xdata_reentrant               #
 #                          --place_constants=data_rom --nr_virtual_regs 16    #
-#                          -I H:\project\SmartHome\Projects\zstack\Samples\Sm #
-#                          artHome\CC2530DB\ -I H:\project\SmartHome\Projects #
-#                          \zstack\Samples\SmartHome\CC2530DB\..\SOURCE\ -I   #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\ZMAIN\TI2530DB\ -I          #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\MT\ -I     #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INCLUD #
-#                          E\ -I H:\project\SmartHome\Projects\zstack\Samples #
-#                          \SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\ #
-#                          TARGET\CC2530EB\ -I H:\project\SmartHome\Projects\ #
-#                          zstack\Samples\SmartHome\CC2530DB\..\..\..\..\..\C #
-#                          OMPONENTS\OSAL\MCU\CCSOC\ -I                       #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\INCLU #
-#                          DE\ -I H:\project\SmartHome\Projects\zstack\Sample #
-#                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\STA #
-#                          CK\AF\ -I H:\project\SmartHome\Projects\zstack\Sam #
-#                          ples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ #
-#                          STACK\NWK\ -I H:\project\SmartHome\Projects\zstack #
+#                          -I H:\project\SmartHome_ZigbeeCode\Projects\zstack #
+#                          \Samples\SmartHome\CC2530DB\ -I                    #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\SOURCE\ -I             #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\ZMAIN\TI2530DB\  #
+#                          -I H:\project\SmartHome_ZigbeeCode\Projects\zstack #
 #                          \Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPONE #
-#                          NTS\STACK\SEC\ -I H:\project\SmartHome\Projects\zs #
-#                          tack\Samples\SmartHome\CC2530DB\..\..\..\..\..\COM #
-#                          PONENTS\STACK\SAPI\ -I H:\project\SmartHome\Projec #
-#                          ts\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\. #
-#                          .\COMPONENTS\STACK\SYS\ -I                         #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\ZDO\ #
-#                           -I H:\project\SmartHome\Projects\zstack\Samples\S #
-#                          martHome\CC2530DB\..\..\..\..\..\COMPONENTS\ZMAC\F #
-#                          8W\ -I H:\project\SmartHome\Projects\zstack\Sample #
-#                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ZMA #
-#                          C\ -I H:\project\SmartHome\Projects\zstack\Samples #
-#                          \SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\SERV #
-#                          ICES\SADDR\ -I H:\project\SmartHome\Projects\zstac #
-#                          k\Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPON #
-#                          ENTS\SERVICES\SDATA\ -I H:\project\SmartHome\Proje #
-#                          cts\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\ #
-#                          ..\COMPONENTS\MAC\INCLUDE\ -I                      #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\HIGH_L #
-#                          EVEL\ -I H:\project\SmartHome\Projects\zstack\Samp #
-#                          les\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\M #
-#                          AC\LOW_LEVEL\srf04\ -I H:\project\SmartHome\Projec #
-#                          ts\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\. #
-#                          .\COMPONENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\      #
-#                          -Ohz --require_prototypes                          #
-#    List file          =  H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\List\ZMain.lst         #
-#    Object file        =  H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\Obj\ZMain.r51          #
+#                          NTS\MT\ -I H:\project\SmartHome_ZigbeeCode\Project #
+#                          s\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\.. #
+#                          \COMPONENTS\HAL\INCLUDE\ -I                        #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\TARGET\CC2530EB\ -I                           #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\MCU\CCSOC\ -I H:\project\SmartHome_ZigbeeCod #
+#                          e\Projects\zstack\Samples\SmartHome\CC2530DB\..\.. #
+#                          \..\..\..\COMPONENTS\OSAL\INCLUDE\ -I              #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\AF\ -I H:\project\SmartHome_ZigbeeCode\Proj #
+#                          ects\zstack\Samples\SmartHome\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\STACK\NWK\ -I                       #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SEC\ -I H:\project\SmartHome_ZigbeeCode\Pro #
+#                          jects\zstack\Samples\SmartHome\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\STACK\SAPI\ -I                     #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SYS\ -I H:\project\SmartHome_ZigbeeCode\Pro #
+#                          jects\zstack\Samples\SmartHome\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\STACK\ZDO\ -I                      #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\F8W\ -I H:\project\SmartHome_ZigbeeCode\Proj #
+#                          ects\zstack\Samples\SmartHome\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\ZMAC\ -I H:\project\SmartHome_Zigbe #
+#                          eCode\Projects\zstack\Samples\SmartHome\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\SERVICES\SADDR\ -I        #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \SERVICES\SDATA\ -I H:\project\SmartHome_ZigbeeCod #
+#                          e\Projects\zstack\Samples\SmartHome\CC2530DB\..\.. #
+#                          \..\..\..\COMPONENTS\MAC\INCLUDE\ -I               #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\HIGH_LEVEL\ -I H:\project\SmartHome_ZigbeeCod #
+#                          e\Projects\zstack\Samples\SmartHome\CC2530DB\..\.. #
+#                          \..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\ -I       #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\SINGLE_CHIP\ -Ohz             #
+#    List file          =  H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\List\ZMain. #
+#                          lst                                                #
+#    Object file        =  H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\Obj\ZMain.r #
+#                          51                                                 #
 #                                                                             #
 #                                                                             #
 ###############################################################################
 
-H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
+H:\project\SmartHome_ZigbeeCode\Projects\zstack\ZMain\TI2530DB\ZMain.c
       1          /**************************************************************************************************
       2            Filename:       ZMain.c
       3            Revised:        $Date: 2009-09-17 20:35:33 -0700 (Thu, 17 Sep 2009) $
@@ -133,7 +143,7 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
      23            its documentation for any purpose.
      24          
      25            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
-     26            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
      27            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
      28            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
      29            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -148,14 +158,10 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
      38            contact Texas Instruments Incorporated at www.TI.com.
      39          **************************************************************************************************/
      40          
-     41          /*********************************************************************
-     42           * INCLUDES
-     43           */
-     44          
-     45          #include "ZComDef.h"
-     46          #include "OSAL.h"
-     47          #include "OSAL_Nv.h"
-     48          #include "OnBoard.h"
+     41          #include "ZComDef.h"
+     42          #include "OSAL.h"
+     43          #include "OSAL_Nv.h"
+     44          #include "OnBoard.h"
 
    \                                 In  segment SFR_AN, at 0x8f
    \   unsigned char volatile __sfr P0INP
@@ -191,85 +197,52 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   unsigned char volatile __sfr P1DIR
    \                     P1DIR:
    \   000000                DS 1
-     49          #include "ZMAC.h"
+     45          #include "ZMAC.h"
+     46          
+     47          #ifndef NONWK
+     48            #include "AF.h"
+     49          #endif
      50          
-     51          #ifndef NONWK
-     52            #include "AF.h"
-     53          #endif
-     54          
-     55          /* Hal */
-     56          #include "hal_lcd.h"
-     57          #include "hal_led.h"
-     58          #include "hal_adc.h"
-     59          #include "hal_drivers.h"
-     60          #include "hal_assert.h"
-     61          #include "hal_flash.h"
+     51          /* Hal */
+     52          #include "hal_lcd.h"
+     53          #include "hal_led.h"
+     54          #include "hal_adc.h"
+     55          #include "hal_drivers.h"
+     56          #include "hal_assert.h"
+     57          #include "hal_flash.h"
+     58          
+     59          #include "74LS164_8LED.h"
+     60          #include "SD_App.h"
+     61          
      62          
-     63          /*********************************************************************
-     64           * MACROS
-     65           */
-     66          
-     67          /*********************************************************************
-     68           * CONSTANTS
-     69           */
-     70          
-     71          // Maximun number of Vdd samples checked before go on
-     72          #define MAX_VDD_SAMPLES  3
-     73          #define ZMAIN_VDD_LIMIT  HAL_ADC_VDD_LIMIT_4
-     74          
-     75          /*********************************************************************
-     76           * TYPEDEFS
+     63          // Maximun number of Vdd samples checked before go on
+     64          #define MAX_VDD_SAMPLES  3
+     65          #define ZMAIN_VDD_LIMIT  HAL_ADC_VDD_LIMIT_4
+     66          extern bool HalAdcCheckVdd (uint8 limit);
+     67          static void zmain_dev_info( void );
+     68          static void zmain_ext_addr( void );
+     69          static void zmain_vdd_check( void );
+     70          #ifdef LCD_SUPPORTED
+     71          static void zmain_lcd_init( void );
+     72          #endif
+     73          /*********************************************************************
+     74           * @fn      main
+     75           * @brief   First function called after startup.
+     76           * @return  don't care
      77           */
-     78          
-     79          /*********************************************************************
-     80           * GLOBAL VARIABLES
-     81           */
-     82          
-     83          /*********************************************************************
-     84           * EXTERNAL VARIABLES
-     85           */
-     86          
-     87          /*********************************************************************
-     88           * EXTERNAL FUNCTIONS
-     89           */
-     90          
-     91          extern bool HalAdcCheckVdd (uint8 limit);
-     92          
-     93          /*********************************************************************
-     94           * LOCAL VARIABLES
-     95           */
-     96          
-     97          /*********************************************************************
-     98           * LOCAL FUNCTIONS
-     99           */
-    100          
-    101          static void zmain_dev_info( void );
-    102          static void zmain_ext_addr( void );
-    103          static void zmain_vdd_check( void );
-    104          
-    105          #ifdef LCD_SUPPORTED
-    106          static void zmain_lcd_init( void );
-    107          #endif
-    108          
-    109          /*********************************************************************
-    110           * @fn      main
-    111           * @brief   First function called after startup.
-    112           * @return  don't care
-    113           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    114          int main( void )
+     78          int main( void )
    \                     main:
-    115          {
+     79          {
    \   000000                ; Auto size: 0
-    116            // Turn off interrupts
-    117            osal_int_disable( INTS_ALL );
+     80          	// Turn off interrupts
+     81          	osal_int_disable( INTS_ALL );
    \   000000                ; Setup parameters for call to function osal_int_disable
    \   000000   79FF         MOV     R1,#-0x1
    \   000002   12....       LCALL   ??osal_int_disable?relay
-    118          
-    119            // Initialization for board related stuff such as LEDs
-    120            HAL_BOARD_INIT();
+     82          	// Initialization for board related stuff such as LEDs
+     83          	HAL_BOARD_INIT();
    \   000005   53BEFB       ANL     0xbe,#0xfb
    \                     ??main_0:
    \   000008   E59D         MOV     A,0x9d
@@ -301,172 +274,162 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   000033   43FE02       ORL     0xfe,#0x2
    \   000036   43FE10       ORL     0xfe,#0x10
    \   000039   438F01       ORL     0x8f,#0x1
-    121          
-    122            // Make sure supply voltage is high enough to run
-    123            zmain_vdd_check();
+     84          	// Make sure supply voltage is high enough to run
+     85          	zmain_vdd_check();
    \   00003C                ; Setup parameters for call to function zmain_vdd_check
    \   00003C   12....       LCALL   ??zmain_vdd_check?relay
-    124          
-    125            // Initialize board I/O
-    126            InitBoard( OB_COLD );
+     86          	// Initialize board I/O
+     87          	InitBoard( OB_COLD );
    \   00003F                ; Setup parameters for call to function InitBoard
    \   00003F   7900         MOV     R1,#0x0
    \   000041   12....       LCALL   ??InitBoard?relay
-    127          
-    128            // Initialze HAL drivers
-    129            HalDriverInit();
+     88          	// Initialze HAL drivers
+     89          	HalDriverInit();
    \   000044                ; Setup parameters for call to function HalDriverInit
    \   000044   12....       LCALL   ??HalDriverInit?relay
-    130          
-    131            // Initialize NV System
-    132            osal_nv_init( NULL );
+     90          	// Initialize NV System
+     91          	osal_nv_init( NULL );
    \   000047                ; Setup parameters for call to function osal_nv_init
    \   000047   7A00         MOV     R2,#0x0
    \   000049   7B00         MOV     R3,#0x0
    \   00004B   12....       LCALL   ??osal_nv_init?relay
-    133          
-    134            // Initialize the MAC
-    135            ZMacInit();
+     92          	// Initialize the MAC
+     93          	ZMacInit();	
    \   00004E                ; Setup parameters for call to function ZMacInit
    \   00004E   12....       LCALL   ??ZMacInit?relay
-    136          
-    137            // Determine the extended address
-    138            zmain_ext_addr();
+     94          	// Determine the extended address
+     95          	zmain_ext_addr();
    \   000051                ; Setup parameters for call to function zmain_ext_addr
    \   000051   12....       LCALL   ??zmain_ext_addr?relay
-    139          
-    140            // Initialize basic NV items
-    141            zgInit();
+     96          	
+     97          	// Initialize basic NV items
+     98          	zgInit();
    \   000054                ; Setup parameters for call to function zgInit
    \   000054   12....       LCALL   ??zgInit?relay
-    142          
-    143          #ifndef NONWK
-    144            // Since the AF isn't a task, call it's initialization routine
-    145            afInit();
+     99          	
+    100          	#ifndef NONWK
+    101          	// Since the AF isn't a task, call it's initialization routine
+    102          	afInit();
    \   000057                ; Setup parameters for call to function afInit
    \   000057   12....       LCALL   ??afInit?relay
-    146          #endif
-    147          
-    148            // Initialize the operating system
-    149            osal_init_system();
+    103          	#endif
+    104          	// Initialize the operating system
+    105          	osal_init_system();
    \   00005A                ; Setup parameters for call to function osal_init_system
    \   00005A   12....       LCALL   ??osal_init_system?relay
-    150          
-    151            // Allow interrupts
-    152            osal_int_enable( INTS_ALL );
+    106          	// Allow interrupts
+    107          	osal_int_enable( INTS_ALL );
    \   00005D                ; Setup parameters for call to function osal_int_enable
    \   00005D   79FF         MOV     R1,#-0x1
    \   00005F   12....       LCALL   ??osal_int_enable?relay
-    153          
-    154            // Final board initialization
-    155            InitBoard( OB_READY );
+    108          	
+    109          	// Final board initialization
+    110          	InitBoard( OB_READY );	
    \   000062                ; Setup parameters for call to function InitBoard
    \   000062   7902         MOV     R1,#0x2
    \   000064   12....       LCALL   ??InitBoard?relay
-    156          
-    157            // Display information about this device
-    158            zmain_dev_info();
+    111          
+    112          	// Display information about this device
+    113          	zmain_dev_info();
    \   000067                ; Setup parameters for call to function zmain_dev_info
    \   000067   12....       LCALL   ??zmain_dev_info?relay
-    159          
-    160            /* Display the device info on the LCD */
-    161          #ifdef LCD_SUPPORTED
-    162            zmain_lcd_init();
-   \   00006A                ; Setup parameters for call to function HalLcdWriteString
-   \   00006A   7901         MOV     R1,#0x1
-   \   00006C   7A..         MOV     R2,#`?<Constant "TexasInstruments">` & 0xff
-   \   00006E   7B..         MOV     R3,#(`?<Constant "TexasInstruments">` >> 8) & 0xff
-   \   000070   12....       LCALL   ??HalLcdWriteString?relay
-    163          #endif
-    164          
-    165          #ifdef WDT_IN_PM1
-    166            /* If WDT is used, this is a good place to enable it. */
-    167            WatchDogEnable( WDTIMX );
-    168          #endif
-    169          
-    170            osal_start_system(); // No Return from here
-   \   000073                ; Setup parameters for call to function osal_start_system
-   \   000073   12....       LCALL   ??osal_start_system?relay
-    171          
-    172            return 0;  // Shouldn't get here.
-   \   000076   7A00         MOV     R2,#0x0
-   \   000078   7B00         MOV     R3,#0x0
-   \   00007A   02....       LJMP    ?BRET
-   \   00007D                REQUIRE SLEEPCMD
-   \   00007D                REQUIRE SLEEPSTA
-   \   00007D                REQUIRE CLKCONCMD
-   \   00007D                REQUIRE CLKCONSTA
-   \   00007D                REQUIRE P1DIR
-   \   00007D                REQUIRE P0INP
-    173          } // main()
-    174          
-    175          /*********************************************************************
-    176           * @fn      zmain_vdd_check
-    177           * @brief   Check if the Vdd is OK to run the processor.
-    178           * @return  Return if Vdd is ok; otherwise, flash LED, then reset
-    179           *********************************************************************/
+    114          	
+    115          	/* Display the device info on the LCD */
+    116          	#ifdef LCD_SUPPORTED
+    117          	zmain_lcd_init();
+    118          	#endif
+    119          	
+    120          	#ifdef WDT_IN_PM1
+    121          	/* If WDT is used, this is a good place to enable it. */
+    122          	WatchDogEnable( WDTIMX );
+    123          	#endif
+    124          	
+    125          	customInit(); // Ìí¼Ó×Ô¼º¶¨ÖÆµÄÅäÖÃ
+   \   00006A                ; Setup parameters for call to function customInit
+   \   00006A   12....       LCALL   ??customInit?relay
+    126          	osal_start_system(); // No Return from here
+   \   00006D                ; Setup parameters for call to function osal_start_system
+   \   00006D   12....       LCALL   ??osal_start_system?relay
+    127          	
+    128          	return 0;  // Shouldn't get here.
+   \   000070   7A00         MOV     R2,#0x0
+   \   000072   7B00         MOV     R3,#0x0
+   \   000074   02....       LJMP    ?BRET
+   \   000077                REQUIRE SLEEPCMD
+   \   000077                REQUIRE SLEEPSTA
+   \   000077                REQUIRE CLKCONCMD
+   \   000077                REQUIRE CLKCONSTA
+   \   000077                REQUIRE P1DIR
+   \   000077                REQUIRE P0INP
+    129          }
+    130          
+    131          /*********************************************************************
+    132           * @fn      zmain_vdd_check
+    133           * @brief   Check if the Vdd is OK to run the processor.
+    134           * @return  Return if Vdd is ok; otherwise, flash LED, then reset
+    135           *********************************************************************/
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    180          static void zmain_vdd_check( void )
+    136          static void zmain_vdd_check( void )
    \                     zmain_vdd_check:
-    181          {
+    137          {
    \   000000   74F7         MOV     A,#-0x9
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 9
    \   000005                ; Auto size: 0
-    182            uint8 vdd_passed_count = 0;
+    138            uint8 vdd_passed_count = 0;
    \   000005   7E00         MOV     R6,#0x0
-    183            bool toggle = 0;
+    139            bool toggle = 0;
    \   000007   7F00         MOV     R7,#0x0
-    184          
-    185            // Repeat getting the sample until number of failures or successes hits MAX
-    186            // then based on the count value, determine if the device is ready or not
-    187            while ( vdd_passed_count < MAX_VDD_SAMPLES )
-    188            {
-    189              if ( HalAdcCheckVdd (ZMAIN_VDD_LIMIT) )
+    140          
+    141            // Repeat getting the sample until number of failures or successes hits MAX
+    142            // then based on the count value, determine if the device is ready or not
+    143            while ( vdd_passed_count < MAX_VDD_SAMPLES )
+    144            {
+    145              if ( HalAdcCheckVdd (ZMAIN_VDD_LIMIT) )
    \                     ??zmain_vdd_check_0:
    \   000009                ; Setup parameters for call to function HalAdcCheckVdd
    \   000009   7904         MOV     R1,#0x4
    \   00000B   12....       LCALL   ??HalAdcCheckVdd?relay
    \   00000E   E9           MOV     A,R1
    \   00000F   6019         JZ      ??zmain_vdd_check_1
-    190              {
-    191                vdd_passed_count++;    // Keep track # times Vdd passes in a row
+    146              {
+    147                vdd_passed_count++;    // Keep track # times Vdd passes in a row
    \   000011   0E           INC     R6
-    192                MicroWait (10000);     // Wait 10ms to try again
+    148                MicroWait (10000);     // Wait 10ms to try again
    \   000012                ; Setup parameters for call to function Onboard_wait
    \   000012   7A10         MOV     R2,#0x10
    \   000014   7B27         MOV     R3,#0x27
    \   000016   12....       LCALL   ??Onboard_wait?relay
-    193              }
-    194              else
-    195              {
-    196                vdd_passed_count = 0;  // Reset passed counter
-    197                MicroWait (50000);     // Wait 50ms
-    198                MicroWait (50000);     // Wait another 50ms to try again
-    199              }
-    200          
-    201              /* toggle LED1 and LED2 */
-    202              if (vdd_passed_count == 0)
+    149              }
+    150              else
+    151              {
+    152                vdd_passed_count = 0;  // Reset passed counter
+    153                MicroWait (50000);     // Wait 50ms
+    154                MicroWait (50000);     // Wait another 50ms to try again
+    155              }
+    156          
+    157              /* toggle LED1 and LED2 */
+    158              if (vdd_passed_count == 0)
    \   000019   EE           MOV     A,R6
    \   00001A   601E         JZ      ??zmain_vdd_check_2
    \   00001C   C3           CLR     C
    \   00001D   9403         SUBB    A,#0x3
    \   00001F   40E8         JC      ??zmain_vdd_check_0
-    203              {
-    204                if ((toggle = !(toggle)))
-    205                  HAL_TOGGLE_LED1();
-    206                else
-    207                  HAL_TOGGLE_LED2();
-    208              }
-    209            }
-    210          
-    211            /* turn off LED1 */
-    212            HAL_TURN_OFF_LED1();
+    159              {
+    160                if ((toggle = !(toggle)))
+    161                  HAL_TOGGLE_LED1();
+    162                else
+    163                  HAL_TOGGLE_LED2();
+    164              }
+    165            }
+    166          
+    167            /* turn off LED1 */
+    168            HAL_TURN_OFF_LED1();
    \   000021   C290         CLR     0x90.0
-    213            HAL_TURN_OFF_LED2();
+    169            HAL_TURN_OFF_LED2();
    \   000023   C291         CLR     0x90.1
-    214          }
+    170          }
    \   000025   7F01         MOV     R7,#0x1
    \   000027   02....       LJMP    ?BANKED_LEAVE_XDATA
    \                     ??zmain_vdd_check_1:
@@ -500,36 +463,36 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   000055   C291         CLR     0x90.1
    \   000057   80B0         SJMP    ??zmain_vdd_check_0
    \   000059                REQUIRE _A_P1
-    215          
-    216          /**************************************************************************************************
-    217           * @fn          zmain_ext_addr
-    218           *
-    219           * @brief       Execute a prioritized search for a valid extended address and write the results
-    220           *              into the OSAL NV system for use by the system. Temporary address not saved to NV.
-    221           *
-    222           * input parameters
-    223           *
-    224           * None.
-    225           *
-    226           * output parameters
-    227           *
-    228           * None.
-    229           *
-    230           * @return      None.
-    231           **************************************************************************************************
-    232           */
+    171          
+    172          /**************************************************************************************************
+    173           * @fn          zmain_ext_addr
+    174           *
+    175           * @brief       Execute a prioritized search for a valid extended address and write the results
+    176           *              into the OSAL NV system for use by the system. Temporary address not saved to NV.
+    177           *
+    178           * input parameters
+    179           *
+    180           * None.
+    181           *
+    182           * output parameters
+    183           *
+    184           * None.
+    185           *
+    186           * @return      None.
+    187           **************************************************************************************************
+    188           */
+    189          
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    233          static void zmain_ext_addr(void)
+    190          static void zmain_ext_addr(void){
    \                     zmain_ext_addr:
-    234          {
    \   000000   74EE         MOV     A,#-0x12
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 18
    \   000005                ; Auto size: 8
    \   000005   74F8         MOV     A,#-0x8
    \   000007   12....       LCALL   ?ALLOC_XSTACK8
-    235            uint8 nullAddr[Z_EXTADDR_LEN] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+    191            uint8 nullAddr[Z_EXTADDR_LEN] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
    \   00000A   85..82       MOV     DPL,?XSP + 0
    \   00000D   85..83       MOV     DPH,?XSP + 1
    \   000010   AC82         MOV     R4,DPL
@@ -538,12 +501,11 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   000017   7582..       MOV     DPL,#`?<Constant {255, 255, 255, 255, 255, 255, 255,` & 0xff
    \   00001A   7408         MOV     A,#0x8
    \   00001C   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
-    236            uint8 writeNV = TRUE;
-    237          
-    238            // First check whether a non-erased extended address exists in the OSAL NV.
-    239            if ((SUCCESS != osal_nv_item_init(ZCD_NV_EXTADDR, Z_EXTADDR_LEN, NULL))  ||
-    240                (SUCCESS != osal_nv_read(ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, aExtendedAddress)) ||
-    241                (osal_memcmp(aExtendedAddress, nullAddr, Z_EXTADDR_LEN)))
+    192            uint8 writeNV = TRUE;
+    193            // First check whether a non-erased extended address exists in the OSAL NV.
+    194            if ((SUCCESS != osal_nv_item_init(ZCD_NV_EXTADDR, Z_EXTADDR_LEN, NULL))  ||
+    195                (SUCCESS != osal_nv_read(ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, aExtendedAddress)) ||
+    196                (osal_memcmp(aExtendedAddress, nullAddr, Z_EXTADDR_LEN))){
    \   00001F   75....       MOV     ?V0 + 0,#aExtendedAddress & 0xff
    \   000022   75....       MOV     ?V0 + 1,#(aExtendedAddress >> 8) & 0xff
    \   000025   F5..         MOV     ?V0 + 2,A
@@ -600,10 +562,9 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   000093   E9           MOV     A,R1
    \   000094   7003         JNZ     $+5
    \   000096   02....       LJMP    ??zmain_ext_addr_1 & 0xFFFF
-    242            {
-    243              // Attempt to read the extended address from the location on the lock bits page
-    244              // where the programming tools know to reserve it.
-    245              HalFlashRead(HAL_FLASH_IEEE_PAGE, HAL_FLASH_IEEE_OSET, aExtendedAddress, Z_EXTADDR_LEN);
+    197              // Attempt to read the extended address from the location on the lock bits page
+    198              // where the programming tools know to reserve it.
+    199              HalFlashRead(HAL_FLASH_IEEE_PAGE, HAL_FLASH_IEEE_OSET, aExtendedAddress, Z_EXTADDR_LEN);
    \                     ??zmain_ext_addr_0:
    \   000099                ; Setup parameters for call to function HalFlashRead
    \   000099   75..08       MOV     ?V0 + 8,#0x8
@@ -617,8 +578,8 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   0000AB   12....       LCALL   ??HalFlashRead?relay
    \   0000AE   7402         MOV     A,#0x2
    \   0000B0   12....       LCALL   ?DEALLOC_XSTACK8
-    246          
-    247              if (osal_memcmp(aExtendedAddress, nullAddr, Z_EXTADDR_LEN))
+    200          
+    201              if (osal_memcmp(aExtendedAddress, nullAddr, Z_EXTADDR_LEN)){
    \   0000B3                ; Setup parameters for call to function osal_memcmp
    \   0000B3   78..         MOV     R0,#?V0 + 4
    \   0000B5   12....       LCALL   ?PUSH_XSTACK_I_THREE
@@ -631,10 +592,9 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   0000C5   7403         MOV     A,#0x3
    \   0000C7   12....       LCALL   ?DEALLOC_XSTACK8
    \   0000CA   E9           MOV     A,R1
-   \   0000CB   6035         JZ      ??zmain_ext_addr_2
-    248              {
-    249                // Attempt to read the extended address from the designated location in the Info Page.
-    250                if (!osal_memcmp((uint8 *)(P_INFOPAGE+HAL_INFOP_IEEE_OSET), nullAddr, Z_EXTADDR_LEN))
+   \   0000CB   606A         JZ      ??zmain_ext_addr_2
+    202                // Attempt to read the extended address from the designated location in the Info Page.
+    203                if (!osal_memcmp((uint8 *)(P_INFOPAGE+HAL_INFOP_IEEE_OSET), nullAddr, Z_EXTADDR_LEN)){
    \   0000CD                ; Setup parameters for call to function osal_memcmp
    \   0000CD   78..         MOV     R0,#?V0 + 4
    \   0000CF   12....       LCALL   ?PUSH_XSTACK_I_THREE
@@ -647,9 +607,8 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   0000DF   7403         MOV     A,#0x3
    \   0000E1   12....       LCALL   ?DEALLOC_XSTACK8
    \   0000E4   E9           MOV     A,R1
-   \   0000E5   7054         JNZ     ??zmain_ext_addr_3
-    251                {
-    252                  osal_memcpy(aExtendedAddress, (uint8 *)(P_INFOPAGE+HAL_INFOP_IEEE_OSET), Z_EXTADDR_LEN);
+   \   0000E5   701D         JNZ     ??zmain_ext_addr_3
+    204                  osal_memcpy(aExtendedAddress, (uint8 *)(P_INFOPAGE+HAL_INFOP_IEEE_OSET), Z_EXTADDR_LEN);
    \   0000E7                ; Setup parameters for call to function osal_memcpy
    \   0000E7   75..0C       MOV     ?V0 + 0,#0xc
    \   0000EA   75..78       MOV     ?V0 + 1,#0x78
@@ -662,111 +621,108 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   0000FA   12....       LCALL   ??osal_memcpy?relay
    \   0000FD   7403         MOV     A,#0x3
    \   0000FF   12....       LCALL   ?DEALLOC_XSTACK8
-    253                }
-    254                else  // No valid extended address was found.
-    255                {
-    256                  uint8 idx;
-    257                  
-    258          #if !defined ( NV_RESTORE )
-    259                  writeNV = FALSE;  // Make this a temporary IEEE address
-    260          #endif
-    261          
-    262                  /* Attempt to create a sufficiently random extended address for expediency.
-    263                   * Note: this is only valid/legal in a test environment and
-    264                   *       must never be used for a commercial product.
-    265                   */
-    266                  for (idx = 0; idx < (Z_EXTADDR_LEN - 2);)
-    267                  {
-    268                    uint16 randy = osal_rand();
-    269                    aExtendedAddress[idx++] = LO_UINT16(randy);
-    270                    aExtendedAddress[idx++] = HI_UINT16(randy);
-    271                  }
-    272                  // Next-to-MSB identifies ZigBee devicetype.
-    273          #if ZG_BUILD_COORDINATOR_TYPE && !ZG_BUILD_JOINING_TYPE
-    274                  aExtendedAddress[idx++] = 0x10;
-    275          #elif ZG_BUILD_RTRONLY_TYPE
-    276                  aExtendedAddress[idx++] = 0x20;
-    277          #else
-    278                  aExtendedAddress[idx++] = 0x30;
-    279          #endif
-    280                  // MSB has historical signficance.
-    281                  aExtendedAddress[idx] = 0xF8;
-    282                }
-    283              }
-    284          
-    285              if (writeNV)
-    286              {
-    287                (void)osal_nv_write(ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, aExtendedAddress);
-   \                     ??zmain_ext_addr_2:
-   \   000102                ; Setup parameters for call to function osal_nv_write
-   \   000102   75....       MOV     ?V0 + 0,#aExtendedAddress & 0xff
-   \   000105   75....       MOV     ?V0 + 1,#(aExtendedAddress >> 8) & 0xff
-   \   000108   78..         MOV     R0,#?V0 + 0
-   \   00010A   12....       LCALL   ?PUSH_XSTACK_I_TWO
-   \   00010D   75..08       MOV     ?V0 + 0,#0x8
-   \   000110   75..00       MOV     ?V0 + 1,#0x0
-   \   000113   78..         MOV     R0,#?V0 + 0
-   \   000115   12....       LCALL   ?PUSH_XSTACK_I_TWO
-   \   000118   7C00         MOV     R4,#0x0
-   \   00011A   7D00         MOV     R5,#0x0
-   \   00011C   7A01         MOV     R2,#0x1
-   \   00011E   7B00         MOV     R3,#0x0
-   \   000120   12....       LCALL   ??osal_nv_write?relay
-   \   000123   7404         MOV     A,#0x4
-   \   000125   12....       LCALL   ?DEALLOC_XSTACK8
-    288              }
-    289            }
-    290          
-    291            // Set the MAC PIB extended address according to results from above.
-    292            (void)ZMacSetReq(MAC_EXTENDED_ADDRESS, aExtendedAddress);
-   \                     ??zmain_ext_addr_1:
-   \   000128                ; Setup parameters for call to function ZMacSetReq
-   \   000128   7A..         MOV     R2,#aExtendedAddress & 0xff
-   \   00012A   7B..         MOV     R3,#(aExtendedAddress >> 8) & 0xff
-   \   00012C   79E2         MOV     R1,#-0x1e
-   \   00012E   12....       LCALL   ??ZMacSetReq?relay
-    293          }
-   \   000131   7408         MOV     A,#0x8
-   \   000133   12....       LCALL   ?DEALLOC_XSTACK8
-   \   000136   7F0A         MOV     R7,#0xa
-   \   000138   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   000102   8033         SJMP    ??zmain_ext_addr_2
+    205                }
+    206                else{
+    207                  uint8 idx;
+    208                  
+    209          #if !defined ( NV_RESTORE )
+    210                  writeNV = FALSE;  // Make this a temporary IEEE address
+    211          #endif
+    212          
+    213                  /* Attempt to create a sufficiently random extended address for expediency.
+    214                   * Note: this is only valid/legal in a test environment and
+    215                   *       must never be used for a commercial product.
+    216                   */
+    217                  for (idx = 0; idx < (Z_EXTADDR_LEN - 2);){
    \                     ??zmain_ext_addr_3:
-   \   00013B   7E00         MOV     R6,#0x0
+   \   000104   7E00         MOV     R6,#0x0
+    218                    uint16 randy = osal_rand();
    \                     ??zmain_ext_addr_4:
-   \   00013D                ; Setup parameters for call to function osal_rand
-   \   00013D   12....       LCALL   ??osal_rand?relay
-   \   000140   8A..         MOV     ?V0 + 0,R2
-   \   000142   A8..         MOV     R0,?V0 + 0
-   \   000144   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \   000106                ; Setup parameters for call to function osal_rand
+   \   000106   12....       LCALL   ??osal_rand?relay
+   \   000109   8A..         MOV     ?V0 + 0,R2
+   \   00010B   A8..         MOV     R0,?V0 + 0
+    219                    aExtendedAddress[idx++] = LO_UINT16(randy);
+   \   00010D   12....       LCALL   ?Subroutine0 & 0xFFFF
    \                     ??CrossCallReturnLabel_0:
-   \   000147   E8           MOV     A,R0
-   \   000148   F0           MOVX    @DPTR,A
-   \   000149   0E           INC     R6
-   \   00014A   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \   000110   E8           MOV     A,R0
+   \   000111   F0           MOVX    @DPTR,A
+   \   000112   0E           INC     R6
+    220                    aExtendedAddress[idx++] = HI_UINT16(randy);
+   \   000113   12....       LCALL   ?Subroutine0 & 0xFFFF
+    221                  }
    \                     ??CrossCallReturnLabel_1:
-   \   00014D   EB           MOV     A,R3
-   \   00014E   F0           MOVX    @DPTR,A
-   \   00014F   0E           INC     R6
-   \   000150   EE           MOV     A,R6
-   \   000151   C3           CLR     C
-   \   000152   9406         SUBB    A,#0x6
-   \   000154   40E7         JC      ??zmain_ext_addr_4
-   \   000156   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \   000116   EB           MOV     A,R3
+   \   000117   F0           MOVX    @DPTR,A
+   \   000118   0E           INC     R6
+   \   000119   EE           MOV     A,R6
+   \   00011A   C3           CLR     C
+   \   00011B   9406         SUBB    A,#0x6
+   \   00011D   40E7         JC      ??zmain_ext_addr_4
+    222                  // Next-to-MSB identifies ZigBee devicetype.
+    223          #if ZG_BUILD_COORDINATOR_TYPE && !ZG_BUILD_JOINING_TYPE
+    224                  aExtendedAddress[idx++] = 0x10;
+   \   00011F   12....       LCALL   ?Subroutine0 & 0xFFFF
    \                     ??CrossCallReturnLabel_2:
-   \   000159   7410         MOV     A,#0x10
-   \   00015B   F0           MOVX    @DPTR,A
-   \   00015C   7401         MOV     A,#0x1
-   \   00015E   2E           ADD     A,R6
-   \   00015F   F8           MOV     R0,A
-   \   000160   74..         MOV     A,#aExtendedAddress & 0xff
-   \   000162   28           ADD     A,R0
-   \   000163   F582         MOV     DPL,A
-   \   000165   74..         MOV     A,#(aExtendedAddress >> 8) & 0xff
-   \   000167   3400         ADDC    A,#0x0
-   \   000169   F583         MOV     DPH,A
-   \   00016B   74F8         MOV     A,#-0x8
-   \   00016D   F0           MOVX    @DPTR,A
-   \   00016E   80B8         SJMP    ??zmain_ext_addr_1
+   \   000122   7410         MOV     A,#0x10
+   \   000124   F0           MOVX    @DPTR,A
+    225          #elif ZG_BUILD_RTRONLY_TYPE
+    226                  aExtendedAddress[idx++] = 0x20;
+    227          #else
+    228                  aExtendedAddress[idx++] = 0x30;
+    229          #endif
+    230                  // MSB has historical signficance.
+    231                  aExtendedAddress[idx] = 0xF8;
+   \   000125   7401         MOV     A,#0x1
+   \   000127   2E           ADD     A,R6
+   \   000128   F8           MOV     R0,A
+   \   000129   74..         MOV     A,#aExtendedAddress & 0xff
+   \   00012B   28           ADD     A,R0
+   \   00012C   F582         MOV     DPL,A
+   \   00012E   74..         MOV     A,#(aExtendedAddress >> 8) & 0xff
+   \   000130   3400         ADDC    A,#0x0
+   \   000132   F583         MOV     DPH,A
+   \   000134   74F8         MOV     A,#-0x8
+   \   000136   F0           MOVX    @DPTR,A
+    232                }
+    233              }
+    234          
+    235              if (writeNV){
+    236                (void)osal_nv_write(ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, aExtendedAddress);
+   \                     ??zmain_ext_addr_2:
+   \   000137                ; Setup parameters for call to function osal_nv_write
+   \   000137   75....       MOV     ?V0 + 0,#aExtendedAddress & 0xff
+   \   00013A   75....       MOV     ?V0 + 1,#(aExtendedAddress >> 8) & 0xff
+   \   00013D   78..         MOV     R0,#?V0 + 0
+   \   00013F   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000142   75..08       MOV     ?V0 + 0,#0x8
+   \   000145   75..00       MOV     ?V0 + 1,#0x0
+   \   000148   78..         MOV     R0,#?V0 + 0
+   \   00014A   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00014D   7C00         MOV     R4,#0x0
+   \   00014F   7D00         MOV     R5,#0x0
+   \   000151   7A01         MOV     R2,#0x1
+   \   000153   7B00         MOV     R3,#0x0
+   \   000155   12....       LCALL   ??osal_nv_write?relay
+   \   000158   7404         MOV     A,#0x4
+   \   00015A   12....       LCALL   ?DEALLOC_XSTACK8
+    237              }
+    238            }
+    239          
+    240            // Set the MAC PIB extended address according to results from above.
+    241            (void)ZMacSetReq(MAC_EXTENDED_ADDRESS, aExtendedAddress);
+   \                     ??zmain_ext_addr_1:
+   \   00015D                ; Setup parameters for call to function ZMacSetReq
+   \   00015D   7A..         MOV     R2,#aExtendedAddress & 0xff
+   \   00015F   7B..         MOV     R3,#(aExtendedAddress >> 8) & 0xff
+   \   000161   79E2         MOV     R1,#-0x1e
+   \   000163   12....       LCALL   ??ZMacSetReq?relay
+    242          }
+   \   000166   7408         MOV     A,#0x8
+   \   000168   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00016B   7F0A         MOV     R7,#0xa
+   \   00016D   02....       LJMP    ?BANKED_LEAVE_XDATA
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine0:
@@ -778,49 +734,43 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   00000A   3400         ADDC    A,#0x0
    \   00000C   F583         MOV     DPH,A
    \   00000E   22           RET
-    294          
-    295          /**************************************************************************************************
-    296           * @fn          zmain_dev_info
-    297           *
-    298           * @brief       This displays the IEEE (MSB to LSB) on the LCD.
-    299           *
-    300           * input parameters
-    301           *
-    302           * None.
-    303           *
-    304           * output parameters
-    305           *
-    306           * None.
-    307           *
-    308           * @return      None.
-    309           **************************************************************************************************
-    310           */
+    243          
+    244          /**************************************************************************************************
+    245           * @fn          zmain_dev_info
+    246           * @brief       This displays the IEEE (MSB to LSB) on the LCD.
+    247           * input parameters
+    248           * None.
+    249           * output parameters
+    250           * None.
+    251           * @return      None.
+    252           **************************************************************************************************
+    253           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    311          static void zmain_dev_info(void)
+    254          static void zmain_dev_info(void)
    \                     zmain_dev_info:
-    312          {
+    255          {
    \   000000   74F6         MOV     A,#-0xa
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 10
    \   000005                ; Auto size: 17
    \   000005   74EF         MOV     A,#-0x11
    \   000007   12....       LCALL   ?ALLOC_XSTACK8
-    313          #ifdef LCD_SUPPORTED
-    314            uint8 i;
-    315            uint8 *xad;
-    316            uint8 lcd_buf[Z_EXTADDR_LEN*2+1];
-    317          
-    318            // Display the extended address.
-    319            xad = aExtendedAddress + Z_EXTADDR_LEN - 1;
+    256          #ifdef LCD_SUPPORTED
+    257            uint8 i;
+    258            uint8 *xad;
+    259            uint8 lcd_buf[Z_EXTADDR_LEN*2+1];
+    260          
+    261            // Display the extended address.
+    262            xad = aExtendedAddress + Z_EXTADDR_LEN - 1;
    \   00000A   78..         MOV     R0,#(aExtendedAddress + 7) & 0xff
    \   00000C   79..         MOV     R1,#((aExtendedAddress + 7) >> 8) & 0xff
-    320          
-    321            for (i = 0; i < Z_EXTADDR_LEN*2; xad--)
+    263          
+    264            for (i = 0; i < Z_EXTADDR_LEN*2; xad--)
    \   00000E   7C00         MOV     R4,#0x0
-    322            {
-    323              uint8 ch;
-    324              ch = (*xad >> 4) & 0x0F;
+    265            {
+    266              uint8 ch;
+    267              ch = (*xad >> 4) & 0x0F;
    \                     ??zmain_dev_info_0:
    \   000010   8882         MOV     DPL,R0
    \   000012   8983         MOV     DPH,R1
@@ -828,7 +778,7 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   000015   C4           SWAP    A
    \   000016   540F         ANL     A,#0xf
    \   000018   FD           MOV     R5,A
-    325              lcd_buf[i++] = ch + (( ch < 10 ) ? '0' : '7');
+    268              lcd_buf[i++] = ch + (( ch < 10 ) ? '0' : '7');
    \   000019   EC           MOV     A,R4
    \   00001A   FE           MOV     R6,A
    \   00001B   0C           INC     R4
@@ -849,13 +799,13 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \                     ??CrossCallReturnLabel_3:
    \   000031   D0E0         POP     A
    \   000033   F0           MOVX    @DPTR,A
-    326              ch = *xad & 0x0F;
+    269              ch = *xad & 0x0F;
    \   000034   8882         MOV     DPL,R0
    \   000036   8983         MOV     DPH,R1
    \   000038   E0           MOVX    A,@DPTR
    \   000039   540F         ANL     A,#0xf
    \   00003B   FD           MOV     R5,A
-    327              lcd_buf[i++] = ch + (( ch < 10 ) ? '0' : '7');
+    270              lcd_buf[i++] = ch + (( ch < 10 ) ? '0' : '7');
    \   00003C   EC           MOV     A,R4
    \   00003D   FF           MOV     R7,A
    \   00003E   0C           INC     R4
@@ -873,7 +823,7 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   00004D   C0E0         PUSH    A
    \   00004F   8F..         MOV     ?V0 + 0,R7
    \   000051   12....       LCALL   ?Subroutine1 & 0xFFFF
-    328            }
+    271            }
    \                     ??CrossCallReturnLabel_4:
    \   000054   D0E0         POP     A
    \   000056   F0           MOVX    @DPTR,A
@@ -887,18 +837,18 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   000060   C3           CLR     C
    \   000061   9410         SUBB    A,#0x10
    \   000063   40AB         JC      ??zmain_dev_info_0
-    329            lcd_buf[Z_EXTADDR_LEN*2] = '\0';
+    272            lcd_buf[Z_EXTADDR_LEN*2] = '\0';
    \   000065   7410         MOV     A,#0x10
    \   000067   12....       LCALL   ?XSTACK_DISP0_8
    \   00006A   E4           CLR     A
    \   00006B   F0           MOVX    @DPTR,A
-    330            HalLcdWriteString( "IEEE: ", HAL_LCD_LINE_1 );
+    273            HalLcdWriteString( "IEEE: ", HAL_LCD_LINE_1 );
    \   00006C                ; Setup parameters for call to function HalLcdWriteString
    \   00006C   7901         MOV     R1,#0x1
    \   00006E   7A..         MOV     R2,#`?<Constant "IEEE: ">` & 0xff
    \   000070   7B..         MOV     R3,#(`?<Constant "IEEE: ">` >> 8) & 0xff
    \   000072   12....       LCALL   ??HalLcdWriteString?relay
-    331            HalLcdWriteString( (char*)lcd_buf, HAL_LCD_LINE_2 );
+    274            HalLcdWriteString( (char*)lcd_buf, HAL_LCD_LINE_2 );
    \   000075                ; Setup parameters for call to function HalLcdWriteString
    \   000075   7902         MOV     R1,#0x2
    \   000077   85..82       MOV     DPL,?XSP + 0
@@ -906,8 +856,8 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \   00007D   AA82         MOV     R2,DPL
    \   00007F   AB83         MOV     R3,DPH
    \   000081   12....       LCALL   ??HalLcdWriteString?relay
-    332          #endif
-    333          }
+    275          #endif
+    276          }
    \   000084   7411         MOV     A,#0x11
    \   000086   12....       LCALL   ?DEALLOC_XSTACK8
    \   000089   7F02         MOV     R7,#0x2
@@ -960,47 +910,36 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
    \                     `?<Constant "IEEE: ">`:
    \   000000   49454545     DB "IEEE: "
    \            3A2000  
-
-   \                                 In  segment XDATA_ROM_C, align 1
-   \                     `?<Constant "TexasInstruments">`:
-   \   000000   54657861     DB "TexasInstruments"
-   \            73496E73
-   \            7472756D
-   \            656E7473
-   \            00      
-    334          
-    335          #ifdef LCD_SUPPORTED
-    336          /*********************************************************************
-    337           * @fn      zmain_lcd_init
-    338           * @brief   Initialize LCD at start up.
-    339           * @return  none
-    340           *********************************************************************/
-    341          static void zmain_lcd_init ( void )
-    342          {
-    343          #ifdef SERIAL_DEBUG_SUPPORTED
-    344            {
-    345              HalLcdWriteString( "TexasInstruments", HAL_LCD_LINE_1 );
-    346          
-    347          #if defined( MT_MAC_FUNC )
-    348          #if defined( ZDO_COORDINATOR )
-    349                HalLcdWriteString( "MAC-MT Coord", HAL_LCD_LINE_2 );
-    350          #else
-    351                HalLcdWriteString( "MAC-MT Device", HAL_LCD_LINE_2 );
-    352          #endif // ZDO
-    353          #elif defined( MT_NWK_FUNC )
-    354          #if defined( ZDO_COORDINATOR )
-    355                HalLcdWriteString( "NWK Coordinator", HAL_LCD_LINE_2 );
-    356          #else
-    357                HalLcdWriteString( "NWK Device", HAL_LCD_LINE_2 );
-    358          #endif // ZDO
-    359          #endif // MT_FUNC
-    360            }
-    361          #endif // SERIAL_DEBUG_SUPPORTED
-    362          }
-    363          #endif
-    364          
-    365          /*********************************************************************
-    366          *********************************************************************/
+    277          
+    278          #ifdef LCD_SUPPORTED
+    279          /*********************************************************************
+    280           * @fn      zmain_lcd_init
+    281           * @brief   Initialize LCD at start up.
+    282           * @return  none
+    283           *********************************************************************/
+    284          static void zmain_lcd_init ( void )
+    285          {
+    286          #ifdef SERIAL_DEBUG_SUPPORTED
+    287            {
+    288              HalLcdWriteString( "TexasInstruments", HAL_LCD_LINE_1 );
+    289          
+    290          #if defined( MT_MAC_FUNC )
+    291          #if defined( ZDO_COORDINATOR )
+    292                HalLcdWriteString( "MAC-MT Coord", HAL_LCD_LINE_2 );
+    293          #else
+    294                HalLcdWriteString( "MAC-MT Device", HAL_LCD_LINE_2 );
+    295          #endif // ZDO
+    296          #elif defined( MT_NWK_FUNC )
+    297          #if defined( ZDO_COORDINATOR )
+    298                HalLcdWriteString( "NWK Coordinator", HAL_LCD_LINE_2 );
+    299          #else
+    300                HalLcdWriteString( "NWK Device", HAL_LCD_LINE_2 );
+    301          #endif // ZDO
+    302          #endif // MT_FUNC
+    303            }
+    304          #endif // SERIAL_DEBUG_SUPPORTED
+    305          }
+    306          #endif
 
    Maximum stack usage in bytes:
 
@@ -1020,7 +959,7 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
        -> osal_int_enable       0      0      0
        -> InitBoard             0      0      0
        -> zmain_dev_info        0      0      0
-       -> HalLcdWriteString     0      0      0
+       -> customInit            0      0      0
        -> osal_start_system     0      0      0
      zmain_dev_info             1      0     27
        -> HalLcdWriteString     0      0     54
@@ -1033,9 +972,9 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
        -> osal_memcmp           0      0     58
        -> osal_memcmp           0      0     58
        -> osal_memcpy           0      0     58
+       -> osal_rand             0      0     52
        -> osal_nv_write         0      0     60
        -> ZMacSetReq            0      0     52
-       -> osal_rand             0      0     52
      zmain_vdd_check            0      0      9
        -> HalAdcCheckVdd        0      0     18
        -> Onboard_wait          0      0     18
@@ -1054,7 +993,7 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
      SLEEPCMD                                          1
      CLKCONCMD                                         1
      P1DIR                                             1
-     main                                            125
+     main                                            119
      zmain_vdd_check                                  89
      zmain_ext_addr                                  368
      ?Subroutine0                                     15
@@ -1066,16 +1005,15 @@ H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\ZMain.c
      ??zmain_dev_info?relay                            6
      ?<Constant {255, 255, 255, 255, 255, 255, 255,    8
      ?<Constant "IEEE: ">                              7
-     ?<Constant "TexasInstruments">                   17
 
  
- 758 bytes in segment BANKED_CODE
+ 752 bytes in segment BANKED_CODE
   24 bytes in segment BANK_RELAYS
    7 bytes in segment SFR_AN
-  32 bytes in segment XDATA_ROM_C
+  15 bytes in segment XDATA_ROM_C
  
- 782 bytes of CODE  memory
-  32 bytes of CONST memory
+ 776 bytes of CODE  memory
+  15 bytes of CONST memory
    0 bytes of DATA  memory (+ 7 bytes shared)
 
 Errors: none

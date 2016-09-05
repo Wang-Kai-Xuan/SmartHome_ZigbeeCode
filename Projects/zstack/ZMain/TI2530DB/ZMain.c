@@ -23,7 +23,7 @@
   its documentation for any purpose.
 
   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
-  PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+  PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -37,10 +37,6 @@
   Should you have any questions regarding your right to use this Software,
   contact Texas Instruments Incorporated at www.TI.com.
 **************************************************************************************************/
-
-/*********************************************************************
- * INCLUDES
- */
 
 #include "ZComDef.h"
 #include "OSAL.h"
@@ -60,52 +56,20 @@
 #include "hal_assert.h"
 #include "hal_flash.h"
 
-/*********************************************************************
- * MACROS
- */
+#include "74LS164_8LED.h"
+#include "SD_App.h"
 
-/*********************************************************************
- * CONSTANTS
- */
 
 // Maximun number of Vdd samples checked before go on
 #define MAX_VDD_SAMPLES  3
 #define ZMAIN_VDD_LIMIT  HAL_ADC_VDD_LIMIT_4
-
-/*********************************************************************
- * TYPEDEFS
- */
-
-/*********************************************************************
- * GLOBAL VARIABLES
- */
-
-/*********************************************************************
- * EXTERNAL VARIABLES
- */
-
-/*********************************************************************
- * EXTERNAL FUNCTIONS
- */
-
 extern bool HalAdcCheckVdd (uint8 limit);
-
-/*********************************************************************
- * LOCAL VARIABLES
- */
-
-/*********************************************************************
- * LOCAL FUNCTIONS
- */
-
 static void zmain_dev_info( void );
 static void zmain_ext_addr( void );
 static void zmain_vdd_check( void );
-
 #ifdef LCD_SUPPORTED
 static void zmain_lcd_init( void );
 #endif
-
 /*********************************************************************
  * @fn      main
  * @brief   First function called after startup.
@@ -113,64 +77,56 @@ static void zmain_lcd_init( void );
  */
 int main( void )
 {
-  // Turn off interrupts
-  osal_int_disable( INTS_ALL );
+	// Turn off interrupts
+	osal_int_disable( INTS_ALL );
+	// Initialization for board related stuff such as LEDs
+	HAL_BOARD_INIT();
+	// Make sure supply voltage is high enough to run
+	zmain_vdd_check();
+	// Initialize board I/O
+	InitBoard( OB_COLD );
+	// Initialze HAL drivers
+	HalDriverInit();
+	// Initialize NV System
+	osal_nv_init( NULL );
+	// Initialize the MAC
+	ZMacInit();	
+	// Determine the extended address
+	zmain_ext_addr();
+	
+	// Initialize basic NV items
+	zgInit();
+	
+	#ifndef NONWK
+	// Since the AF isn't a task, call it's initialization routine
+	afInit();
+	#endif
+	// Initialize the operating system
+	osal_init_system();
+	// Allow interrupts
+	osal_int_enable( INTS_ALL );
+	
+	// Final board initialization
+	InitBoard( OB_READY );	
 
-  // Initialization for board related stuff such as LEDs
-  HAL_BOARD_INIT();
-
-  // Make sure supply voltage is high enough to run
-  zmain_vdd_check();
-
-  // Initialize board I/O
-  InitBoard( OB_COLD );
-
-  // Initialze HAL drivers
-  HalDriverInit();
-
-  // Initialize NV System
-  osal_nv_init( NULL );
-
-  // Initialize the MAC
-  ZMacInit();
-
-  // Determine the extended address
-  zmain_ext_addr();
-
-  // Initialize basic NV items
-  zgInit();
-
-#ifndef NONWK
-  // Since the AF isn't a task, call it's initialization routine
-  afInit();
-#endif
-
-  // Initialize the operating system
-  osal_init_system();
-
-  // Allow interrupts
-  osal_int_enable( INTS_ALL );
-
-  // Final board initialization
-  InitBoard( OB_READY );
-
-  // Display information about this device
-  zmain_dev_info();
-
-  /* Display the device info on the LCD */
-#ifdef LCD_SUPPORTED
-  zmain_lcd_init();
-#endif
-
-#ifdef WDT_IN_PM1
-  /* If WDT is used, this is a good place to enable it. */
-  WatchDogEnable( WDTIMX );
-#endif
-
-  osal_start_system(); // No Return from here
-
-  return 0;  // Shouldn't get here.
-} // main()
+	// Display information about this device
+	zmain_dev_info();
+	
+	/* Display the device info on the LCD */
+	#ifdef LCD_SUPPORTED
+	zmain_lcd_init();
+	#endif
+	
+	#ifdef WDT_IN_PM1
+	/* If WDT is used, this is a good place to enable it. */
+	WatchDogEnable( WDTIMX );
+	#endif
+	
+	customInit(); // Ìí¼Ó×Ô¼º¶¨ÖÆµÄÅäÖÃ
+	osal_start_system(); // No Return from here
+	
+	return 0;  // Shouldn't get here.
+}
 
 /*********************************************************************
  * @fn      zmain_vdd_check
@@ -230,29 +186,24 @@ static void zmain_vdd_check( void )
  * @return      None.
  **************************************************************************************************
  */
-static void zmain_ext_addr(void)
-{
+
+static void zmain_ext_addr(void){
   uint8 nullAddr[Z_EXTADDR_LEN] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
   uint8 writeNV = TRUE;
-
   // First check whether a non-erased extended address exists in the OSAL NV.
   if ((SUCCESS != osal_nv_item_init(ZCD_NV_EXTADDR, Z_EXTADDR_LEN, NULL))  ||
       (SUCCESS != osal_nv_read(ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, aExtendedAddress)) ||
-      (osal_memcmp(aExtendedAddress, nullAddr, Z_EXTADDR_LEN)))
-  {
+      (osal_memcmp(aExtendedAddress, nullAddr, Z_EXTADDR_LEN))){
     // Attempt to read the extended address from the location on the lock bits page
     // where the programming tools know to reserve it.
     HalFlashRead(HAL_FLASH_IEEE_PAGE, HAL_FLASH_IEEE_OSET, aExtendedAddress, Z_EXTADDR_LEN);
 
-    if (osal_memcmp(aExtendedAddress, nullAddr, Z_EXTADDR_LEN))
-    {
+    if (osal_memcmp(aExtendedAddress, nullAddr, Z_EXTADDR_LEN)){
       // Attempt to read the extended address from the designated location in the Info Page.
-      if (!osal_memcmp((uint8 *)(P_INFOPAGE+HAL_INFOP_IEEE_OSET), nullAddr, Z_EXTADDR_LEN))
-      {
+      if (!osal_memcmp((uint8 *)(P_INFOPAGE+HAL_INFOP_IEEE_OSET), nullAddr, Z_EXTADDR_LEN)){
         osal_memcpy(aExtendedAddress, (uint8 *)(P_INFOPAGE+HAL_INFOP_IEEE_OSET), Z_EXTADDR_LEN);
       }
-      else  // No valid extended address was found.
-      {
+      else{
         uint8 idx;
         
 #if !defined ( NV_RESTORE )
@@ -263,8 +214,7 @@ static void zmain_ext_addr(void)
          * Note: this is only valid/legal in a test environment and
          *       must never be used for a commercial product.
          */
-        for (idx = 0; idx < (Z_EXTADDR_LEN - 2);)
-        {
+        for (idx = 0; idx < (Z_EXTADDR_LEN - 2);){
           uint16 randy = osal_rand();
           aExtendedAddress[idx++] = LO_UINT16(randy);
           aExtendedAddress[idx++] = HI_UINT16(randy);
@@ -282,8 +232,7 @@ static void zmain_ext_addr(void)
       }
     }
 
-    if (writeNV)
-    {
+    if (writeNV){
       (void)osal_nv_write(ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, aExtendedAddress);
     }
   }
@@ -294,17 +243,11 @@ static void zmain_ext_addr(void)
 
 /**************************************************************************************************
  * @fn          zmain_dev_info
- *
  * @brief       This displays the IEEE (MSB to LSB) on the LCD.
- *
  * input parameters
- *
  * None.
- *
  * output parameters
- *
  * None.
- *
  * @return      None.
  **************************************************************************************************
  */
@@ -361,6 +304,3 @@ static void zmain_lcd_init ( void )
 #endif // SERIAL_DEBUG_SUPPORTED
 }
 #endif
-
-/*********************************************************************
-*********************************************************************/

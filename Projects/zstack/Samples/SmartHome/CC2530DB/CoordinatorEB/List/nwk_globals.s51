@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                            /
-// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        05/Sep/2016  09:20:36 /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        05/Sep/2016  17:58:54 /
 // Copyright 2004-2011 IAR Systems AB.                                        /
 //                                                                            /
 //    Core               =  plain                                             /
@@ -9,18 +9,18 @@
 //    Calling convention =  xdata reentrant                                   /
 //    Constant location  =  data_rom                                          /
 //    Dptr setup         =  1,16                                              /
-//    Source file        =  H:\project\SmartHome\Components\stack\nwk\nwk_glo /
-//                          bals.c                                            /
-//    Command line       =  -f H:\project\SmartHome\Projects\zstack\Samples\S /
-//                          martHome\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoor /
-//                          d.cfg (-DCPU32MHZ -DROOT=__near_func              /
+//    Source file        =  H:\project\SmartHome_ZigbeeCode\Components\stack\ /
+//                          nwk\nwk_globals.c                                 /
+//    Command line       =  -f H:\project\SmartHome_ZigbeeCode\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\Tools\CC253 /
+//                          0DB\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func   /
 //                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
 //                          -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS) -f      /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig. /
-//                          cfg (-DSECURE=0 -DZG_SECURE_DYNAMIC=0             /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\Tools\CC2530DB /
+//                          \f8wConfig.cfg (-DSECURE=0 -DZG_SECURE_DYNAMIC=0  /
 //                          -DREFLECTOR -DDEFAULT_CHANLIST=0x00000800         /
-//                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFF0                      /
 //                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
 //                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
 //                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
@@ -38,73 +38,79 @@
 //                          "-DCONST=const __code" -DGENERIC=__generic        /
 //                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
 //                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
-//                          -DREJOIN_POLL_RATE=440 H:\project\SmartHome\Compo /
-//                          nents\stack\nwk\nwk_globals.c -D ZTOOL_P1 -D      /
-//                          MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D          /
-//                          LCD_SUPPORTED=DEBUG -lC                           /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\CoordinatorEB\List\ -lA            /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\CoordinatorEB\List\                /
-//                          --diag_suppress Pe001,Pa010 -o                    /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\CoordinatorEB\Obj\ -e --debug      /
-//                          --core=plain --dptr=16,1 --data_model=large       /
-//                          --code_model=banked --calling_convention=xdata_re /
-//                          entrant --place_constants=data_rom                /
-//                          --nr_virtual_regs 16 -I                           /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\ -I H:\project\SmartHome\Projects\ /
-//                          zstack\Samples\SmartHome\CC2530DB\..\SOURCE\ -I   /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\ZMAIN\TI2530DB\ -I        /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\MT\ -I   /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INCL /
-//                          UDE\ -I H:\project\SmartHome\Projects\zstack\Samp /
-//                          les\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ /
-//                          HAL\TARGET\CC2530EB\ -I                           /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\MCU /
-//                          \CCSOC\ -I H:\project\SmartHome\Projects\zstack\S /
+//                          -DREJOIN_POLL_RATE=440 H:\project\SmartHome_Zigbe /
+//                          eCode\Components\stack\nwk\nwk_globals.c -D       /
+//                          ZIGBEEPRO -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC   /
+//                          -D xMT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG -D         /
+//                          NV_RESTORE -lC H:\project\SmartHome_ZigbeeCode\Pr /
+//                          ojects\zstack\Samples\SmartHome\CC2530DB\Coordina /
+//                          torEB\List\ -lA H:\project\SmartHome_ZigbeeCode\P /
+//                          rojects\zstack\Samples\SmartHome\CC2530DB\Coordin /
+//                          atorEB\List\ --diag_suppress Pe001,Pa010 -o       /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\CoordinatorEB\Obj\ -e   /
+//                          --debug --core=plain --dptr=16,1                  /
+//                          --data_model=large --code_model=banked            /
+//                          --calling_convention=xdata_reentrant              /
+//                          --place_constants=data_rom --nr_virtual_regs 16   /
+//                          -I H:\project\SmartHome_ZigbeeCode\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\ -I                  /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\SOURCE\ -I           /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\ZMAIN\TI2530DB /
+//                          \ -I H:\project\SmartHome_ZigbeeCode\Projects\zst /
+//                          ack\Samples\SmartHome\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MT\ -I H:\project\SmartHome_ZigbeeCode\Pr /
+//                          ojects\zstack\Samples\SmartHome\CC2530DB\..\..\.. /
+//                          \..\..\COMPONENTS\HAL\INCLUDE\ -I                 /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
 //                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
-//                          TS\OSAL\INCLUDE\ -I H:\project\SmartHome\Projects /
-//                          \zstack\Samples\SmartHome\CC2530DB\..\..\..\..\.. /
-//                          \COMPONENTS\STACK\AF\ -I                          /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\NW /
-//                          K\ -I H:\project\SmartHome\Projects\zstack\Sample /
-//                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ST /
-//                          ACK\SEC\ -I H:\project\SmartHome\Projects\zstack\ /
-//                          Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPONE /
-//                          NTS\STACK\SAPI\ -I H:\project\SmartHome\Projects\ /
-//                          zstack\Samples\SmartHome\CC2530DB\..\..\..\..\..\ /
-//                          COMPONENTS\STACK\SYS\ -I                          /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\ZD /
-//                          O\ -I H:\project\SmartHome\Projects\zstack\Sample /
-//                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ZM /
-//                          AC\F8W\ -I H:\project\SmartHome\Projects\zstack\S /
+//                          TS\HAL\TARGET\CC2530EB\ -I                        /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
 //                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
-//                          TS\ZMAC\ -I H:\project\SmartHome\Projects\zstack\ /
-//                          Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPONE /
-//                          NTS\SERVICES\SADDR\ -I H:\project\SmartHome\Proje /
-//                          cts\zstack\Samples\SmartHome\CC2530DB\..\..\..\.. /
-//                          \..\COMPONENTS\SERVICES\SDATA\ -I                 /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\INCL /
-//                          UDE\ -I H:\project\SmartHome\Projects\zstack\Samp /
-//                          les\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ /
-//                          MAC\HIGH_LEVEL\ -I H:\project\SmartHome\Projects\ /
-//                          zstack\Samples\SmartHome\CC2530DB\..\..\..\..\..\ /
-//                          COMPONENTS\MAC\LOW_LEVEL\srf04\ -I                /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\LOW_ /
-//                          LEVEL\srf04\SINGLE_CHIP\ -Ohz                     /
-//                          --require_prototypes                              /
-//    List file          =  H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\CoordinatorEB\List\nwk_globals.s51 /
+//                          TS\OSAL\MCU\CCSOC\ -I H:\project\SmartHome_Zigbee /
+//                          Code\Projects\zstack\Samples\SmartHome\CC2530DB\. /
+//                          .\..\..\..\..\COMPONENTS\OSAL\INCLUDE\ -I         /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\STACK\AF\ -I H:\project\SmartHome_ZigbeeCode\P /
+//                          rojects\zstack\Samples\SmartHome\CC2530DB\..\..\. /
+//                          .\..\..\COMPONENTS\STACK\NWK\ -I                  /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\STACK\SEC\ -I H:\project\SmartHome_ZigbeeCode\ /
+//                          Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\STACK\SAPI\ -I                /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\STACK\SYS\ -I H:\project\SmartHome_ZigbeeCode\ /
+//                          Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\STACK\ZDO\ -I                 /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\ZMAC\F8W\ -I H:\project\SmartHome_ZigbeeCode\P /
+//                          rojects\zstack\Samples\SmartHome\CC2530DB\..\..\. /
+//                          .\..\..\COMPONENTS\ZMAC\ -I                       /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\SERVICES\SADDR\ -I H:\project\SmartHome_Zigbee /
+//                          Code\Projects\zstack\Samples\SmartHome\CC2530DB\. /
+//                          .\..\..\..\..\COMPONENTS\SERVICES\SDATA\ -I       /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\MAC\INCLUDE\ -I H:\project\SmartHome_ZigbeeCod /
+//                          e\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\COMPONENTS\MAC\HIGH_LEVEL\ -I          /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\MAC\LOW_LEVEL\srf04\ -I                        /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\ -Ohz          /
+//    List file          =  H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\CoordinatorEB\List\nwk_ /
+//                          globals.s51                                       /
 //                                                                            /
 //                                                                            /
 ///////////////////////////////////////////////////////////////////////////////
@@ -133,7 +139,6 @@
         EXTERN ?BDISPATCH
         EXTERN ?BRET
         EXTERN ?DEALLOC_XSTACK8
-        EXTERN ?PUSH_XSTACK8_X_TWO
         EXTERN ?PUSH_XSTACK_I_ONE
         EXTERN ?US_SWITCH_SPARSE
         EXTERN ?V0
@@ -187,6 +192,7 @@
         PUBLIC gMAX_RTG_SRC_ENTRIES
         PUBLIC gMAX_SOURCE_ROUTE
         PUBLIC gMIN_TREE_LINK_COST
+        PUBLIC gNWK_CONFLICTED_ADDR_EXPIRY_TIME
         PUBLIC gNWK_FREQ_AGILITY_ALL_MAC_ERRS
         PUBLIC gNWK_INDIRECT_CNT_RTG_TMR
         PUBLIC gNWK_INDIRECT_MSG_MAX_ALL
@@ -208,8 +214,9 @@
         FUNCTION nwk_globals_init,021203H
         ARGFRAME XSTACK, 0, STACK
         LOCFRAME ISTACK, 2, STACK
-        LOCFRAME XSTACK, 2, STACK
         PUBLIC rtDiscTable
+        PUBLIC rtgSrcRelayList
+        PUBLIC rtgSrcTable
         PUBLIC rtgTable
         
         CFI Names cfiNames0
@@ -368,13 +375,12 @@
         CFI EndCommon cfiCommon1
         
 AddrMgrInit         SYMBOL "AddrMgrInit"
-osal_mem_alloc      SYMBOL "osal_mem_alloc"
-RTG_FillCSkipTable  SYMBOL "RTG_FillCSkipTable"
+NLME_InitLinkStatus SYMBOL "NLME_InitLinkStatus"
 NwkFreqAgilityInit  SYMBOL "NwkFreqAgilityInit"
 osal_rand           SYMBOL "osal_rand"
 osal_memset         SYMBOL "osal_memset"
 sAddrExtCpy         SYMBOL "sAddrExtCpy"
-NLME_InitTreeAddressing SYMBOL "NLME_InitTreeAddressing"
+NLME_InitStochasticAddressing SYMBOL "NLME_InitStochasticAddressing"
 HalLcdWriteString   SYMBOL "HalLcdWriteString"
 HalLcdWriteStringValue SYMBOL "HalLcdWriteStringValue"
 BuzzerControl       SYMBOL "BuzzerControl"
@@ -386,10 +392,9 @@ HalLcdWriteValue    SYMBOL "HalLcdWriteValue"
 ??HalLcdWriteString?relay SYMBOL "?relay", HalLcdWriteString
 ??HalLcdWriteStringValue?relay SYMBOL "?relay", HalLcdWriteStringValue
 ??HalLcdWriteValue?relay SYMBOL "?relay", HalLcdWriteValue
-??NLME_InitTreeAddressing?relay SYMBOL "?relay", NLME_InitTreeAddressing
+??NLME_InitLinkStatus?relay SYMBOL "?relay", NLME_InitLinkStatus
+??NLME_InitStochasticAddressing?relay SYMBOL "?relay", NLME_InitStochasticAddressing
 ??NwkFreqAgilityInit?relay SYMBOL "?relay", NwkFreqAgilityInit
-??RTG_FillCSkipTable?relay SYMBOL "?relay", RTG_FillCSkipTable
-??osal_mem_alloc?relay SYMBOL "?relay", osal_mem_alloc
 ??osal_memset?relay SYMBOL "?relay", osal_memset
 ??osal_rand?relay   SYMBOL "?relay", osal_rand
 ??sAddrExtCpy?relay SYMBOL "?relay", sAddrExtCpy
@@ -407,18 +412,11 @@ nwk_globals_init    SYMBOL "nwk_globals_init"
         ARGFRAME XSTACK, 0, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN osal_mem_alloc
-        FUNCTION osal_mem_alloc,0202H
+        EXTERN NLME_InitLinkStatus
+        FUNCTION NLME_InitLinkStatus,0202H
         ARGFRAME ISTACK, 2, STACK
         ARGFRAME PSTACK, 0, STACK
         ARGFRAME XSTACK, 0, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN RTG_FillCSkipTable
-        FUNCTION RTG_FillCSkipTable,0202H
-        ARGFRAME ISTACK, 2, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 2, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
         EXTERN NwkFreqAgilityInit
@@ -449,8 +447,8 @@ nwk_globals_init    SYMBOL "nwk_globals_init"
         ARGFRAME XSTACK, 0, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN NLME_InitTreeAddressing
-        FUNCTION NLME_InitTreeAddressing,0202H
+        EXTERN NLME_InitStochasticAddressing
+        FUNCTION NLME_InitStochasticAddressing,0202H
         ARGFRAME ISTACK, 2, STACK
         ARGFRAME PSTACK, 0, STACK
         ARGFRAME XSTACK, 0, STACK
@@ -503,14 +501,12 @@ nwk_globals_init    SYMBOL "nwk_globals_init"
         FUNCTION ??HalLcdWriteStringValue?relay,00H
         EXTERN ??HalLcdWriteValue?relay
         FUNCTION ??HalLcdWriteValue?relay,00H
-        EXTERN ??NLME_InitTreeAddressing?relay
-        FUNCTION ??NLME_InitTreeAddressing?relay,00H
+        EXTERN ??NLME_InitLinkStatus?relay
+        FUNCTION ??NLME_InitLinkStatus?relay,00H
+        EXTERN ??NLME_InitStochasticAddressing?relay
+        FUNCTION ??NLME_InitStochasticAddressing?relay,00H
         EXTERN ??NwkFreqAgilityInit?relay
         FUNCTION ??NwkFreqAgilityInit?relay,00H
-        EXTERN ??RTG_FillCSkipTable?relay
-        FUNCTION ??RTG_FillCSkipTable?relay,00H
-        EXTERN ??osal_mem_alloc?relay
-        FUNCTION ??osal_mem_alloc?relay,00H
         EXTERN ??osal_memset?relay
         FUNCTION ??osal_memset?relay,00H
         EXTERN ??osal_rand?relay
@@ -529,7 +525,7 @@ nwk_globals_init    SYMBOL "nwk_globals_init"
         EXTERN zgPassiveAckTimeout
         EXTERN zgRouteExpiryTime
 
-// H:\project\SmartHome\Components\stack\nwk\nwk_globals.c
+// H:\project\SmartHome_ZigbeeCode\Components\stack\nwk\nwk_globals.c
 //    1 /**************************************************************************************************
 //    2   Filename:       nwk_globals.c
 //    3   Revised:        $Date: 2010-01-11 09:24:44 -0800 (Mon, 11 Jan 2010) $
@@ -710,25 +706,23 @@ Cskip:
         REQUIRE __INIT_XDATA_Z
 //  128 
 //  129 #if ( STACK_PROFILE_ID == ZIGBEEPRO_PROFILE )
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
 //  130   uint8 CskipRtrs[1] = {0};
-//  131   uint8 CskipChldrn[1] = {0};
-//  132 #elif ( STACK_PROFILE_ID == HOME_CONTROLS )
-
-        RSEG XDATA_I:XDATA:NOROOT(0)
-//  133   uint8 CskipRtrs[MAX_NODE_DEPTH+1] = {6,6,6,6,6,0};
 CskipRtrs:
-        DATA8
-        DS 6
-        REQUIRE `?<Initializer for CskipRtrs>`
-        REQUIRE __INIT_XDATA_I
+        DS 1
+        REQUIRE __INIT_XDATA_Z
 
-        RSEG XDATA_I:XDATA:NOROOT(0)
-//  134   uint8 CskipChldrn[MAX_NODE_DEPTH+1] = {20,20,20,20,20,0};
-CskipChldrn:
+        RSEG XDATA_Z:XDATA:NOROOT(0)
         DATA8
-        DS 6
-        REQUIRE `?<Initializer for CskipChldrn>`
-        REQUIRE __INIT_XDATA_I
+//  131   uint8 CskipChldrn[1] = {0};
+CskipChldrn:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//  132 #elif ( STACK_PROFILE_ID == HOME_CONTROLS )
+//  133   uint8 CskipRtrs[MAX_NODE_DEPTH+1] = {6,6,6,6,6,0};
+//  134   uint8 CskipChldrn[MAX_NODE_DEPTH+1] = {20,20,20,20,20,0};
 //  135 #elif ( STACK_PROFILE_ID == GENERIC_STAR )
 //  136   uint8 CskipRtrs[MAX_NODE_DEPTH+1] = {5,5,5,5,5,0};
 //  137   uint8 CskipChldrn[MAX_NODE_DEPTH+1] = {5,5,5,5,5,0};
@@ -815,8 +809,20 @@ rtgTable:
         REQUIRE __INIT_XDATA_Z
 //  164 
 //  165 #if defined ( ZIGBEE_SOURCE_ROUTING )
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
 //  166   rtgSrcEntry_t rtgSrcTable[MAX_RTG_SRC_ENTRIES];
+rtgSrcTable:
+        DS 72
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
 //  167   uint16 rtgSrcRelayList[MAX_SOURCE_ROUTE];
+rtgSrcRelayList:
+        DS 24
+        REQUIRE __INIT_XDATA_Z
 //  168 #endif
 //  169 
 //  170 // Table of current RREQ packets in the network
@@ -874,7 +880,12 @@ gNWK_TREE_ALLOCATE_ROUTERADDR_FOR_ENDDEVICE:
 //  188 #if defined ( ZIGBEE_STOCHASTIC_ADDRESSING )
 //  189 // number of link status periods after the last received address conflict report
 //  190 // (network status command)
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
 //  191 CONST uint8 gNWK_CONFLICTED_ADDR_EXPIRY_TIME = NWK_CONFLICTED_ADDR_EXPIRY_TIME;
+gNWK_CONFLICTED_ADDR_EXPIRY_TIME:
+        DB 4
 //  192 #endif
 //  193 
 //  194 #if defined ( ZIGBEE_FREQ_AGILITY )
@@ -1142,7 +1153,7 @@ nwk_globals_init:
         ARGFRAME XSTACK, 0, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL nwk_globals_init, osal_mem_alloc
+        FUNCALL nwk_globals_init, NLME_InitLinkStatus
         LOCFRAME ISTACK, 2, STACK
         LOCFRAME PSTACK, 0, STACK
         LOCFRAME XSTACK, 0, STACK
@@ -1151,17 +1162,6 @@ nwk_globals_init:
         ARGFRAME ISTACK, 2, STACK
         ARGFRAME PSTACK, 0, STACK
         ARGFRAME XSTACK, 0, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL nwk_globals_init, RTG_FillCSkipTable
-        LOCFRAME ISTACK, 2, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 2, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 2, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 2, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
         FUNCALL nwk_globals_init, NwkFreqAgilityInit
@@ -1194,30 +1194,7 @@ nwk_globals_init:
 //  295   {
 //  296     // Initialize the Cskip Table
 //  297     Cskip = osal_mem_alloc(sizeof(uint16) *(MAX_NODE_DEPTH+1));
-        ; Setup parameters for call to function osal_mem_alloc
-        MOV     R2,#0xc
-        MOV     R3,#0x0
-        LCALL   ??osal_mem_alloc?relay
-        MOV     DPTR,#Cskip
-        MOV     A,R2
-        MOVX    @DPTR,A
-        INC     DPTR
-        MOV     A,R3
-        MOVX    @DPTR,A
 //  298     RTG_FillCSkipTable(CskipChldrn, CskipRtrs, MAX_NODE_DEPTH, Cskip);
-        ; Setup parameters for call to function RTG_FillCSkipTable
-        MOV     DPTR,#Cskip
-        LCALL   ?PUSH_XSTACK8_X_TWO
-        CFI CFA_XSP16 add(XSP16, 2)
-        MOV     R1,#0x5
-        MOV     R4,#CskipRtrs & 0xff
-        MOV     R5,#(CskipRtrs >> 8) & 0xff
-        MOV     R2,#CskipChldrn & 0xff
-        MOV     R3,#(CskipChldrn >> 8) & 0xff
-        LCALL   ??RTG_FillCSkipTable?relay
-        MOV     A,#0x2
-        LCALL   ?DEALLOC_XSTACK8
-        CFI CFA_XSP16 XSP16+0
 //  299   }
 //  300 #endif
 //  301   
@@ -1226,6 +1203,8 @@ nwk_globals_init:
 //  304   if ( ZSTACK_ROUTER_BUILD && NWK_LINK_STATUS_PERIOD )
 //  305   {
 //  306     NLME_InitLinkStatus();
+        ; Setup parameters for call to function NLME_InitLinkStatus
+        LCALL   ??NLME_InitLinkStatus?relay
 //  307   }
 //  308   
 //  309 #if defined ( ZIGBEE_FREQ_AGILITY )
@@ -1306,7 +1285,7 @@ NIB_init:
         ARGFRAME XSTACK, 0, STACK
         ARGFRAME IOVERLAY, 0, STATIC
         ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL NIB_init, NLME_InitTreeAddressing
+        FUNCALL NIB_init, NLME_InitStochasticAddressing
         LOCFRAME ISTACK, 2, STACK
         LOCFRAME PSTACK, 0, STACK
         LOCFRAME XSTACK, 0, STACK
@@ -1338,7 +1317,7 @@ NIB_init:
         MOVX    @DPTR,A
 //  330   _NIB.MaxDepth = MAX_NODE_DEPTH;
         MOV     DPTR,#_NIB + 4
-        MOV     A,#0x5
+        MOV     A,#0x14
         MOVX    @DPTR,A
 //  331 
 //  332 #if ( NWK_MODE == NWK_MODE_MESH )
@@ -1404,11 +1383,10 @@ NIB_init:
 //  362    
 //  363 #if defined ( ZIGBEEPRO )
 //  364   _NIB.SymLink = FALSE;
+        INC     DPTR
+        MOVX    @DPTR,A
 //  365 #else
 //  366   _NIB.SymLink = TRUE;
-        INC     DPTR
-        INC     A
-        MOVX    @DPTR,A
 //  367 #endif  
 //  368   
 //  369   _NIB.CapabilityInfo = ZDO_Config_Node_Descriptor.CapabilityFlags;
@@ -1434,21 +1412,17 @@ NIB_init:
         MOV     DPTR,#zgRouteExpiryTime
         MOVX    A,@DPTR
         MOV     DPTR,#_NIB + 19
-        MOVX    @DPTR,A
+        LCALL   ?Subroutine1 & 0xFFFF
 //  375 
 //  376   _NIB.nwkDevAddress = INVALID_NODE_ADDR;
-        INC     DPTR
-        MOV     A,#-0x2
-        LCALL   ?Subroutine1 & 0xFFFF
 //  377   _NIB.nwkLogicalChannel = 0;
-//  378   _NIB.nwkCoordAddress = INVALID_NODE_ADDR;
 ??CrossCallReturnLabel_0:
-        MOV     A,#-0x2
-        MOVX    @DPTR,A
         INC     DPTR
-        INC     A
-        MOVX    @DPTR,A
+        CLR     A
+        LCALL   ?Subroutine1 & 0xFFFF
+//  378   _NIB.nwkCoordAddress = INVALID_NODE_ADDR;
 //  379   osal_memset( _NIB.nwkCoordExtAddress, 0, Z_EXTADDR_LEN );
+??CrossCallReturnLabel_1:
         ; Setup parameters for call to function osal_memset
         MOV     R4,#0x8
         MOV     R5,#0x0
@@ -1479,17 +1453,24 @@ NIB_init:
 //  385    
 //  386 #if defined ( ZIGBEE_STOCHASTIC_ADDRESSING )
 //  387   _NIB.nwkAddrAlloc  = NWK_ADDRESSING_STOCHASTIC;
+        MOV     DPTR,#_NIB + 96
+        MOV     A,#0x2
+        MOVX    @DPTR,A
 //  388   _NIB.nwkUniqueAddr = FALSE;
+        INC     DPTR
+        CLR     A
+        MOVX    @DPTR,A
 //  389 #else
 //  390   _NIB.nwkAddrAlloc  = NWK_ADDRESSING_DISTRIBUTED;
-        MOV     DPTR,#_NIB + 96
-        LCALL   ?Subroutine1 & 0xFFFF
 //  391   _NIB.nwkUniqueAddr = TRUE;
 //  392 #endif
 //  393 
 //  394   _NIB.nwkLinkStatusPeriod = NWK_LINK_STATUS_PERIOD; 
+        INC     DPTR
+        MOV     A,#0xf
+        MOVX    @DPTR,A
 //  395   _NIB.nwkRouterAgeLimit = NWK_ROUTE_AGE_LIMIT;
-??CrossCallReturnLabel_1:
+        INC     DPTR
         MOV     A,#0x3
         MOVX    @DPTR,A
 //  396  
@@ -1516,14 +1497,15 @@ NIB_init:
 //  402 
 //  403 #if defined ( ZIGBEE_MULTICAST )
 //  404   _NIB.nwkUseMultiCast = TRUE;
+        MOV     DPTR,#_NIB + 100
+        MOV     A,#0x1
+        MOVX    @DPTR,A
 //  405 #else
 //  406   _NIB.nwkUseMultiCast = FALSE;
-        MOV     DPTR,#_NIB + 100
-        CLR     A
-        MOVX    @DPTR,A
 //  407 #endif  
 //  408   _NIB.nwkManagerAddr = 0x0000;
         MOV     DPTR,#_NIB + 106
+        CLR     A
         MOVX    @DPTR,A
         INC     DPTR
         MOVX    @DPTR,A
@@ -1540,10 +1522,10 @@ NIB_init:
 //  413   {
 //  414 #if defined ( ZIGBEE_STOCHASTIC_ADDRESSING )
 //  415     NLME_InitStochasticAddressing();
+        ; Setup parameters for call to function NLME_InitStochasticAddressing
+        LCALL   ??NLME_InitStochasticAddressing?relay
 //  416 #else
 //  417     NLME_InitTreeAddressing();
-        ; Setup parameters for call to function NLME_InitTreeAddressing
-        LCALL   ??NLME_InitTreeAddressing?relay
 //  418 #endif
 //  419   }
 //  420 }
@@ -1569,12 +1551,11 @@ NIB_init:
         CFI (cfiPicker5) Picker
         MOVX    @DPTR,A
         INC     DPTR
+        MOV     A,#-0x2
+        MOVX    @DPTR,A
+        INC     DPTR
         INC     A
         MOVX    @DPTR,A
-        INC     DPTR
-        CLR     A
-        MOVX    @DPTR,A
-        INC     DPTR
         RET
         CFI EndBlock cfiCond3
         CFI EndBlock cfiCond4
@@ -2142,26 +2123,6 @@ nwk_Status:
         CFI EndBlock cfiPicker9
 
         RSEG XDATA_ID:CODE:NOROOT(0)
-`?<Initializer for CskipRtrs>`:
-        DATA8
-        DB 6
-        DB 6
-        DB 6
-        DB 6
-        DB 6
-        DB 0
-
-        RSEG XDATA_ID:CODE:NOROOT(0)
-`?<Initializer for CskipChldrn>`:
-        DATA8
-        DB 20
-        DB 20
-        DB 20
-        DB 20
-        DB 20
-        DB 0
-
-        RSEG XDATA_ID:CODE:NOROOT(0)
 `?<Initializer for gMIN_TREE_LINK_COST>`:
         DATA8
         DB 6
@@ -2189,17 +2150,17 @@ nwk_Status:
 //  500 /*********************************************************************
 //  501 *********************************************************************/
 // 
-//   530 bytes in segment BANKED_CODE
+//   498 bytes in segment BANKED_CODE
 //    18 bytes in segment BANK_RELAYS
-//    57 bytes in segment CODE_C
-//    13 bytes in segment XDATA_I
-//    13 bytes in segment XDATA_ID
+//    58 bytes in segment CODE_C
+//     1 byte  in segment XDATA_I
+//     1 byte  in segment XDATA_ID
 //   178 bytes in segment XDATA_ROM_C
-// 1 265 bytes in segment XDATA_Z
+// 1 363 bytes in segment XDATA_Z
 // 
-//   618 bytes of CODE  memory
+//   575 bytes of CODE  memory
 //   178 bytes of CONST memory
-// 1 278 bytes of XDATA memory
+// 1 364 bytes of XDATA memory
 //
 //Errors: none
 //Warnings: none

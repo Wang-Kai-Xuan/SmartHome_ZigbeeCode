@@ -21,6 +21,10 @@
       </member>
       <member>
         <project>SmartHome</project>
+        <configuration>DemoEB</configuration>
+      </member>
+      <member>
+        <project>SmartHome</project>
         <configuration>CoordinatorEB-Pro</configuration>
       </member>
       <member>
@@ -30,6 +34,10 @@
       <member>
         <project>SmartHome</project>
         <configuration>EndDeviceEB-Pro</configuration>
+      </member>
+      <member>
+        <project>SmartHome</project>
+        <configuration>DemoEB-Pro</configuration>
       </member>
     </batchDefinition>
   </batchBuild>

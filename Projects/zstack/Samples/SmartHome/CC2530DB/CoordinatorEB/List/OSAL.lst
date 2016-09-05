@@ -1,6 +1,6 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         05/Sep/2016  09:20:26 #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         05/Sep/2016  17:58:42 #
 # Copyright 2004-2011 IAR Systems AB.                                         #
 #                                                                             #
 #    Core               =  plain                                              #
@@ -9,17 +9,18 @@
 #    Calling convention =  xdata reentrant                                    #
 #    Constant location  =  data_rom                                           #
 #    Dptr setup         =  1,16                                               #
-#    Source file        =  H:\project\SmartHome\Components\osal\common\OSAL.c #
-#    Command line       =  -f H:\project\SmartHome\Projects\zstack\Samples\Sm #
-#                          artHome\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoord. #
-#                          cfg (-DCPU32MHZ -DROOT=__near_func                 #
+#    Source file        =  H:\project\SmartHome_ZigbeeCode\Components\osal\co #
+#                          mmon\OSAL.c                                        #
+#    Command line       =  -f H:\project\SmartHome_ZigbeeCode\Projects\zstack #
+#                          \Samples\SmartHome\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func      #
 #                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
 #                          -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS) -f       #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cf #
-#                          g (-DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR    #
-#                          -DDEFAULT_CHANLIST=0x00000800                      #
-#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\Tools\CC2530DB\f #
+#                          8wConfig.cfg (-DSECURE=0 -DZG_SECURE_DYNAMIC=0     #
+#                          -DREFLECTOR -DDEFAULT_CHANLIST=0x00000800          #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFF0                       #
 #                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
 #                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
 #                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
@@ -37,76 +38,86 @@
 #                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
 #                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
 #                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
-#                          H:\project\SmartHome\Components\osal\common\OSAL.c #
-#                           -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D          #
-#                          MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG -lC             #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\List\ -lA              #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\List\ --diag_suppress  #
-#                          Pe001,Pa010 -o H:\project\SmartHome\Projects\zstac #
-#                          k\Samples\SmartHome\CC2530DB\CoordinatorEB\Obj\    #
-#                          -e --debug --core=plain --dptr=16,1                #
+#                          H:\project\SmartHome_ZigbeeCode\Components\osal\co #
+#                          mmon\OSAL.c -D ZIGBEEPRO -D ZTOOL_P1 -D MT_TASK    #
+#                          -D MT_SYS_FUNC -D xMT_ZDO_FUNC -D                  #
+#                          LCD_SUPPORTED=DEBUG -D NV_RESTORE -lC              #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\List\ -lA   #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\List\       #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\Obj\ -e     #
+#                          --debug --core=plain --dptr=16,1                   #
 #                          --data_model=large --code_model=banked             #
 #                          --calling_convention=xdata_reentrant               #
 #                          --place_constants=data_rom --nr_virtual_regs 16    #
-#                          -I H:\project\SmartHome\Projects\zstack\Samples\Sm #
-#                          artHome\CC2530DB\ -I H:\project\SmartHome\Projects #
-#                          \zstack\Samples\SmartHome\CC2530DB\..\SOURCE\ -I   #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\ZMAIN\TI2530DB\ -I          #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\MT\ -I     #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INCLUD #
-#                          E\ -I H:\project\SmartHome\Projects\zstack\Samples #
-#                          \SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\ #
-#                          TARGET\CC2530EB\ -I H:\project\SmartHome\Projects\ #
-#                          zstack\Samples\SmartHome\CC2530DB\..\..\..\..\..\C #
-#                          OMPONENTS\OSAL\MCU\CCSOC\ -I                       #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\INCLU #
-#                          DE\ -I H:\project\SmartHome\Projects\zstack\Sample #
-#                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\STA #
-#                          CK\AF\ -I H:\project\SmartHome\Projects\zstack\Sam #
-#                          ples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ #
-#                          STACK\NWK\ -I H:\project\SmartHome\Projects\zstack #
+#                          -I H:\project\SmartHome_ZigbeeCode\Projects\zstack #
+#                          \Samples\SmartHome\CC2530DB\ -I                    #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\SOURCE\ -I             #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\ZMAIN\TI2530DB\  #
+#                          -I H:\project\SmartHome_ZigbeeCode\Projects\zstack #
 #                          \Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPONE #
-#                          NTS\STACK\SEC\ -I H:\project\SmartHome\Projects\zs #
-#                          tack\Samples\SmartHome\CC2530DB\..\..\..\..\..\COM #
-#                          PONENTS\STACK\SAPI\ -I H:\project\SmartHome\Projec #
-#                          ts\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\. #
-#                          .\COMPONENTS\STACK\SYS\ -I                         #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\ZDO\ #
-#                           -I H:\project\SmartHome\Projects\zstack\Samples\S #
-#                          martHome\CC2530DB\..\..\..\..\..\COMPONENTS\ZMAC\F #
-#                          8W\ -I H:\project\SmartHome\Projects\zstack\Sample #
-#                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ZMA #
-#                          C\ -I H:\project\SmartHome\Projects\zstack\Samples #
-#                          \SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\SERV #
-#                          ICES\SADDR\ -I H:\project\SmartHome\Projects\zstac #
-#                          k\Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPON #
-#                          ENTS\SERVICES\SDATA\ -I H:\project\SmartHome\Proje #
-#                          cts\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\ #
-#                          ..\COMPONENTS\MAC\INCLUDE\ -I                      #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\HIGH_L #
-#                          EVEL\ -I H:\project\SmartHome\Projects\zstack\Samp #
-#                          les\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\M #
-#                          AC\LOW_LEVEL\srf04\ -I H:\project\SmartHome\Projec #
-#                          ts\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\. #
-#                          .\COMPONENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\      #
-#                          -Ohz --require_prototypes                          #
-#    List file          =  H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\List\OSAL.lst          #
-#    Object file        =  H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\Obj\OSAL.r51           #
+#                          NTS\MT\ -I H:\project\SmartHome_ZigbeeCode\Project #
+#                          s\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\.. #
+#                          \COMPONENTS\HAL\INCLUDE\ -I                        #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\TARGET\CC2530EB\ -I                           #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\MCU\CCSOC\ -I H:\project\SmartHome_ZigbeeCod #
+#                          e\Projects\zstack\Samples\SmartHome\CC2530DB\..\.. #
+#                          \..\..\..\COMPONENTS\OSAL\INCLUDE\ -I              #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\AF\ -I H:\project\SmartHome_ZigbeeCode\Proj #
+#                          ects\zstack\Samples\SmartHome\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\STACK\NWK\ -I                       #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SEC\ -I H:\project\SmartHome_ZigbeeCode\Pro #
+#                          jects\zstack\Samples\SmartHome\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\STACK\SAPI\ -I                     #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SYS\ -I H:\project\SmartHome_ZigbeeCode\Pro #
+#                          jects\zstack\Samples\SmartHome\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\STACK\ZDO\ -I                      #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\F8W\ -I H:\project\SmartHome_ZigbeeCode\Proj #
+#                          ects\zstack\Samples\SmartHome\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\ZMAC\ -I H:\project\SmartHome_Zigbe #
+#                          eCode\Projects\zstack\Samples\SmartHome\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\SERVICES\SADDR\ -I        #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \SERVICES\SDATA\ -I H:\project\SmartHome_ZigbeeCod #
+#                          e\Projects\zstack\Samples\SmartHome\CC2530DB\..\.. #
+#                          \..\..\..\COMPONENTS\MAC\INCLUDE\ -I               #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\HIGH_LEVEL\ -I H:\project\SmartHome_ZigbeeCod #
+#                          e\Projects\zstack\Samples\SmartHome\CC2530DB\..\.. #
+#                          \..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\ -I       #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\SINGLE_CHIP\ -Ohz             #
+#    List file          =  H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\List\OSAL.l #
+#                          st                                                 #
+#    Object file        =  H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\Obj\OSAL.r5 #
+#                          1                                                  #
 #                                                                             #
 #                                                                             #
 ###############################################################################
 
-H:\project\SmartHome\Components\osal\common\OSAL.c
+H:\project\SmartHome_ZigbeeCode\Components\osal\common\OSAL.c
       1          /**************************************************************************************************
       2            Filename:       OSAL.c
       3            Revised:        $Date: 2009-12-04 08:04:20 -0800 (Fri, 04 Dec 2009) $
@@ -133,7 +144,7 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
      24            its documentation for any purpose.
      25          
      26            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
-     27            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+     27            PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
      28            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
      29            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
      30            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -170,113 +181,78 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
      56          
      57          /* HAL */
      58          #include "hal_drivers.h"
-     59          
-     60          /*********************************************************************
-     61           * MACROS
-     62           */
-     63          
-     64          /*********************************************************************
-     65           * CONSTANTS
-     66           */
-     67          
-     68          /*********************************************************************
-     69           * TYPEDEFS
-     70           */
-     71          
-     72          /*********************************************************************
-     73           * GLOBAL VARIABLES
-     74           */
-     75          
-     76          // Message Pool Definitions
+     59          //#include "IC.h"
+     60          
+     61          // Message Pool Definitions
 
    \                                 In  segment XDATA_Z, align 1, keep-with-next
-     77          osal_msg_q_t osal_qHead;
+     62          osal_msg_q_t osal_qHead;
    \                     osal_qHead:
    \   000000                DS 2
    \   000002                REQUIRE __INIT_XDATA_Z
-     78          
-     79          /*********************************************************************
-     80           * EXTERNAL VARIABLES
-     81           */
-     82          
-     83          /*********************************************************************
-     84           * EXTERNAL FUNCTIONS
-     85           */
-     86          
-     87          /*********************************************************************
-     88           * LOCAL VARIABLES
-     89           */
-     90          
-     91          /*********************************************************************
-     92           * LOCAL FUNCTION PROTOTYPES
-     93           */
-     94          
-     95          /*********************************************************************
-     96           * HELPER FUNCTIONS
-     97           */
-     98          /* very ugly stub so Keil can compile */
-     99          #ifdef __KEIL__
-    100          char *  itoa ( int value, char * buffer, int radix )
-    101          {
-    102            return(buffer);
-    103          }
-    104          #endif
-    105          
-    106          /*********************************************************************
-    107           * @fn      osal_strlen
-    108           *
-    109           * @brief
-    110           *
-    111           *   Calculates the length of a string.  The string must be null
-    112           *   terminated.
-    113           *
-    114           * @param   char *pString - pointer to text string
-    115           *
-    116           * @return  int - number of characters
-    117           */
+     63          /* very ugly stub so Keil can compile */
+     64          #ifdef __KEIL__
+     65          char *  itoa ( int value, char * buffer, int radix )
+     66          {
+     67            return(buffer);
+     68          }
+     69          #endif
+     70          
+     71          /*********************************************************************
+     72           * @fn      osal_strlen
+     73           *
+     74           * @brief
+     75           *
+     76           *   Calculates the length of a string.  The string must be null
+     77           *   terminated.
+     78           *
+     79           * @param   char *pString - pointer to text string
+     80           *
+     81           * @return  int - number of characters
+     82           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    118          int osal_strlen( char *pString )
+     83          int osal_strlen( char *pString )
    \                     osal_strlen:
-    119          {
+     84          {
    \   000000   C082         PUSH    DPL
    \   000002   C083         PUSH    DPH
    \   000004                ; Saved register size: 2
    \   000004                ; Auto size: 0
-    120            return (int)( strlen( pString ) );
+     85            return (int)( strlen( pString ) );
    \   000004                ; Setup parameters for call to function strlen
    \   000004   12....       LCALL   ??strlen?relay
    \   000007   02....       LJMP    ?Subroutine0 & 0xFFFF
-    121          }
+     86          }
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine0:
    \   000000   D083         POP     DPH
    \   000002   D082         POP     DPL
    \   000004   02....       LJMP    ?BRET
-    122          
-    123          /*********************************************************************
-    124           * @fn      osal_memcpy
-    125           *
-    126           * @brief
-    127           *
-    128           *   Generic memory copy.
-    129           *
-    130           *   Note: This function differs from the standard memcpy(), since
-    131           *         it returns the pointer to the next destination uint8. The
-    132           *         standard memcpy() returns the original destination address.
-    133           *
-    134           * @param   dst - destination address
-    135           * @param   src - source address
-    136           * @param   len - number of bytes to copy
-    137           *
-    138           * @return  pointer to end of destination buffer
-    139           */
+     87          
+     88          /*********************************************************************
+     89           * @fn      osal_memcpy
+     90           *
+     91           * @brief
+     92           *
+     93           *   Generic memory copy.
+     94           *
+     95           *   Note: This function differs from the standard memcpy(), since
+     96           *         it returns the pointer to the next destination uint8. The
+     97           *         standard memcpy() returns the original destination address.
+     98           *
+     99           * @param   dst - destination address
+    100           * @param   src - source address
+    101           * @param   len - number of bytes to copy
+    102           *
+    103           * @return  pointer to end of destination buffer
+    104           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    140          void *osal_memcpy( void *dst, const void GENERIC *src, unsigned int len )
+    105          void *osal_memcpy( void *dst, const void GENERIC *src, unsigned int len )
    \                     osal_memcpy:
-    141          {
+    106          {
    \   000000   74F5         MOV     A,#-0xb
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 11
@@ -291,20 +267,20 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \                     ??CrossCallReturnLabel_13:
    \   000011   A3           INC     DPTR
    \   000012   E0           MOVX    A,@DPTR
-    142            uint8 *pDst;
-    143            const uint8 GENERIC *pSrc;
-    144          
-    145            pSrc = src;
+    107            uint8 *pDst;
+    108            const uint8 GENERIC *pSrc;
+    109          
+    110            pSrc = src;
    \   000013   A9..         MOV     R1,?V0 + 0
    \   000015   AA..         MOV     R2,?V0 + 1
    \   000017   FB           MOV     R3,A
-    146            pDst = dst;
+    111            pDst = dst;
    \   000018   8E82         MOV     DPL,R6
    \   00001A   8F83         MOV     DPH,R7
    \   00001C   800D         SJMP    ??osal_memcpy_0
-    147          
-    148            while ( len-- )
-    149              *pDst++ = *pSrc++;
+    112          
+    113            while ( len-- )
+    114              *pDst++ = *pSrc++;
    \                     ??osal_memcpy_1:
    \   00001E   12....       LCALL   ?C_GPTR_LOAD
    \   000021   F0           MOVX    @DPTR,A
@@ -319,13 +295,13 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00002B   12....       LCALL   ?Subroutine22 & 0xFFFF
    \                     ??CrossCallReturnLabel_39:
    \   00002E   70EE         JNZ     ??osal_memcpy_1
-    150          
-    151            return ( pDst );
+    115          
+    116            return ( pDst );
    \   000030   AA82         MOV     R2,DPL
    \   000032   AB83         MOV     R3,DPH
    \   000034                REQUIRE ?Subroutine1
    \   000034                ; // Fall through to label ?Subroutine1
-    152          }
+    117          }
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine1:
@@ -356,29 +332,29 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000004   E0           MOVX    A,@DPTR
    \   000005   F5..         MOV     ?V0 + 1,A
    \   000007   22           RET
-    153          
-    154          /*********************************************************************
-    155           * @fn      osal_revmemcpy
-    156           *
-    157           * @brief   Generic reverse memory copy.  Starts at the end of the 
-    158           *   source buffer, by taking the source address pointer and moving 
-    159           *   pointer ahead "len" bytes, then decrementing the pointer.
-    160           *
-    161           *   Note: This function differs from the standard memcpy(), since
-    162           *         it returns the pointer to the next destination uint8. The
-    163           *         standard memcpy() returns the original destination address.
-    164           *
-    165           * @param   dst - destination address
-    166           * @param   src - source address
-    167           * @param   len - number of bytes to copy
-    168           *
-    169           * @return  pointer to end of destination buffer
-    170           */
+    118          
+    119          /*********************************************************************
+    120           * @fn      osal_revmemcpy
+    121           *
+    122           * @brief   Generic reverse memory copy.  Starts at the end of the 
+    123           *   source buffer, by taking the source address pointer and moving 
+    124           *   pointer ahead "len" bytes, then decrementing the pointer.
+    125           *
+    126           *   Note: This function differs from the standard memcpy(), since
+    127           *         it returns the pointer to the next destination uint8. The
+    128           *         standard memcpy() returns the original destination address.
+    129           *
+    130           * @param   dst - destination address
+    131           * @param   src - source address
+    132           * @param   len - number of bytes to copy
+    133           *
+    134           * @return  pointer to end of destination buffer
+    135           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    171          void *osal_revmemcpy( void *dst, const void GENERIC *src, unsigned int len )
+    136          void *osal_revmemcpy( void *dst, const void GENERIC *src, unsigned int len )
    \                     osal_revmemcpy:
-    172          {
+    137          {
    \   000000   74F7         MOV     A,#-0x9
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 9
@@ -393,11 +369,11 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00000F   F9           MOV     R1,A
    \   000010   A3           INC     DPTR
    \   000011   12....       LCALL   ?Subroutine14 & 0xFFFF
-    173            uint8 *pDst;
-    174            const uint8 GENERIC *pSrc;
-    175          
-    176            pSrc = src;
-    177            pSrc += (len-1);
+    138            uint8 *pDst;
+    139            const uint8 GENERIC *pSrc;
+    140          
+    141            pSrc = src;
+    142            pSrc += (len-1);
    \                     ??CrossCallReturnLabel_18:
    \   000014   E9           MOV     A,R1
    \   000015   2C           ADD     A,R4
@@ -411,13 +387,13 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00001E   EA           MOV     A,R2
    \   00001F   34FF         ADDC    A,#-0x1
    \   000021   FA           MOV     R2,A
-    178            pDst = dst;
+    143            pDst = dst;
    \   000022   8E82         MOV     DPL,R6
    \   000024   8F83         MOV     DPH,R7
    \   000026   800D         SJMP    ??osal_revmemcpy_0
-    179          
-    180            while ( len-- )
-    181              *pDst++ = *pSrc--;
+    144          
+    145            while ( len-- )
+    146              *pDst++ = *pSrc--;
    \                     ??osal_revmemcpy_1:
    \   000028   12....       LCALL   ?C_GPTR_LOAD
    \   00002B   F0           MOVX    @DPTR,A
@@ -432,12 +408,12 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000035   12....       LCALL   ?Subroutine22 & 0xFFFF
    \                     ??CrossCallReturnLabel_40:
    \   000038   70EE         JNZ     ??osal_revmemcpy_1
-    182          
-    183            return ( pDst );
+    147          
+    148            return ( pDst );
    \   00003A   AA82         MOV     R2,DPL
    \   00003C   AB83         MOV     R3,DPH
    \   00003E   02....       LJMP    ??Subroutine27_0 & 0xFFFF
-    184          }
+    149          }
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ??Subroutine27_0:
@@ -458,24 +434,24 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000003   E0           MOVX    A,@DPTR
    \   000004   FB           MOV     R3,A
    \   000005   22           RET
-    185          
-    186          /*********************************************************************
-    187           * @fn      osal_memdup
-    188           *
-    189           * @brief   Allocates a buffer [with osal_mem_alloc()] and copies
-    190           *          the src buffer into the newly allocated space.
-    191           *
-    192           * @param   src - source address
-    193           * @param   len - number of bytes to copy
-    194           *
-    195           * @return  pointer to the new allocated buffer, or NULL if
-    196           *          allocation problem.
-    197           */
+    150          
+    151          /*********************************************************************
+    152           * @fn      osal_memdup
+    153           *
+    154           * @brief   Allocates a buffer [with osal_mem_alloc()] and copies
+    155           *          the src buffer into the newly allocated space.
+    156           *
+    157           * @param   src - source address
+    158           * @param   len - number of bytes to copy
+    159           *
+    160           * @return  pointer to the new allocated buffer, or NULL if
+    161           *          allocation problem.
+    162           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    198          void *osal_memdup( const void GENERIC *src, unsigned int len )
+    163          void *osal_memdup( const void GENERIC *src, unsigned int len )
    \                     osal_memdup:
-    199          {
+    164          {
    \   000000   74F1         MOV     A,#-0xf
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 15
@@ -487,9 +463,9 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00000C   FE           MOV     R6,A
    \   00000D   ED           MOV     A,R5
    \   00000E   FF           MOV     R7,A
-    200            uint8 *pDst;
-    201            
-    202            pDst = osal_mem_alloc( len );
+    165            uint8 *pDst;
+    166            
+    167            pDst = osal_mem_alloc( len );
    \   00000F                ; Setup parameters for call to function osal_mem_alloc
    \   00000F   EE           MOV     A,R6
    \   000010   FA           MOV     R2,A
@@ -498,12 +474,12 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000013   12....       LCALL   ??osal_mem_alloc?relay
    \   000016   8A..         MOV     ?V0 + 0,R2
    \   000018   8B..         MOV     ?V0 + 1,R3
-    203            if ( pDst )
+    168            if ( pDst )
    \   00001A   EA           MOV     A,R2
    \   00001B   45..         ORL     A,?V0 + 1
    \   00001D   6011         JZ      ??osal_memdup_0
-    204            {
-    205              VOID osal_memcpy( pDst, src, len );
+    169            {
+    170              VOID osal_memcpy( pDst, src, len );
    \   00001F                ; Setup parameters for call to function osal_memcpy
    \   00001F   78..         MOV     R0,#?V0 + 4
    \   000021   12....       LCALL   ?PUSH_XSTACK_I_THREE
@@ -514,34 +490,34 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000028   12....       LCALL   ??osal_memcpy?relay
    \   00002B   7403         MOV     A,#0x3
    \   00002D   12....       LCALL   ?DEALLOC_XSTACK8
-    206            }
-    207          
-    208            return ( (void *)pDst );
+    171            }
+    172          
+    173            return ( (void *)pDst );
    \                     ??osal_memdup_0:
    \   000030   AA..         MOV     R2,?V0 + 0
    \   000032   AB..         MOV     R3,?V0 + 1
    \   000034   7F07         MOV     R7,#0x7
    \   000036   02....       LJMP    ?BANKED_LEAVE_XDATA
-    209          }
-    210          
-    211          /*********************************************************************
-    212           * @fn      osal_memcmp
-    213           *
-    214           * @brief
-    215           *
-    216           *   Generic memory compare.
-    217           *
-    218           * @param   src1 - source 1 addrexx
-    219           * @param   src2 - source 2 address
-    220           * @param   len - number of bytes to compare
-    221           *
-    222           * @return  TRUE - same, FALSE - different
-    223           */
+    174          }
+    175          
+    176          /*********************************************************************
+    177           * @fn      osal_memcmp
+    178           *
+    179           * @brief
+    180           *
+    181           *   Generic memory compare.
+    182           *
+    183           * @param   src1 - source 1 addrexx
+    184           * @param   src2 - source 2 address
+    185           * @param   len - number of bytes to compare
+    186           *
+    187           * @return  TRUE - same, FALSE - different
+    188           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    224          uint8 osal_memcmp( const void GENERIC *src1, const void GENERIC *src2, unsigned int len )
+    189          uint8 osal_memcmp( const void GENERIC *src1, const void GENERIC *src2, unsigned int len )
    \                     osal_memcmp:
-    225          {
+    190          {
    \   000000   74ED         MOV     A,#-0x13
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 19
@@ -556,18 +532,18 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000011   A3           INC     DPTR
    \   000012   E0           MOVX    A,@DPTR
    \   000013   F5..         MOV     ?V0 + 10,A
-    226            const uint8 GENERIC *pSrc1;
-    227            const uint8 GENERIC *pSrc2;
-    228          
-    229            pSrc1 = src1;
+    191            const uint8 GENERIC *pSrc1;
+    192            const uint8 GENERIC *pSrc2;
+    193          
+    194            pSrc1 = src1;
    \   000015   89..         MOV     ?V0 + 0,R1
    \   000017   8A..         MOV     ?V0 + 1,R2
    \   000019   8B..         MOV     ?V0 + 2,R3
-    230            pSrc2 = src2;
+    195            pSrc2 = src2;
    \   00001B   85....       MOV     ?V0 + 4,?V0 + 8
    \   00001E   85....       MOV     ?V0 + 5,?V0 + 9
-    231          
-    232            while ( len-- )
+    196          
+    197            while ( len-- )
    \                     ??osal_memcmp_0:
    \   000021   EC           MOV     A,R4
    \   000022   F8           MOV     R0,A
@@ -582,8 +558,8 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00002D   E8           MOV     A,R0
    \   00002E   49           ORL     A,R1
    \   00002F   6036         JZ      ??osal_memcmp_1
-    233            {
-    234              if( *pSrc1++ != *pSrc2++ )
+    198            {
+    199              if( *pSrc1++ != *pSrc2++ )
    \   000031   A9..         MOV     R1,?V0 + 0
    \   000033   AA..         MOV     R2,?V0 + 1
    \   000035   AB..         MOV     R3,?V0 + 2
@@ -609,44 +585,44 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00005D   12....       LCALL   ?C_GPTR_LOAD
    \   000060   68           XRL     A,R0
    \   000061   60BE         JZ      ??osal_memcmp_0
-    235                return FALSE;
+    200                return FALSE;
    \   000063   7900         MOV     R1,#0x0
    \   000065   8002         SJMP    ??osal_memcmp_2
-    236            }
-    237            return TRUE;
+    201            }
+    202            return TRUE;
    \                     ??osal_memcmp_1:
    \   000067   7901         MOV     R1,#0x1
    \                     ??osal_memcmp_2:
    \   000069   7F0B         MOV     R7,#0xb
    \   00006B   02....       LJMP    ?BANKED_LEAVE_XDATA
-    238          }
-    239          
-    240          
-    241          /*********************************************************************
-    242           * @fn      osal_memset
-    243           *
-    244           * @brief
-    245           *
-    246           *   Set memory buffer to value.
-    247           *
-    248           * @param   dest - pointer to buffer
-    249           * @param   value - what to set each uint8 of the message
-    250           * @param   size - how big
-    251           *
-    252           * @return  value of next widget, 0 if no widget found
-    253           */
+    203          }
+    204          
+    205          
+    206          /*********************************************************************
+    207           * @fn      osal_memset
+    208           *
+    209           * @brief
+    210           *
+    211           *   Set memory buffer to value.
+    212           *
+    213           * @param   dest - pointer to buffer
+    214           * @param   value - what to set each uint8 of the message
+    215           * @param   size - how big
+    216           *
+    217           * @return  value of next widget, 0 if no widget found
+    218           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    254          void *osal_memset( void *dest, uint8 value, int len )
+    219          void *osal_memset( void *dest, uint8 value, int len )
    \                     osal_memset:
-    255          {
+    220          {
    \   000000   74F6         MOV     A,#-0xa
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 10
    \   000005                ; Auto size: 0
    \   000005   E9           MOV     A,R1
    \   000006   FE           MOV     R6,A
-    256            return memset( dest, value, len );
+    221            return memset( dest, value, len );
    \   000007                ; Setup parameters for call to function memset
    \   000007   8C..         MOV     ?V0 + 0,R4
    \   000009   8D..         MOV     ?V0 + 1,R5
@@ -660,34 +636,34 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00001B   12....       LCALL   ?DEALLOC_XSTACK8
    \   00001E                REQUIRE ?Subroutine3
    \   00001E                ; // Fall through to label ?Subroutine3
-    257          }
+    222          }
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine3:
    \   000000   7F02         MOV     R7,#0x2
    \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
-    258          
-    259          /*********************************************************************
-    260           * @fn      osal_build_uint16
-    261           *
-    262           * @brief
-    263           *
-    264           *   Build a uint16 out of 2 bytes (0 then 1).
-    265           *
-    266           * @param   swapped - 0 then 1
-    267           *
-    268           * @return  uint16
-    269           */
+    223          
+    224          /*********************************************************************
+    225           * @fn      osal_build_uint16
+    226           *
+    227           * @brief
+    228           *
+    229           *   Build a uint16 out of 2 bytes (0 then 1).
+    230           *
+    231           * @param   swapped - 0 then 1
+    232           *
+    233           * @return  uint16
+    234           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    270          uint16 osal_build_uint16( uint8 *swapped )
+    235          uint16 osal_build_uint16( uint8 *swapped )
    \                     osal_build_uint16:
-    271          {
+    236          {
    \   000000   C082         PUSH    DPL
    \   000002   C083         PUSH    DPH
    \   000004                ; Saved register size: 2
    \   000004                ; Auto size: 0
-    272            return ( BUILD_UINT16( swapped[0], swapped[1] ) );
+    237            return ( BUILD_UINT16( swapped[0], swapped[1] ) );
    \   000004   8A82         MOV     DPL,R2
    \   000006   8B83         MOV     DPH,R3
    \   000008   E0           MOVX    A,@DPTR
@@ -702,32 +678,32 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000012   39           ADDC    A,R1
    \   000013   FB           MOV     R3,A
    \   000014   02....       LJMP    ?Subroutine0 & 0xFFFF
-    273          }
-    274          
-    275          /*********************************************************************
-    276           * @fn      osal_build_uint32
-    277           *
-    278           * @brief
-    279           *
-    280           *   Build a uint32 out of sequential bytes.
-    281           *
-    282           * @param   swapped - sequential bytes
-    283           * @param   len - number of bytes in the uint8 array
-    284           *
-    285           * @return  uint32
-    286           */
+    238          }
+    239          
+    240          /*********************************************************************
+    241           * @fn      osal_build_uint32
+    242           *
+    243           * @brief
+    244           *
+    245           *   Build a uint32 out of sequential bytes.
+    246           *
+    247           * @param   swapped - sequential bytes
+    248           * @param   len - number of bytes in the uint8 array
+    249           *
+    250           * @return  uint32
+    251           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    287          uint32 osal_build_uint32( uint8 *swapped, uint8 len )
+    252          uint32 osal_build_uint32( uint8 *swapped, uint8 len )
    \                     osal_build_uint32:
-    288          {
+    253          {
    \   000000   74F0         MOV     A,#-0x10
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 16
    \   000005                ; Auto size: 0
    \   000005   E9           MOV     A,R1
    \   000006   FE           MOV     R6,A
-    289            if ( len == 2 )
+    254            if ( len == 2 )
    \   000007   8A82         MOV     DPL,R2
    \   000009   8B83         MOV     DPH,R3
    \   00000B   E0           MOVX    A,@DPTR
@@ -739,16 +715,16 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000015   7402         MOV     A,#0x2
    \   000017   6E           XRL     A,R6
    \   000018   7005         JNZ     ??osal_build_uint32_0
-    290              return ( BUILD_UINT32( swapped[0], swapped[1], 0L, 0L ) );
+    255              return ( BUILD_UINT32( swapped[0], swapped[1], 0L, 0L ) );
    \   00001A   12....       LCALL   ?Subroutine24 & 0xFFFF
    \                     ??CrossCallReturnLabel_43:
    \   00001D   8047         SJMP    ??osal_build_uint32_1
-    291            else if ( len == 3 )
+    256            else if ( len == 3 )
    \                     ??osal_build_uint32_0:
    \   00001F   7403         MOV     A,#0x3
    \   000021   6E           XRL     A,R6
    \   000022   7012         JNZ     ??osal_build_uint32_2
-    292              return ( BUILD_UINT32( swapped[0], swapped[1], swapped[2], 0L ) );
+    257              return ( BUILD_UINT32( swapped[0], swapped[1], swapped[2], 0L ) );
    \   000024   12....       LCALL   ?Subroutine9 & 0xFFFF
    \                     ??CrossCallReturnLabel_9:
    \   000027   12....       LCALL   ?L_SHL
@@ -758,12 +734,12 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000031   12....       LCALL   ?Subroutine17 & 0xFFFF
    \                     ??CrossCallReturnLabel_31:
    \   000034   8030         SJMP    ??osal_build_uint32_1
-    293            else if ( len == 4 )
+    258            else if ( len == 4 )
    \                     ??osal_build_uint32_2:
    \   000036   7404         MOV     A,#0x4
    \   000038   6E           XRL     A,R6
    \   000039   7037         JNZ     ??osal_build_uint32_3
-    294              return ( BUILD_UINT32( swapped[0], swapped[1], swapped[2], swapped[3] ) );
+    259              return ( BUILD_UINT32( swapped[0], swapped[1], swapped[2], swapped[3] ) );
    \   00003B   12....       LCALL   ?Subroutine9 & 0xFFFF
    \                     ??CrossCallReturnLabel_10:
    \   00003E   12....       LCALL   ?L_SHL
@@ -793,15 +769,15 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00006B   78..         MOV     R0,#?V0 + 4
    \   00006D   79..         MOV     R1,#?V0 + 0
    \   00006F   12....       LCALL   ?L_ADD
-    295            else
-    296              return ( (uint32)swapped[0] );
+    260            else
+    261              return ( (uint32)swapped[0] );
    \                     ??osal_build_uint32_3:
    \   000072   AA..         MOV     R2,?V0 + 4
    \   000074   AB..         MOV     R3,?V0 + 5
    \   000076   AC..         MOV     R4,?V0 + 6
    \   000078   AD..         MOV     R5,?V0 + 7
    \   00007A   02....       LJMP    ??Subroutine32_0 & 0xFFFF
-    297          }
+    262          }
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine17:
@@ -839,26 +815,26 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \                     ??Subroutine32_0:
    \   000000   7F08         MOV     R7,#0x8
    \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
-    298          
-    299          #if !defined ( ZBIT ) && !defined ( ZBIT2 ) && !defined (UBIT)
-    300          /*********************************************************************
-    301           * @fn      _ltoa
-    302           *
-    303           * @brief
-    304           *
-    305           *   convert a long unsigned int to a string.
-    306           *
-    307           * @param  l - long to convert
-    308           * @param  buf - buffer to convert to
-    309           * @param  radix - 10 dec, 16 hex
-    310           *
-    311           * @return  pointer to buffer
-    312           */
+    263          
+    264          #if !defined ( ZBIT ) && !defined ( ZBIT2 ) && !defined (UBIT)
+    265          /*********************************************************************
+    266           * @fn      _ltoa
+    267           *
+    268           * @brief
+    269           *
+    270           *   convert a long unsigned int to a string.
+    271           *
+    272           * @param  l - long to convert
+    273           * @param  buf - buffer to convert to
+    274           * @param  radix - 10 dec, 16 hex
+    275           *
+    276           * @return  pointer to buffer
+    277           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    313          unsigned char * _ltoa(unsigned long l, unsigned char *buf, unsigned char radix)
+    278          unsigned char * _ltoa(unsigned long l, unsigned char *buf, unsigned char radix)
    \                     _ltoa:
-    314          {
+    279          {
    \   000000   74E8         MOV     A,#-0x18
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 24
@@ -873,10 +849,10 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000014   8B..         MOV     ?V0 + 9,R3
    \   000016   8C..         MOV     ?V0 + 10,R4
    \   000018   8D..         MOV     ?V0 + 11,R5
-    315          #if defined( __GNUC__ )
-    316            return ( (char*)ltoa( l, buf, radix ) );
-    317          #else
-    318            unsigned char tmp1[10] = "", tmp2[10] = "", tmp3[10] = "";
+    280          #if defined( __GNUC__ )
+    281            return ( (char*)ltoa( l, buf, radix ) );
+    282          #else
+    283            unsigned char tmp1[10] = "", tmp2[10] = "", tmp3[10] = "";
    \   00001A   7403         MOV     A,#0x3
    \   00001C   12....       LCALL   ?XSTACK_DISP0_8
    \   00001F   AC82         MOV     R4,DPL
@@ -893,18 +869,18 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00003C   7582..       MOV     DPL,#`?<Constant "">_2` & 0xff
    \   00003F   740A         MOV     A,#0xa
    \   000041   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
-    319            unsigned short num1, num2, num3;
-    320            unsigned char i;
-    321          
-    322            buf[0] = '\0';
+    284            unsigned short num1, num2, num3;
+    285            unsigned char i;
+    286          
+    287            buf[0] = '\0';
    \   000044   7439         MOV     A,#0x39
    \   000046   12....       LCALL   ?XSTACK_DISP0_8
    \   000049   12....       LCALL   ?Subroutine18 & 0xFFFF
    \                     ??CrossCallReturnLabel_33:
    \   00004C   E4           CLR     A
    \   00004D   F0           MOVX    @DPTR,A
-    323          
-    324            if ( radix == 10 )
+    288          
+    289            if ( radix == 10 )
    \   00004E   04           INC     A
    \   00004F   12....       LCALL   ?XSTACK_DISP0_8
    \   000052   74..         MOV     A,#`?<Constant "0">` & 0xff
@@ -918,8 +894,8 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000060   640A         XRL     A,#0xa
    \   000062   6003         JZ      $+5
    \   000064   02....       LJMP    ??_ltoa_0 & 0xFFFF
-    325            {
-    326              num1 = l % 10000;
+    290            {
+    291              num1 = l % 10000;
    \   000067   8A..         MOV     ?V0 + 0,R2
    \   000069   8B..         MOV     ?V0 + 1,R3
    \   00006B   85....       MOV     ?V0 + 2,?V0 + 10
@@ -932,7 +908,7 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00007D   12....       LCALL   ?UL_DIV_MOD
    \   000080   85....       MOV     ?V0 + 0,?V0 + 4
    \   000083   85....       MOV     ?V0 + 1,?V0 + 5
-    327              num2 = (l / 10000) % 10000;
+    292              num2 = (l / 10000) % 10000;
    \   000086   8A..         MOV     ?V0 + 4,R2
    \   000088   8B..         MOV     ?V0 + 5,R3
    \   00008A   85....       MOV     ?V0 + 6,?V0 + 10
@@ -951,7 +927,7 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   0000AB   12....       LCALL   ?UL_DIV_MOD
    \   0000AE   AE..         MOV     R6,?V0 + 12
    \   0000B0   AF..         MOV     R7,?V0 + 13
-    328              num3 = (unsigned short)(l / 100000000);
+    293              num3 = (unsigned short)(l / 100000000);
    \   0000B2   90....       MOV     DPTR,#__Constant_5f5e100
    \   0000B5   78..         MOV     R0,#?V0 + 4
    \   0000B7   12....       LCALL   ?L_MOV_X
@@ -960,8 +936,8 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   0000BE   12....       LCALL   ?UL_DIV_MOD
    \   0000C1   85....       MOV     ?V0 + 2,?V0 + 8
    \   0000C4   85....       MOV     ?V0 + 3,?V0 + 9
-    329          
-    330              if (num3) _itoa(num3, tmp3, 10);
+    294          
+    295              if (num3) _itoa(num3, tmp3, 10);
    \   0000C7   E5..         MOV     A,?V0 + 2
    \   0000C9   45..         ORL     A,?V0 + 3
    \   0000CB   6012         JZ      ??_ltoa_1
@@ -974,7 +950,7 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   0000D8   AA..         MOV     R2,?V0 + 2
    \   0000DA   AB..         MOV     R3,?V0 + 3
    \   0000DC   12....       LCALL   ??_itoa?relay
-    331              if (num2) _itoa(num2, tmp2, 10);
+    296              if (num2) _itoa(num2, tmp2, 10);
    \                     ??_ltoa_1:
    \   0000DF   EE           MOV     A,R6
    \   0000E0   4F           ORL     A,R7
@@ -990,7 +966,7 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   0000F0   EF           MOV     A,R7
    \   0000F1   FB           MOV     R3,A
    \   0000F2   12....       LCALL   ??_itoa?relay
-    332              if (num1) _itoa(num1, tmp1, 10);
+    297              if (num1) _itoa(num1, tmp1, 10);
    \                     ??_ltoa_2:
    \   0000F5   E5..         MOV     A,?V0 + 0
    \   0000F7   45..         ORL     A,?V0 + 1
@@ -1004,14 +980,14 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000106   AA..         MOV     R2,?V0 + 0
    \   000108   AB..         MOV     R3,?V0 + 1
    \   00010A   12....       LCALL   ??_itoa?relay
-    333          
-    334              if (num3)
+    298          
+    299              if (num3)
    \                     ??_ltoa_3:
    \   00010D   E5..         MOV     A,?V0 + 2
    \   00010F   45..         ORL     A,?V0 + 3
    \   000111   602E         JZ      ??_ltoa_4
-    335              {
-    336                strcpy((char*)buf, (char const*)tmp3);
+    300              {
+    301                strcpy((char*)buf, (char const*)tmp3);
    \   000113                ; Setup parameters for call to function strcpy
    \   000113   7417         MOV     A,#0x17
    \   000115   12....       LCALL   ?XSTACK_DISP0_8
@@ -1020,10 +996,10 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00011C   7439         MOV     A,#0x39
    \   00011E   12....       LCALL   ?XSTACK_DISP0_8
    \   000121   12....       LCALL   ?Subroutine12 & 0xFFFF
-    337                for (i = 0; i < 4 - strlen((char const*)tmp2); i++)
+    302                for (i = 0; i < 4 - strlen((char const*)tmp2); i++)
    \                     ??CrossCallReturnLabel_16:
    \   000124   800E         SJMP    ??CrossCallReturnLabel_2
-    338                  strcat((char*)buf, "0");
+    303                  strcat((char*)buf, "0");
    \                     ??_ltoa_5:
    \   000126                ; Setup parameters for call to function strcat
    \   000126   7401         MOV     A,#0x1
@@ -1038,10 +1014,10 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000137   740D         MOV     A,#0xd
    \   000139   12....       LCALL   ?XSTACK_DISP0_8
    \   00013C   12....       LCALL   ?Subroutine5 & 0xFFFF
-    339              }
+    304              }
    \                     ??CrossCallReturnLabel_0:
    \   00013F   40E5         JC      ??_ltoa_5
-    340              strcat((char*)buf, (char const*)tmp2);
+    305              strcat((char*)buf, (char const*)tmp2);
    \                     ??_ltoa_4:
    \   000141                ; Setup parameters for call to function strcat
    \   000141   740D         MOV     A,#0xd
@@ -1051,18 +1027,18 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00014A   7439         MOV     A,#0x39
    \   00014C   12....       LCALL   ?XSTACK_DISP0_8
    \   00014F   12....       LCALL   ?Subroutine10 & 0xFFFF
-    341              if (num3 || num2)
+    306              if (num3 || num2)
    \                     ??CrossCallReturnLabel_11:
    \   000152   7004         JNZ     ??_ltoa_6
    \   000154   EE           MOV     A,R6
    \   000155   4F           ORL     A,R7
    \   000156   6020         JZ      ??_ltoa_7
-    342              {
-    343                for (i = 0; i < 4 - strlen((char const*)tmp1); i++)
+    307              {
+    308                for (i = 0; i < 4 - strlen((char const*)tmp1); i++)
    \                     ??_ltoa_6:
    \   000158   75..00       MOV     ?V0 + 4,#0x0
    \   00015B   800E         SJMP    ??CrossCallReturnLabel_3
-    344                  strcat((char*)buf, "0");
+    309                  strcat((char*)buf, "0");
    \                     ??_ltoa_8:
    \   00015D                ; Setup parameters for call to function strcat
    \   00015D   7401         MOV     A,#0x1
@@ -1077,10 +1053,10 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00016E   7403         MOV     A,#0x3
    \   000170   12....       LCALL   ?XSTACK_DISP0_8
    \   000173   12....       LCALL   ?Subroutine5 & 0xFFFF
-    345              }
+    310              }
    \                     ??CrossCallReturnLabel_1:
    \   000176   40E5         JC      ??_ltoa_8
-    346              strcat((char*)buf, (char const*)tmp1);
+    311              strcat((char*)buf, (char const*)tmp1);
    \                     ??_ltoa_7:
    \   000178                ; Setup parameters for call to function strcat
    \   000178   7403         MOV     A,#0x3
@@ -1090,7 +1066,7 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000181   7439         MOV     A,#0x39
    \   000183   12....       LCALL   ?XSTACK_DISP0_8
    \   000186   12....       LCALL   ?Subroutine10 & 0xFFFF
-    347              if (!num3 && !num2 && !num1)
+    312              if (!num3 && !num2 && !num1)
    \                     ??CrossCallReturnLabel_12:
    \   000189   701B         JNZ     ??_ltoa_9
    \   00018B   EE           MOV     A,R6
@@ -1100,39 +1076,39 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00018F   E5..         MOV     A,?V0 + 0
    \   000191   45..         ORL     A,?V0 + 1
    \   000193   7011         JNZ     ??_ltoa_9
-    348                strcpy((char*)buf, "0");
+    313                strcpy((char*)buf, "0");
    \   000195                ; Setup parameters for call to function strcpy
    \   000195   7401         MOV     A,#0x1
    \   000197   12....       LCALL   ?XSTACK_DISP0_8
    \   00019A   12....       LCALL   ?Subroutine8 & 0xFFFF
-    349            }
+    314            }
    \                     ??CrossCallReturnLabel_7:
    \   00019D   12....       LCALL   ?XSTACK_DISP0_8
    \   0001A0   12....       LCALL   ?Subroutine14 & 0xFFFF
    \                     ??CrossCallReturnLabel_19:
    \   0001A3   12....       LCALL   ??strcpy?relay
-    350            else if ( radix == 16 )
-    351            {
-    352              num1 = l & 0x0000FFFF;
-    353              num2 = l >> 16;
-    354          
-    355              if (num2) _itoa(num2, tmp2, 16);
-    356              if (num1) _itoa(num1, tmp1, 16);
-    357          
-    358              if (num2)
-    359              {
-    360                strcpy((char*)buf,(char const*)tmp2);
-    361                for (i = 0; i < 4 - strlen((char const*)tmp1); i++)
-    362                  strcat((char*)buf, "0");
-    363              }
-    364              strcat((char*)buf, (char const*)tmp1);
-    365              if (!num2 && !num1)
-    366                strcpy((char*)buf, "0");
-    367            }
-    368            else
-    369              return NULL;
-    370          
-    371            return buf;
+    315            else if ( radix == 16 )
+    316            {
+    317              num1 = l & 0x0000FFFF;
+    318              num2 = l >> 16;
+    319          
+    320              if (num2) _itoa(num2, tmp2, 16);
+    321              if (num1) _itoa(num1, tmp1, 16);
+    322          
+    323              if (num2)
+    324              {
+    325                strcpy((char*)buf,(char const*)tmp2);
+    326                for (i = 0; i < 4 - strlen((char const*)tmp1); i++)
+    327                  strcat((char*)buf, "0");
+    328              }
+    329              strcat((char*)buf, (char const*)tmp1);
+    330              if (!num2 && !num1)
+    331                strcpy((char*)buf, "0");
+    332            }
+    333            else
+    334              return NULL;
+    335          
+    336            return buf;
    \                     ??_ltoa_9:
    \   0001A6   7439         MOV     A,#0x39
    \   0001A8   12....       LCALL   ?XSTACK_DISP0_8
@@ -1246,8 +1222,8 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000265   7A00         MOV     R2,#0x0
    \   000267   7B00         MOV     R3,#0x0
    \   000269   02....       LJMP    ??CrossCallReturnLabel_20 & 0xFFFF
-    372          #endif
-    373          }
+    337          #endif
+    338          }
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine12:
@@ -1319,63 +1295,63 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000004   F583         MOV     DPH,A
    \   000006   8882         MOV     DPL,R0
    \   000008   22           RET
-    374          #endif // !defined(ZBIT) && !defined(ZBIT2)
-    375          
-    376          /*********************************************************************
-    377           * @fn        osal_rand
-    378           *
-    379           * @brief    Random number generator
-    380           *
-    381           * @param   none
-    382           *
-    383           * @return  uint16 - new random number
-    384           */
+    339          #endif // !defined(ZBIT) && !defined(ZBIT2)
+    340          
+    341          /*********************************************************************
+    342           * @fn        osal_rand
+    343           *
+    344           * @brief    Random number generator
+    345           *
+    346           * @param   none
+    347           *
+    348           * @return  uint16 - new random number
+    349           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    385          uint16 osal_rand( void )
+    350          uint16 osal_rand( void )
    \                     osal_rand:
-    386          {
+    351          {
    \   000000   C082         PUSH    DPL
    \   000002   C083         PUSH    DPH
    \   000004                ; Saved register size: 2
    \   000004                ; Auto size: 0
-    387            return ( Onboard_rand() );
+    352            return ( Onboard_rand() );
    \   000004                ; Setup parameters for call to function Onboard_rand
    \   000004   12....       LCALL   ??Onboard_rand?relay
    \   000007   80..         SJMP    ?Subroutine0
-    388          }
-    389          
-    390          /*********************************************************************
-    391           * API FUNCTIONS
-    392           *********************************************************************/
-    393          
-    394          /*********************************************************************
-    395           * @fn      osal_msg_allocate
-    396           *
-    397           * @brief
-    398           *
-    399           *    This function is called by a task to allocate a message buffer
-    400           *    into which the task will encode the particular message it wishes
-    401           *    to send.  This common buffer scheme is used to strictly limit the
-    402           *    creation of message buffers within the system due to RAM size
-    403           *    limitations on the microprocessor.   Note that all message buffers
-    404           *    are a fixed size (at least initially).  The parameter len is kept
-    405           *    in case a message pool with varying fixed message sizes is later
-    406           *    created (for example, a pool of message buffers of size LARGE,
-    407           *    MEDIUM and SMALL could be maintained and allocated based on request
-    408           *    from the tasks).
-    409           *
-    410           *
-    411           * @param   uint8 len  - wanted buffer length
-    412           *
-    413           *
-    414           * @return  pointer to allocated buffer or NULL if allocation failed.
-    415           */
+    353          }
+    354          
+    355          /*********************************************************************
+    356           * API FUNCTIONS
+    357           *********************************************************************/
+    358          
+    359          /*********************************************************************
+    360           * @fn      osal_msg_allocate
+    361           *
+    362           * @brief
+    363           *
+    364           *    This function is called by a task to allocate a message buffer
+    365           *    into which the task will encode the particular message it wishes
+    366           *    to send.  This common buffer scheme is used to strictly limit the
+    367           *    creation of message buffers within the system due to RAM size
+    368           *    limitations on the microprocessor.   Note that all message buffers
+    369           *    are a fixed size (at least initially).  The parameter len is kept
+    370           *    in case a message pool with varying fixed message sizes is later
+    371           *    created (for example, a pool of message buffers of size LARGE,
+    372           *    MEDIUM and SMALL could be maintained and allocated based on request
+    373           *    from the tasks).
+    374           *
+    375           *
+    376           * @param   uint8 len  - wanted buffer length
+    377           *
+    378           *
+    379           * @return  pointer to allocated buffer or NULL if allocation failed.
+    380           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    416          uint8 * osal_msg_allocate( uint16 len )
+    381          uint8 * osal_msg_allocate( uint16 len )
    \                     osal_msg_allocate:
-    417          {
+    382          {
    \   000000   74F6         MOV     A,#-0xa
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 10
@@ -1384,19 +1360,19 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000006   FE           MOV     R6,A
    \   000007   EB           MOV     A,R3
    \   000008   FF           MOV     R7,A
-    418            osal_msg_hdr_t *hdr;
-    419          
-    420            if ( len == 0 )
+    383            osal_msg_hdr_t *hdr;
+    384          
+    385            if ( len == 0 )
    \   000009   EE           MOV     A,R6
    \   00000A   4F           ORL     A,R7
    \   00000B   7006         JNZ     ??osal_msg_allocate_0
-    421              return ( NULL );
+    386              return ( NULL );
    \                     ??osal_msg_allocate_1:
    \   00000D   7A00         MOV     R2,#0x0
    \   00000F   7B00         MOV     R3,#0x0
    \   000011   8037         SJMP    ??osal_msg_allocate_2
-    422          
-    423            hdr = (osal_msg_hdr_t *) osal_mem_alloc( (short)(len + sizeof( osal_msg_hdr_t )) );
+    387          
+    388            hdr = (osal_msg_hdr_t *) osal_mem_alloc( (short)(len + sizeof( osal_msg_hdr_t )) );
    \                     ??osal_msg_allocate_0:
    \   000013                ; Setup parameters for call to function osal_mem_alloc
    \   000013   EE           MOV     A,R6
@@ -1410,25 +1386,25 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000020   8B..         MOV     ?V0 + 1,R3
    \   000022   A8..         MOV     R0,?V0 + 0
    \   000024   A9..         MOV     R1,?V0 + 1
-    424            if ( hdr )
+    389            if ( hdr )
    \   000026   E8           MOV     A,R0
    \   000027   49           ORL     A,R1
    \   000028   60E3         JZ      ??osal_msg_allocate_1
-    425            {
-    426              hdr->next = NULL;
+    390            {
+    391              hdr->next = NULL;
    \   00002A   8882         MOV     DPL,R0
    \   00002C   8983         MOV     DPH,R1
    \   00002E   E4           CLR     A
    \   00002F   F0           MOVX    @DPTR,A
    \   000030   A3           INC     DPTR
    \   000031   F0           MOVX    @DPTR,A
-    427              hdr->len = len;
+    392              hdr->len = len;
    \   000032   8882         MOV     DPL,R0
    \   000034   8983         MOV     DPH,R1
    \   000036   A3           INC     DPTR
    \   000037   A3           INC     DPTR
    \   000038   12....       LCALL   ?Subroutine23 & 0xFFFF
-    428              hdr->dest_id = TASK_NO_TASK;
+    393              hdr->dest_id = TASK_NO_TASK;
    \                     ??CrossCallReturnLabel_41:
    \   00003B   A3           INC     DPTR
    \   00003C   A3           INC     DPTR
@@ -1436,19 +1412,19 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00003E   A3           INC     DPTR
    \   00003F   74FF         MOV     A,#-0x1
    \   000041   F0           MOVX    @DPTR,A
-    429              return ( (uint8 *) (hdr + 1) );
+    394              return ( (uint8 *) (hdr + 1) );
    \   000042   E8           MOV     A,R0
    \   000043   2405         ADD     A,#0x5
    \   000045   FA           MOV     R2,A
    \   000046   E9           MOV     A,R1
    \   000047   3400         ADDC    A,#0x0
    \   000049   FB           MOV     R3,A
-    430            }
+    395            }
    \                     ??osal_msg_allocate_2:
    \   00004A   02....       LJMP    ?Subroutine3 & 0xFFFF
-    431            else
-    432              return ( NULL );
-    433          }
+    396            else
+    397              return ( NULL );
+    398          }
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine23:
@@ -1460,53 +1436,53 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000005   8882         MOV     DPL,R0
    \   000007   8983         MOV     DPH,R1
    \   000009   22           RET
-    434          
-    435          /*********************************************************************
-    436           * @fn      osal_msg_deallocate
-    437           *
-    438           * @brief
-    439           *
-    440           *    This function is used to deallocate a message buffer. This function
-    441           *    is called by a task (or processing element) after it has finished
-    442           *    processing a received message.
-    443           *
-    444           *
-    445           * @param   uint8 *msg_ptr - pointer to new message buffer
-    446           *
-    447           * @return  SUCCESS, INVALID_MSG_POINTER
-    448           */
+    399          
+    400          /*********************************************************************
+    401           * @fn      osal_msg_deallocate
+    402           *
+    403           * @brief
+    404           *
+    405           *    This function is used to deallocate a message buffer. This function
+    406           *    is called by a task (or processing element) after it has finished
+    407           *    processing a received message.
+    408           *
+    409           *
+    410           * @param   uint8 *msg_ptr - pointer to new message buffer
+    411           *
+    412           * @return  SUCCESS, INVALID_MSG_POINTER
+    413           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    449          uint8 osal_msg_deallocate( uint8 *msg_ptr )
+    414          uint8 osal_msg_deallocate( uint8 *msg_ptr )
    \                     osal_msg_deallocate:
-    450          {
+    415          {
    \   000000   C082         PUSH    DPL
    \   000002   C083         PUSH    DPH
    \   000004                ; Saved register size: 2
    \   000004                ; Auto size: 0
-    451            uint8 *x;
-    452          
-    453            if ( msg_ptr == NULL )
+    416            uint8 *x;
+    417          
+    418            if ( msg_ptr == NULL )
    \   000004   EA           MOV     A,R2
    \   000005   4B           ORL     A,R3
    \   000006   7004         JNZ     ??osal_msg_deallocate_0
-    454              return ( INVALID_MSG_POINTER );
+    419              return ( INVALID_MSG_POINTER );
    \   000008   7905         MOV     R1,#0x5
    \   00000A   8016         SJMP    ??osal_msg_deallocate_1
-    455          
-    456            // don't deallocate queued buffer
-    457            if ( OSAL_MSG_ID( msg_ptr ) != TASK_NO_TASK )
+    420          
+    421            // don't deallocate queued buffer
+    422            if ( OSAL_MSG_ID( msg_ptr ) != TASK_NO_TASK )
    \                     ??osal_msg_deallocate_0:
    \   00000C   12....       LCALL   ?Subroutine19 & 0xFFFF
    \                     ??CrossCallReturnLabel_35:
    \   00000F   6004         JZ      ??osal_msg_deallocate_2
-    458              return ( MSG_BUFFER_NOT_AVAIL );
+    423              return ( MSG_BUFFER_NOT_AVAIL );
    \   000011   7904         MOV     R1,#0x4
    \   000013   800D         SJMP    ??osal_msg_deallocate_1
-    459          
-    460            x = (uint8 *)((uint8 *)msg_ptr - sizeof( osal_msg_hdr_t ));
-    461          
-    462            osal_mem_free( (void *)x );
+    424          
+    425            x = (uint8 *)((uint8 *)msg_ptr - sizeof( osal_msg_hdr_t ));
+    426          
+    427            osal_mem_free( (void *)x );
    \                     ??osal_msg_deallocate_2:
    \   000015                ; Setup parameters for call to function osal_mem_free
    \   000015   EA           MOV     A,R2
@@ -1516,13 +1492,13 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00001A   34FF         ADDC    A,#-0x1
    \   00001C   FB           MOV     R3,A
    \   00001D   12....       LCALL   ??osal_mem_free?relay
-    463          
-    464            return ( SUCCESS );
+    428          
+    429            return ( SUCCESS );
    \   000020   7900         MOV     R1,#0x0
    \                     ??osal_msg_deallocate_1:
    \   000022                REQUIRE ?Subroutine0
    \   000022                ; // Fall through to label ?Subroutine0
-    465          }
+    430          }
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine19:
@@ -1535,46 +1511,46 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00000A   E0           MOVX    A,@DPTR
    \   00000B   F4           CPL     A
    \   00000C   22           RET
-    466          
-    467          /*********************************************************************
-    468           * @fn      osal_msg_send
-    469           *
-    470           * @brief
-    471           *
-    472           *    This function is called by a task to send a command message to
-    473           *    another task or processing element.  The sending_task field must
-    474           *    refer to a valid task, since the task ID will be used
-    475           *    for the response message.  This function will also set a message
-    476           *    ready event in the destination tasks event list.
-    477           *
-    478           *
-    479           * @param   uint8 destination task - Send msg to?  Task ID
-    480           * @param   uint8 *msg_ptr - pointer to new message buffer
-    481           * @param   uint8 len - length of data in message
-    482           *
-    483           * @return  SUCCESS, INVALID_TASK, INVALID_MSG_POINTER
-    484           */
+    431          
+    432          /*********************************************************************
+    433           * @fn      osal_msg_send
+    434           *
+    435           * @brief
+    436           *
+    437           *    This function is called by a task to send a command message to
+    438           *    another task or processing element.  The sending_task field must
+    439           *    refer to a valid task, since the task ID will be used
+    440           *    for the response message.  This function will also set a message
+    441           *    ready event in the destination tasks event list.
+    442           *
+    443           *
+    444           * @param   uint8 destination task - Send msg to?  Task ID
+    445           * @param   uint8 *msg_ptr - pointer to new message buffer
+    446           * @param   uint8 len - length of data in message
+    447           *
+    448           * @return  SUCCESS, INVALID_TASK, INVALID_MSG_POINTER
+    449           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    485          uint8 osal_msg_send( uint8 destination_task, uint8 *msg_ptr )
+    450          uint8 osal_msg_send( uint8 destination_task, uint8 *msg_ptr )
    \                     osal_msg_send:
-    486          {
+    451          {
    \   000000   74F7         MOV     A,#-0x9
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 9
    \   000005                ; Auto size: 0
    \   000005   E9           MOV     A,R1
    \   000006   FE           MOV     R6,A
-    487            if ( msg_ptr == NULL )
+    452            if ( msg_ptr == NULL )
    \   000007   EA           MOV     A,R2
    \   000008   4B           ORL     A,R3
    \   000009   7004         JNZ     ??osal_msg_send_0
-    488              return ( INVALID_MSG_POINTER );
+    453              return ( INVALID_MSG_POINTER );
    \                     ??osal_msg_send_1:
    \   00000B   7905         MOV     R1,#0x5
    \   00000D   803B         SJMP    ??osal_msg_send_2
-    489          
-    490            if ( destination_task >= tasksCnt )
+    454          
+    455            if ( destination_task >= tasksCnt )
    \                     ??osal_msg_send_0:
    \   00000F   90....       MOV     DPTR,#tasksCnt
    \   000012   E0           MOVX    A,@DPTR
@@ -1583,18 +1559,18 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000015   C3           CLR     C
    \   000016   98           SUBB    A,R0
    \   000017   4007         JC      ??osal_msg_send_3
-    491            {
-    492              osal_msg_deallocate( msg_ptr );
+    456            {
+    457              osal_msg_deallocate( msg_ptr );
    \   000019                ; Setup parameters for call to function osal_msg_deallocate
    \   000019   12....       LCALL   ??osal_msg_deallocate?relay
-    493              return ( INVALID_TASK );
+    458              return ( INVALID_TASK );
    \   00001C   7903         MOV     R1,#0x3
    \   00001E   802A         SJMP    ??osal_msg_send_2
-    494            }
-    495          
-    496            // Check the message header
-    497            if ( OSAL_MSG_NEXT( msg_ptr ) != NULL ||
-    498                 OSAL_MSG_ID( msg_ptr ) != TASK_NO_TASK )
+    459            }
+    460          
+    461            // Check the message header
+    462            if ( OSAL_MSG_NEXT( msg_ptr ) != NULL ||
+    463                 OSAL_MSG_ID( msg_ptr ) != TASK_NO_TASK )
    \                     ??osal_msg_send_3:
    \   000020   12....       LCALL   ?Subroutine20 & 0xFFFF
    \                     ??CrossCallReturnLabel_62:
@@ -1604,22 +1580,22 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000028   12....       LCALL   ?Subroutine19 & 0xFFFF
    \                     ??CrossCallReturnLabel_36:
    \   00002B   6005         JZ      ??osal_msg_send_5
-    499            {
-    500              osal_msg_deallocate( msg_ptr );
+    464            {
+    465              osal_msg_deallocate( msg_ptr );
    \                     ??osal_msg_send_4:
    \   00002D                ; Setup parameters for call to function osal_msg_deallocate
    \   00002D   12....       LCALL   ??osal_msg_deallocate?relay
-    501              return ( INVALID_MSG_POINTER );
+    466              return ( INVALID_MSG_POINTER );
    \   000030   80D9         SJMP    ??osal_msg_send_1
-    502            }
-    503          
-    504            OSAL_MSG_ID( msg_ptr ) = destination_task;
+    467            }
+    468          
+    469            OSAL_MSG_ID( msg_ptr ) = destination_task;
    \                     ??osal_msg_send_5:
    \   000032   EE           MOV     A,R6
    \   000033   F0           MOVX    @DPTR,A
-    505          
-    506            // queue message
-    507            osal_msg_enqueue( &osal_qHead, msg_ptr );
+    470          
+    471            // queue message
+    472            osal_msg_enqueue( &osal_qHead, msg_ptr );
    \   000034                ; Setup parameters for call to function osal_msg_enqueue
    \   000034   EA           MOV     A,R2
    \   000035   FC           MOV     R4,A
@@ -1628,21 +1604,21 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000038   7A..         MOV     R2,#osal_qHead & 0xff
    \   00003A   7B..         MOV     R3,#(osal_qHead >> 8) & 0xff
    \   00003C   12....       LCALL   ??osal_msg_enqueue?relay
-    508          
-    509            // Signal the task that a message is waiting
-    510            osal_set_event( destination_task, SYS_EVENT_MSG );
+    473          
+    474            // Signal the task that a message is waiting
+    475            osal_set_event( destination_task, SYS_EVENT_MSG );
    \   00003F                ; Setup parameters for call to function osal_set_event
    \   00003F   7A00         MOV     R2,#0x0
    \   000041   7B80         MOV     R3,#-0x80
    \   000043   EE           MOV     A,R6
    \   000044   F9           MOV     R1,A
    \   000045   12....       LCALL   ??osal_set_event?relay
-    511          
-    512            return ( SUCCESS );
+    476          
+    477            return ( SUCCESS );
    \   000048   7900         MOV     R1,#0x0
    \                     ??osal_msg_send_2:
    \   00004A   80..         SJMP    ??Subroutine27_0
-    513          }
+    478          }
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine20:
@@ -1674,79 +1650,79 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000005   E8           MOV     A,R0
    \   000006   49           ORL     A,R1
    \   000007   22           RET
-    514          
-    515          /*********************************************************************
-    516           * @fn      osal_msg_receive
-    517           *
-    518           * @brief
-    519           *
-    520           *    This function is called by a task to retrieve a received command
-    521           *    message. The calling task must deallocate the message buffer after
-    522           *    processing the message using the osal_msg_deallocate() call.
-    523           *
-    524           * @param   uint8 task_id - receiving tasks ID
-    525           *
-    526           * @return  *uint8 - message information or NULL if no message
-    527           */
+    479          
+    480          /*********************************************************************
+    481           * @fn      osal_msg_receive
+    482           *
+    483           * @brief
+    484           *
+    485           *    This function is called by a task to retrieve a received command
+    486           *    message. The calling task must deallocate the message buffer after
+    487           *    processing the message using the osal_msg_deallocate() call.
+    488           *
+    489           * @param   uint8 task_id - receiving tasks ID
+    490           *
+    491           * @return  *uint8 - message information or NULL if no message
+    492           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    528          uint8 *osal_msg_receive( uint8 task_id )
+    493          uint8 *osal_msg_receive( uint8 task_id )
    \                     osal_msg_receive:
-    529          {
+    494          {
    \   000000   74F2         MOV     A,#-0xe
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 14
    \   000005                ; Auto size: 0
    \   000005   89..         MOV     ?V0 + 3,R1
-    530            osal_msg_hdr_t *listHdr;
-    531            osal_msg_hdr_t *prevHdr = NULL;
+    495            osal_msg_hdr_t *listHdr;
+    496            osal_msg_hdr_t *prevHdr = NULL;
    \   000007   75..00       MOV     ?V0 + 4,#0x0
    \   00000A   75..00       MOV     ?V0 + 5,#0x0
-    532            osal_msg_hdr_t *foundHdr = NULL;
+    497            osal_msg_hdr_t *foundHdr = NULL;
    \   00000D   7E00         MOV     R6,#0x0
    \   00000F   7F00         MOV     R7,#0x0
-    533            halIntState_t   intState;
-    534          
-    535            // Hold off interrupts
-    536            HAL_ENTER_CRITICAL_SECTION(intState);
+    498            halIntState_t   intState;
+    499          
+    500            // Hold off interrupts
+    501            HAL_ENTER_CRITICAL_SECTION(intState);
    \   000011   A2AF         MOV     C,0xa8.7
    \   000013   E4           CLR     A
    \   000014   33           RLC     A
    \   000015   F5..         MOV     ?V0 + 2,A
    \   000017   C2AF         CLR     0xa8.7
-    537          
-    538            // Point to the top of the queue
-    539            listHdr = osal_qHead;
+    502          
+    503            // Point to the top of the queue
+    504            listHdr = osal_qHead;
    \   000019   90....       MOV     DPTR,#osal_qHead
    \   00001C   8015         SJMP    ??CrossCallReturnLabel_54
-    540          
-    541            // Look through the queue for a message that belongs to the asking task
-    542            while ( listHdr != NULL )
-    543            {
-    544              if ( (listHdr - 1)->dest_id == task_id )
-    545              {
-    546                if ( foundHdr == NULL )
-    547                {
-    548                  // Save the first one
-    549                  foundHdr = listHdr;
-    550                }
-    551                else
-    552                {
-    553                  // Second msg found, stop looking
-    554                  break;
-    555                }
-    556              }
-    557              if ( foundHdr == NULL )
+    505          
+    506            // Look through the queue for a message that belongs to the asking task
+    507            while ( listHdr != NULL )
+    508            {
+    509              if ( (listHdr - 1)->dest_id == task_id )
+    510              {
+    511                if ( foundHdr == NULL )
+    512                {
+    513                  // Save the first one
+    514                  foundHdr = listHdr;
+    515                }
+    516                else
+    517                {
+    518                  // Second msg found, stop looking
+    519                  break;
+    520                }
+    521              }
+    522              if ( foundHdr == NULL )
    \                     ??osal_msg_receive_0:
    \   00001E   EE           MOV     A,R6
    \   00001F   4F           ORL     A,R7
    \   000020   7006         JNZ     ??osal_msg_receive_1
-    558              {
-    559                prevHdr = listHdr;
+    523              {
+    524                prevHdr = listHdr;
    \   000022   85....       MOV     ?V0 + 4,?V0 + 0
    \   000025   85....       MOV     ?V0 + 5,?V0 + 1
-    560              }
-    561              listHdr = OSAL_MSG_NEXT( listHdr );
+    525              }
+    526              listHdr = OSAL_MSG_NEXT( listHdr );
    \                     ??osal_msg_receive_1:
    \   000028   E5..         MOV     A,?V0 + 0
    \   00002A   24FB         ADD     A,#-0x5
@@ -1774,39 +1750,39 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000050   AE..         MOV     R6,?V0 + 0
    \   000052   AF..         MOV     R7,?V0 + 1
    \   000054   80D2         SJMP    ??osal_msg_receive_1
-    562            }
-    563            
-    564            // Is there more than one?
-    565            if ( listHdr != NULL )
-    566            {
-    567              // Yes, Signal the task that a message is waiting
-    568              osal_set_event( task_id, SYS_EVENT_MSG );
+    527            }
+    528            
+    529            // Is there more than one?
+    530            if ( listHdr != NULL )
+    531            {
+    532              // Yes, Signal the task that a message is waiting
+    533              osal_set_event( task_id, SYS_EVENT_MSG );
    \                     ??osal_msg_receive_3:
    \   000056                ; Setup parameters for call to function osal_set_event
    \   000056   7A00         MOV     R2,#0x0
    \   000058   7B80         MOV     R3,#-0x80
    \   00005A   12....       LCALL   ??osal_set_event?relay
    \   00005D   800B         SJMP    ??osal_msg_receive_4
-    569            }
-    570            else
-    571            {
-    572              // No more
-    573              osal_clear_event( task_id, SYS_EVENT_MSG );
+    534            }
+    535            else
+    536            {
+    537              // No more
+    538              osal_clear_event( task_id, SYS_EVENT_MSG );
    \                     ??osal_msg_receive_2:
    \   00005F                ; Setup parameters for call to function osal_clear_event
    \   00005F   7A00         MOV     R2,#0x0
    \   000061   7B80         MOV     R3,#-0x80
    \   000063   12....       LCALL   ??osal_clear_event?relay
-    574            }
-    575          
-    576            // Did we find a message?
-    577            if ( foundHdr != NULL )
+    539            }
+    540          
+    541            // Did we find a message?
+    542            if ( foundHdr != NULL )
    \   000066   EE           MOV     A,R6
    \   000067   4F           ORL     A,R7
    \   000068   6015         JZ      ??osal_msg_receive_5
-    578            {
-    579              // Take out of the link list
-    580              osal_msg_extract( &osal_qHead, foundHdr, prevHdr );
+    543            {
+    544              // Take out of the link list
+    545              osal_msg_extract( &osal_qHead, foundHdr, prevHdr );
    \                     ??osal_msg_receive_4:
    \   00006A                ; Setup parameters for call to function osal_msg_extract
    \   00006A   78..         MOV     R0,#?V0 + 4
@@ -1820,16 +1796,16 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000077   12....       LCALL   ??osal_msg_extract?relay
    \   00007A   7402         MOV     A,#0x2
    \   00007C   12....       LCALL   ?DEALLOC_XSTACK8
-    581            }
-    582          
-    583            // Release interrupts
-    584            HAL_EXIT_CRITICAL_SECTION(intState);
+    546            }
+    547          
+    548            // Release interrupts
+    549            HAL_EXIT_CRITICAL_SECTION(intState);
    \                     ??osal_msg_receive_5:
    \   00007F   E5..         MOV     A,?V0 + 2
    \   000081   A2E0         MOV     C,0xE0 /* A   */.0
    \   000083   92AF         MOV     0xa8.7,C
-    585          
-    586            return ( (uint8*) foundHdr );
+    550          
+    551            return ( (uint8*) foundHdr );
    \   000085   EE           MOV     A,R6
    \   000086   FA           MOV     R2,A
    \   000087   EF           MOV     A,R7
@@ -1837,60 +1813,60 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000089   7F06         MOV     R7,#0x6
    \   00008B   02....       LJMP    ?BANKED_LEAVE_XDATA
    \   00008E                REQUIRE _A_IEN0
-    587          }
-    588          
-    589          /**************************************************************************************************
-    590           * @fn          osal_msg_find
-    591           *
-    592           * @brief       This function finds in place an OSAL message matching the task_id and event
-    593           *              parameters.
-    594           *
-    595           * input parameters
-    596           *
-    597           * @param       task_id - The OSAL task id that the enqueued OSAL message must match.
-    598           * @param       event - The OSAL event id that the enqueued OSAL message must match.
-    599           *
-    600           * output parameters
-    601           *
-    602           * None.
-    603           *
-    604           * @return      NULL if no match, otherwise an in place pointer to the matching OSAL message.
-    605           **************************************************************************************************
-    606           */
+    552          }
+    553          
+    554          /**************************************************************************************************
+    555           * @fn          osal_msg_find
+    556           *
+    557           * @brief       This function finds in place an OSAL message matching the task_id and event
+    558           *              parameters.
+    559           *
+    560           * input parameters
+    561           *
+    562           * @param       task_id - The OSAL task id that the enqueued OSAL message must match.
+    563           * @param       event - The OSAL event id that the enqueued OSAL message must match.
+    564           *
+    565           * output parameters
+    566           *
+    567           * None.
+    568           *
+    569           * @return      NULL if no match, otherwise an in place pointer to the matching OSAL message.
+    570           **************************************************************************************************
+    571           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    607          osal_event_hdr_t *osal_msg_find(uint8 task_id, uint8 event)
+    572          osal_event_hdr_t *osal_msg_find(uint8 task_id, uint8 event)
    \                     osal_msg_find:
-    608          {
+    573          {
    \   000000   C082         PUSH    DPL
    \   000002   C083         PUSH    DPH
    \   000004                ; Saved register size: 2
    \   000004                ; Auto size: 0
    \   000004   EA           MOV     A,R2
    \   000005   F8           MOV     R0,A
-    609            osal_msg_hdr_t *pHdr;
-    610            halIntState_t intState;
-    611          
-    612            HAL_ENTER_CRITICAL_SECTION(intState);  // Hold off interrupts.
+    574            osal_msg_hdr_t *pHdr;
+    575            halIntState_t intState;
+    576          
+    577            HAL_ENTER_CRITICAL_SECTION(intState);  // Hold off interrupts.
    \   000006   A2AF         MOV     C,0xa8.7
    \   000008   E4           CLR     A
    \   000009   33           RLC     A
    \   00000A   FC           MOV     R4,A
    \   00000B   C2AF         CLR     0xa8.7
-    613          
-    614            pHdr = osal_qHead;  // Point to the top of the queue.
+    578          
+    579            pHdr = osal_qHead;  // Point to the top of the queue.
    \   00000D   90....       MOV     DPTR,#osal_qHead
    \   000010   8003         SJMP    ??CrossCallReturnLabel_63
-    615          
-    616            // Look through the queue for a message that matches the task_id and event parameters.
-    617            while (pHdr != NULL)
-    618            {
-    619              if (((pHdr-1)->dest_id == task_id) && (((osal_event_hdr_t *)pHdr)->event == event))
-    620              {
-    621                break;
-    622              }
-    623          
-    624              pHdr = OSAL_MSG_NEXT(pHdr);
+    580          
+    581            // Look through the queue for a message that matches the task_id and event parameters.
+    582            while (pHdr != NULL)
+    583            {
+    584              if (((pHdr-1)->dest_id == task_id) && (((osal_event_hdr_t *)pHdr)->event == event))
+    585              {
+    586                break;
+    587              }
+    588          
+    589              pHdr = OSAL_MSG_NEXT(pHdr);
    \                     ??osal_msg_find_0:
    \   000012   12....       LCALL   ?Subroutine20 & 0xFFFF
    \                     ??CrossCallReturnLabel_63:
@@ -1900,7 +1876,7 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00001A   EA           MOV     A,R2
    \   00001B   24FF         ADD     A,#-0x1
    \   00001D   12....       LCALL   ??Subroutine29_0 & 0xFFFF
-    625            }
+    590            }
    \                     ??CrossCallReturnLabel_60:
    \   000020   E0           MOVX    A,@DPTR
    \   000021   69           XRL     A,R1
@@ -1910,17 +1886,17 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000028   E0           MOVX    A,@DPTR
    \   000029   68           XRL     A,R0
    \   00002A   70E6         JNZ     ??osal_msg_find_0
-    626            
-    627            HAL_EXIT_CRITICAL_SECTION(intState);  // Release interrupts.
+    591            
+    592            HAL_EXIT_CRITICAL_SECTION(intState);  // Release interrupts.
    \                     ??osal_msg_find_1:
    \   00002C   EC           MOV     A,R4
    \   00002D   A2E0         MOV     C,0xE0 /* A   */.0
    \   00002F   92AF         MOV     0xa8.7,C
-    628          
-    629            return (osal_event_hdr_t *)pHdr;
+    593          
+    594            return (osal_event_hdr_t *)pHdr;
    \   000031   02....       LJMP    ?Subroutine0 & 0xFFFF
    \   000034                REQUIRE _A_IEN0
-    630          }
+    595          }
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ??Subroutine28_0:
@@ -1929,19 +1905,19 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000003   EA           MOV     A,R2
    \   000004   4B           ORL     A,R3
    \   000005   22           RET
-    631          
-    632          /*********************************************************************
-    633           * @fn      osal_msg_enqueue
-    634           *
-    635           * @brief
-    636           *
-    637           *    This function enqueues an OSAL message into an OSAL queue.
-    638           *
-    639           * @param   osal_msg_q_t *q_ptr - OSAL queue
-    640           * @param   void *msg_ptr  - OSAL message
-    641           *
-    642           * @return  none
-    643           */
+    596          
+    597          /*********************************************************************
+    598           * @fn      osal_msg_enqueue
+    599           *
+    600           * @brief
+    601           *
+    602           *    This function enqueues an OSAL message into an OSAL queue.
+    603           *
+    604           * @param   osal_msg_q_t *q_ptr - OSAL queue
+    605           * @param   void *msg_ptr  - OSAL message
+    606           *
+    607           * @return  none
+    608           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine2:
@@ -1950,25 +1926,25 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000002                ; // Fall through to label ??Subroutine27_0
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    644          void osal_msg_enqueue( osal_msg_q_t *q_ptr, void *msg_ptr )
+    609          void osal_msg_enqueue( osal_msg_q_t *q_ptr, void *msg_ptr )
    \                     osal_msg_enqueue:
-    645          {
+    610          {
    \   000000   74F7         MOV     A,#-0x9
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 9
    \   000005                ; Auto size: 0
-    646            void *list;
-    647            halIntState_t intState;
-    648          
-    649            // Hold off interrupts
-    650            HAL_ENTER_CRITICAL_SECTION(intState);
+    611            void *list;
+    612            halIntState_t intState;
+    613          
+    614            // Hold off interrupts
+    615            HAL_ENTER_CRITICAL_SECTION(intState);
    \   000005   A2AF         MOV     C,0xa8.7
    \   000007   E4           CLR     A
    \   000008   33           RLC     A
    \   000009   FE           MOV     R6,A
    \   00000A   C2AF         CLR     0xa8.7
-    651          
-    652            OSAL_MSG_NEXT( msg_ptr ) = NULL;
+    616          
+    617            OSAL_MSG_NEXT( msg_ptr ) = NULL;
    \   00000C   EC           MOV     A,R4
    \   00000D   24FB         ADD     A,#-0x5
    \   00000F   F582         MOV     DPL,A
@@ -1979,21 +1955,21 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000016   F0           MOVX    @DPTR,A
    \   000017   A3           INC     DPTR
    \   000018   F0           MOVX    @DPTR,A
-    653            // If first message in queue
-    654            if ( *q_ptr == NULL )
+    618            // If first message in queue
+    619            if ( *q_ptr == NULL )
    \   000019   12....       LCALL   ?Subroutine6 & 0xFFFF
    \                     ??CrossCallReturnLabel_67:
    \   00001C   7009         JNZ     ??CrossCallReturnLabel_24
-    655            {
-    656              *q_ptr = msg_ptr;
+    620            {
+    621              *q_ptr = msg_ptr;
    \   00001E   8A82         MOV     DPL,R2
    \   000020   8B83         MOV     DPH,R3
    \   000022   800C         SJMP    ??osal_msg_enqueue_0
-    657            }
-    658            else
-    659            {
-    660              // Find end of queue
-    661              for ( list = *q_ptr; OSAL_MSG_NEXT( list ) != NULL; list = OSAL_MSG_NEXT( list ) );
+    622            }
+    623            else
+    624            {
+    625              // Find end of queue
+    626              for ( list = *q_ptr; OSAL_MSG_NEXT( list ) != NULL; list = OSAL_MSG_NEXT( list ) );
    \                     ??osal_msg_enqueue_1:
    \   000024   12....       LCALL   ?Subroutine15 & 0xFFFF
    \                     ??CrossCallReturnLabel_24:
@@ -2002,24 +1978,24 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00002A   8882         MOV     DPL,R0
    \   00002C   8983         MOV     DPH,R1
    \   00002E   70F4         JNZ     ??osal_msg_enqueue_1
-    662          
-    663              // Add message to end of queue
-    664              OSAL_MSG_NEXT( list ) = msg_ptr;
+    627          
+    628              // Add message to end of queue
+    629              OSAL_MSG_NEXT( list ) = msg_ptr;
    \                     ??osal_msg_enqueue_0:
    \   000030   EC           MOV     A,R4
    \   000031   F0           MOVX    @DPTR,A
    \   000032   A3           INC     DPTR
    \   000033   ED           MOV     A,R5
    \   000034   F0           MOVX    @DPTR,A
-    665            }
-    666          
-    667            // Re-enable interrupts
-    668            HAL_EXIT_CRITICAL_SECTION(intState);
+    630            }
+    631          
+    632            // Re-enable interrupts
+    633            HAL_EXIT_CRITICAL_SECTION(intState);
    \   000035   EE           MOV     A,R6
    \   000036   A2E0         MOV     C,0xE0 /* A   */.0
    \   000038   02....       LJMP    ?Subroutine2 & 0xFFFF
    \   00003B                REQUIRE _A_IEN0
-    669          }
+    634          }
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine13:
@@ -2049,23 +2025,23 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000002   8B83         MOV     DPH,R3
    \   000004                REQUIRE ??Subroutine31_0
    \   000004                ; // Fall through to label ??Subroutine31_0
-    670          
-    671          /*********************************************************************
-    672           * @fn      osal_msg_dequeue
-    673           *
-    674           * @brief
-    675           *
-    676           *    This function dequeues an OSAL message from an OSAL queue.
-    677           *
-    678           * @param   osal_msg_q_t *q_ptr - OSAL queue
-    679           *
-    680           * @return  void * - pointer to OSAL message or NULL of queue is empty.
-    681           */
+    635          
+    636          /*********************************************************************
+    637           * @fn      osal_msg_dequeue
+    638           *
+    639           * @brief
+    640           *
+    641           *    This function dequeues an OSAL message from an OSAL queue.
+    642           *
+    643           * @param   osal_msg_q_t *q_ptr - OSAL queue
+    644           *
+    645           * @return  void * - pointer to OSAL message or NULL of queue is empty.
+    646           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    682          void *osal_msg_dequeue( osal_msg_q_t *q_ptr )
+    647          void *osal_msg_dequeue( osal_msg_q_t *q_ptr )
    \                     osal_msg_dequeue:
-    683          {
+    648          {
    \   000000   74F6         MOV     A,#-0xa
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 10
@@ -2074,33 +2050,33 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000006   FC           MOV     R4,A
    \   000007   EB           MOV     A,R3
    \   000008   FD           MOV     R5,A
-    684            void *msg_ptr = NULL;
+    649            void *msg_ptr = NULL;
    \   000009   7A00         MOV     R2,#0x0
    \   00000B   7B00         MOV     R3,#0x0
-    685            halIntState_t intState;
-    686          
-    687            // Hold off interrupts
-    688            HAL_ENTER_CRITICAL_SECTION(intState);
+    650            halIntState_t intState;
+    651          
+    652            // Hold off interrupts
+    653            HAL_ENTER_CRITICAL_SECTION(intState);
    \   00000D   A2AF         MOV     C,0xa8.7
    \   00000F   E4           CLR     A
    \   000010   33           RLC     A
    \   000011   F5..         MOV     ?V0 + 0,A
    \   000013   C2AF         CLR     0xa8.7
-    689          
-    690            if ( *q_ptr != NULL )
+    654          
+    655            if ( *q_ptr != NULL )
    \   000015   8C82         MOV     DPL,R4
    \   000017   8D83         MOV     DPH,R5
    \   000019   12....       LCALL   ??Subroutine31_0 & 0xFFFF
    \                     ??CrossCallReturnLabel_65:
    \   00001C   6029         JZ      ??osal_msg_dequeue_0
-    691            {
-    692              // Dequeue message
-    693              msg_ptr = *q_ptr;
+    656            {
+    657              // Dequeue message
+    658              msg_ptr = *q_ptr;
    \   00001E   E8           MOV     A,R0
    \   00001F   FA           MOV     R2,A
    \   000020   E9           MOV     A,R1
    \   000021   FB           MOV     R3,A
-    694              *q_ptr = OSAL_MSG_NEXT( msg_ptr );
+    659              *q_ptr = OSAL_MSG_NEXT( msg_ptr );
    \   000022   EA           MOV     A,R2
    \   000023   24FB         ADD     A,#-0x5
    \   000025   F8           MOV     R0,A
@@ -2117,65 +2093,65 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000033   8C82         MOV     DPL,R4
    \   000035   8D83         MOV     DPH,R5
    \   000037   12....       LCALL   ?Subroutine23 & 0xFFFF
-    695              OSAL_MSG_NEXT( msg_ptr ) = NULL;
+    660              OSAL_MSG_NEXT( msg_ptr ) = NULL;
    \                     ??CrossCallReturnLabel_42:
    \   00003A   E4           CLR     A
    \   00003B   F0           MOVX    @DPTR,A
    \   00003C   A3           INC     DPTR
    \   00003D   F0           MOVX    @DPTR,A
-    696              OSAL_MSG_ID( msg_ptr ) = TASK_NO_TASK;
+    661              OSAL_MSG_ID( msg_ptr ) = TASK_NO_TASK;
    \   00003E   EA           MOV     A,R2
    \   00003F   24FF         ADD     A,#-0x1
    \   000041   12....       LCALL   ??Subroutine29_0 & 0xFFFF
-    697            }
+    662            }
    \                     ??CrossCallReturnLabel_61:
    \   000044   74FF         MOV     A,#-0x1
    \   000046   F0           MOVX    @DPTR,A
-    698          
-    699            // Re-enable interrupts
-    700            HAL_EXIT_CRITICAL_SECTION(intState);
+    663          
+    664            // Re-enable interrupts
+    665            HAL_EXIT_CRITICAL_SECTION(intState);
    \                     ??osal_msg_dequeue_0:
    \   000047   E5..         MOV     A,?V0 + 0
    \   000049   A2E0         MOV     C,0xE0 /* A   */.0
    \   00004B   92AF         MOV     0xa8.7,C
-    701          
-    702            return msg_ptr;
+    666          
+    667            return msg_ptr;
    \   00004D   02....       LJMP    ?Subroutine3 & 0xFFFF
    \   000050                REQUIRE _A_IEN0
-    703          }
-    704          
-    705          /*********************************************************************
-    706           * @fn      osal_msg_push
-    707           *
-    708           * @brief
-    709           *
-    710           *    This function pushes an OSAL message to the head of an OSAL
-    711           *    queue.
-    712           *
-    713           * @param   osal_msg_q_t *q_ptr - OSAL queue
-    714           * @param   void *msg_ptr  - OSAL message
-    715           *
-    716           * @return  none
-    717           */
+    668          }
+    669          
+    670          /*********************************************************************
+    671           * @fn      osal_msg_push
+    672           *
+    673           * @brief
+    674           *
+    675           *    This function pushes an OSAL message to the head of an OSAL
+    676           *    queue.
+    677           *
+    678           * @param   osal_msg_q_t *q_ptr - OSAL queue
+    679           * @param   void *msg_ptr  - OSAL message
+    680           *
+    681           * @return  none
+    682           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    718          void osal_msg_push( osal_msg_q_t *q_ptr, void *msg_ptr )
+    683          void osal_msg_push( osal_msg_q_t *q_ptr, void *msg_ptr )
    \                     osal_msg_push:
-    719          {
+    684          {
    \   000000   74F7         MOV     A,#-0x9
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 9
    \   000005                ; Auto size: 0
-    720            halIntState_t intState;
-    721          
-    722            // Hold off interrupts
-    723            HAL_ENTER_CRITICAL_SECTION(intState);
+    685            halIntState_t intState;
+    686          
+    687            // Hold off interrupts
+    688            HAL_ENTER_CRITICAL_SECTION(intState);
    \   000005   E5A8         MOV     A,0xa8
    \   000007   FE           MOV     R6,A
    \   000008   C2AF         CLR     0xa8.7
-    724          
-    725            // Push message to head of queue
-    726            OSAL_MSG_NEXT( msg_ptr ) = *q_ptr;
+    689          
+    690            // Push message to head of queue
+    691            OSAL_MSG_NEXT( msg_ptr ) = *q_ptr;
    \   00000A   8A82         MOV     DPL,R2
    \   00000C   8B83         MOV     DPH,R3
    \   00000E   12....       LCALL   ?Subroutine15 & 0xFFFF
@@ -2191,7 +2167,7 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00001C   A3           INC     DPTR
    \   00001D   E9           MOV     A,R1
    \   00001E   F0           MOVX    @DPTR,A
-    727            *q_ptr = msg_ptr;
+    692            *q_ptr = msg_ptr;
    \   00001F   8A82         MOV     DPL,R2
    \   000021   8B83         MOV     DPH,R3
    \   000023   EC           MOV     A,R4
@@ -2199,34 +2175,34 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000025   A3           INC     DPTR
    \   000026   ED           MOV     A,R5
    \   000027   F0           MOVX    @DPTR,A
-    728          
-    729            // Re-enable interrupts
-    730            HAL_EXIT_CRITICAL_SECTION(intState);
+    693          
+    694            // Re-enable interrupts
+    695            HAL_EXIT_CRITICAL_SECTION(intState);
    \   000028   EE           MOV     A,R6
    \   000029   A2E7         MOV     C,0xE0 /* A   */.7
    \   00002B   02....       LJMP    ?Subroutine2 & 0xFFFF
    \   00002E                REQUIRE _A_IEN0
-    731          }
-    732          
-    733          /*********************************************************************
-    734           * @fn      osal_msg_extract
-    735           *
-    736           * @brief
-    737           *
-    738           *    This function extracts and removes an OSAL message from the
-    739           *    middle of an OSAL queue.
-    740           *
-    741           * @param   osal_msg_q_t *q_ptr - OSAL queue
-    742           * @param   void *msg_ptr  - OSAL message to be extracted
-    743           * @param   void *prev_ptr  - OSAL message before msg_ptr in queue
-    744           *
-    745           * @return  none
-    746           */
+    696          }
+    697          
+    698          /*********************************************************************
+    699           * @fn      osal_msg_extract
+    700           *
+    701           * @brief
+    702           *
+    703           *    This function extracts and removes an OSAL message from the
+    704           *    middle of an OSAL queue.
+    705           *
+    706           * @param   osal_msg_q_t *q_ptr - OSAL queue
+    707           * @param   void *msg_ptr  - OSAL message to be extracted
+    708           * @param   void *prev_ptr  - OSAL message before msg_ptr in queue
+    709           *
+    710           * @return  none
+    711           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    747          void osal_msg_extract( osal_msg_q_t *q_ptr, void *msg_ptr, void *prev_ptr )
+    712          void osal_msg_extract( osal_msg_q_t *q_ptr, void *msg_ptr, void *prev_ptr )
    \                     osal_msg_extract:
-    748          {
+    713          {
    \   000000   74F5         MOV     A,#-0xb
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 11
@@ -2234,18 +2210,18 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000005   740B         MOV     A,#0xb
    \   000007   12....       LCALL   ?XSTACK_DISP0_8
    \   00000A   12....       LCALL   ?Subroutine15 & 0xFFFF
-    749            halIntState_t intState;
-    750          
-    751            // Hold off interrupts
-    752            HAL_ENTER_CRITICAL_SECTION(intState);
+    714            halIntState_t intState;
+    715          
+    716            // Hold off interrupts
+    717            HAL_ENTER_CRITICAL_SECTION(intState);
    \                     ??CrossCallReturnLabel_26:
    \   00000D   A2AF         MOV     C,0xa8.7
    \   00000F   E4           CLR     A
    \   000010   33           RLC     A
    \   000011   F5..         MOV     ?V0 + 2,A
    \   000013   C2AF         CLR     0xa8.7
-    753          
-    754            if ( msg_ptr == *q_ptr )
+    718          
+    719            if ( msg_ptr == *q_ptr )
    \   000015   EC           MOV     A,R4
    \   000016   24FB         ADD     A,#-0x5
    \   000018   FE           MOV     R6,A
@@ -2265,11 +2241,11 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00002C   8E82         MOV     DPL,R6
    \   00002E   8F83         MOV     DPH,R7
    \   000030   700D         JNZ     ??osal_msg_extract_1
-    755            {
-    756              // remove from first
-    757              *q_ptr = OSAL_MSG_NEXT( msg_ptr );
+    720            {
+    721              // remove from first
+    722              *q_ptr = OSAL_MSG_NEXT( msg_ptr );
    \   000032   12....       LCALL   ?Subroutine15 & 0xFFFF
-    758            }
+    723            }
    \                     ??CrossCallReturnLabel_27:
    \   000035   8A82         MOV     DPL,R2
    \   000037   8B83         MOV     DPH,R3
@@ -2278,13 +2254,13 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00003B   A3           INC     DPTR
    \   00003C   E9           MOV     A,R1
    \   00003D   8010         SJMP    ??osal_msg_extract_2
-    759            else
-    760            {
-    761              // remove from middle
-    762              OSAL_MSG_NEXT( prev_ptr ) = OSAL_MSG_NEXT( msg_ptr );
+    724            else
+    725            {
+    726              // remove from middle
+    727              OSAL_MSG_NEXT( prev_ptr ) = OSAL_MSG_NEXT( msg_ptr );
    \                     ??osal_msg_extract_1:
    \   00003F   12....       LCALL   ?Subroutine14 & 0xFFFF
-    763            }
+    728            }
    \                     ??CrossCallReturnLabel_22:
    \   000042   E8           MOV     A,R0
    \   000043   24FB         ADD     A,#-0x5
@@ -2298,14 +2274,14 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00004E   EB           MOV     A,R3
    \                     ??osal_msg_extract_2:
    \   00004F   F0           MOVX    @DPTR,A
-    764            OSAL_MSG_NEXT( msg_ptr ) = NULL;
+    729            OSAL_MSG_NEXT( msg_ptr ) = NULL;
    \   000050   8E82         MOV     DPL,R6
    \   000052   8F83         MOV     DPH,R7
    \   000054   E4           CLR     A
    \   000055   F0           MOVX    @DPTR,A
    \   000056   A3           INC     DPTR
    \   000057   F0           MOVX    @DPTR,A
-    765            OSAL_MSG_ID( msg_ptr ) = TASK_NO_TASK;
+    730            OSAL_MSG_ID( msg_ptr ) = TASK_NO_TASK;
    \   000058   EC           MOV     A,R4
    \   000059   24FF         ADD     A,#-0x1
    \   00005B   F582         MOV     DPL,A
@@ -2314,94 +2290,94 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \                     ??CrossCallReturnLabel_59:
    \   000061   74FF         MOV     A,#-0x1
    \   000063   F0           MOVX    @DPTR,A
-    766          
-    767            // Re-enable interrupts
-    768            HAL_EXIT_CRITICAL_SECTION(intState);
+    731          
+    732            // Re-enable interrupts
+    733            HAL_EXIT_CRITICAL_SECTION(intState);
    \   000064   E5..         MOV     A,?V0 + 2
    \   000066   A2E0         MOV     C,0xE0 /* A   */.0
    \   000068   92AF         MOV     0xa8.7,C
-    769          }
+    734          }
    \   00006A   02....       LJMP    ?Subroutine1 & 0xFFFF
    \   00006D                REQUIRE _A_IEN0
-    770          
-    771          /*********************************************************************
-    772           * @fn      osal_msg_enqueue_max
-    773           *
-    774           * @brief
-    775           *
-    776           *    This function enqueues an OSAL message into an OSAL queue if
-    777           *    the length of the queue is less than max.
-    778           *
-    779           * @param   osal_msg_q_t *q_ptr - OSAL queue
-    780           * @param   void *msg_ptr  - OSAL message
-    781           * @param   uint8 max - maximum length of queue
-    782           *
-    783           * @return  TRUE if message was enqueued, FALSE otherwise
-    784           */
+    735          
+    736          /*********************************************************************
+    737           * @fn      osal_msg_enqueue_max
+    738           *
+    739           * @brief
+    740           *
+    741           *    This function enqueues an OSAL message into an OSAL queue if
+    742           *    the length of the queue is less than max.
+    743           *
+    744           * @param   osal_msg_q_t *q_ptr - OSAL queue
+    745           * @param   void *msg_ptr  - OSAL message
+    746           * @param   uint8 max - maximum length of queue
+    747           *
+    748           * @return  TRUE if message was enqueued, FALSE otherwise
+    749           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    785          uint8 osal_msg_enqueue_max( osal_msg_q_t *q_ptr, void *msg_ptr, uint8 max )
+    750          uint8 osal_msg_enqueue_max( osal_msg_q_t *q_ptr, void *msg_ptr, uint8 max )
    \                     osal_msg_enqueue_max:
-    786          {
+    751          {
    \   000000   74F7         MOV     A,#-0x9
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 9
    \   000005                ; Auto size: 0
    \   000005   E9           MOV     A,R1
    \   000006   FE           MOV     R6,A
-    787            void *list;
-    788            uint8 ret = FALSE;
+    752            void *list;
+    753            uint8 ret = FALSE;
    \   000007   75..00       MOV     ?V0 + 0,#0x0
-    789            halIntState_t intState;
-    790          
-    791            // Hold off interrupts
-    792            HAL_ENTER_CRITICAL_SECTION(intState);
+    754            halIntState_t intState;
+    755          
+    756            // Hold off interrupts
+    757            HAL_ENTER_CRITICAL_SECTION(intState);
    \   00000A   A2AF         MOV     C,0xa8.7
    \   00000C   E4           CLR     A
    \   00000D   33           RLC     A
    \   00000E   FF           MOV     R7,A
    \   00000F   C2AF         CLR     0xa8.7
-    793          
-    794            // If first message in queue
-    795            if ( *q_ptr == NULL )
+    758          
+    759            // If first message in queue
+    760            if ( *q_ptr == NULL )
    \   000011   12....       LCALL   ?Subroutine6 & 0xFFFF
    \                     ??CrossCallReturnLabel_68:
    \   000014   7010         JNZ     ??CrossCallReturnLabel_28
-    796            {
-    797              *q_ptr = msg_ptr;
+    761            {
+    762              *q_ptr = msg_ptr;
    \   000016   8A82         MOV     DPL,R2
    \   000018   8B83         MOV     DPH,R3
    \   00001A   8017         SJMP    ??osal_msg_enqueue_max_0
-    798              ret = TRUE;
-    799            }
-    800            else
-    801            {
-    802              // Find end of queue or max
-    803              list = *q_ptr;
-    804              max--;
-    805              while ( (OSAL_MSG_NEXT( list ) != NULL) && (max > 0) )
+    763              ret = TRUE;
+    764            }
+    765            else
+    766            {
+    767              // Find end of queue or max
+    768              list = *q_ptr;
+    769              max--;
+    770              while ( (OSAL_MSG_NEXT( list ) != NULL) && (max > 0) )
    \                     ??osal_msg_enqueue_max_1:
    \   00001C   EE           MOV     A,R6
    \   00001D   601C         JZ      ??osal_msg_enqueue_max_2
-    806              {
-    807                list = OSAL_MSG_NEXT( list );
+    771              {
+    772                list = OSAL_MSG_NEXT( list );
    \   00001F   8882         MOV     DPL,R0
    \   000021   8983         MOV     DPH,R1
    \   000023   12....       LCALL   ?Subroutine15 & 0xFFFF
-    808                max--;
+    773                max--;
    \                     ??CrossCallReturnLabel_28:
    \   000026   1E           DEC     R6
-    809              }
+    774              }
    \   000027   12....       LCALL   ?Subroutine13 & 0xFFFF
    \                     ??CrossCallReturnLabel_49:
    \   00002A   70F0         JNZ     ??osal_msg_enqueue_max_1
-    810          
-    811              // Add message to end of queue if max not reached
-    812              if ( max != 0 )
+    775          
+    776              // Add message to end of queue if max not reached
+    777              if ( max != 0 )
    \   00002C   EE           MOV     A,R6
    \   00002D   600C         JZ      ??osal_msg_enqueue_max_2
-    813              {
-    814                OSAL_MSG_NEXT( list ) = msg_ptr;
+    778              {
+    779                OSAL_MSG_NEXT( list ) = msg_ptr;
    \   00002F   8882         MOV     DPL,R0
    \   000031   8983         MOV     DPH,R1
    \                     ??osal_msg_enqueue_max_0:
@@ -2410,49 +2386,49 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000035   A3           INC     DPTR
    \   000036   ED           MOV     A,R5
    \   000037   F0           MOVX    @DPTR,A
-    815                ret = TRUE;
+    780                ret = TRUE;
    \   000038   75..01       MOV     ?V0 + 0,#0x1
-    816              }
-    817            }
-    818          
-    819            // Re-enable interrupts
-    820            HAL_EXIT_CRITICAL_SECTION(intState);
+    781              }
+    782            }
+    783          
+    784            // Re-enable interrupts
+    785            HAL_EXIT_CRITICAL_SECTION(intState);
    \                     ??osal_msg_enqueue_max_2:
    \   00003B   EF           MOV     A,R7
    \   00003C   A2E0         MOV     C,0xE0 /* A   */.0
    \   00003E   92AF         MOV     0xa8.7,C
-    821          
-    822            return ret;
+    786          
+    787            return ret;
    \   000040   A9..         MOV     R1,?V0 + 0
    \   000042   02....       LJMP    ??Subroutine27_0 & 0xFFFF
    \   000045                REQUIRE _A_IEN0
-    823          }
-    824          
-    825          /*********************************************************************
-    826           * @fn      osal_set_event
-    827           *
-    828           * @brief
-    829           *
-    830           *    This function is called to set the event flags for a task.  The
-    831           *    event passed in is OR'd into the task's event variable.
-    832           *
-    833           * @param   uint8 task_id - receiving tasks ID
-    834           * @param   uint8 event_flag - what event to set
-    835           *
-    836           * @return  SUCCESS, INVALID_TASK
-    837           */
+    788          }
+    789          
+    790          /*********************************************************************
+    791           * @fn      osal_set_event
+    792           *
+    793           * @brief
+    794           *
+    795           *    This function is called to set the event flags for a task.  The
+    796           *    event passed in is OR'd into the task's event variable.
+    797           *
+    798           * @param   uint8 task_id - receiving tasks ID
+    799           * @param   uint8 event_flag - what event to set
+    800           *
+    801           * @return  SUCCESS, INVALID_TASK
+    802           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    838          uint8 osal_set_event( uint8 task_id, uint16 event_flag )
+    803          uint8 osal_set_event( uint8 task_id, uint16 event_flag )
    \                     osal_set_event:
-    839          {
+    804          {
    \   000000   74F7         MOV     A,#-0x9
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 9
    \   000005                ; Auto size: 0
    \   000005   E9           MOV     A,R1
    \   000006   FD           MOV     R5,A
-    840            if ( task_id < tasksCnt )
+    805            if ( task_id < tasksCnt )
    \   000007   90....       MOV     DPTR,#tasksCnt
    \   00000A   E0           MOVX    A,@DPTR
    \   00000B   F8           MOV     R0,A
@@ -2460,13 +2436,13 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00000D   C3           CLR     C
    \   00000E   98           SUBB    A,R0
    \   00000F   5029         JNC     ??osal_set_event_0
-    841            {
-    842              halIntState_t   intState;
-    843              HAL_ENTER_CRITICAL_SECTION(intState);    // Hold off interrupts
+    806            {
+    807              halIntState_t   intState;
+    808              HAL_ENTER_CRITICAL_SECTION(intState);    // Hold off interrupts
    \   000011   E5A8         MOV     A,0xa8
    \   000013   FE           MOV     R6,A
    \   000014   C2AF         CLR     0xa8.7
-    844              tasksEvents[task_id] |= event_flag;  // Stuff the event bit(s)
+    809              tasksEvents[task_id] |= event_flag;  // Stuff the event bit(s)
    \   000016   ED           MOV     A,R5
    \   000017   C3           CLR     C
    \   000018   33           RLC     A
@@ -2490,50 +2466,50 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00002E   E0           MOVX    A,@DPTR
    \   00002F   4B           ORL     A,R3
    \   000030   F0           MOVX    @DPTR,A
-    845              HAL_EXIT_CRITICAL_SECTION(intState);     // Release interrupts
+    810              HAL_EXIT_CRITICAL_SECTION(intState);     // Release interrupts
    \   000031   EE           MOV     A,R6
    \   000032   A2E7         MOV     C,0xE0 /* A   */.7
    \   000034   92AF         MOV     0xa8.7,C
-    846              return ( SUCCESS );
+    811              return ( SUCCESS );
    \   000036   7900         MOV     R1,#0x0
    \   000038   8002         SJMP    ??osal_set_event_1
-    847            }
-    848             else
-    849            {
-    850              return ( INVALID_TASK );
+    812            }
+    813             else
+    814            {
+    815              return ( INVALID_TASK );
    \                     ??osal_set_event_0:
    \   00003A   7903         MOV     R1,#0x3
-    851            }
+    816            }
    \                     ??osal_set_event_1:
    \   00003C   02....       LJMP    ??Subroutine27_0 & 0xFFFF
    \   00003F                REQUIRE _A_IEN0
-    852          }
-    853          
-    854          /*********************************************************************
-    855           * @fn      osal_clear_event
-    856           *
-    857           * @brief
-    858           *
-    859           *    This function is called to clear the event flags for a task.  The
-    860           *    event passed in is masked out of the task's event variable.
-    861           *
-    862           * @param   uint8 task_id - receiving tasks ID
-    863           * @param   uint8 event_flag - what event to set
-    864           *
-    865           * @return  SUCCESS, INVALID_TASK
-    866           */
+    817          }
+    818          
+    819          /*********************************************************************
+    820           * @fn      osal_clear_event
+    821           *
+    822           * @brief
+    823           *
+    824           *    This function is called to clear the event flags for a task.  The
+    825           *    event passed in is masked out of the task's event variable.
+    826           *
+    827           * @param   uint8 task_id - receiving tasks ID
+    828           * @param   uint8 event_flag - what event to set
+    829           *
+    830           * @return  SUCCESS, INVALID_TASK
+    831           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    867          uint8 osal_clear_event( uint8 task_id, uint16 event_flag )
+    832          uint8 osal_clear_event( uint8 task_id, uint16 event_flag )
    \                     osal_clear_event:
-    868          {
+    833          {
    \   000000   74F7         MOV     A,#-0x9
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 9
    \   000005                ; Auto size: 0
    \   000005   E9           MOV     A,R1
    \   000006   FE           MOV     R6,A
-    869            if ( task_id < tasksCnt )
+    834            if ( task_id < tasksCnt )
    \   000007   90....       MOV     DPTR,#tasksCnt
    \   00000A   E0           MOVX    A,@DPTR
    \   00000B   F8           MOV     R0,A
@@ -2541,13 +2517,13 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00000D   C3           CLR     C
    \   00000E   98           SUBB    A,R0
    \   00000F   501F         JNC     ??osal_clear_event_0
-    870            {
-    871              halIntState_t   intState;
-    872              HAL_ENTER_CRITICAL_SECTION(intState);    // Hold off interrupts
+    835            {
+    836              halIntState_t   intState;
+    837              HAL_ENTER_CRITICAL_SECTION(intState);    // Hold off interrupts
    \   000011   E5A8         MOV     A,0xa8
    \   000013   FF           MOV     R7,A
    \   000014   C2AF         CLR     0xa8.7
-    873              tasksEvents[task_id] &= ~(event_flag);   // clear the event bit(s)
+    838              tasksEvents[task_id] &= ~(event_flag);   // clear the event bit(s)
    \   000016   EA           MOV     A,R2
    \   000017   F4           CPL     A
    \   000018   FC           MOV     R4,A
@@ -2564,24 +2540,24 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000024   E0           MOVX    A,@DPTR
    \   000025   5D           ANL     A,R5
    \   000026   F0           MOVX    @DPTR,A
-    874              HAL_EXIT_CRITICAL_SECTION(intState);     // Release interrupts
+    839              HAL_EXIT_CRITICAL_SECTION(intState);     // Release interrupts
    \   000027   EF           MOV     A,R7
    \   000028   A2E7         MOV     C,0xE0 /* A   */.7
    \   00002A   92AF         MOV     0xa8.7,C
-    875              return ( SUCCESS );
+    840              return ( SUCCESS );
    \   00002C   7900         MOV     R1,#0x0
    \   00002E   8002         SJMP    ??osal_clear_event_1
-    876            }
-    877             else
-    878            {
-    879              return ( INVALID_TASK );
+    841            }
+    842             else
+    843            {
+    844              return ( INVALID_TASK );
    \                     ??osal_clear_event_0:
    \   000030   7903         MOV     R1,#0x3
-    880            }
+    845            }
    \                     ??osal_clear_event_1:
    \   000032   02....       LJMP    ??Subroutine27_0 & 0xFFFF
    \   000035                REQUIRE _A_IEN0
-    881          }
+    846          }
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine16:
@@ -2601,239 +2577,229 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00000F   8A82         MOV     DPL,R2
    \   000011   F583         MOV     DPH,A
    \   000013   22           RET
-    882          
-    883          /*********************************************************************
-    884           * @fn      osal_isr_register
-    885           *
-    886           * @brief
-    887           *
-    888           *   This function is called to register a service routine with an
-    889           *   interrupt. When the interrupt occurs, this service routine is called.
-    890           *
-    891           * @param   uint8 interrupt_id - Interrupt number
-    892           * @param   void (*isr_ptr)( uint8* ) - function pointer to ISR
-    893           *
-    894           * @return  SUCCESS, INVALID_INTERRUPT_ID,
-    895           */
+    847          
+    848          /*********************************************************************
+    849           * @fn      osal_isr_register
+    850           *
+    851           * @brief
+    852           *
+    853           *   This function is called to register a service routine with an
+    854           *   interrupt. When the interrupt occurs, this service routine is called.
+    855           *
+    856           * @param   uint8 interrupt_id - Interrupt number
+    857           * @param   void (*isr_ptr)( uint8* ) - function pointer to ISR
+    858           *
+    859           * @return  SUCCESS, INVALID_INTERRUPT_ID,
+    860           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    896          uint8 osal_isr_register( uint8 interrupt_id, void (*isr_ptr)( uint8* ) )
+    861          uint8 osal_isr_register( uint8 interrupt_id, void (*isr_ptr)( uint8* ) )
    \                     osal_isr_register:
-    897          {
+    862          {
    \   000000                ; Saved register size: 0
    \   000000                ; Auto size: 0
-    898            // Remove these statements when functionality is complete
-    899            (void)interrupt_id;
-    900            (void)isr_ptr;
-    901            return ( SUCCESS );
+    863            // Remove these statements when functionality is complete
+    864            (void)interrupt_id;
+    865            (void)isr_ptr;
+    866            return ( SUCCESS );
    \   000000   7900         MOV     R1,#0x0
    \   000002   02....       LJMP    ?BRET
-    902          }
-    903          
-    904          /*********************************************************************
-    905           * @fn      osal_int_enable
-    906           *
-    907           * @brief
-    908           *
-    909           *   This function is called to enable an interrupt. Once enabled,
-    910           *   occurrence of the interrupt causes the service routine associated
-    911           *   with that interrupt to be called.
-    912           *
-    913           *   If INTS_ALL is the interrupt_id, interrupts (in general) are enabled.
-    914           *   If a single interrupt is passed in, then interrupts still have
-    915           *   to be enabled with another call to INTS_ALL.
-    916           *
-    917           * @param   uint8 interrupt_id - Interrupt number
-    918           *
-    919           * @return  SUCCESS or INVALID_INTERRUPT_ID
-    920           */
+    867          }
+    868          
+    869          /*********************************************************************
+    870           * @fn      osal_int_enable
+    871           *
+    872           * @brief
+    873           *
+    874           *   This function is called to enable an interrupt. Once enabled,
+    875           *   occurrence of the interrupt causes the service routine associated
+    876           *   with that interrupt to be called.
+    877           *
+    878           *   If INTS_ALL is the interrupt_id, interrupts (in general) are enabled.
+    879           *   If a single interrupt is passed in, then interrupts still have
+    880           *   to be enabled with another call to INTS_ALL.
+    881           *
+    882           * @param   uint8 interrupt_id - Interrupt number
+    883           *
+    884           * @return  SUCCESS or INVALID_INTERRUPT_ID
+    885           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    921          uint8 osal_int_enable( uint8 interrupt_id )
+    886          uint8 osal_int_enable( uint8 interrupt_id )
    \                     osal_int_enable:
-    922          {
+    887          {
    \   000000                ; Saved register size: 0
    \   000000                ; Auto size: 0
    \   000000   E9           MOV     A,R1
    \   000001   F8           MOV     R0,A
-    923          
-    924            if ( interrupt_id == INTS_ALL )
+    888          	if ( interrupt_id == INTS_ALL ){
    \   000002   74FF         MOV     A,#-0x1
    \   000004   68           XRL     A,R0
    \   000005   7006         JNZ     ??osal_int_enable_0
-    925            {
-    926              HAL_ENABLE_INTERRUPTS();
+    889          		HAL_ENABLE_INTERRUPTS();
    \   000007   D2AF         SETB    0xa8.7
-    927              return ( SUCCESS );
+    890          		return ( SUCCESS );
    \   000009   7900         MOV     R1,#0x0
    \   00000B   8002         SJMP    ??osal_int_enable_1
-    928            }
-    929            else
-    930            {
-    931              return ( INVALID_INTERRUPT_ID );
+    891          	}else{
+    892          		return ( INVALID_INTERRUPT_ID );
    \                     ??osal_int_enable_0:
    \   00000D   7907         MOV     R1,#0x7
    \                     ??osal_int_enable_1:
    \   00000F   02....       LJMP    ?BRET
    \   000012                REQUIRE _A_IEN0
-    932            }
-    933          }
-    934          
-    935          /*********************************************************************
-    936           * @fn      osal_int_disable
-    937           *
-    938           * @brief
-    939           *
-    940           *   This function is called to disable an interrupt. When a disabled
-    941           *   interrupt occurs, the service routine associated with that
-    942           *   interrupt is not called.
-    943           *
-    944           *   If INTS_ALL is the interrupt_id, interrupts (in general) are disabled.
-    945           *   If a single interrupt is passed in, then just that interrupt is disabled.
-    946           *
-    947           * @param   uint8 interrupt_id - Interrupt number
-    948           *
-    949           * @return  SUCCESS or INVALID_INTERRUPT_ID
-    950           */
+    893          	}
+    894          }
+    895          
+    896          /*********************************************************************
+    897           * @fn      osal_int_disable
+    898           *
+    899           * @brief
+    900           *
+    901           *   This function is called to disable an interrupt. When a disabled
+    902           *   interrupt occurs, the service routine associated with that
+    903           *   interrupt is not called.
+    904           *
+    905           *   If INTS_ALL is the interrupt_id, interrupts (in general) are disabled.
+    906           *   If a single interrupt is passed in, then just that interrupt is disabled.
+    907           *
+    908           * @param   uint8 interrupt_id - Interrupt number
+    909           *
+    910           * @return  SUCCESS or INVALID_INTERRUPT_ID
+    911           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    951          uint8 osal_int_disable( uint8 interrupt_id )
+    912          uint8 osal_int_disable( uint8 interrupt_id ){
    \                     osal_int_disable:
-    952          {
    \   000000                ; Saved register size: 0
    \   000000                ; Auto size: 0
    \   000000   E9           MOV     A,R1
    \   000001   F8           MOV     R0,A
-    953          
-    954            if ( interrupt_id == INTS_ALL )
+    913          	if ( interrupt_id == INTS_ALL ){
    \   000002   74FF         MOV     A,#-0x1
    \   000004   68           XRL     A,R0
    \   000005   7006         JNZ     ??osal_int_disable_0
-    955            {
-    956              HAL_DISABLE_INTERRUPTS();
+    914          		HAL_DISABLE_INTERRUPTS();
    \   000007   C2AF         CLR     0xa8.7
-    957              return ( SUCCESS );
+    915          		return ( SUCCESS );
    \   000009   7900         MOV     R1,#0x0
    \   00000B   8002         SJMP    ??osal_int_disable_1
-    958            }
-    959            else
-    960            {
-    961              return ( INVALID_INTERRUPT_ID );
+    916          	}
+    917          	else{
+    918          		return ( INVALID_INTERRUPT_ID );
    \                     ??osal_int_disable_0:
    \   00000D   7907         MOV     R1,#0x7
    \                     ??osal_int_disable_1:
    \   00000F   02....       LJMP    ?BRET
    \   000012                REQUIRE _A_IEN0
-    962            }
-    963          }
-    964          
-    965          /*********************************************************************
-    966           * @fn      osal_init_system
-    967           *
-    968           * @brief
-    969           *
-    970           *   This function initializes the "task" system by creating the
-    971           *   tasks defined in the task table (OSAL_Tasks.h).
-    972           *
-    973           * @param   void
-    974           *
-    975           * @return  SUCCESS
-    976           */
+    919          	}
+    920          }
+    921          
+    922          /*********************************************************************
+    923           * @fn      osal_init_system
+    924           *
+    925           * @brief
+    926           *
+    927           *   This function initializes the "task" system by creating the
+    928           *   tasks defined in the task table (OSAL_Tasks.h).
+    929           *
+    930           * @param   void
+    931           *
+    932           * @return  SUCCESS
+    933           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-    977          uint8 osal_init_system( void )
+    934          uint8 osal_init_system( void )
    \                     osal_init_system:
-    978          {
+    935          {
    \   000000   C082         PUSH    DPL
    \   000002   C083         PUSH    DPH
    \   000004                ; Saved register size: 2
    \   000004                ; Auto size: 0
-    979            // Initialize the Memory Allocation System
-    980            osal_mem_init();
+    936            // Initialize the Memory Allocation System
+    937            osal_mem_init();
    \   000004                ; Setup parameters for call to function osal_mem_init
    \   000004   12....       LCALL   ??osal_mem_init?relay
-    981          
-    982            // Initialize the message queue
-    983            osal_qHead = NULL;
+    938          
+    939            // Initialize the message queue
+    940            osal_qHead = NULL;
    \   000007   90....       MOV     DPTR,#osal_qHead
    \   00000A   E4           CLR     A
    \   00000B   F0           MOVX    @DPTR,A
    \   00000C   A3           INC     DPTR
    \   00000D   F0           MOVX    @DPTR,A
-    984          
-    985            // Initialize the timers
-    986            osalTimerInit();
+    941          
+    942            // Initialize the timers
+    943            osalTimerInit();
    \   00000E                ; Setup parameters for call to function osalTimerInit
    \   00000E   12....       LCALL   ??osalTimerInit?relay
-    987          
-    988            // Initialize the Power Management System
-    989            osal_pwrmgr_init();
+    944          
+    945            // Initialize the Power Management System
+    946            osal_pwrmgr_init();
    \   000011                ; Setup parameters for call to function osal_pwrmgr_init
    \   000011   12....       LCALL   ??osal_pwrmgr_init?relay
-    990          
-    991            // Initialize the system tasks.
-    992            osalInitTasks();
+    947          
+    948            // Initialize the system tasks.
+    949            osalInitTasks();
    \   000014                ; Setup parameters for call to function osalInitTasks
    \   000014   12....       LCALL   ??osalInitTasks?relay
-    993          
-    994            // Setup efficient search for the first free block of heap.
-    995            osal_mem_kick();
+    950          
+    951            // Setup efficient search for the first free block of heap.
+    952            osal_mem_kick();
    \   000017                ; Setup parameters for call to function osal_mem_kick
    \   000017   12....       LCALL   ??osal_mem_kick?relay
-    996          
-    997            return ( SUCCESS );
+    953          
+    954            return ( SUCCESS );
    \   00001A   7900         MOV     R1,#0x0
    \   00001C   02....       LJMP    ?Subroutine0 & 0xFFFF
-    998          }
-    999          
-   1000          /*********************************************************************
-   1001           * @fn      osal_start_system
-   1002           *
-   1003           * @brief
-   1004           *
-   1005           *   This function is the main loop function of the task system.  It
-   1006           *   will look through all task events and call the task_event_processor()
-   1007           *   function for the task with the event.  If there are no events (for
-   1008           *   all tasks), this function puts the processor into Sleep.
-   1009           *   This Function doesn't return.
-   1010           *
-   1011           * @param   void
-   1012           *
-   1013           * @return  none
-   1014           */
+    955          }
+    956          
+    957          /*********************************************************************
+    958           * @fn      osal_start_system
+    959           *
+    960           * @brief
+    961           *
+    962           *   This function is the main loop function of the task system.  It
+    963           *   will look through all task events and call the task_event_processor()
+    964           *   function for the task with the event.  If there are no events (for
+    965           *   all tasks), this function puts the processor into Sleep.
+    966           *   This Function doesn't return.
+    967           *
+    968           * @param   void
+    969           *
+    970           * @return  none
+    971           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-   1015          void osal_start_system( void )
+    972          void osal_start_system( void )
    \                     osal_start_system:
-   1016          {
+    973          {
    \   000000   74F6         MOV     A,#-0xa
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 10
    \   000005                ; Auto size: 0
-   1017          #if !defined ( ZBIT ) && !defined ( UBIT )
-   1018            for(;;)  // Forever Loop
-   1019          #endif
-   1020            {
-   1021              uint8 idx = 0;
+    974          	#if !defined ( ZBIT ) && !defined ( UBIT )
+    975          	for(;;)  // Forever Loop
+    976          	#endif
+    977          	{
+    978          		uint8 idx = 0;   
    \                     ??osal_start_system_0:
    \   000005   75..00       MOV     ?V0 + 0,#0x0
-   1022          
-   1023              osalTimeUpdate();
+    979          		osalTimeUpdate();
    \   000008                ; Setup parameters for call to function osalTimeUpdate
    \   000008   12....       LCALL   ??osalTimeUpdate?relay
-   1024              Hal_ProcessPoll();  // This replaces MT_SerialPoll() and osal_check_timer().
+    980          		Hal_ProcessPoll();  // This replaces MT_SerialPoll() and osal_check_timer().
    \   00000B                ; Setup parameters for call to function Hal_ProcessPoll
    \   00000B   12....       LCALL   ??Hal_ProcessPoll?relay
-   1025              
-   1026              do {
-   1027                if (tasksEvents[idx])  // Task is highest priority that is ready.
+    981          		do {
+    982          			if (tasksEvents[idx])  // Task is highest priority that is ready.
    \                     ??osal_start_system_1:
    \   00000E   E5..         MOV     A,?V0 + 0
    \   000010   12....       LCALL   ?Subroutine16 & 0xFFFF
-   1028                {
-   1029                  break;
-   1030                }
-   1031              } while (++idx < tasksCnt);
+    983          			{
+    984          				break;
+    985          			}
+    986          		} while (++idx < tasksCnt);//tasksCntµ±Ç°µÄÈÎÎñÊýÄ¿
    \                     ??CrossCallReturnLabel_30:
    \   000013   12....       LCALL   ??Subroutine31_0 & 0xFFFF
    \                     ??CrossCallReturnLabel_66:
@@ -2846,8 +2812,9 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000021   C3           CLR     C
    \   000022   98           SUBB    A,R0
    \   000023   40E9         JC      ??osal_start_system_1
-   1032          
-   1033              if (idx < tasksCnt)
+    987          		
+    988          		/*¼ì²âµ½²»ÊÇwhileÕý³££¬¶øÊÇÄ³¸öÈÎÎñµÄÍ¨ÐÅ±äÁ¿ÀïÃæ²»Îª0¶øÌø³ö*/
+    989          		if (idx < tasksCnt)
    \                     ??osal_start_system_2:
    \   000025   90....       MOV     DPTR,#tasksCnt
    \   000028   E0           MOVX    A,@DPTR
@@ -2856,15 +2823,14 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   00002C   C3           CLR     C
    \   00002D   98           SUBB    A,R0
    \   00002E   50D5         JNC     ??osal_start_system_0
-   1034              {
-   1035                uint16 events;
-   1036                halIntState_t intState;
-   1037          
-   1038                HAL_ENTER_CRITICAL_SECTION(intState);
+    990          		{
+    991          			uint16 events;
+    992          			halIntState_t intState;			
+    993          			HAL_ENTER_CRITICAL_SECTION(intState);
    \   000030   E5A8         MOV     A,0xa8
    \   000032   FC           MOV     R4,A
    \   000033   C2AF         CLR     0xa8.7
-   1039                events = tasksEvents[idx];
+    994          			events = tasksEvents[idx];
    \   000035   E5..         MOV     A,?V0 + 0
    \   000037   C3           CLR     C
    \   000038   33           RLC     A
@@ -2883,7 +2849,7 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000047   8882         MOV     DPL,R0
    \   000049   8983         MOV     DPH,R1
    \   00004B   12....       LCALL   ?Subroutine14 & 0xFFFF
-   1040                tasksEvents[idx] = 0;  // Clear the Events for this task.
+    995          			tasksEvents[idx] = 0;  // Clear the Events for this task.
    \                     ??CrossCallReturnLabel_23:
    \   00004E   8882         MOV     DPL,R0
    \   000050   8983         MOV     DPH,R1
@@ -2891,12 +2857,12 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000053   F0           MOVX    @DPTR,A
    \   000054   A3           INC     DPTR
    \   000055   F0           MOVX    @DPTR,A
-   1041                HAL_EXIT_CRITICAL_SECTION(intState);
+    996          			HAL_EXIT_CRITICAL_SECTION(intState);
    \   000056   EC           MOV     A,R4
    \   000057   A2E7         MOV     C,0xE0 /* A   */.7
    \   000059   92AF         MOV     0xa8.7,C
-   1042          
-   1043                events = (tasksArr[idx])( idx, events );
+    997          			
+    998          			events = (tasksArr[idx])( idx, events );
    \   00005B                ; Setup parameters for indirect call
    \   00005B   A9..         MOV     R1,?V0 + 0
    \   00005D   74..         MOV     A,#tasksArr & 0xff
@@ -2908,12 +2874,12 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000067   12....       LCALL   ?Subroutine18 & 0xFFFF
    \                     ??CrossCallReturnLabel_34:
    \   00006A   12....       LCALL   ?CALL_IND
-   1044          
-   1045                HAL_ENTER_CRITICAL_SECTION(intState);
+    999          			
+   1000          			HAL_ENTER_CRITICAL_SECTION(intState);
    \   00006D   E5A8         MOV     A,0xa8
    \   00006F   F9           MOV     R1,A
    \   000070   C2AF         CLR     0xa8.7
-   1046                tasksEvents[idx] |= events;  // Add back unprocessed events to the current task.
+   1001          			tasksEvents[idx] |= events;  // Add back unprocessed events to the current task.
    \   000072   90....       MOV     DPTR,#tasksEvents
    \   000075   E0           MOVX    A,@DPTR
    \   000076   2E           ADD     A,R6
@@ -2930,39 +2896,39 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000083   E0           MOVX    A,@DPTR
    \   000084   4B           ORL     A,R3
    \   000085   F0           MOVX    @DPTR,A
-   1047                HAL_EXIT_CRITICAL_SECTION(intState);
+   1002          			HAL_EXIT_CRITICAL_SECTION(intState);
    \   000086   E9           MOV     A,R1
    \   000087   A2E7         MOV     C,0xE0 /* A   */.7
    \   000089   92AF         MOV     0xa8.7,C
    \   00008B   02....       LJMP    ??osal_start_system_0 & 0xFFFF
    \   00008E                REQUIRE _A_IEN0
-   1048              }
-   1049          #if defined( POWER_SAVING )
-   1050              else  // Complete pass through all task events with no activity?
-   1051              {
-   1052                osal_pwrmgr_powerconserve();  // Put the processor/system into sleep
-   1053              }
-   1054          #endif
-   1055            }
-   1056          }
-   1057          
-   1058          /*********************************************************************
-   1059           * @fn      osal_buffer_uint32
-   1060           *
-   1061           * @brief
-   1062           *
-   1063           *   Buffer an uint32 value - LSB first.
-   1064           *
-   1065           * @param   buf - buffer
-   1066           * @param   val - uint32 value
-   1067           *
-   1068           * @return  pointer to end of destination buffer
-   1069           */
+   1003          		}
+   1004          		#if defined( POWER_SAVING )
+   1005          		else  // Complete pass through all task events with no activity?
+   1006          		{
+   1007          			osal_pwrmgr_powerconserve();  // Put the processor/system into sleep
+   1008          		}
+   1009          			#endif
+   1010          	}
+   1011          }
+   1012          
+   1013          /*********************************************************************
+   1014           * @fn      osal_buffer_uint32
+   1015           *
+   1016           * @brief
+   1017           *
+   1018           *   Buffer an uint32 value - LSB first.
+   1019           *
+   1020           * @param   buf - buffer
+   1021           * @param   val - uint32 value
+   1022           *
+   1023           * @return  pointer to end of destination buffer
+   1024           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-   1070          uint8* osal_buffer_uint32( uint8 *buf, uint32 val )
+   1025          uint8* osal_buffer_uint32( uint8 *buf, uint32 val )
    \                     osal_buffer_uint32:
-   1071          {
+   1026          {
    \   000000   74F0         MOV     A,#-0x10
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 16
@@ -2971,13 +2937,13 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000007   12....       LCALL   ?XSTACK_DISP0_8
    \   00000A   78..         MOV     R0,#?V0 + 4
    \   00000C   12....       LCALL   ?L_MOV_X
-   1072            *buf++ = BREAK_UINT32( val, 0 );
+   1027            *buf++ = BREAK_UINT32( val, 0 );
    \   00000F   8A82         MOV     DPL,R2
    \   000011   8B83         MOV     DPH,R3
    \   000013   E5..         MOV     A,?V0 + 4
    \   000015   12....       LCALL   ?Subroutine21 & 0xFFFF
-   1073            *buf++ = BREAK_UINT32( val, 1 );
-   1074            *buf++ = BREAK_UINT32( val, 2 );
+   1028            *buf++ = BREAK_UINT32( val, 1 );
+   1029            *buf++ = BREAK_UINT32( val, 2 );
    \                     ??CrossCallReturnLabel_37:
    \   000018   85....       MOV     ?V0 + 0,?V0 + 4
    \   00001B   85....       MOV     ?V0 + 2,?V0 + 6
@@ -2988,13 +2954,13 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000028   E5..         MOV     A,?V0 + 0
    \   00002A   F0           MOVX    @DPTR,A
    \   00002B   A3           INC     DPTR
-   1075            *buf++ = BREAK_UINT32( val, 3 );
+   1030            *buf++ = BREAK_UINT32( val, 3 );
    \   00002C   7418         MOV     A,#0x18
    \   00002E                REQUIRE ?Subroutine4
    \   00002E                ; // Fall through to label ?Subroutine4
-   1076          
-   1077            return buf;
-   1078          }
+   1031          
+   1032            return buf;
+   1033          }
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
    \                     ?Subroutine4:
@@ -3017,25 +2983,25 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000007   F0           MOVX    @DPTR,A
    \   000008   A3           INC     DPTR
    \   000009   22           RET
-   1079          
-   1080          /*********************************************************************
-   1081           * @fn      osal_buffer_uint24
-   1082           *
-   1083           * @brief
-   1084           *
-   1085           *   Buffer an uint24 value - LSB first. Note that type uint24 is
-   1086           *   typedef to uint32 in comdef.h
-   1087           *
-   1088           * @param   buf - buffer
-   1089           * @param   val - uint24 value
-   1090           *
-   1091           * @return  pointer to end of destination buffer
-   1092           */
+   1034          
+   1035          /*********************************************************************
+   1036           * @fn      osal_buffer_uint24
+   1037           *
+   1038           * @brief
+   1039           *
+   1040           *   Buffer an uint24 value - LSB first. Note that type uint24 is
+   1041           *   typedef to uint32 in comdef.h
+   1042           *
+   1043           * @param   buf - buffer
+   1044           * @param   val - uint24 value
+   1045           *
+   1046           * @return  pointer to end of destination buffer
+   1047           */
 
    \                                 In  segment BANKED_CODE, align 1, keep-with-next
-   1093          uint8* osal_buffer_uint24( uint8 *buf, uint24 val )
+   1048          uint8* osal_buffer_uint24( uint8 *buf, uint24 val )
    \                     osal_buffer_uint24:
-   1094          {
+   1049          {
    \   000000   74F0         MOV     A,#-0x10
    \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
    \   000005                ; Saved register size: 16
@@ -3044,20 +3010,20 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \   000007   12....       LCALL   ?XSTACK_DISP0_8
    \   00000A   78..         MOV     R0,#?V0 + 4
    \   00000C   12....       LCALL   ?L_MOV_X
-   1095            *buf++ = BREAK_UINT32( val, 0 );
+   1050            *buf++ = BREAK_UINT32( val, 0 );
    \   00000F   85....       MOV     ?V0 + 0,?V0 + 4
    \   000012   8A82         MOV     DPL,R2
    \   000014   8B83         MOV     DPH,R3
    \   000016   E5..         MOV     A,?V0 + 0
    \   000018   12....       LCALL   ?Subroutine21 & 0xFFFF
-   1096            *buf++ = BREAK_UINT32( val, 1 );
-   1097            *buf++ = BREAK_UINT32( val, 2 );
+   1051            *buf++ = BREAK_UINT32( val, 1 );
+   1052            *buf++ = BREAK_UINT32( val, 2 );
    \                     ??CrossCallReturnLabel_38:
    \   00001B   7410         MOV     A,#0x10
    \   00001D   80..         SJMP    ?Subroutine4
-   1098          
-   1099            return buf;
-   1100          }
+   1053          
+   1054            return buf;
+   1055          }
 
    \                                 In  segment BANK_RELAYS, align 1
    \                     ??osal_strlen?relay:
@@ -3236,8 +3202,8 @@ H:\project\SmartHome\Components\osal\common\OSAL.c
    \                                 In  segment XDATA_ROM_C, align 1
    \                     __Constant_5f5e100:
    \   000000   00E1F505     DD 100000000
-   1101          /*********************************************************************
-   1102          *********************************************************************/
+   1056          /*********************************************************************
+   1057          *********************************************************************/
 
    Maximum stack usage in bytes:
 

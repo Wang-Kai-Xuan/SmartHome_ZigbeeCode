@@ -1,2 +1,4 @@
-build*
-Projects\zstack\Samples\SmartHome\CC2530DB\CoordinatorEB\*
+Projects/zstack/Samples/SmartHome/CC2530DB/Coor*
+Projects/zstack/Samples/SmartHome/CC2530DB/Demo*
+Projects/zstack/Samples/SmartHome/CC2530DB/EndD*
+Projects/zstack/Samples/SmartHome/CC2530DB/Rout*

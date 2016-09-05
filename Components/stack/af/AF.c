@@ -2,10 +2,7 @@
   Filename:       AF.c
   Revised:        $Date: 2009-10-29 00:15:32 -0700 (Thu, 29 Oct 2009) $
   Revision:       $Revision: 21013 $
-
   Description:    Application Framework - Device Description helper functions
-
-
   Copyright 2004-2009 Texas Instruments Incorporated. All rights reserved.
 
   IMPORTANT: Your use of this Software is limited to those specific rights
@@ -22,7 +19,7 @@
   its documentation for any purpose.
 
   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
-  PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+  PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -470,9 +467,14 @@ static void afBuildMSGIncoming( aps_FrameFormat_t *aff, endPointDesc_t *epDesc,
  * @return  afStatus_t - See previous definition of afStatus_... types.
  */
 uint8 AF_DataRequestDiscoverRoute = TRUE;
-afStatus_t AF_DataRequest( afAddrType_t *dstAddr, endPointDesc_t *srcEP,
-                           uint16 cID, uint16 len, uint8 *buf, uint8 *transID,
-                           uint8 options, uint8 radius )
+afStatus_t AF_DataRequest( afAddrType_t *dstAddr, 
+                           endPointDesc_t *srcEP,
+                           uint16 cID, 
+                           uint16 len,
+                           uint8 *buf, 
+                           uint8 *transID,
+                           uint8 options, 
+                           uint8 radius )
 {
   pDescCB pfnDescCB;
   ZStatus_t stat;

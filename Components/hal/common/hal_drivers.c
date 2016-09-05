@@ -22,7 +22,7 @@
   its documentation for any purpose.
 
   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
-  PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+  PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -163,7 +163,7 @@ void HalDriverInit (void)
 
   /* KEY */
 #if (defined HAL_KEY) && (HAL_KEY == TRUE)
-  HalKeyInit();
+  HalKeyInit();  
 #endif
 
   /* SPI */
@@ -190,10 +190,8 @@ void HalDriverInit (void)
  **************************************************************************************************/
 uint16 Hal_ProcessEvent( uint8 task_id, uint16 events )
 {
-  uint8 *msgPtr;
-  
+  uint8 *msgPtr;  
   (void)task_id;  // Intentionally unreferenced parameter
-
   if ( events & SYS_EVENT_MSG )
   {
     msgPtr = osal_msg_receive(Hal_TaskID);

@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                            /
-// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        05/Sep/2016  09:20:27 /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        05/Sep/2016  17:58:42 /
 // Copyright 2004-2011 IAR Systems AB.                                        /
 //                                                                            /
 //    Core               =  plain                                             /
@@ -9,18 +9,18 @@
 //    Calling convention =  xdata reentrant                                   /
 //    Constant location  =  data_rom                                          /
 //    Dptr setup         =  1,16                                              /
-//    Source file        =  H:\project\SmartHome\Projects\zstack\ZMain\TI2530 /
-//                          DB\OnBoard.c                                      /
-//    Command line       =  -f H:\project\SmartHome\Projects\zstack\Samples\S /
-//                          martHome\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoor /
-//                          d.cfg (-DCPU32MHZ -DROOT=__near_func              /
+//    Source file        =  H:\project\SmartHome_ZigbeeCode\Projects\zstack\Z /
+//                          Main\TI2530DB\OnBoard.c                           /
+//    Command line       =  -f H:\project\SmartHome_ZigbeeCode\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\Tools\CC253 /
+//                          0DB\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func   /
 //                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
 //                          -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS) -f      /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig. /
-//                          cfg (-DSECURE=0 -DZG_SECURE_DYNAMIC=0             /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\Tools\CC2530DB /
+//                          \f8wConfig.cfg (-DSECURE=0 -DZG_SECURE_DYNAMIC=0  /
 //                          -DREFLECTOR -DDEFAULT_CHANLIST=0x00000800         /
-//                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFF0                      /
 //                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
 //                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
 //                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
@@ -38,73 +38,80 @@
 //                          "-DCONST=const __code" -DGENERIC=__generic        /
 //                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
 //                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
-//                          -DREJOIN_POLL_RATE=440 H:\project\SmartHome\Proje /
-//                          cts\zstack\ZMain\TI2530DB\OnBoard.c -D ZTOOL_P1   /
-//                          -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D       /
-//                          LCD_SUPPORTED=DEBUG -lC                           /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\CoordinatorEB\List\ -lA            /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\CoordinatorEB\List\                /
-//                          --diag_suppress Pe001,Pa010 -o                    /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\CoordinatorEB\Obj\ -e --debug      /
-//                          --core=plain --dptr=16,1 --data_model=large       /
-//                          --code_model=banked --calling_convention=xdata_re /
-//                          entrant --place_constants=data_rom                /
-//                          --nr_virtual_regs 16 -I                           /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\ -I H:\project\SmartHome\Projects\ /
-//                          zstack\Samples\SmartHome\CC2530DB\..\SOURCE\ -I   /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\ZMAIN\TI2530DB\ -I        /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\MT\ -I   /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INCL /
-//                          UDE\ -I H:\project\SmartHome\Projects\zstack\Samp /
-//                          les\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ /
-//                          HAL\TARGET\CC2530EB\ -I                           /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\MCU /
-//                          \CCSOC\ -I H:\project\SmartHome\Projects\zstack\S /
+//                          -DREJOIN_POLL_RATE=440 H:\project\SmartHome_Zigbe /
+//                          eCode\Projects\zstack\ZMain\TI2530DB\OnBoard.c    /
+//                          -D ZIGBEEPRO -D ZTOOL_P1 -D MT_TASK -D            /
+//                          MT_SYS_FUNC -D xMT_ZDO_FUNC -D                    /
+//                          LCD_SUPPORTED=DEBUG -D NV_RESTORE -lC             /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\CoordinatorEB\List\     /
+//                          -lA H:\project\SmartHome_ZigbeeCode\Projects\zsta /
+//                          ck\Samples\SmartHome\CC2530DB\CoordinatorEB\List\ /
+//                           --diag_suppress Pe001,Pa010 -o                   /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\CoordinatorEB\Obj\ -e   /
+//                          --debug --core=plain --dptr=16,1                  /
+//                          --data_model=large --code_model=banked            /
+//                          --calling_convention=xdata_reentrant              /
+//                          --place_constants=data_rom --nr_virtual_regs 16   /
+//                          -I H:\project\SmartHome_ZigbeeCode\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\ -I                  /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\SOURCE\ -I           /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\ZMAIN\TI2530DB /
+//                          \ -I H:\project\SmartHome_ZigbeeCode\Projects\zst /
+//                          ack\Samples\SmartHome\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\MT\ -I H:\project\SmartHome_ZigbeeCode\Pr /
+//                          ojects\zstack\Samples\SmartHome\CC2530DB\..\..\.. /
+//                          \..\..\COMPONENTS\HAL\INCLUDE\ -I                 /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
 //                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
-//                          TS\OSAL\INCLUDE\ -I H:\project\SmartHome\Projects /
-//                          \zstack\Samples\SmartHome\CC2530DB\..\..\..\..\.. /
-//                          \COMPONENTS\STACK\AF\ -I                          /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\NW /
-//                          K\ -I H:\project\SmartHome\Projects\zstack\Sample /
-//                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ST /
-//                          ACK\SEC\ -I H:\project\SmartHome\Projects\zstack\ /
-//                          Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPONE /
-//                          NTS\STACK\SAPI\ -I H:\project\SmartHome\Projects\ /
-//                          zstack\Samples\SmartHome\CC2530DB\..\..\..\..\..\ /
-//                          COMPONENTS\STACK\SYS\ -I                          /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\ZD /
-//                          O\ -I H:\project\SmartHome\Projects\zstack\Sample /
-//                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ZM /
-//                          AC\F8W\ -I H:\project\SmartHome\Projects\zstack\S /
+//                          TS\HAL\TARGET\CC2530EB\ -I                        /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
 //                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
-//                          TS\ZMAC\ -I H:\project\SmartHome\Projects\zstack\ /
-//                          Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPONE /
-//                          NTS\SERVICES\SADDR\ -I H:\project\SmartHome\Proje /
-//                          cts\zstack\Samples\SmartHome\CC2530DB\..\..\..\.. /
-//                          \..\COMPONENTS\SERVICES\SDATA\ -I                 /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\INCL /
-//                          UDE\ -I H:\project\SmartHome\Projects\zstack\Samp /
-//                          les\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ /
-//                          MAC\HIGH_LEVEL\ -I H:\project\SmartHome\Projects\ /
-//                          zstack\Samples\SmartHome\CC2530DB\..\..\..\..\..\ /
-//                          COMPONENTS\MAC\LOW_LEVEL\srf04\ -I                /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\LOW_ /
-//                          LEVEL\srf04\SINGLE_CHIP\ -Ohz                     /
-//                          --require_prototypes                              /
-//    List file          =  H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\CoordinatorEB\List\OnBoard.s51     /
+//                          TS\OSAL\MCU\CCSOC\ -I H:\project\SmartHome_Zigbee /
+//                          Code\Projects\zstack\Samples\SmartHome\CC2530DB\. /
+//                          .\..\..\..\..\COMPONENTS\OSAL\INCLUDE\ -I         /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\STACK\AF\ -I H:\project\SmartHome_ZigbeeCode\P /
+//                          rojects\zstack\Samples\SmartHome\CC2530DB\..\..\. /
+//                          .\..\..\COMPONENTS\STACK\NWK\ -I                  /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\STACK\SEC\ -I H:\project\SmartHome_ZigbeeCode\ /
+//                          Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\STACK\SAPI\ -I                /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\STACK\SYS\ -I H:\project\SmartHome_ZigbeeCode\ /
+//                          Projects\zstack\Samples\SmartHome\CC2530DB\..\..\ /
+//                          ..\..\..\COMPONENTS\STACK\ZDO\ -I                 /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\ZMAC\F8W\ -I H:\project\SmartHome_ZigbeeCode\P /
+//                          rojects\zstack\Samples\SmartHome\CC2530DB\..\..\. /
+//                          .\..\..\COMPONENTS\ZMAC\ -I                       /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\SERVICES\SADDR\ -I H:\project\SmartHome_Zigbee /
+//                          Code\Projects\zstack\Samples\SmartHome\CC2530DB\. /
+//                          .\..\..\..\..\COMPONENTS\SERVICES\SDATA\ -I       /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\MAC\INCLUDE\ -I H:\project\SmartHome_ZigbeeCod /
+//                          e\Projects\zstack\Samples\SmartHome\CC2530DB\..\. /
+//                          .\..\..\..\COMPONENTS\MAC\HIGH_LEVEL\ -I          /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\MAC\LOW_LEVEL\srf04\ -I                        /
+//                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
+//                          TS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\ -Ohz          /
+//    List file          =  H:\project\SmartHome_ZigbeeCode\Projects\zstack\S /
+//                          amples\SmartHome\CC2530DB\CoordinatorEB\List\OnBo /
+//                          ard.s51                                           /
 //                                                                            /
 //                                                                            /
 ///////////////////////////////////////////////////////////////////////////////
@@ -405,7 +412,7 @@ _itoa               SYMBOL "_itoa"
         EXTERN ??osal_msg_send?relay
         FUNCTION ??osal_msg_send?relay,00H
 
-// H:\project\SmartHome\Projects\zstack\ZMain\TI2530DB\OnBoard.c
+// H:\project\SmartHome_ZigbeeCode\Projects\zstack\ZMain\TI2530DB\OnBoard.c
 //    1 /**************************************************************************************************
 //    2   Filename:       OnBoard.c
 //    3   Revised:        $Date: 2009-12-16 17:44:49 -0800 (Wed, 16 Dec 2009) $
@@ -432,7 +439,7 @@ _itoa               SYMBOL "_itoa"
 //   24   its documentation for any purpose.
 //   25 
 //   26   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
-//   27   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   27   PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
 //   28   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
 //   29   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
 //   30   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -682,22 +689,21 @@ InitBoard:
         ; Saved register size: 9
         ; Auto size: 0
         MOV     A,R1
-//  125   if ( level == OB_COLD )
+//  125 	if ( level == OB_COLD ){
         JNZ     ??InitBoard_0
-//  126   {
-//  127     // Interrupts off
-//  128     osal_int_disable( INTS_ALL );
+//  126 		// Interrupts off
+//  127 		osal_int_disable( INTS_ALL );
         ; Setup parameters for call to function osal_int_disable
         MOV     R1,#-0x1
         LCALL   ??osal_int_disable?relay
-//  129     // Turn all LEDs off
-//  130     HalLedSet( HAL_LED_ALL, HAL_LED_MODE_OFF );
+//  128 		// Turn all LEDs off
+//  129 		HalLedSet( HAL_LED_ALL, HAL_LED_MODE_OFF );
         ; Setup parameters for call to function HalLedSet
         MOV     R2,#0x0
         MOV     R1,#0xf
         LCALL   ??HalLedSet?relay
-//  131     // Check for Brown-Out reset
-//  132     ChkReset();
+//  130 		// Check for Brown-Out reset
+//  131 		ChkReset();
         MOV     A,0x9d
         ANL     A,#0x18
         MOV     R0,A
@@ -744,24 +750,23 @@ InitBoard:
         MOV     R6,A
         JNZ     ??InitBoard_3
         SJMP    ??InitBoard_2
-//  133   }
-//  134   else  // !OB_COLD
-//  135   {
-//  136     /* Initialize Key stuff */
-//  137     OnboardKeyIntEnable = HAL_KEY_INTERRUPT_DISABLE;
+//  132 	}else  // !OB_COLD
+//  133 	{
+//  134 		/* Initialize Key stuff */
+//  135 		OnboardKeyIntEnable = HAL_KEY_INTERRUPT_ENABLE;
 ??InitBoard_0:
         MOV     DPTR,#OnboardKeyIntEnable
-        CLR     A
+        MOV     A,#0x1
         MOVX    @DPTR,A
-//  138     HalKeyConfig( OnboardKeyIntEnable, OnBoard_KeyCallback);
+//  136 		HalKeyConfig( OnboardKeyIntEnable, OnBoard_KeyCallback);
         ; Setup parameters for call to function HalKeyConfig
         MOV     R2,#??OnBoard_KeyCallback?relay & 0xff
         MOV     R3,#(??OnBoard_KeyCallback?relay >> 8) & 0xff
         MOV     R1,A
         LCALL   ??HalKeyConfig?relay
         CFI EndBlock cfiBlock0
-//  139   }
-//  140 }
+//  137 	}
+//  138 }
 ??InitBoard_1:
         REQUIRE ?Subroutine0
         REQUIRE SLEEPSTA
@@ -786,74 +791,74 @@ InitBoard:
         MOV     R7,#0x1
         LJMP    ?BANKED_LEAVE_XDATA
         CFI EndBlock cfiBlock1
-//  141 
-//  142 /*********************************************************************
-//  143  * @fn      ChkReset()
-//  144  * @brief   Check reset bits - if reset cause is unknown, assume a
-//  145  *          brown-out (low power), assume batteries are not reliable,
-//  146  *          hang in a loop and sequence through the LEDs.
-//  147  * @param   None
-//  148  * @return  None
-//  149  *********************************************************************/
-//  150 void ChkReset( void )
-//  151 {
-//  152   uint8 led;
-//  153   uint8 rib;
-//  154 
-//  155   // Isolate reset indicator bits
-//  156   rib = SLEEPSTA & LRESET;
-//  157 
-//  158   if ( rib == RESETPO )
-//  159   {
-//  160     // Put code here to handle Power-On reset
-//  161   }
-//  162   else if ( rib == RESETEX )
-//  163   {
-//  164     // Put code here to handle External reset
-//  165   }
-//  166   else if ( rib == RESETWD )
-//  167   {
-//  168     // Put code here to handle WatchDog reset
-//  169   }
-//  170   else
-//  171   {
-//  172     // Unknown, hang and blink
-//  173     HAL_DISABLE_INTERRUPTS();
-//  174     led = HAL_LED_4;
-//  175     while ( 1 ) {
-//  176       HalLedSet( led, HAL_LED_MODE_ON );
-//  177       MicroWait( 62500 );
-//  178       MicroWait( 62500 );
-//  179       HalLedSet( led, HAL_LED_MODE_OFF );
-//  180       MicroWait( 37500 );
-//  181       MicroWait( 37500 );
-//  182       if ( !(led >>= 1) )
-//  183         led = HAL_LED_4;
-//  184     }
-//  185   }
-//  186 }
-//  187 
-//  188 /*********************************************************************
-//  189  *                        "Keyboard" Support
-//  190  *********************************************************************/
-//  191 
-//  192 /*********************************************************************
-//  193  * Keyboard Register function
-//  194  *
-//  195  * The keyboard handler is setup to send all keyboard changes to
-//  196  * one task (if a task is registered).
-//  197  *
-//  198  * If a task registers, it will get all the keys. You can change this
-//  199  * to register for individual keys.
-//  200  *********************************************************************/
+//  139 
+//  140 /*********************************************************************
+//  141  * @fn      ChkReset()
+//  142  * @brief   Check reset bits - if reset cause is unknown, assume a
+//  143  *          brown-out (low power), assume batteries are not reliable,
+//  144  *          hang in a loop and sequence through the LEDs.
+//  145  * @param   None
+//  146  * @return  None
+//  147  *********************************************************************/
+//  148 void ChkReset( void )
+//  149 {
+//  150   uint8 led;
+//  151   uint8 rib;
+//  152 
+//  153   // Isolate reset indicator bits
+//  154   rib = SLEEPSTA & LRESET;
+//  155 
+//  156   if ( rib == RESETPO )
+//  157   {
+//  158     // Put code here to handle Power-On reset
+//  159   }
+//  160   else if ( rib == RESETEX )
+//  161   {
+//  162     // Put code here to handle External reset
+//  163   }
+//  164   else if ( rib == RESETWD )
+//  165   {
+//  166     // Put code here to handle WatchDog reset
+//  167   }
+//  168   else
+//  169   {
+//  170     // Unknown, hang and blink
+//  171     HAL_DISABLE_INTERRUPTS();
+//  172     led = HAL_LED_4;
+//  173     while ( 1 ) {
+//  174       HalLedSet( led, HAL_LED_MODE_ON );
+//  175       MicroWait( 62500 );
+//  176       MicroWait( 62500 );
+//  177       HalLedSet( led, HAL_LED_MODE_OFF );
+//  178       MicroWait( 37500 );
+//  179       MicroWait( 37500 );
+//  180       if ( !(led >>= 1) )
+//  181         led = HAL_LED_4;
+//  182     }
+//  183   }
+//  184 }
+//  185 
+//  186 /*********************************************************************
+//  187  *                        "Keyboard" Support
+//  188  *********************************************************************/
+//  189 
+//  190 /*********************************************************************
+//  191  * Keyboard Register function
+//  192  *
+//  193  * The keyboard handler is setup to send all keyboard changes to
+//  194  * one task (if a task is registered).
+//  195  *
+//  196  * If a task registers, it will get all the keys. You can change this
+//  197  * to register for individual keys.
+//  198  *********************************************************************/
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  201 uint8 RegisterForKeys( uint8 task_id )
+//  199 uint8 RegisterForKeys( uint8 task_id )
 RegisterForKeys:
         CFI Block cfiBlock2 Using cfiCommon0
         CFI Function RegisterForKeys
         CODE
-//  202 {
+//  200 {
         PUSH    DPL
         CFI DPL0 Frame(CFA_SP, 4)
         CFI CFA_SP SP+-4
@@ -864,29 +869,29 @@ RegisterForKeys:
         ; Auto size: 0
         MOV     A,R1
         MOV     R0,A
-//  203   // Allow only the first task
-//  204   if ( registeredKeysTaskID == NO_TASK_ID )
+//  201   // Allow only the first task
+//  202   if ( registeredKeysTaskID == NO_TASK_ID )
         MOV     DPTR,#registeredKeysTaskID
         MOVX    A,@DPTR
         CPL     A
         JNZ     ??RegisterForKeys_0
-//  205   {
-//  206     registeredKeysTaskID = task_id;
+//  203   {
+//  204     registeredKeysTaskID = task_id;
         MOV     A,R0
         MOVX    @DPTR,A
-//  207     return ( true );
+//  205     return ( true );
         MOV     R1,#0x1
         SJMP    ??RegisterForKeys_1
-//  208   }
-//  209   else
-//  210     return ( false );
+//  206   }
+//  207   else
+//  208     return ( false );
 ??RegisterForKeys_0:
         MOV     R1,#0x0
         CFI EndBlock cfiBlock2
 ??RegisterForKeys_1:
         REQUIRE ?Subroutine1
         ; // Fall through to label ?Subroutine1
-//  211 }
+//  209 }
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
 ?Subroutine1:
@@ -903,25 +908,25 @@ RegisterForKeys:
         CFI DPL0 SameValue
         LJMP    ?BRET
         CFI EndBlock cfiBlock3
-//  212 
-//  213 /*********************************************************************
-//  214  * @fn      OnBoard_SendKeys
+//  210 
+//  211 /*********************************************************************
+//  212  * @fn      OnBoard_SendKeys
+//  213  *
+//  214  * @brief   Send "Key Pressed" message to application.
 //  215  *
-//  216  * @brief   Send "Key Pressed" message to application.
-//  217  *
-//  218  * @param   keys  - keys that were pressed
-//  219  *          state - shifted
-//  220  *
-//  221  * @return  status
-//  222  *********************************************************************/
+//  216  * @param   keys  - keys that were pressed
+//  217  *          state - shifted
+//  218  *
+//  219  * @return  status
+//  220  *********************************************************************/
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  223 uint8 OnBoard_SendKeys( uint8 keys, uint8 state )
+//  221 uint8 OnBoard_SendKeys( uint8 keys, uint8 state )
 OnBoard_SendKeys:
         CFI Block cfiBlock4 Using cfiCommon0
         CFI Function OnBoard_SendKeys
         CODE
-//  224 {
+//  222 {
         FUNCALL OnBoard_SendKeys, osal_msg_allocate
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -964,36 +969,36 @@ OnBoard_SendKeys:
         MOV     R6,A
         MOV     A,R2
         MOV     R7,A
-//  225   keyChange_t *msgPtr;
-//  226 
-//  227   if ( registeredKeysTaskID != NO_TASK_ID )
+//  223   keyChange_t *msgPtr;
+//  224 
+//  225   if ( registeredKeysTaskID != NO_TASK_ID )
         MOV     DPTR,#registeredKeysTaskID
         MOVX    A,@DPTR
         CPL     A
         JZ      ??OnBoard_SendKeys_0
-//  228   {
-//  229     // Send the address to the task
-//  230     msgPtr = (keyChange_t *)osal_msg_allocate( sizeof(keyChange_t) );
+//  226   {
+//  227     // Send the address to the task
+//  228     msgPtr = (keyChange_t *)osal_msg_allocate( sizeof(keyChange_t) );
         ; Setup parameters for call to function osal_msg_allocate
         MOV     R2,#0x4
         MOV     R3,#0x0
         LCALL   ??osal_msg_allocate?relay
-//  231     if ( msgPtr )
+//  229     if ( msgPtr )
         MOV     A,R2
         ORL     A,R3
         JZ      ??OnBoard_SendKeys_1
-//  232     {
-//  233       msgPtr->hdr.event = KEY_CHANGE;
+//  230     {
+//  231       msgPtr->hdr.event = KEY_CHANGE;
         MOV     DPL,R2
         MOV     DPH,R3
         MOV     A,#-0x40
         MOVX    @DPTR,A
-//  234       msgPtr->state = state;
+//  232       msgPtr->state = state;
         MOV     A,R7
         INC     DPTR
         INC     DPTR
         MOVX    @DPTR,A
-//  235       msgPtr->keys = keys;
+//  233       msgPtr->keys = keys;
         MOV     A,R6
         MOV     DPL,R2
         MOV     DPH,R3
@@ -1001,47 +1006,47 @@ OnBoard_SendKeys:
         INC     DPTR
         INC     DPTR
         MOVX    @DPTR,A
-//  236 
-//  237       osal_msg_send( registeredKeysTaskID, (uint8 *)msgPtr );
+//  234 
+//  235       osal_msg_send( registeredKeysTaskID, (uint8 *)msgPtr );
         ; Setup parameters for call to function osal_msg_send
         MOV     DPTR,#registeredKeysTaskID
         MOVX    A,@DPTR
         MOV     R1,A
         LCALL   ??osal_msg_send?relay
-//  238     }
-//  239     return ( ZSuccess );
+//  236     }
+//  237     return ( ZSuccess );
 ??OnBoard_SendKeys_1:
         MOV     R1,#0x0
         SJMP    ??OnBoard_SendKeys_2
-//  240   }
-//  241   else
-//  242     return ( ZFailure );
+//  238   }
+//  239   else
+//  240     return ( ZFailure );
 ??OnBoard_SendKeys_0:
         MOV     R1,#0x1
 ??OnBoard_SendKeys_2:
         MOV     R7,#0x2
         LJMP    ?BANKED_LEAVE_XDATA
         CFI EndBlock cfiBlock4
-//  243 }
-//  244 
-//  245 /*********************************************************************
-//  246  * @fn      OnBoard_KeyCallback
+//  241 }
+//  242 
+//  243 /*********************************************************************
+//  244  * @fn      OnBoard_KeyCallback
+//  245  *
+//  246  * @brief   Callback service for keys
 //  247  *
-//  248  * @brief   Callback service for keys
-//  249  *
-//  250  * @param   keys  - keys that were pressed
-//  251  *          state - shifted
-//  252  *
-//  253  * @return  void
-//  254  *********************************************************************/
+//  248  * @param   keys  - keys that were pressed
+//  249  *          state - shifted
+//  250  *
+//  251  * @return  void
+//  252  *********************************************************************/
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  255 void OnBoard_KeyCallback ( uint8 keys, uint8 state )
+//  253 void OnBoard_KeyCallback ( uint8 keys, uint8 state )
 OnBoard_KeyCallback:
         CFI Block cfiBlock5 Using cfiCommon0
         CFI Function OnBoard_KeyCallback
         CODE
-//  256 {
+//  254 {
         FUNCALL OnBoard_KeyCallback, OnBoard_SendKeys
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -1069,66 +1074,66 @@ OnBoard_KeyCallback:
         ; Saved register size: 9
         ; Auto size: 0
         MOV     A,R1
-//  257   uint8 shift;
-//  258   (void)state;
-//  259 
-//  260   /* Get shift key status */
-//  261   shift = ((keys & HAL_KEY_SW_6) ? true : false);
-//  262 
-//  263   if ( OnBoard_SendKeys( keys, shift ) != ZSuccess )
+//  255   uint8 shift;
+//  256   (void)state;
+//  257 
+//  258   /* Get shift key status */
+//  259   shift = ((keys & HAL_KEY_SW_6) ? true : false);
+//  260 
+//  261   if ( OnBoard_SendKeys( keys, shift ) != ZSuccess )
         ; Setup parameters for call to function OnBoard_SendKeys
         MOV     C,0xE0 /* A   */.5
         CLR     A
         RLC     A
         MOV     R2,A
         LCALL   ??OnBoard_SendKeys?relay
-//  264   {
-//  265     // Process SW1 here
-//  266     if ( keys & HAL_KEY_SW_1 )  // Switch 1
-//  267     {
-//  268     }
-//  269     // Process SW2 here
-//  270     if ( keys & HAL_KEY_SW_2 )  // Switch 2
-//  271     {
-//  272     }
-//  273     // Process SW3 here
-//  274     if ( keys & HAL_KEY_SW_3 )  // Switch 3
-//  275     {
-//  276     }
-//  277     // Process SW4 here
-//  278     if ( keys & HAL_KEY_SW_4 )  // Switch 4
-//  279     {
-//  280     }
-//  281     // Process SW5 here
-//  282     if ( keys & HAL_KEY_SW_5 )  // Switch 5
-//  283     {
-//  284     }
-//  285     // Process SW6 here
-//  286     if ( keys & HAL_KEY_SW_6 )  // Switch 6
-//  287     {
-//  288     }
-//  289   }
-//  290 }
+//  262   {
+//  263     // Process SW1 here
+//  264     if ( keys & HAL_KEY_SW_1 )  // Switch 1
+//  265     {
+//  266     }
+//  267     // Process SW2 here
+//  268     if ( keys & HAL_KEY_SW_2 )  // Switch 2
+//  269     {
+//  270     }
+//  271     // Process SW3 here
+//  272     if ( keys & HAL_KEY_SW_3 )  // Switch 3
+//  273     {
+//  274     }
+//  275     // Process SW4 here
+//  276     if ( keys & HAL_KEY_SW_4 )  // Switch 4
+//  277     {
+//  278     }
+//  279     // Process SW5 here
+//  280     if ( keys & HAL_KEY_SW_5 )  // Switch 5
+//  281     {
+//  282     }
+//  283     // Process SW6 here
+//  284     if ( keys & HAL_KEY_SW_6 )  // Switch 6
+//  285     {
+//  286     }
+//  287   }
+//  288 }
         SJMP    ?Subroutine0
         CFI EndBlock cfiBlock5
-//  291 
-//  292 /*********************************************************************
-//  293  * @fn      OnBoard_stack_used
+//  289 
+//  290 /*********************************************************************
+//  291  * @fn      OnBoard_stack_used
+//  292  *
+//  293  * @brief   Runs through the stack looking for touched memory.
 //  294  *
-//  295  * @brief   Runs through the stack looking for touched memory.
+//  295  * @param   none
 //  296  *
-//  297  * @param   none
-//  298  *
-//  299  * @return  Maximum number of bytes used by the stack.
-//  300  *********************************************************************/
+//  297  * @return  Maximum number of bytes used by the stack.
+//  298  *********************************************************************/
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  301 uint16 OnBoard_stack_used(void)
+//  299 uint16 OnBoard_stack_used(void)
 OnBoard_stack_used:
         CFI Block cfiBlock6 Using cfiCommon0
         CFI Function OnBoard_stack_used
         CODE
-//  302 {
+//  300 {
         PUSH    DPL
         CFI DPL0 Frame(CFA_SP, 4)
         CFI CFA_SP SP+-4
@@ -1137,29 +1142,29 @@ OnBoard_stack_used:
         CFI CFA_SP SP+-5
         ; Saved register size: 2
         ; Auto size: 0
-//  303   uint8 const *ptr;
-//  304   uint8 cnt = 0;
+//  301   uint8 const *ptr;
+//  302   uint8 cnt = 0;
         MOV     R0,#0x0
-//  305 
-//  306   for (ptr = XSTACK_END; ptr > XSTACK_BEG; ptr--)
+//  303 
+//  304   for (ptr = XSTACK_END; ptr > XSTACK_BEG; ptr--)
         MOV     DPL,#(SFE(XSTACK) + 255) & 0xff
         MOV     DPH,#((SFE(XSTACK) - 1) >> 8) & 0xff
         SJMP    ??OnBoard_stack_used_0
-//  307   {
-//  308     if (STACK_INIT_VALUE == *ptr)
-//  309     {
-//  310       if (++cnt >= MIN_RAM_INIT)
-//  311       {
-//  312         ptr += MIN_RAM_INIT;
-//  313         break;
-//  314       }
-//  315     }
-//  316     else
-//  317     {
-//  318       cnt = 0;
+//  305   {
+//  306     if (STACK_INIT_VALUE == *ptr)
+//  307     {
+//  308       if (++cnt >= MIN_RAM_INIT)
+//  309       {
+//  310         ptr += MIN_RAM_INIT;
+//  311         break;
+//  312       }
+//  313     }
+//  314     else
+//  315     {
+//  316       cnt = 0;
 ??OnBoard_stack_used_1:
         MOV     R0,#0x0
-//  319     }
+//  317     }
 ??OnBoard_stack_used_2:
         MOV     A,DPL
         ADD     A,#-0x1
@@ -1188,9 +1193,9 @@ OnBoard_stack_used:
         MOV     A,DPH
         ADDC    A,#0x0
         MOV     DPH,A
-//  320   }
-//  321 
-//  322   return (uint16)(XSTACK_END - ptr + 1);
+//  318   }
+//  319 
+//  320   return (uint16)(XSTACK_END - ptr + 1);
 ??OnBoard_stack_used_3:
         MOV     A,#(SFE(XSTACK) + 255) & 0xff
         CLR     C
@@ -1207,28 +1212,28 @@ OnBoard_stack_used:
         MOV     R3,A
         LJMP    ?Subroutine1 & 0xFFFF
         CFI EndBlock cfiBlock6
-//  323 }
-//  324 
-//  325 /*********************************************************************
-//  326  * @fn      _itoa
+//  321 }
+//  322 
+//  323 /*********************************************************************
+//  324  * @fn      _itoa
+//  325  *
+//  326  * @brief   convert a 16bit number to ASCII
 //  327  *
-//  328  * @brief   convert a 16bit number to ASCII
-//  329  *
-//  330  * @param   num -
-//  331  *          buf -
-//  332  *          radix -
+//  328  * @param   num -
+//  329  *          buf -
+//  330  *          radix -
+//  331  *
+//  332  * @return  void
 //  333  *
-//  334  * @return  void
-//  335  *
-//  336  *********************************************************************/
+//  334  *********************************************************************/
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  337 void _itoa(uint16 num, uint8 *buf, uint8 radix)
+//  335 void _itoa(uint16 num, uint8 *buf, uint8 radix)
 _itoa:
         CFI Block cfiBlock7 Using cfiCommon0
         CFI Function _itoa
         CODE
-//  338 {
+//  336 {
         MOV     A,#-0x10
         LCALL   ?BANKED_ENTER_XDATA
         CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
@@ -1260,21 +1265,21 @@ _itoa:
         MOV     R7,A
         MOV     ?V0 + 0,R4
         MOV     ?V0 + 1,R5
-//  339   char c,i;
-//  340   uint8 *p, rst[5];
-//  341 
-//  342   p = rst;
+//  337   char c,i;
+//  338   uint8 *p, rst[5];
+//  339 
+//  340   p = rst;
         MOV     DPL,?XSP + 0
         MOV     DPH,?XSP + 1
         MOV     R4,DPL
         MOV     R5,DPH
-//  343   for ( i=0; i<5; i++,p++ )
+//  341   for ( i=0; i<5; i++,p++ )
         MOV     ?V0 + 5,#0x0
         MOV     DPL,R1
         MOV     ?V0 + 2,DPL
         MOV     ?V0 + 3,#0x0
-//  344   {
-//  345     c = num % radix;  // Isolate a digit
+//  342   {
+//  343     c = num % radix;  // Isolate a digit
 ??_itoa_0:
         MOV     A,R6
         MOV     R0,A
@@ -1284,7 +1289,7 @@ _itoa:
         MOV     R3,?V0 + 3
         LCALL   ?US_DIV_MOD
         MOV     A,R2
-//  346     *p = c + (( c < 10 ) ? '0' : '7');  // Convert to Ascii
+//  344     *p = c + (( c < 10 ) ? '0' : '7');  // Convert to Ascii
         SUBB    A,#0xa
         JNC     ??_itoa_1
         MOV     R0,#0x30
@@ -1297,7 +1302,7 @@ _itoa:
         MOV     DPL,R4
         MOV     DPH,R5
         MOVX    @DPTR,A
-//  347     num /= radix;
+//  345     num /= radix;
         MOV     A,R6
         MOV     R0,A
         MOV     A,R7
@@ -1309,12 +1314,12 @@ _itoa:
         MOV     ?V0 + 7,R1
         MOV     R6,?V0 + 6
         MOV     R7,?V0 + 7
-//  348     if ( !num )
+//  346     if ( !num )
         MOV     A,R6
         ORL     A,R7
         JZ      ??_itoa_3
-//  349       break;
-//  350   }
+//  347       break;
+//  348   }
         INC     ?V0 + 5
         INC     DPTR
         MOV     R4,DPL
@@ -1322,11 +1327,11 @@ _itoa:
         MOV     A,?V0 + 5
         SUBB    A,#0x5
         JC      ??_itoa_0
-//  351 
-//  352   for ( c=0 ; c<=i; c++ )
+//  349 
+//  350   for ( c=0 ; c<=i; c++ )
 ??_itoa_3:
         MOV     R2,#0x0
-//  353     *buf++ = *p--;  // Reverse character order
+//  351     *buf++ = *p--;  // Reverse character order
 ??_itoa_4:
         MOV     DPL,R4
         MOV     DPH,R5
@@ -1348,36 +1353,36 @@ _itoa:
         CLR     C
         SUBB    A,R2
         JNC     ??_itoa_4
-//  354 
-//  355   *buf = '\0';
+//  352 
+//  353   *buf = '\0';
         CLR     A
         MOVX    @DPTR,A
-//  356 }
+//  354 }
         MOV     A,#0x5
         LCALL   ?DEALLOC_XSTACK8
         CFI CFA_XSP16 add(XSP16, 16)
         MOV     R7,#0x8
         LJMP    ?BANKED_LEAVE_XDATA
         CFI EndBlock cfiBlock7
-//  357 
-//  358 /*********************************************************************
-//  359  * @fn        Onboard_rand
+//  355 
+//  356 /*********************************************************************
+//  357  * @fn        Onboard_rand
+//  358  *
+//  359  * @brief    Random number generator
 //  360  *
-//  361  * @brief    Random number generator
+//  361  * @param   none
 //  362  *
-//  363  * @param   none
+//  363  * @return  uint16 - new random number
 //  364  *
-//  365  * @return  uint16 - new random number
-//  366  *
-//  367  *********************************************************************/
+//  365  *********************************************************************/
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  368 uint16 Onboard_rand( void )
+//  366 uint16 Onboard_rand( void )
 Onboard_rand:
         CFI Block cfiBlock8 Using cfiCommon0
         CFI Function Onboard_rand
         CODE
-//  369 {
+//  367 {
         FUNCALL Onboard_rand, macMcuRandomWord
         LOCFRAME ISTACK, 2, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -1397,44 +1402,44 @@ Onboard_rand:
         CFI CFA_SP SP+-5
         ; Saved register size: 2
         ; Auto size: 0
-//  370   return ( MAC_RADIO_RANDOM_WORD() );
+//  368   return ( MAC_RADIO_RANDOM_WORD() );
         ; Setup parameters for call to function macMcuRandomWord
         LCALL   ??macMcuRandomWord?relay
         LJMP    ?Subroutine1 & 0xFFFF
         CFI EndBlock cfiBlock8
-//  371 }
-//  372 
-//  373 /*********************************************************************
-//  374  * @fn        Onboard_wait
+//  369 }
+//  370 
+//  371 /*********************************************************************
+//  372  * @fn        Onboard_wait
+//  373  *
+//  374  * @brief    Delay wait
 //  375  *
-//  376  * @brief    Delay wait
+//  376  * @param   uint16 - time to wait
 //  377  *
-//  378  * @param   uint16 - time to wait
+//  378  * @return  none
 //  379  *
-//  380  * @return  none
-//  381  *
-//  382  *********************************************************************/
+//  380  *********************************************************************/
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  383 void Onboard_wait( uint16 timeout )
+//  381 void Onboard_wait( uint16 timeout )
 Onboard_wait:
         CFI Block cfiBlock9 Using cfiCommon0
         CFI Function Onboard_wait
         CODE
-//  384 {
+//  382 {
         ; Saved register size: 0
         ; Auto size: 0
         SJMP    ??Onboard_wait_0
-//  385   while (timeout--)
-//  386   {
-//  387     asm("NOP");
+//  383   while (timeout--)
+//  384   {
+//  385     asm("NOP");
 ??Onboard_wait_1:
         NOP
-//  388     asm("NOP");
+//  386     asm("NOP");
         NOP
-//  389     asm("NOP");
+//  387     asm("NOP");
         NOP
-//  390   }
+//  388   }
 ??Onboard_wait_0:
         MOV     A,R2
         MOV     R0,A
@@ -1449,96 +1454,96 @@ Onboard_wait:
         MOV     A,R0
         ORL     A,R1
         JNZ     ??Onboard_wait_1
-//  391 }
+//  389 }
         LJMP    ?BRET
         CFI EndBlock cfiBlock9
-//  392 
-//  393 /*********************************************************************
-//  394  *                    EXTERNAL I/O FUNCTIONS
-//  395  *
-//  396  * User defined functions to control external devices. Add your code
-//  397  * to the following functions to control devices wired to DB outputs.
-//  398  *
-//  399  *********************************************************************/
-//  400 
+//  390 
+//  391 /*********************************************************************
+//  392  *                    EXTERNAL I/O FUNCTIONS
+//  393  *
+//  394  * User defined functions to control external devices. Add your code
+//  395  * to the following functions to control devices wired to DB outputs.
+//  396  *
+//  397  *********************************************************************/
+//  398 
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  401 void BigLight_On( void )
+//  399 void BigLight_On( void )
 BigLight_On:
         CFI Block cfiBlock10 Using cfiCommon0
         CFI Function BigLight_On
         CODE
-//  402 {
+//  400 {
         ; Saved register size: 0
         ; Auto size: 0
-//  403   // Put code here to turn on an external light
-//  404 }
+//  401   // Put code here to turn on an external light
+//  402 }
         LJMP    ?BRET
         CFI EndBlock cfiBlock10
-//  405 
+//  403 
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  406 void BigLight_Off( void )
+//  404 void BigLight_Off( void )
 BigLight_Off:
         CFI Block cfiBlock11 Using cfiCommon0
         CFI Function BigLight_Off
         CODE
-//  407 {
+//  405 {
         ; Saved register size: 0
         ; Auto size: 0
-//  408   // Put code here to turn off an external light
-//  409 }
+//  406   // Put code here to turn off an external light
+//  407 }
         LJMP    ?BRET
         CFI EndBlock cfiBlock11
-//  410 
+//  408 
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  411 void BuzzerControl( uint8 on )
+//  409 void BuzzerControl( uint8 on )
 BuzzerControl:
         CFI Block cfiBlock12 Using cfiCommon0
         CFI Function BuzzerControl
         CODE
-//  412 {
+//  410 {
         ; Saved register size: 0
         ; Auto size: 0
-//  413   // Put code here to turn a buzzer on/off
-//  414   (void)on;
-//  415 }
+//  411   // Put code here to turn a buzzer on/off
+//  412   (void)on;
+//  413 }
         LJMP    ?BRET
         CFI EndBlock cfiBlock12
-//  416 
+//  414 
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  417 void Dimmer( uint8 lvl )
+//  415 void Dimmer( uint8 lvl )
 Dimmer:
         CFI Block cfiBlock13 Using cfiCommon0
         CFI Function Dimmer
         CODE
-//  418 {
+//  416 {
         ; Saved register size: 0
         ; Auto size: 0
-//  419   // Put code here to control a dimmer
-//  420   (void)lvl;
-//  421 }
+//  417   // Put code here to control a dimmer
+//  418   (void)lvl;
+//  419 }
         LJMP    ?BRET
         CFI EndBlock cfiBlock13
-//  422 
-//  423 // No dip switches on this board
+//  420 
+//  421 // No dip switches on this board
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  424 uint8 GetUserDipSw( void )
+//  422 uint8 GetUserDipSw( void )
 GetUserDipSw:
         CFI Block cfiBlock14 Using cfiCommon0
         CFI Function GetUserDipSw
         CODE
-//  425 {
+//  423 {
         ; Saved register size: 0
         ; Auto size: 0
-//  426   return 0;
+//  424   return 0;
         MOV     R1,#0x0
         LJMP    ?BRET
         CFI EndBlock cfiBlock14
-//  427 }
+//  425 }
 
         RSEG XDATA_ID:CODE:NOROOT(0)
 `?<Initializer for registeredKeysTaskID>`:
@@ -1626,18 +1631,18 @@ GetUserDipSw:
         RSEG XSTACK:DATA:REORDER:NOROOT(0)
 
         END
-//  428 
-//  429 /*********************************************************************
-//  430 *********************************************************************/
+//  426 
+//  427 /*********************************************************************
+//  428 *********************************************************************/
 // 
-// 507 bytes in segment BANKED_CODE
+// 508 bytes in segment BANKED_CODE
 //  78 bytes in segment BANK_RELAYS
 //   2 bytes in segment SFR_AN
 //   1 byte  in segment XDATA_I
 //   1 byte  in segment XDATA_ID
 //   9 bytes in segment XDATA_Z
 // 
-// 586 bytes of CODE  memory
+// 587 bytes of CODE  memory
 //   0 bytes of DATA  memory (+ 2 bytes shared)
 //  10 bytes of XDATA memory
 //

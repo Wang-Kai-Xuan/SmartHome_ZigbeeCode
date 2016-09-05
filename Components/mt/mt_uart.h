@@ -68,12 +68,11 @@ extern "C"
 #endif
 
 #if !defined( MT_UART_DEFAULT_OVERFLOW )
-//  #define MT_UART_DEFAULT_OVERFLOW       TRUE
-    #define MT_UART_DEFAULT_OVERFLOW       FALSE // by wangkaixuan
+  #define MT_UART_DEFAULT_OVERFLOW       FALSE
 #endif
 
 #if !defined MT_UART_DEFAULT_BAUDRATE
-#define MT_UART_DEFAULT_BAUDRATE         HAL_UART_BR_38400
+#define MT_UART_DEFAULT_BAUDRATE         HAL_UART_BR_115200
 #endif
 #define MT_UART_DEFAULT_THRESHOLD        MT_UART_THRESHOLD
 #define MT_UART_DEFAULT_MAX_RX_BUFF      MT_UART_RX_BUFF_MAX

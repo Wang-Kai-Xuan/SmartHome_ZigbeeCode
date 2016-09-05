@@ -228,7 +228,7 @@ typedef enum
   afAddr16Bit      = Addr16Bit,
   afAddr64Bit      = Addr64Bit,
   afAddrGroup      = AddrGroup,
-  afAddrBroadcast  = AddrBroadcast
+  afAddrBroadcast  = AddrBroadcast 
 } afAddrMode_t;
 
 typedef struct

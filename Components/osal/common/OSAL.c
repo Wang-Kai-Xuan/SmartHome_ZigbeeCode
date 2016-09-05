@@ -24,7 +24,7 @@
   its documentation for any purpose.
 
   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
-  PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+  PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -56,45 +56,10 @@
 
 /* HAL */
 #include "hal_drivers.h"
-
-/*********************************************************************
- * MACROS
- */
-
-/*********************************************************************
- * CONSTANTS
- */
-
-/*********************************************************************
- * TYPEDEFS
- */
-
-/*********************************************************************
- * GLOBAL VARIABLES
- */
+//#include "IC.h"
 
 // Message Pool Definitions
 osal_msg_q_t osal_qHead;
-
-/*********************************************************************
- * EXTERNAL VARIABLES
- */
-
-/*********************************************************************
- * EXTERNAL FUNCTIONS
- */
-
-/*********************************************************************
- * LOCAL VARIABLES
- */
-
-/*********************************************************************
- * LOCAL FUNCTION PROTOTYPES
- */
-
-/*********************************************************************
- * HELPER FUNCTIONS
- */
 /* very ugly stub so Keil can compile */
 #ifdef __KEIL__
 char *  itoa ( int value, char * buffer, int radix )
@@ -920,16 +885,12 @@ uint8 osal_isr_register( uint8 interrupt_id, void (*isr_ptr)( uint8* ) )
  */
 uint8 osal_int_enable( uint8 interrupt_id )
 {
-
-  if ( interrupt_id == INTS_ALL )
-  {
-    HAL_ENABLE_INTERRUPTS();
-    return ( SUCCESS );
-  }
-  else
-  {
-    return ( INVALID_INTERRUPT_ID );
-  }
+	if ( interrupt_id == INTS_ALL ){
+		HAL_ENABLE_INTERRUPTS();
+		return ( SUCCESS );
+	}else{
+		return ( INVALID_INTERRUPT_ID );
+	}
 }
 
 /*********************************************************************
@@ -948,18 +909,14 @@ uint8 osal_int_enable( uint8 interrupt_id )
  *
  * @return  SUCCESS or INVALID_INTERRUPT_ID
  */
-uint8 osal_int_disable( uint8 interrupt_id )
-{
-
-  if ( interrupt_id == INTS_ALL )
-  {
-    HAL_DISABLE_INTERRUPTS();
-    return ( SUCCESS );
-  }
-  else
-  {
-    return ( INVALID_INTERRUPT_ID );
-  }
+uint8 osal_int_disable( uint8 interrupt_id ){
+	if ( interrupt_id == INTS_ALL ){
+		HAL_DISABLE_INTERRUPTS();
+		return ( SUCCESS );
+	}
+	else{
+		return ( INVALID_INTERRUPT_ID );
+	}
 }
 
 /*********************************************************************
@@ -1014,45 +971,43 @@ uint8 osal_init_system( void )
  */
 void osal_start_system( void )
 {
-#if !defined ( ZBIT ) && !defined ( UBIT )
-  for(;;)  // Forever Loop
-#endif
-  {
-    uint8 idx = 0;
-
-    osalTimeUpdate();
-    Hal_ProcessPoll();  // This replaces MT_SerialPoll() and osal_check_timer().
-    
-    do {
-      if (tasksEvents[idx])  // Task is highest priority that is ready.
-      {
-        break;
-      }
-    } while (++idx < tasksCnt);
-
-    if (idx < tasksCnt)
-    {
-      uint16 events;
-      halIntState_t intState;
-
-      HAL_ENTER_CRITICAL_SECTION(intState);
-      events = tasksEvents[idx];
-      tasksEvents[idx] = 0;  // Clear the Events for this task.
-      HAL_EXIT_CRITICAL_SECTION(intState);
-
-      events = (tasksArr[idx])( idx, events );
-
-      HAL_ENTER_CRITICAL_SECTION(intState);
-      tasksEvents[idx] |= events;  // Add back unprocessed events to the current task.
-      HAL_EXIT_CRITICAL_SECTION(intState);
-    }
-#if defined( POWER_SAVING )
-    else  // Complete pass through all task events with no activity?
-    {
-      osal_pwrmgr_powerconserve();  // Put the processor/system into sleep
-    }
-#endif
-  }
+	#if !defined ( ZBIT ) && !defined ( UBIT )
+	for(;;)  // Forever Loop
+	#endif
+	{
+		uint8 idx = 0;   
+		osalTimeUpdate();
+		Hal_ProcessPoll();  // This replaces MT_SerialPoll() and osal_check_timer().
+		do {
+			if (tasksEvents[idx])  // Task is highest priority that is ready.
+			{
+				break;
+			}
+		} while (++idx < tasksCnt);//tasksCntµ±Ç°µÄÈÎÎñÊýÄ¿
+		
+		/*¼ì²âµ½²»ÊÇwhileÕý³££¬¶øÊÇÄ³¸öÈÎÎñµÄÍ¨ÐÅ±äÁ¿ÀïÃæ²»Îª0¶øÌø³ö*/
+		if (idx < tasksCnt)
+		{
+			uint16 events;
+			halIntState_t intState;			
+			HAL_ENTER_CRITICAL_SECTION(intState);
+			events = tasksEvents[idx];
+			tasksEvents[idx] = 0;  // Clear the Events for this task.
+			HAL_EXIT_CRITICAL_SECTION(intState);
+			
+			events = (tasksArr[idx])( idx, events );
+			
+			HAL_ENTER_CRITICAL_SECTION(intState);
+			tasksEvents[idx] |= events;  // Add back unprocessed events to the current task.
+			HAL_EXIT_CRITICAL_SECTION(intState);
+		}
+		#if defined( POWER_SAVING )
+		else  // Complete pass through all task events with no activity?
+		{
+			osal_pwrmgr_powerconserve();  // Put the processor/system into sleep
+		}
+			#endif
+	}
 }
 
 /*********************************************************************

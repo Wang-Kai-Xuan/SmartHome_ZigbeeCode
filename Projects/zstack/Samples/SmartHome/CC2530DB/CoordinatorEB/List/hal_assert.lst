@@ -1,6 +1,6 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         05/Sep/2016  09:20:33 #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         05/Sep/2016  17:58:51 #
 # Copyright 2004-2011 IAR Systems AB.                                         #
 #                                                                             #
 #    Core               =  plain                                              #
@@ -9,18 +9,18 @@
 #    Calling convention =  xdata reentrant                                    #
 #    Constant location  =  data_rom                                           #
 #    Dptr setup         =  1,16                                               #
-#    Source file        =  H:\project\SmartHome\Components\hal\common\hal_ass #
-#                          ert.c                                              #
-#    Command line       =  -f H:\project\SmartHome\Projects\zstack\Samples\Sm #
-#                          artHome\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoord. #
-#                          cfg (-DCPU32MHZ -DROOT=__near_func                 #
+#    Source file        =  H:\project\SmartHome_ZigbeeCode\Components\hal\com #
+#                          mon\hal_assert.c                                   #
+#    Command line       =  -f H:\project\SmartHome_ZigbeeCode\Projects\zstack #
+#                          \Samples\SmartHome\CC2530DB\..\..\..\Tools\CC2530D #
+#                          B\f8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func      #
 #                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
 #                          -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS) -f       #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cf #
-#                          g (-DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR    #
-#                          -DDEFAULT_CHANLIST=0x00000800                      #
-#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\Tools\CC2530DB\f #
+#                          8wConfig.cfg (-DSECURE=0 -DZG_SECURE_DYNAMIC=0     #
+#                          -DREFLECTOR -DDEFAULT_CHANLIST=0x00000800          #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFF0                       #
 #                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
 #                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
 #                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
@@ -38,76 +38,86 @@
 #                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
 #                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
 #                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
-#                          H:\project\SmartHome\Components\hal\common\hal_ass #
-#                          ert.c -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D     #
-#                          MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG -lC             #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\List\ -lA              #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\List\ --diag_suppress  #
-#                          Pe001,Pa010 -o H:\project\SmartHome\Projects\zstac #
-#                          k\Samples\SmartHome\CC2530DB\CoordinatorEB\Obj\    #
-#                          -e --debug --core=plain --dptr=16,1                #
+#                          H:\project\SmartHome_ZigbeeCode\Components\hal\com #
+#                          mon\hal_assert.c -D ZIGBEEPRO -D ZTOOL_P1 -D       #
+#                          MT_TASK -D MT_SYS_FUNC -D xMT_ZDO_FUNC -D          #
+#                          LCD_SUPPORTED=DEBUG -D NV_RESTORE -lC              #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\List\ -lA   #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\List\       #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\Obj\ -e     #
+#                          --debug --core=plain --dptr=16,1                   #
 #                          --data_model=large --code_model=banked             #
 #                          --calling_convention=xdata_reentrant               #
 #                          --place_constants=data_rom --nr_virtual_regs 16    #
-#                          -I H:\project\SmartHome\Projects\zstack\Samples\Sm #
-#                          artHome\CC2530DB\ -I H:\project\SmartHome\Projects #
-#                          \zstack\Samples\SmartHome\CC2530DB\..\SOURCE\ -I   #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\ZMAIN\TI2530DB\ -I          #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\MT\ -I     #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INCLUD #
-#                          E\ -I H:\project\SmartHome\Projects\zstack\Samples #
-#                          \SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\ #
-#                          TARGET\CC2530EB\ -I H:\project\SmartHome\Projects\ #
-#                          zstack\Samples\SmartHome\CC2530DB\..\..\..\..\..\C #
-#                          OMPONENTS\OSAL\MCU\CCSOC\ -I                       #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\INCLU #
-#                          DE\ -I H:\project\SmartHome\Projects\zstack\Sample #
-#                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\STA #
-#                          CK\AF\ -I H:\project\SmartHome\Projects\zstack\Sam #
-#                          ples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ #
-#                          STACK\NWK\ -I H:\project\SmartHome\Projects\zstack #
+#                          -I H:\project\SmartHome_ZigbeeCode\Projects\zstack #
+#                          \Samples\SmartHome\CC2530DB\ -I                    #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\SOURCE\ -I             #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\ZMAIN\TI2530DB\  #
+#                          -I H:\project\SmartHome_ZigbeeCode\Projects\zstack #
 #                          \Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPONE #
-#                          NTS\STACK\SEC\ -I H:\project\SmartHome\Projects\zs #
-#                          tack\Samples\SmartHome\CC2530DB\..\..\..\..\..\COM #
-#                          PONENTS\STACK\SAPI\ -I H:\project\SmartHome\Projec #
-#                          ts\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\. #
-#                          .\COMPONENTS\STACK\SYS\ -I                         #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\ZDO\ #
-#                           -I H:\project\SmartHome\Projects\zstack\Samples\S #
-#                          martHome\CC2530DB\..\..\..\..\..\COMPONENTS\ZMAC\F #
-#                          8W\ -I H:\project\SmartHome\Projects\zstack\Sample #
-#                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ZMA #
-#                          C\ -I H:\project\SmartHome\Projects\zstack\Samples #
-#                          \SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\SERV #
-#                          ICES\SADDR\ -I H:\project\SmartHome\Projects\zstac #
-#                          k\Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPON #
-#                          ENTS\SERVICES\SDATA\ -I H:\project\SmartHome\Proje #
-#                          cts\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\ #
-#                          ..\COMPONENTS\MAC\INCLUDE\ -I                      #
-#                          H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\HIGH_L #
-#                          EVEL\ -I H:\project\SmartHome\Projects\zstack\Samp #
-#                          les\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\M #
-#                          AC\LOW_LEVEL\srf04\ -I H:\project\SmartHome\Projec #
-#                          ts\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\. #
-#                          .\COMPONENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\      #
-#                          -Ohz --require_prototypes                          #
-#    List file          =  H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\List\hal_assert.lst    #
-#    Object file        =  H:\project\SmartHome\Projects\zstack\Samples\Smart #
-#                          Home\CC2530DB\CoordinatorEB\Obj\hal_assert.r51     #
+#                          NTS\MT\ -I H:\project\SmartHome_ZigbeeCode\Project #
+#                          s\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\.. #
+#                          \COMPONENTS\HAL\INCLUDE\ -I                        #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \HAL\TARGET\CC2530EB\ -I                           #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \OSAL\MCU\CCSOC\ -I H:\project\SmartHome_ZigbeeCod #
+#                          e\Projects\zstack\Samples\SmartHome\CC2530DB\..\.. #
+#                          \..\..\..\COMPONENTS\OSAL\INCLUDE\ -I              #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\AF\ -I H:\project\SmartHome_ZigbeeCode\Proj #
+#                          ects\zstack\Samples\SmartHome\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\STACK\NWK\ -I                       #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SEC\ -I H:\project\SmartHome_ZigbeeCode\Pro #
+#                          jects\zstack\Samples\SmartHome\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\STACK\SAPI\ -I                     #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \STACK\SYS\ -I H:\project\SmartHome_ZigbeeCode\Pro #
+#                          jects\zstack\Samples\SmartHome\CC2530DB\..\..\..\. #
+#                          .\..\COMPONENTS\STACK\ZDO\ -I                      #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \ZMAC\F8W\ -I H:\project\SmartHome_ZigbeeCode\Proj #
+#                          ects\zstack\Samples\SmartHome\CC2530DB\..\..\..\.. #
+#                          \..\COMPONENTS\ZMAC\ -I H:\project\SmartHome_Zigbe #
+#                          eCode\Projects\zstack\Samples\SmartHome\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\SERVICES\SADDR\ -I        #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \SERVICES\SDATA\ -I H:\project\SmartHome_ZigbeeCod #
+#                          e\Projects\zstack\Samples\SmartHome\CC2530DB\..\.. #
+#                          \..\..\..\COMPONENTS\MAC\INCLUDE\ -I               #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\HIGH_LEVEL\ -I H:\project\SmartHome_ZigbeeCod #
+#                          e\Projects\zstack\Samples\SmartHome\CC2530DB\..\.. #
+#                          \..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\ -I       #
+#                          H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS #
+#                          \MAC\LOW_LEVEL\srf04\SINGLE_CHIP\ -Ohz             #
+#    List file          =  H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\List\hal_as #
+#                          sert.lst                                           #
+#    Object file        =  H:\project\SmartHome_ZigbeeCode\Projects\zstack\Sa #
+#                          mples\SmartHome\CC2530DB\CoordinatorEB\Obj\hal_ass #
+#                          ert.r51                                            #
 #                                                                             #
 #                                                                             #
 ###############################################################################
 
-H:\project\SmartHome\Components\hal\common\hal_assert.c
+H:\project\SmartHome_ZigbeeCode\Components\hal\common\hal_assert.c
       1          /**************************************************************************************************
       2            Filename:       hal_assert.c
       3            Revised:        $Date: 2010-01-07 10:10:43 -0800 (Thu, 07 Jan 2010) $
@@ -575,7 +585,7 @@ H:\project\SmartHome\Components\hal\common\hal_assert.c
    \   0000CF   7F04         MOV     R7,#0x4
    \   0000D1   02....       LJMP    ?BANKED_LEAVE_XDATA
    \                     ??halAssertHazardLights_17:
-   \   0000D4   A281         MOV     C,0x80.1
+   \   0000D4   A285         MOV     C,0x80.5
    \   0000D6   508C         JNC     ??halAssertHazardLights_7
    \   0000D8   09           INC     R1
    \   0000D9   740A         MOV     A,#0xa
@@ -588,7 +598,7 @@ H:\project\SmartHome\Components\hal\common\hal_assert.c
    \   0000E6   7800         MOV     R0,#0x0
    \   0000E8   7900         MOV     R1,#0x0
    \                     ??halAssertHazardLights_18:
-   \   0000EA   A281         MOV     C,0x80.1
+   \   0000EA   A285         MOV     C,0x80.5
    \   0000EC   5004         JNC     ??halAssertHazardLights_19
    \   0000EE   7800         MOV     R0,#0x0
    \   0000F0   7900         MOV     R1,#0x0
@@ -627,7 +637,7 @@ H:\project\SmartHome\Components\hal\common\hal_assert.c
    \   00012F   7B00         MOV     R3,#0x0
    \   000131   7A00         MOV     R2,#0x0
    \                     ??halAssertHazardLights_6:
-   \   000133   A281         MOV     C,0x80.1
+   \   000133   A285         MOV     C,0x80.5
    \   000135   50FC         JNC     ??halAssertHazardLights_6
    \   000137   D290         SETB    0x90.0
    \   000139   D291         SETB    0x90.1
@@ -642,7 +652,7 @@ H:\project\SmartHome\Components\hal\common\hal_assert.c
    \   000146   7800         MOV     R0,#0x0
    \   000148   7900         MOV     R1,#0x0
    \                     ??halAssertHazardLights_22:
-   \   00014A   A281         MOV     C,0x80.1
+   \   00014A   A285         MOV     C,0x80.5
    \   00014C   5004         JNC     ??halAssertHazardLights_23
    \   00014E   7800         MOV     R0,#0x0
    \   000150   7900         MOV     R1,#0x0
