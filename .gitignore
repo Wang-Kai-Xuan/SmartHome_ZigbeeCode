@@ -1,4 +1,8 @@
-Projects/zstack/Samples/SmartHome/CC2530DB/Coor*
-Projects/zstack/Samples/SmartHome/CC2530DB/Demo*
-Projects/zstack/Samples/SmartHome/CC2530DB/EndD*
-Projects/zstack/Samples/SmartHome/CC2530DB/Rout*
+Projects/zstack/Samples/SmartHome/CC2530DB/CoordinatorEB
+Projects/zstack/Samples/SmartHome/CC2530DB/CoordinatorEB-Pro
+Projects/zstack/Samples/SmartHome/CC2530DB/DemoEB
+Projects/zstack/Samples/SmartHome/CC2530DB/EndDeviceEB
+Projects/zstack/Samples/SmartHome/CC2530DB/EndDeviceEB-Pro
+Projects/zstack/Samples/SmartHome/CC2530DB/RouterEB
+Projects/zstack/Samples/SmartHome/CC2530DB/RouterEB-Pro
+Projects/zstack/Samples/SmartHome/CC2530DB/settings
