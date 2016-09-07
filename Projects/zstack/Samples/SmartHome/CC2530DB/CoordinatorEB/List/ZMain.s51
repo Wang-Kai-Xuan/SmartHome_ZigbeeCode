@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                            /
-// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        05/Sep/2016  18:32:54 /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        06/Sep/2016  08:20:24 /
 // Copyright 2004-2011 IAR Systems AB.                                        /
 //                                                                            /
 //    Core               =  plain                                             /
@@ -677,7 +677,7 @@ P1DIR:
 //   57 #include "hal_flash.h"
 //   58 
 //   59 #include "74LS164_8LED.h"
-//   60 #include "SD_App.h"
+//   60 #include "App.h"
 //   61 
 //   62 
 //   63 // Maximun number of Vdd samples checked before go on
@@ -977,14 +977,13 @@ main:
 //  122 	WatchDogEnable( WDTIMX );
 //  123 	#endif
 //  124 	
-//  125 	customInit(); // 添加自己定制的配置
+//  125 	customInit(); 
         ; Setup parameters for call to function customInit
         LCALL   ??customInit?relay
-//  126 	osal_start_system(); // No Return from here
+//  126 	osal_start_system(); // No Return from here	
         ; Setup parameters for call to function osal_start_system
         LCALL   ??osal_start_system?relay
-//  127 	
-//  128 	return 0;  // Shouldn't get here.
+//  127 	return 0;  // Shouldn't get here.
         MOV     R2,#0x0
         MOV     R3,#0x0
         LJMP    ?BRET
@@ -995,21 +994,21 @@ main:
         REQUIRE CLKCONSTA
         REQUIRE P1DIR
         REQUIRE P0INP
-//  129 }
-//  130 
-//  131 /*********************************************************************
-//  132  * @fn      zmain_vdd_check
-//  133  * @brief   Check if the Vdd is OK to run the processor.
-//  134  * @return  Return if Vdd is ok; otherwise, flash LED, then reset
-//  135  *********************************************************************/
+//  128 }
+//  129 
+//  130 /*********************************************************************
+//  131  * @fn      zmain_vdd_check
+//  132  * @brief   Check if the Vdd is OK to run the processor.
+//  133  * @return  Return if Vdd is ok; otherwise, flash LED, then reset
+//  134  *********************************************************************/
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  136 static void zmain_vdd_check( void )
+//  135 static void zmain_vdd_check( void )
 zmain_vdd_check:
         CFI Block cfiBlock1 Using cfiCommon0
         CFI Function zmain_vdd_check
         CODE
-//  137 {
+//  136 {
         FUNCALL zmain_vdd_check, HalAdcCheckVdd
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -1069,59 +1068,59 @@ zmain_vdd_check:
         CFI CFA_XSP16 add(XSP16, 9)
         ; Saved register size: 9
         ; Auto size: 0
-//  138   uint8 vdd_passed_count = 0;
+//  137   uint8 vdd_passed_count = 0;
         MOV     R6,#0x0
-//  139   bool toggle = 0;
+//  138   bool toggle = 0;
         MOV     R7,#0x0
-//  140 
-//  141   // Repeat getting the sample until number of failures or successes hits MAX
-//  142   // then based on the count value, determine if the device is ready or not
-//  143   while ( vdd_passed_count < MAX_VDD_SAMPLES )
-//  144   {
-//  145     if ( HalAdcCheckVdd (ZMAIN_VDD_LIMIT) )
+//  139 
+//  140   // Repeat getting the sample until number of failures or successes hits MAX
+//  141   // then based on the count value, determine if the device is ready or not
+//  142   while ( vdd_passed_count < MAX_VDD_SAMPLES )
+//  143   {
+//  144     if ( HalAdcCheckVdd (ZMAIN_VDD_LIMIT) )
 ??zmain_vdd_check_0:
         ; Setup parameters for call to function HalAdcCheckVdd
         MOV     R1,#0x4
         LCALL   ??HalAdcCheckVdd?relay
         MOV     A,R1
         JZ      ??zmain_vdd_check_1
-//  146     {
-//  147       vdd_passed_count++;    // Keep track # times Vdd passes in a row
+//  145     {
+//  146       vdd_passed_count++;    // Keep track # times Vdd passes in a row
         INC     R6
-//  148       MicroWait (10000);     // Wait 10ms to try again
+//  147       MicroWait (10000);     // Wait 10ms to try again
         ; Setup parameters for call to function Onboard_wait
         MOV     R2,#0x10
         MOV     R3,#0x27
         LCALL   ??Onboard_wait?relay
-//  149     }
-//  150     else
-//  151     {
-//  152       vdd_passed_count = 0;  // Reset passed counter
-//  153       MicroWait (50000);     // Wait 50ms
-//  154       MicroWait (50000);     // Wait another 50ms to try again
-//  155     }
-//  156 
-//  157     /* toggle LED1 and LED2 */
-//  158     if (vdd_passed_count == 0)
+//  148     }
+//  149     else
+//  150     {
+//  151       vdd_passed_count = 0;  // Reset passed counter
+//  152       MicroWait (50000);     // Wait 50ms
+//  153       MicroWait (50000);     // Wait another 50ms to try again
+//  154     }
+//  155 
+//  156     /* toggle LED1 and LED2 */
+//  157     if (vdd_passed_count == 0)
         MOV     A,R6
         JZ      ??zmain_vdd_check_2
         CLR     C
         SUBB    A,#0x3
         JC      ??zmain_vdd_check_0
-//  159     {
-//  160       if ((toggle = !(toggle)))
-//  161         HAL_TOGGLE_LED1();
-//  162       else
-//  163         HAL_TOGGLE_LED2();
-//  164     }
-//  165   }
-//  166 
-//  167   /* turn off LED1 */
-//  168   HAL_TURN_OFF_LED1();
+//  158     {
+//  159       if ((toggle = !(toggle)))
+//  160         HAL_TOGGLE_LED1();
+//  161       else
+//  162         HAL_TOGGLE_LED2();
+//  163     }
+//  164   }
+//  165 
+//  166   /* turn off LED1 */
+//  167   HAL_TURN_OFF_LED1();
         CLR     0x90.0
-//  169   HAL_TURN_OFF_LED2();
+//  168   HAL_TURN_OFF_LED2();
         CLR     0x90.1
-//  170 }
+//  169 }
         MOV     R7,#0x1
         LJMP    ?BANKED_LEAVE_XDATA
 ??zmain_vdd_check_1:
@@ -1156,28 +1155,28 @@ zmain_vdd_check:
         SJMP    ??zmain_vdd_check_0
         CFI EndBlock cfiBlock1
         REQUIRE _A_P1
-//  171 
-//  172 /**************************************************************************************************
-//  173  * @fn          zmain_ext_addr
-//  174  *
-//  175  * @brief       Execute a prioritized search for a valid extended address and write the results
-//  176  *              into the OSAL NV system for use by the system. Temporary address not saved to NV.
-//  177  *
-//  178  * input parameters
-//  179  *
-//  180  * None.
-//  181  *
-//  182  * output parameters
-//  183  *
-//  184  * None.
-//  185  *
-//  186  * @return      None.
-//  187  **************************************************************************************************
-//  188  */
-//  189 
+//  170 
+//  171 /**************************************************************************************************
+//  172  * @fn          zmain_ext_addr
+//  173  *
+//  174  * @brief       Execute a prioritized search for a valid extended address and write the results
+//  175  *              into the OSAL NV system for use by the system. Temporary address not saved to NV.
+//  176  *
+//  177  * input parameters
+//  178  *
+//  179  * None.
+//  180  *
+//  181  * output parameters
+//  182  *
+//  183  * None.
+//  184  *
+//  185  * @return      None.
+//  186  **************************************************************************************************
+//  187  */
+//  188 
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  190 static void zmain_ext_addr(void){
+//  189 static void zmain_ext_addr(void){
 zmain_ext_addr:
         CFI Block cfiBlock2 Using cfiCommon0
         CFI Function zmain_ext_addr
@@ -1319,7 +1318,7 @@ zmain_ext_addr:
         MOV     A,#-0x8
         LCALL   ?ALLOC_XSTACK8
         CFI CFA_XSP16 add(XSP16, 26)
-//  191   uint8 nullAddr[Z_EXTADDR_LEN] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+//  190   uint8 nullAddr[Z_EXTADDR_LEN] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
         MOV     DPL,?XSP + 0
         MOV     DPH,?XSP + 1
         MOV     R4,DPL
@@ -1328,11 +1327,11 @@ zmain_ext_addr:
         MOV     DPL,#`?<Constant {255, 255, 255, 255, 255, 255, 255,` & 0xff
         MOV     A,#0x8
         LCALL   ?MOVE_LONG8_XDATA_XDATA
-//  192   uint8 writeNV = TRUE;
-//  193   // First check whether a non-erased extended address exists in the OSAL NV.
-//  194   if ((SUCCESS != osal_nv_item_init(ZCD_NV_EXTADDR, Z_EXTADDR_LEN, NULL))  ||
-//  195       (SUCCESS != osal_nv_read(ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, aExtendedAddress)) ||
-//  196       (osal_memcmp(aExtendedAddress, nullAddr, Z_EXTADDR_LEN))){
+//  191   uint8 writeNV = TRUE;
+//  192   // First check whether a non-erased extended address exists in the OSAL NV.
+//  193   if ((SUCCESS != osal_nv_item_init(ZCD_NV_EXTADDR, Z_EXTADDR_LEN, NULL))  ||
+//  194       (SUCCESS != osal_nv_read(ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, aExtendedAddress)) ||
+//  195       (osal_memcmp(aExtendedAddress, nullAddr, Z_EXTADDR_LEN))){
         MOV     ?V0 + 0,#aExtendedAddress & 0xff
         MOV     ?V0 + 1,#(aExtendedAddress >> 8) & 0xff
         MOV     ?V0 + 2,A
@@ -1396,9 +1395,9 @@ zmain_ext_addr:
         MOV     A,R1
         JNZ     $+5
         LJMP    ??zmain_ext_addr_1 & 0xFFFF
-//  197     // Attempt to read the extended address from the location on the lock bits page
-//  198     // where the programming tools know to reserve it.
-//  199     HalFlashRead(HAL_FLASH_IEEE_PAGE, HAL_FLASH_IEEE_OSET, aExtendedAddress, Z_EXTADDR_LEN);
+//  196     // Attempt to read the extended address from the location on the lock bits page
+//  197     // where the programming tools know to reserve it.
+//  198     HalFlashRead(HAL_FLASH_IEEE_PAGE, HAL_FLASH_IEEE_OSET, aExtendedAddress, Z_EXTADDR_LEN);
 ??zmain_ext_addr_0:
         ; Setup parameters for call to function HalFlashRead
         MOV     ?V0 + 8,#0x8
@@ -1414,8 +1413,8 @@ zmain_ext_addr:
         MOV     A,#0x2
         LCALL   ?DEALLOC_XSTACK8
         CFI CFA_XSP16 add(XSP16, 26)
-//  200 
-//  201     if (osal_memcmp(aExtendedAddress, nullAddr, Z_EXTADDR_LEN)){
+//  199 
+//  200     if (osal_memcmp(aExtendedAddress, nullAddr, Z_EXTADDR_LEN)){
         ; Setup parameters for call to function osal_memcmp
         MOV     R0,#?V0 + 4
         LCALL   ?PUSH_XSTACK_I_THREE
@@ -1431,8 +1430,8 @@ zmain_ext_addr:
         CFI CFA_XSP16 add(XSP16, 26)
         MOV     A,R1
         JZ      ??zmain_ext_addr_2
-//  202       // Attempt to read the extended address from the designated location in the Info Page.
-//  203       if (!osal_memcmp((uint8 *)(P_INFOPAGE+HAL_INFOP_IEEE_OSET), nullAddr, Z_EXTADDR_LEN)){
+//  201       // Attempt to read the extended address from the designated location in the Info Page.
+//  202       if (!osal_memcmp((uint8 *)(P_INFOPAGE+HAL_INFOP_IEEE_OSET), nullAddr, Z_EXTADDR_LEN)){
         ; Setup parameters for call to function osal_memcmp
         MOV     R0,#?V0 + 4
         LCALL   ?PUSH_XSTACK_I_THREE
@@ -1448,7 +1447,7 @@ zmain_ext_addr:
         CFI CFA_XSP16 add(XSP16, 26)
         MOV     A,R1
         JNZ     ??zmain_ext_addr_3
-//  204         osal_memcpy(aExtendedAddress, (uint8 *)(P_INFOPAGE+HAL_INFOP_IEEE_OSET), Z_EXTADDR_LEN);
+//  203         osal_memcpy(aExtendedAddress, (uint8 *)(P_INFOPAGE+HAL_INFOP_IEEE_OSET), Z_EXTADDR_LEN);
         ; Setup parameters for call to function osal_memcpy
         MOV     ?V0 + 0,#0xc
         MOV     ?V0 + 1,#0x78
@@ -1464,36 +1463,36 @@ zmain_ext_addr:
         LCALL   ?DEALLOC_XSTACK8
         CFI CFA_XSP16 add(XSP16, 26)
         SJMP    ??zmain_ext_addr_2
-//  205       }
-//  206       else{
-//  207         uint8 idx;
-//  208         
-//  209 #if !defined ( NV_RESTORE )
-//  210         writeNV = FALSE;  // Make this a temporary IEEE address
-//  211 #endif
-//  212 
-//  213         /* Attempt to create a sufficiently random extended address for expediency.
-//  214          * Note: this is only valid/legal in a test environment and
-//  215          *       must never be used for a commercial product.
-//  216          */
-//  217         for (idx = 0; idx < (Z_EXTADDR_LEN - 2);){
+//  204       }
+//  205       else{
+//  206         uint8 idx;
+//  207         
+//  208 #if !defined ( NV_RESTORE )
+//  209         writeNV = FALSE;  // Make this a temporary IEEE address
+//  210 #endif
+//  211 
+//  212         /* Attempt to create a sufficiently random extended address for expediency.
+//  213          * Note: this is only valid/legal in a test environment and
+//  214          *       must never be used for a commercial product.
+//  215          */
+//  216         for (idx = 0; idx < (Z_EXTADDR_LEN - 2);){
 ??zmain_ext_addr_3:
         MOV     R6,#0x0
-//  218           uint16 randy = osal_rand();
+//  217           uint16 randy = osal_rand();
 ??zmain_ext_addr_4:
         ; Setup parameters for call to function osal_rand
         LCALL   ??osal_rand?relay
         MOV     ?V0 + 0,R2
         MOV     R0,?V0 + 0
-//  219           aExtendedAddress[idx++] = LO_UINT16(randy);
+//  218           aExtendedAddress[idx++] = LO_UINT16(randy);
         LCALL   ?Subroutine0 & 0xFFFF
 ??CrossCallReturnLabel_0:
         MOV     A,R0
         MOVX    @DPTR,A
         INC     R6
-//  220           aExtendedAddress[idx++] = HI_UINT16(randy);
+//  219           aExtendedAddress[idx++] = HI_UINT16(randy);
         LCALL   ?Subroutine0 & 0xFFFF
-//  221         }
+//  220         }
 ??CrossCallReturnLabel_1:
         MOV     A,R3
         MOVX    @DPTR,A
@@ -1502,20 +1501,20 @@ zmain_ext_addr:
         CLR     C
         SUBB    A,#0x6
         JC      ??zmain_ext_addr_4
-//  222         // Next-to-MSB identifies ZigBee devicetype.
-//  223 #if ZG_BUILD_COORDINATOR_TYPE && !ZG_BUILD_JOINING_TYPE
-//  224         aExtendedAddress[idx++] = 0x10;
+//  221         // Next-to-MSB identifies ZigBee devicetype.
+//  222 #if ZG_BUILD_COORDINATOR_TYPE && !ZG_BUILD_JOINING_TYPE
+//  223         aExtendedAddress[idx++] = 0x10;
         LCALL   ?Subroutine0 & 0xFFFF
 ??CrossCallReturnLabel_2:
         MOV     A,#0x10
         MOVX    @DPTR,A
-//  225 #elif ZG_BUILD_RTRONLY_TYPE
-//  226         aExtendedAddress[idx++] = 0x20;
-//  227 #else
-//  228         aExtendedAddress[idx++] = 0x30;
-//  229 #endif
-//  230         // MSB has historical signficance.
-//  231         aExtendedAddress[idx] = 0xF8;
+//  224 #elif ZG_BUILD_RTRONLY_TYPE
+//  225         aExtendedAddress[idx++] = 0x20;
+//  226 #else
+//  227         aExtendedAddress[idx++] = 0x30;
+//  228 #endif
+//  229         // MSB has historical signficance.
+//  230         aExtendedAddress[idx] = 0xF8;
         MOV     A,#0x1
         ADD     A,R6
         MOV     R0,A
@@ -1527,11 +1526,11 @@ zmain_ext_addr:
         MOV     DPH,A
         MOV     A,#-0x8
         MOVX    @DPTR,A
-//  232       }
-//  233     }
-//  234 
-//  235     if (writeNV){
-//  236       (void)osal_nv_write(ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, aExtendedAddress);
+//  231       }
+//  232     }
+//  233 
+//  234     if (writeNV){
+//  235       (void)osal_nv_write(ZCD_NV_EXTADDR, 0, Z_EXTADDR_LEN, aExtendedAddress);
 ??zmain_ext_addr_2:
         ; Setup parameters for call to function osal_nv_write
         MOV     ?V0 + 0,#aExtendedAddress & 0xff
@@ -1552,18 +1551,18 @@ zmain_ext_addr:
         MOV     A,#0x4
         LCALL   ?DEALLOC_XSTACK8
         CFI CFA_XSP16 add(XSP16, 26)
-//  237     }
-//  238   }
-//  239 
-//  240   // Set the MAC PIB extended address according to results from above.
-//  241   (void)ZMacSetReq(MAC_EXTENDED_ADDRESS, aExtendedAddress);
+//  236     }
+//  237   }
+//  238 
+//  239   // Set the MAC PIB extended address according to results from above.
+//  240   (void)ZMacSetReq(MAC_EXTENDED_ADDRESS, aExtendedAddress);
 ??zmain_ext_addr_1:
         ; Setup parameters for call to function ZMacSetReq
         MOV     R2,#aExtendedAddress & 0xff
         MOV     R3,#(aExtendedAddress >> 8) & 0xff
         MOV     R1,#-0x1e
         LCALL   ??ZMacSetReq?relay
-//  242 }
+//  241 }
         MOV     A,#0x8
         LCALL   ?DEALLOC_XSTACK8
         CFI CFA_XSP16 add(XSP16, 18)
@@ -1657,25 +1656,25 @@ zmain_ext_addr:
         CFI EndBlock cfiCond4
         CFI EndBlock cfiCond5
         CFI EndBlock cfiPicker6
-//  243 
-//  244 /**************************************************************************************************
-//  245  * @fn          zmain_dev_info
-//  246  * @brief       This displays the IEEE (MSB to LSB) on the LCD.
-//  247  * input parameters
-//  248  * None.
-//  249  * output parameters
-//  250  * None.
-//  251  * @return      None.
-//  252  **************************************************************************************************
-//  253  */
+//  242 
+//  243 /**************************************************************************************************
+//  244  * @fn          zmain_dev_info
+//  245  * @brief       This displays the IEEE (MSB to LSB) on the LCD.
+//  246  * input parameters
+//  247  * None.
+//  248  * output parameters
+//  249  * None.
+//  250  * @return      None.
+//  251  **************************************************************************************************
+//  252  */
 
         RSEG BANKED_CODE:CODE:NOROOT(0)
-//  254 static void zmain_dev_info(void)
+//  253 static void zmain_dev_info(void)
 zmain_dev_info:
         CFI Block cfiBlock7 Using cfiCommon0
         CFI Function zmain_dev_info
         CODE
-//  255 {
+//  254 {
         FUNCALL zmain_dev_info, HalLcdWriteString
         LOCFRAME ISTACK, 0, STACK
         LOCFRAME PSTACK, 0, STACK
@@ -1717,21 +1716,21 @@ zmain_dev_info:
         MOV     A,#-0x11
         LCALL   ?ALLOC_XSTACK8
         CFI CFA_XSP16 add(XSP16, 27)
-//  256 #ifdef LCD_SUPPORTED
-//  257   uint8 i;
-//  258   uint8 *xad;
-//  259   uint8 lcd_buf[Z_EXTADDR_LEN*2+1];
-//  260 
-//  261   // Display the extended address.
-//  262   xad = aExtendedAddress + Z_EXTADDR_LEN - 1;
+//  255 #ifdef LCD_SUPPORTED
+//  256   uint8 i;
+//  257   uint8 *xad;
+//  258   uint8 lcd_buf[Z_EXTADDR_LEN*2+1];
+//  259 
+//  260   // Display the extended address.
+//  261   xad = aExtendedAddress + Z_EXTADDR_LEN - 1;
         MOV     R0,#(aExtendedAddress + 7) & 0xff
         MOV     R1,#((aExtendedAddress + 7) >> 8) & 0xff
-//  263 
-//  264   for (i = 0; i < Z_EXTADDR_LEN*2; xad--)
+//  262 
+//  263   for (i = 0; i < Z_EXTADDR_LEN*2; xad--)
         MOV     R4,#0x0
-//  265   {
-//  266     uint8 ch;
-//  267     ch = (*xad >> 4) & 0x0F;
+//  264   {
+//  265     uint8 ch;
+//  266     ch = (*xad >> 4) & 0x0F;
 ??zmain_dev_info_0:
         MOV     DPL,R0
         MOV     DPH,R1
@@ -1739,7 +1738,7 @@ zmain_dev_info:
         SWAP    A
         ANL     A,#0xf
         MOV     R5,A
-//  268     lcd_buf[i++] = ch + (( ch < 10 ) ? '0' : '7');
+//  267     lcd_buf[i++] = ch + (( ch < 10 ) ? '0' : '7');
         MOV     A,R4
         MOV     R6,A
         INC     R4
@@ -1762,13 +1761,13 @@ zmain_dev_info:
         POP     A
         CFI CFA_SP SP+0
         MOVX    @DPTR,A
-//  269     ch = *xad & 0x0F;
+//  268     ch = *xad & 0x0F;
         MOV     DPL,R0
         MOV     DPH,R1
         MOVX    A,@DPTR
         ANL     A,#0xf
         MOV     R5,A
-//  270     lcd_buf[i++] = ch + (( ch < 10 ) ? '0' : '7');
+//  269     lcd_buf[i++] = ch + (( ch < 10 ) ? '0' : '7');
         MOV     A,R4
         MOV     R7,A
         INC     R4
@@ -1787,7 +1786,7 @@ zmain_dev_info:
         CFI CFA_SP SP+-1
         MOV     ?V0 + 0,R7
         LCALL   ?Subroutine1 & 0xFFFF
-//  271   }
+//  270   }
 ??CrossCallReturnLabel_4:
         POP     A
         CFI CFA_SP SP+0
@@ -1802,18 +1801,18 @@ zmain_dev_info:
         CLR     C
         SUBB    A,#0x10
         JC      ??zmain_dev_info_0
-//  272   lcd_buf[Z_EXTADDR_LEN*2] = '\0';
+//  271   lcd_buf[Z_EXTADDR_LEN*2] = '\0';
         MOV     A,#0x10
         LCALL   ?XSTACK_DISP0_8
         CLR     A
         MOVX    @DPTR,A
-//  273   HalLcdWriteString( "IEEE: ", HAL_LCD_LINE_1 );
+//  272   HalLcdWriteString( "IEEE: ", HAL_LCD_LINE_1 );
         ; Setup parameters for call to function HalLcdWriteString
         MOV     R1,#0x1
         MOV     R2,#`?<Constant "IEEE: ">` & 0xff
         MOV     R3,#(`?<Constant "IEEE: ">` >> 8) & 0xff
         LCALL   ??HalLcdWriteString?relay
-//  274   HalLcdWriteString( (char*)lcd_buf, HAL_LCD_LINE_2 );
+//  273   HalLcdWriteString( (char*)lcd_buf, HAL_LCD_LINE_2 );
         ; Setup parameters for call to function HalLcdWriteString
         MOV     R1,#0x2
         MOV     DPL,?XSP + 0
@@ -1821,8 +1820,8 @@ zmain_dev_info:
         MOV     R2,DPL
         MOV     R3,DPH
         LCALL   ??HalLcdWriteString?relay
-//  275 #endif
-//  276 }
+//  274 #endif
+//  275 }
         MOV     A,#0x11
         LCALL   ?DEALLOC_XSTACK8
         CFI CFA_XSP16 add(XSP16, 10)
@@ -1920,36 +1919,36 @@ zmain_dev_info:
         DB "IEEE: "
 
         END
-//  277 
-//  278 #ifdef LCD_SUPPORTED
-//  279 /*********************************************************************
-//  280  * @fn      zmain_lcd_init
-//  281  * @brief   Initialize LCD at start up.
-//  282  * @return  none
-//  283  *********************************************************************/
-//  284 static void zmain_lcd_init ( void )
-//  285 {
-//  286 #ifdef SERIAL_DEBUG_SUPPORTED
-//  287   {
-//  288     HalLcdWriteString( "TexasInstruments", HAL_LCD_LINE_1 );
-//  289 
-//  290 #if defined( MT_MAC_FUNC )
-//  291 #if defined( ZDO_COORDINATOR )
-//  292       HalLcdWriteString( "MAC-MT Coord", HAL_LCD_LINE_2 );
-//  293 #else
-//  294       HalLcdWriteString( "MAC-MT Device", HAL_LCD_LINE_2 );
-//  295 #endif // ZDO
-//  296 #elif defined( MT_NWK_FUNC )
-//  297 #if defined( ZDO_COORDINATOR )
-//  298       HalLcdWriteString( "NWK Coordinator", HAL_LCD_LINE_2 );
-//  299 #else
-//  300       HalLcdWriteString( "NWK Device", HAL_LCD_LINE_2 );
-//  301 #endif // ZDO
-//  302 #endif // MT_FUNC
-//  303   }
-//  304 #endif // SERIAL_DEBUG_SUPPORTED
-//  305 }
-//  306 #endif
+//  276 
+//  277 #ifdef LCD_SUPPORTED
+//  278 /*********************************************************************
+//  279  * @fn      zmain_lcd_init
+//  280  * @brief   Initialize LCD at start up.
+//  281  * @return  none
+//  282  *********************************************************************/
+//  283 static void zmain_lcd_init ( void )
+//  284 {
+//  285 #ifdef SERIAL_DEBUG_SUPPORTED
+//  286   {
+//  287     HalLcdWriteString( "TexasInstruments", HAL_LCD_LINE_1 );
+//  288 
+//  289 #if defined( MT_MAC_FUNC )
+//  290 #if defined( ZDO_COORDINATOR )
+//  291       HalLcdWriteString( "MAC-MT Coord", HAL_LCD_LINE_2 );
+//  292 #else
+//  293       HalLcdWriteString( "MAC-MT Device", HAL_LCD_LINE_2 );
+//  294 #endif // ZDO
+//  295 #elif defined( MT_NWK_FUNC )
+//  296 #if defined( ZDO_COORDINATOR )
+//  297       HalLcdWriteString( "NWK Coordinator", HAL_LCD_LINE_2 );
+//  298 #else
+//  299       HalLcdWriteString( "NWK Device", HAL_LCD_LINE_2 );
+//  300 #endif // ZDO
+//  301 #endif // MT_FUNC
+//  302   }
+//  303 #endif // SERIAL_DEBUG_SUPPORTED
+//  304 }
+//  305 #endif
 // 
 // 752 bytes in segment BANKED_CODE
 //  24 bytes in segment BANK_RELAYS

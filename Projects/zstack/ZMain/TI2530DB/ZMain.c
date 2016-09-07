@@ -57,7 +57,7 @@
 #include "hal_flash.h"
 
 #include "74LS164_8LED.h"
-#include "SD_App.h"
+#include "App.h"
 
 
 // Maximun number of Vdd samples checked before go on
@@ -122,9 +122,8 @@ int main( void )
 	WatchDogEnable( WDTIMX );
 	#endif
 	
-	customInit(); // 添加自己定制的配置
-	osal_start_system(); // No Return from here
-	
+	customInit(); 
+	osal_start_system(); // No Return from here	
 	return 0;  // Shouldn't get here.
 }
 

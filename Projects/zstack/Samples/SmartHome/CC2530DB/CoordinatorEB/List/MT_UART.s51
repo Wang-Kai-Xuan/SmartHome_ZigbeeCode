@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                            /
-// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        05/Sep/2016  18:32:51 /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        06/Sep/2016  08:36:43 /
 // Copyright 2004-2011 IAR Systems AB.                                        /
 //                                                                            /
 //    Core               =  plain                                             /
@@ -145,7 +145,6 @@
         FUNCTION ??MT_UartProcessZToolData?relay,0203H
         PUBLIC ??MT_UartRegisterTaskID?relay
         FUNCTION ??MT_UartRegisterTaskID?relay,0203H
-        PUBLIC App_TaskID
         PUBLIC CMD_Token
         PUBLIC FSC_Token
         PUBLIC LEN_Token
@@ -167,6 +166,7 @@
         FUNCTION MT_UartRegisterTaskID,0203H
         ARGFRAME XSTACK, 0, STACK
         LOCFRAME ISTACK, 2, STACK
+        PUBLIC Smart_Home_App_TaskID
         PUBLIC pMsg
         PUBLIC state
         PUBLIC tempDataLen
@@ -475,8 +475,8 @@ MT_UartRegisterTaskID SYMBOL "MT_UartRegisterTaskID"
 
         RSEG XDATA_Z:XDATA:NOROOT(0)
         DATA8
-//   70 byte App_TaskID;
-App_TaskID:
+//   70 byte Smart_Home_App_TaskID;
+Smart_Home_App_TaskID:
         DS 1
         REQUIRE __INIT_XDATA_Z
 //   71 
@@ -576,8 +576,8 @@ MT_UartInit:
 //  101   halUARTCfg_t uartConfig;
 //  102 
 //  103   /* Initialize APP ID */
-//  104   App_TaskID = 0;
-        MOV     DPTR,#App_TaskID
+//  104   Smart_Home_App_TaskID = 0;
+        MOV     DPTR,#Smart_Home_App_TaskID
         CLR     A
         MOVX    @DPTR,A
 //  105 
@@ -589,7 +589,7 @@ MT_UartInit:
         MOVX    @DPTR,A
 //  108   uartConfig.baudRate             = MT_UART_DEFAULT_BAUDRATE;
         LCALL   ?XSTACK_DISP0_8
-        MOV     A,#0x4
+        CLR     A
         MOVX    @DPTR,A
 //  109   uartConfig.flowControl          = MT_UART_DEFAULT_OVERFLOW;
         MOV     A,#0x2
@@ -716,9 +716,9 @@ MT_UartRegisterTaskID:
         CFI CFA_SP SP+-5
         ; Saved register size: 2
         ; Auto size: 0
-//  152   App_TaskID = taskID;
+//  152   Smart_Home_App_TaskID = taskID;
         MOV     A,R1
-        MOV     DPTR,#App_TaskID
+        MOV     DPTR,#Smart_Home_App_TaskID
         MOVX    @DPTR,A
 //  153 }
         SJMP    ?Subroutine0
@@ -1129,7 +1129,7 @@ MT_UartProcessZToolData:
         CLR     C
         SUBB    A,R7
         JC      ??MT_UartProcessZToolData_4
-//  329 		osal_msg_send( App_TaskID, (byte *)pMsg ); //登记任务，发往上层
+//  329 		osal_msg_send( Smart_Home_App_TaskID, (byte *)pMsg ); //登记任务，发往上层
         ; Setup parameters for call to function osal_msg_send
         MOV     DPTR,#pMsg
         MOVX    A,@DPTR
@@ -1137,7 +1137,7 @@ MT_UartProcessZToolData:
         INC     DPTR
         MOVX    A,@DPTR
         MOV     R3,A
-        MOV     DPTR,#App_TaskID
+        MOV     DPTR,#Smart_Home_App_TaskID
         MOVX    A,@DPTR
         MOV     R1,A
         LCALL   ??osal_msg_send?relay
@@ -1480,11 +1480,11 @@ MT_UartProcessZToolData:
 //  457 /***************************************************************************************************
 //  458 ***************************************************************************************************/
 // 
-// 410 bytes in segment BANKED_CODE
+// 409 bytes in segment BANKED_CODE
 //  24 bytes in segment BANK_RELAYS
 //   9 bytes in segment XDATA_Z
 // 
-// 434 bytes of CODE  memory
+// 433 bytes of CODE  memory
 //   9 bytes of XDATA memory
 //
 //Errors: none

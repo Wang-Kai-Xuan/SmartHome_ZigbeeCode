@@ -67,7 +67,7 @@
  *                                         GLOBAL VARIABLES
  ***************************************************************************************************/
 /* Used to indentify the application ID for osal task */
-byte App_TaskID;
+byte Smart_Home_App_TaskID;
 
 /* ZTool protocal parameters */
 uint8 state;
@@ -101,7 +101,7 @@ void MT_UartInit ()
   halUARTCfg_t uartConfig;
 
   /* Initialize APP ID */
-  App_TaskID = 0;
+  Smart_Home_App_TaskID = 0;
 
   /* UART Configuration */
   uartConfig.configured           = TRUE;
@@ -149,7 +149,7 @@ void MT_UartInit ()
  ***************************************************************************************************/
 void MT_UartRegisterTaskID( byte taskID )
 {
-  App_TaskID = taskID;
+  Smart_Home_App_TaskID = taskID;
 }
 
 /***************************************************************************************************
@@ -326,7 +326,7 @@ void MT_UartProcessZToolData ( uint8 port, uint8 event ){
 		pMsg->msg [0]= j; //给上层的数据第一个是长度
 		for(i=0;i<j;i++) //从第二个开始记录数据
 		pMsg->msg [i+1]= buf[i];
-		osal_msg_send( App_TaskID, (byte *)pMsg ); //登记任务，发往上层
+		osal_msg_send( Smart_Home_App_TaskID, (byte *)pMsg ); //登记任务，发往上层
 		/* deallocate the msg */
 		osal_msg_deallocate ( (uint8 *)pMsg ); //释放内存
 	}
