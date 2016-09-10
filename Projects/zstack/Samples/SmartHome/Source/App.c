@@ -43,6 +43,12 @@ enum CommonicationProtocol{
     COMMAND_NULL = '0',LIGHT_OPEN,LIGHT_CLOSE,CURTAIN_OPEN,CURTAIN_CLOSE
 };
 
+unsigned char press_key_5[]="key_5 pressed";
+unsigned char press_key_4[]="key_4 pressed";
+unsigned char press_key_3[]="key_3 pressed";
+unsigned char light_state_open[]="light state is open";
+unsigned char light_state_close[]="light state is close";
+
 const cId_t App_ClusterList[SD_APP_MAX_CLUSTERS] =
 {
     SD_APP_BROADCAST_CLUSTERID,
@@ -71,7 +77,7 @@ afAddrType_t App_Broadcast_DstAddr;
 /*********************************************************************
  * LOCAL FUNCTIONS
  */
-void App_MessageMSGCB( afIncomingMSGPacket_t *pckt );
+void processNetworkMsg( afIncomingMSGPacket_t *pckt );
 void App_SendBroadcastMessage( void );
 /**
  * @brief openLight 执行打开电灯这个动作
@@ -96,7 +102,7 @@ void closeCurtain();
  * @brief recvSerialData 这个函数中接收串口的数据，包括手机、电脑端通过AP发送的指令和数据
  * @param cmdMsg
  */
-void recvSerialData(mtOSALSerialData_t *cmdMsg);
+void processSerialMsg(mtOSALSerialData_t *cmdMsg);
 
 void App_Init( uint8 task_id )
 {
@@ -134,6 +140,34 @@ void App_Init( uint8 task_id )
     RegisterForKeys( App_TaskID );
 }
 
+void processKeyChange(afIncomingMSGPacket_t *MSGpkt)
+{
+    if(((keyChange_t *)MSGpkt)->keys & 0x01){/*按钮5*/
+       App_SendBroadcastMessage();
+        openLight();
+    }
+    if(((keyChange_t *)MSGpkt)->keys & 0x02){/*按钮4*/
+    }
+}
+
+void processZDOStateChange(afIncomingMSGPacket_t *MSGpkt)
+{
+    App_NwkState = (devStates_t)(MSGpkt->hdr.status);
+    if ((App_NwkState == DEV_ZB_COORD)|| (App_NwkState == DEV_ROUTER) || (App_NwkState == DEV_END_DEVICE)){
+        if(App_NwkState == DEV_ZB_COORD){
+               LS164_BYTE(11);//'C'协调器
+        }
+        if(App_NwkState == DEV_ROUTER){
+              LS164_BYTE(12);//‘R’路由器
+        }
+        if(App_NwkState == DEV_END_DEVICE){
+             LS164_BYTE(13);//‘E’终端
+        }
+    }else{
+        // Device is no longer in the network
+    }
+}
+
 uint16 App_ProcessEvent( uint8 task_id, uint16 events ){
     afIncomingMSGPacket_t *MSGpkt;
     (void)task_id;  // Intentionally unreferenced parameter
@@ -143,35 +177,16 @@ uint16 App_ProcessEvent( uint8 task_id, uint16 events ){
         while (MSGpkt){
             switch (MSGpkt->hdr.event){
             case CMD_SERIAL_MSG:
-                recvSerialData((mtOSALSerialData_t *)MSGpkt);
+                processSerialMsg((mtOSALSerialData_t *)MSGpkt);
                 break;
             case KEY_CHANGE:
-                if(((keyChange_t *)MSGpkt)->keys & 0x01){/*按钮5*/
-                   App_SendBroadcastMessage();
-                   openLight();
-                }
-                if(((keyChange_t *)MSGpkt)->keys & 0x02){/*按钮4*/
-                }
+                processKeyChange(MSGpkt);
                 break;
-                // Received when a messages is received (OTA) for this endpoint
             case AF_INCOMING_MSG_CMD:
-                App_MessageMSGCB( MSGpkt );
+                processNetworkMsg(MSGpkt);
                 break;
             case ZDO_STATE_CHANGE:
-                App_NwkState = (devStates_t)(MSGpkt->hdr.status);
-                if ((App_NwkState == DEV_ZB_COORD)|| (App_NwkState == DEV_ROUTER) || (App_NwkState == DEV_END_DEVICE)){
-                    if(App_NwkState == DEV_ZB_COORD){
-                           LS164_BYTE(11);//'C'协调器
-                    }
-                    if(App_NwkState == DEV_ROUTER){
-                          LS164_BYTE(12);//‘R’路由器
-                    }
-                    if(App_NwkState == DEV_END_DEVICE){
-                         LS164_BYTE(13);//‘E’终端
-                    }
-                }else{
-                    // Device is no longer in the network
-                }
+                processZDOStateChange(MSGpkt);
                 break;
             default:
                 break;
@@ -188,7 +203,7 @@ uint16 App_ProcessEvent( uint8 task_id, uint16 events ){
  * @param pkt
  */
 
-void App_MessageMSGCB( afIncomingMSGPacket_t *pkt )
+void processNetworkMsg( afIncomingMSGPacket_t *pkt )
 {
     switch ( pkt->clusterId ){
     case SD_APP_POINT_TO_POINT_CLUSTERID:
@@ -258,21 +273,19 @@ void sendMessageOnZigbee(uint8 *str){
     }
 }
 
-void recvSerialData(mtOSALSerialData_t *cmdMsg)
+void processSerialMsg(mtOSALSerialData_t *cmdMsg)
 {
     uint8 len,*str=NULL;     //len有用数据长度
     str = cmdMsg->msg;          //指向数据开头
     len=*str;                 //msg里的第1个字节代表后面的数据长度
-    HalUARTWrite(0,"Get data:",9);
-    for(uint8 i=1;i<=len;i++)/*打印出串口接收到的数据，用于提示*/
-    HalUARTWrite(0,str+i,1 );
-    HalUARTWrite(0,"\n",1 );//换行
-
     if(str[1] == LIGHT_OPEN){
         openLight();
+        HalUARTWrite(0,light_state_open,strlen(light_state_open));
+
     }
     if(str[1] == LIGHT_CLOSE){
         closeLight();
+        HalUARTWrite(0,light_state_close,strlen(light_state_close));
     }
     if(str[1] == CURTAIN_OPEN){
         openCurtain();
@@ -280,7 +293,6 @@ void recvSerialData(mtOSALSerialData_t *cmdMsg)
     if(str[1] == CURTAIN_CLOSE){
         closeCurtain();
     }
-    sendMessageOnZigbee(str);
 }
 
 void customInit(){

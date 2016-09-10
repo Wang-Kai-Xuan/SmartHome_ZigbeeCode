@@ -74,6 +74,5 @@ void osalInitTasks( void ) /*在OSAL.c中被调用*/
 	#if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
 	ZDNwkMgr_Init( taskID++ );
 	#endif
-
     App_Init( taskID ); /*自定义的任务*/
 }
