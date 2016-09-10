@@ -1,26 +1,3 @@
-/*--------------------开发记录----------------------------------
-
-通信协议（针对本项目的特殊性）有两种：
-1.发送数据
-    数据类型	|	数据内容
-2.接收数据
-    指令		|	选项
-
-电灯和窗帘的控制流程：
-1.PC、手机发送指令，ZigBee协议栈触发事件，然后在事件处理函数里面读取指令。
-2.读取指令后进行判断指令类型，然后做相应的处理。
-
-思考-需不需要自己制作PCB?
-    需要的理由：
-        1.给老师一个印象，我们不都是用现成的东西。
-        2.能够学到PCB的相关知识和技术（我现在并不需要）
-
-    不需要的理由：
-        1.有些PCB没有加工工具无法完成
-        2.遵循软件设计的思想：永远不要重复造轮子。（拿来主义）
-
-------------------------------------------------------*/
-
 #include "OSAL.h"
 #include "ZGlobals.h"
 #include "AF.h"
@@ -55,6 +32,12 @@ uint8 AF_closeCurtain[1]={'b'};
 
 uint8 didCloseCurtain[1]={'c'};
 uint8 didOpenCurtain[1]={'d'};
+
+uint8 AF_openLight[1]={'e'};
+uint8 AF_closeLight[1]={'f'};
+
+uint8 didCloseLight[1]={'g'};
+uint8 didOpenLight[1]={'h'};
 
 int stepLastTime = 100;
 int stepDelayTime = 1000;
@@ -215,6 +198,41 @@ uint16 App_ProcessEvent( uint8 task_id, uint16 events ){
     return 0;
 }
 
+void processZigbeeBroadcast(afIncomingMSGPacket_t *pkt)
+{
+    /*process curtain*/
+    if(pkt->cmd.Data[0]==AF_openCurtain[0]){
+       openCurtain();
+       App_SendBroadcastMessage(didOpenCurtain);
+    }
+    if(pkt->cmd.Data[0]==AF_closeCurtain[0]){
+       closeCurtain();
+       App_SendBroadcastMessage(didCloseCurtain);
+    }
+    if(pkt->cmd.Data[0]==didCloseCurtain[0]){
+       HalUARTWrite(0,curtain_state_close,strlen(curtain_state_close));
+    }
+    if(pkt->cmd.Data[0]==didOpenCurtain[0]){
+       HalUARTWrite(0,curtain_state_open,strlen(curtain_state_open));
+    }
+
+    /*process light*/
+    if(pkt->cmd.Data[0]==AF_openLight[0]){
+       openLight();
+       App_SendBroadcastMessage(didOpenLight);
+    }
+    if(pkt->cmd.Data[0]==AF_closeLight[0]){
+       closeLight();
+       App_SendBroadcastMessage(didCloseLight);
+    }
+    if(pkt->cmd.Data[0]==didCloseLight[0]){
+       HalUARTWrite(0,light_state_close,strlen(light_state_close));
+    }
+    if(pkt->cmd.Data[0]==didOpenLight[0]){
+       HalUARTWrite(0,light_state_open,strlen(light_state_open));
+    }    
+}
+
 void processNetworkMsg( afIncomingMSGPacket_t *pkt )
 {
     switch ( pkt->clusterId ){
@@ -225,20 +243,7 @@ void processNetworkMsg( afIncomingMSGPacket_t *pkt )
         break;
 
     case SD_APP_BROADCAST_CLUSTERID:
-        if(pkt->cmd.Data[0]==AF_openCurtain[0]){
-           openCurtain();
-           App_SendBroadcastMessage(didOpenCurtain);
-        }
-        if(pkt->cmd.Data[0]==AF_closeCurtain[0]){
-           closeCurtain();
-           App_SendBroadcastMessage(didCloseCurtain);
-        }
-        if(pkt->cmd.Data[0]==didCloseCurtain[0]){
-           HalUARTWrite(0,curtain_state_close,strlen(curtain_state_close));
-        }
-        if(pkt->cmd.Data[0]==didOpenCurtain[0]){
-           HalUARTWrite(0,curtain_state_open,strlen(curtain_state_open));
-        }
+        processZigbeeBroadcast(pkt);
         break;
     }
 }
@@ -310,12 +315,10 @@ void processSerialMsg(mtOSALSerialData_t *cmdMsg)
     str = cmdMsg->msg;          //指向数据开头
     len=*str;                 //msg里的第1个字节代表后面的数据长度
     if(str[1] == LIGHT_OPEN){
-        openLight();
-        HalUARTWrite(0,light_state_open,strlen(light_state_open));
+        App_SendBroadcastMessage(AF_openLight);
     }
     if(str[1] == LIGHT_CLOSE){
-        closeLight();
-        HalUARTWrite(0,light_state_close,strlen(light_state_close));
+        App_SendBroadcastMessage(AF_closeLight);
     }
     if(str[1] == CURTAIN_OPEN){
         App_SendBroadcastMessage(AF_openCurtain);
