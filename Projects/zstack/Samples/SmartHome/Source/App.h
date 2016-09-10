@@ -1,8 +1,7 @@
 #ifndef SD_APP_H
 #define SD_APP_H
 
-void customInit();
-void handleZigbeeMessage(  byte *command);
+void customInit(void);
 #ifdef __cplusplus
 extern "C"
 {

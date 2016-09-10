@@ -39,16 +39,28 @@
 #include "MT.h"
 #include "string.h"
 
-enum CommonicationProtocol{
+enum Command{
     COMMAND_NULL = '0',LIGHT_OPEN,LIGHT_CLOSE,CURTAIN_OPEN,CURTAIN_CLOSE
 };
+unsigned char press_key_5[]="key_5 was pressed";
+unsigned char press_key_4[]="key_4 was pressed";
+unsigned char press_key_3[]="key_3 was pressed";
+unsigned char light_state_open[]="light state: open";
+unsigned char light_state_close[]="light state: close";
+unsigned char curtain_state_open[]="curtain state: open";
+unsigned char curtain_state_close[]="curtain state: close";
 
-unsigned char press_key_5[]="key_5 pressed";
-unsigned char press_key_4[]="key_4 pressed";
-unsigned char press_key_3[]="key_3 pressed";
-unsigned char light_state_open[]="light state is open";
-unsigned char light_state_close[]="light state is close";
+uint8 AF_openCurtain[1]={'a'};
+uint8 AF_closeCurtain[1]={'b'};
 
+uint8 didCloseCurtain[1]={'c'};
+uint8 didOpenCurtain[1]={'d'};
+
+int stepLastTime = 100;
+int stepDelayTime = 1000;
+void customInit(void);
+void initStepperMotor(void);
+void initSegmentDisplay(void);
 const cId_t App_ClusterList[SD_APP_MAX_CLUSTERS] =
 {
     SD_APP_BROADCAST_CLUSTERID,
@@ -78,7 +90,11 @@ afAddrType_t App_Broadcast_DstAddr;
  * LOCAL FUNCTIONS
  */
 void processNetworkMsg( afIncomingMSGPacket_t *pckt );
-void App_SendBroadcastMessage( void );
+void App_SendBroadcastMessage(uint8 data[]);
+void Delay(long time);
+#define uchar unsigned char
+uchar corotation[4] ={0x80,0x40,0x20,0x10}; // 正转
+uchar reverse[4]={0x10,0x20,0x40,0x80}; // 反转
 /**
  * @brief openLight 执行打开电灯这个动作
  *
@@ -143,10 +159,10 @@ void App_Init( uint8 task_id )
 void processKeyChange(afIncomingMSGPacket_t *MSGpkt)
 {
     if(((keyChange_t *)MSGpkt)->keys & 0x01){/*按钮5*/
-       App_SendBroadcastMessage();
-        openLight();
+        HalUARTWrite(0,press_key_5,strlen(press_key_5));
     }
     if(((keyChange_t *)MSGpkt)->keys & 0x02){/*按钮4*/
+        HalUARTWrite(0,press_key_4,strlen(press_key_4));
     }
 }
 
@@ -198,10 +214,6 @@ uint16 App_ProcessEvent( uint8 task_id, uint16 events ){
     }
     return 0;
 }
-/**
- * @brief SD_App_MessageMSGCB zigbee模块之间通讯的处理函数
- * @param pkt
- */
 
 void processNetworkMsg( afIncomingMSGPacket_t *pkt )
 {
@@ -213,17 +225,26 @@ void processNetworkMsg( afIncomingMSGPacket_t *pkt )
         break;
 
     case SD_APP_BROADCAST_CLUSTERID:
-        if(pkt->cmd.Data[0]=='B'){
-           P0_4 = ~P0_4;
+        if(pkt->cmd.Data[0]==AF_openCurtain[0]){
+           openCurtain();
+           App_SendBroadcastMessage(didOpenCurtain);
         }
-        handleZigbeeMessage(pkt->cmd.Data);
+        if(pkt->cmd.Data[0]==AF_closeCurtain[0]){
+           closeCurtain();
+           App_SendBroadcastMessage(didCloseCurtain);
+        }
+        if(pkt->cmd.Data[0]==didCloseCurtain[0]){
+           HalUARTWrite(0,curtain_state_close,strlen(curtain_state_close));
+        }
+        if(pkt->cmd.Data[0]==didOpenCurtain[0]){
+           HalUARTWrite(0,curtain_state_open,strlen(curtain_state_open));
+        }
         break;
     }
 }
 
-void App_SendBroadcastMessage( void )
+void App_SendBroadcastMessage(uint8 data[1])
 {
-    uint8 data[1]={'B'};
     if (AF_DataRequest(&App_Broadcast_DstAddr,
               &App_epDesc,
               SD_APP_BROADCAST_CLUSTERID,
@@ -240,22 +261,32 @@ void App_SendBroadcastMessage( void )
 
 void openLight()
 {
-    P0_7 = 1;
+    P0_1 = 1;
 }
 
 void closeLight()
 {
-    P0_7 = 0;
+    P0_1 = 0;
 }
 
 void openCurtain()
 {
-
+    for(int j=0;j<stepLastTime;j++){
+        for(int i=0;i<4;i++){
+          P0=corotation[i];
+          Delay(stepDelayTime);
+        }
+    }
 }
 
 void closeCurtain()
 {
-
+    for(int j=0;j<stepLastTime;j++){
+        for(int i=0;i<4;i++){
+          P0=corotation[i];
+          Delay(stepDelayTime);
+        }
+    }
 }
 
 void sendMessageOnZigbee(uint8 *str){
@@ -281,45 +312,42 @@ void processSerialMsg(mtOSALSerialData_t *cmdMsg)
     if(str[1] == LIGHT_OPEN){
         openLight();
         HalUARTWrite(0,light_state_open,strlen(light_state_open));
-
     }
     if(str[1] == LIGHT_CLOSE){
         closeLight();
         HalUARTWrite(0,light_state_close,strlen(light_state_close));
     }
     if(str[1] == CURTAIN_OPEN){
-        openCurtain();
+        App_SendBroadcastMessage(AF_openCurtain);
     }
     if(str[1] == CURTAIN_CLOSE){
-        closeCurtain();
+        App_SendBroadcastMessage(AF_closeCurtain);
     }
 }
 
-void customInit(){
-  P1DIR |=0x01;
-
-  P0DIR |=0X10;	/* 配置P0_3：串口外设TX引脚映射 */
-  P0DIR |=0X02;	/* 配置P0_3：串口外设RX引脚映射 */
-
-  P0DIR |=0X80; 	/* 用于控制电灯的IO */
-  P0_7 = 0; 		/* 控制打开/关闭电灯的IO */
-
-  P2DIR |= 0x01;	/* 用于控制窗帘的IO */
-  P2_0 = 0;		/* 控制打开/关闭窗帘的IO */
-
-  LS164_Cfg();    /* 数码管配置 */
-  LS164_BYTE(0);	/* 数码管显示"0" */
-}
-
-void handleZigbeeMessage(  byte *command)
+void initSegmentDisplay(void)
 {
-    if(*command==LIGHT_OPEN){
-        openLight();
-    }else if(*command==LIGHT_CLOSE){
-       closeLight();
-    }else if(*command==CURTAIN_OPEN){
-        openCurtain();
-    }else if(*command==CURTAIN_CLOSE){
-        closeCurtain();
-    }
+    LS164_Cfg();    /* 数码管配置 */
+    LS164_BYTE(0);
+}
+
+void initLight(void)
+{
+    P0DIR |=0X02; 	/* 用于控制电灯的IO */
+    P0_2 = 0;
+}
+
+void initStepperMotor(void)
+{
+    P0SEL &= 0x0f; // 1111 0000
+    P0DIR |= ~0x0f;
+}
+
+void customInit(void){
+  initLight(); 		/* 控制打开/关闭电灯的IO */
+  initStepperMotor();		/* 控制打开/关闭窗帘的IO */
+  initSegmentDisplay();	/* 数码管显示"0" */
+}
+void Delay(long time){
+  while(-- time);
 }

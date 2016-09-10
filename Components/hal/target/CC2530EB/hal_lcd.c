@@ -318,12 +318,12 @@ void HalLcdInit(void)
  *************************************************************************************************/
 
 /* 30/8/2010 ++ by feibit */
-void SET_DDRAM_ADDR(uint8 x, uint8 y)
-{
-	HalLcd_HW_Control(y|0xb0);
-	HalLcd_HW_Control((x >> 4)|0x10);
-	HalLcd_HW_Control(x&0x0f);
-}
+//void SET_DDRAM_ADDR(uint8 x, uint8 y)
+//{
+//	HalLcd_HW_Control(y|0xb0);
+//	HalLcd_HW_Control((x >> 4)|0x10);
+//	HalLcd_HW_Control(x&0x0f);
+//}
 
 /**************************************************************************************************
  * @fn      HalLcdWriteString

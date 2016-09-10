@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                            /
-// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        06/Sep/2016  08:20:24 /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        10/Sep/2016  14:32:02 /
 // Copyright 2004-2011 IAR Systems AB.                                        /
 //                                                                            /
 //    Core               =  plain                                             /
@@ -9,17 +9,18 @@
 //    Calling convention =  xdata reentrant                                   /
 //    Constant location  =  data_rom                                          /
 //    Dptr setup         =  1,16                                              /
-//    Source file        =  H:\project\SmartHome\Components\hal\target\CC2530 /
-//                          EB\hal_lcd.c                                      /
-//    Command line       =  -f H:\project\SmartHome\Projects\zstack\Samples\S /
-//                          martHome\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoor /
-//                          d.cfg (-DCPU32MHZ -DROOT=__near_func              /
-//                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
-//                          -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS) -f      /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig. /
-//                          cfg (-DSECURE=0 -DZG_SECURE_DYNAMIC=0             /
-//                          -DREFLECTOR -DDEFAULT_CHANLIST=0x00000800         /
+//    Source file        =  H:\project\SmartHome_Execute_Layer\Components\hal /
+//                          \target\CC2530EB\hal_lcd.c                        /
+//    Command line       =  -f H:\project\SmartHome_Execute_Layer\Projects\zs /
+//                          tack\Samples\SmartHome\CC2530DB\..\..\..\Tools\CC /
+//                          2530DB\f8wCoord.cfg (-DCPU32MHZ                   /
+//                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TR /
+//                          UE -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS) -f   /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\Tools\CC253 /
+//                          0DB\f8wConfig.cfg (-DSECURE=0                     /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
 //                          -DZDAPP_CONFIG_PAN_ID=0xFFF0                      /
 //                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
 //                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
@@ -38,72 +39,81 @@
 //                          "-DCONST=const __code" -DGENERIC=__generic        /
 //                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
 //                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
-//                          -DREJOIN_POLL_RATE=440 H:\project\SmartHome\Compo /
-//                          nents\hal\target\CC2530EB\hal_lcd.c -D ZIGBEEPRO  /
-//                          -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D          /
-//                          xMT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG -D            /
-//                          NV_RESTORE -lC H:\project\SmartHome\Projects\zsta /
-//                          ck\Samples\SmartHome\CC2530DB\CoordinatorEB\List\ /
-//                           -lA H:\project\SmartHome\Projects\zstack\Samples /
-//                          \SmartHome\CC2530DB\CoordinatorEB\List\           /
-//                          --diag_suppress Pe001,Pa010 -o                    /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\CoordinatorEB\Obj\ -e --debug      /
-//                          --core=plain --dptr=16,1 --data_model=large       /
-//                          --code_model=banked --calling_convention=xdata_re /
-//                          entrant --place_constants=data_rom                /
-//                          --nr_virtual_regs 16 -I                           /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\ -I H:\project\SmartHome\Projects\ /
-//                          zstack\Samples\SmartHome\CC2530DB\..\SOURCE\ -I   /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\ZMAIN\TI2530DB\ -I        /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\MT\ -I   /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INCL /
-//                          UDE\ -I H:\project\SmartHome\Projects\zstack\Samp /
-//                          les\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ /
-//                          HAL\TARGET\CC2530EB\ -I                           /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\MCU /
-//                          \CCSOC\ -I H:\project\SmartHome\Projects\zstack\S /
-//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
-//                          TS\OSAL\INCLUDE\ -I H:\project\SmartHome\Projects /
-//                          \zstack\Samples\SmartHome\CC2530DB\..\..\..\..\.. /
-//                          \COMPONENTS\STACK\AF\ -I                          /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\NW /
-//                          K\ -I H:\project\SmartHome\Projects\zstack\Sample /
-//                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ST /
-//                          ACK\SEC\ -I H:\project\SmartHome\Projects\zstack\ /
-//                          Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPONE /
-//                          NTS\STACK\SAPI\ -I H:\project\SmartHome\Projects\ /
-//                          zstack\Samples\SmartHome\CC2530DB\..\..\..\..\..\ /
-//                          COMPONENTS\STACK\SYS\ -I                          /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\ZD /
-//                          O\ -I H:\project\SmartHome\Projects\zstack\Sample /
-//                          s\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ZM /
-//                          AC\F8W\ -I H:\project\SmartHome\Projects\zstack\S /
-//                          amples\SmartHome\CC2530DB\..\..\..\..\..\COMPONEN /
-//                          TS\ZMAC\ -I H:\project\SmartHome\Projects\zstack\ /
-//                          Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPONE /
-//                          NTS\SERVICES\SADDR\ -I H:\project\SmartHome\Proje /
-//                          cts\zstack\Samples\SmartHome\CC2530DB\..\..\..\.. /
-//                          \..\COMPONENTS\SERVICES\SDATA\ -I                 /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\INCL /
-//                          UDE\ -I H:\project\SmartHome\Projects\zstack\Samp /
-//                          les\SmartHome\CC2530DB\..\..\..\..\..\COMPONENTS\ /
-//                          MAC\HIGH_LEVEL\ -I H:\project\SmartHome\Projects\ /
-//                          zstack\Samples\SmartHome\CC2530DB\..\..\..\..\..\ /
-//                          COMPONENTS\MAC\LOW_LEVEL\srf04\ -I                /
-//                          H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\LOW_ /
-//                          LEVEL\srf04\SINGLE_CHIP\ -Ohz                     /
-//    List file          =  H:\project\SmartHome\Projects\zstack\Samples\Smar /
-//                          tHome\CC2530DB\CoordinatorEB\List\hal_lcd.s51     /
+//                          -DREJOIN_POLL_RATE=440 H:\project\SmartHome_Execu /
+//                          te_Layer\Components\hal\target\CC2530EB\hal_lcd.c /
+//                           -D ZIGBEEPRO -D ZTOOL_P1 -D MT_TASK -D           /
+//                          MT_SYS_FUNC -D xMT_ZDO_FUNC -D                    /
+//                          LCD_SUPPORTED=DEBUG -D NV_RESTORE -lC             /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\CoordinatorEB\List\  /
+//                          -lA H:\project\SmartHome_Execute_Layer\Projects\z /
+//                          stack\Samples\SmartHome\CC2530DB\CoordinatorEB\Li /
+//                          st\ --diag_suppress Pe001,Pa010 -o                /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\CoordinatorEB\Obj\   /
+//                          -e --debug --core=plain --dptr=16,1               /
+//                          --data_model=large --code_model=banked            /
+//                          --calling_convention=xdata_reentrant              /
+//                          --place_constants=data_rom --nr_virtual_regs 16   /
+//                          -I H:\project\SmartHome_Execute_Layer\Projects\zs /
+//                          tack\Samples\SmartHome\CC2530DB\ -I               /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\SOURCE\ -I        /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\ZMAIN\TI253 /
+//                          0DB\ -I H:\project\SmartHome_Execute_Layer\Projec /
+//                          ts\zstack\Samples\SmartHome\CC2530DB\..\..\..\..\ /
+//                          ..\COMPONENTS\MT\ -I H:\project\SmartHome_Execute /
+//                          _Layer\Projects\zstack\Samples\SmartHome\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\HAL\INCLUDE\ -I        /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPO /
+//                          NENTS\HAL\TARGET\CC2530EB\ -I                     /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPO /
+//                          NENTS\OSAL\MCU\CCSOC\ -I                          /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPO /
+//                          NENTS\OSAL\INCLUDE\ -I H:\project\SmartHome_Execu /
+//                          te_Layer\Projects\zstack\Samples\SmartHome\CC2530 /
+//                          DB\..\..\..\..\..\COMPONENTS\STACK\AF\ -I         /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPO /
+//                          NENTS\STACK\NWK\ -I H:\project\SmartHome_Execute_ /
+//                          Layer\Projects\zstack\Samples\SmartHome\CC2530DB\ /
+//                          ..\..\..\..\..\COMPONENTS\STACK\SEC\ -I           /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPO /
+//                          NENTS\STACK\SAPI\ -I H:\project\SmartHome_Execute /
+//                          _Layer\Projects\zstack\Samples\SmartHome\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\STACK\SYS\ -I          /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPO /
+//                          NENTS\STACK\ZDO\ -I H:\project\SmartHome_Execute_ /
+//                          Layer\Projects\zstack\Samples\SmartHome\CC2530DB\ /
+//                          ..\..\..\..\..\COMPONENTS\ZMAC\F8W\ -I            /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPO /
+//                          NENTS\ZMAC\ -I H:\project\SmartHome_Execute_Layer /
+//                          \Projects\zstack\Samples\SmartHome\CC2530DB\..\.. /
+//                          \..\..\..\COMPONENTS\SERVICES\SADDR\ -I           /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPO /
+//                          NENTS\SERVICES\SDATA\ -I                          /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPO /
+//                          NENTS\MAC\INCLUDE\ -I H:\project\SmartHome_Execut /
+//                          e_Layer\Projects\zstack\Samples\SmartHome\CC2530D /
+//                          B\..\..\..\..\..\COMPONENTS\MAC\HIGH_LEVEL\ -I    /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPO /
+//                          NENTS\MAC\LOW_LEVEL\srf04\ -I                     /
+//                          H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\..\..\..\..\..\COMPO /
+//                          NENTS\MAC\LOW_LEVEL\srf04\SINGLE_CHIP\ -Ohz       /
+//    List file          =  H:\project\SmartHome_Execute_Layer\Projects\zstac /
+//                          k\Samples\SmartHome\CC2530DB\CoordinatorEB\List\h /
+//                          al_lcd.s51                                        /
 //                                                                            /
 //                                                                            /
 ///////////////////////////////////////////////////////////////////////////////
@@ -127,8 +137,6 @@
         RSEG PSTACK:XDATA:NOROOT(0)
         RSEG XSTACK:XDATA:NOROOT(0)
 
-        EXTERN ?BANKED_ENTER_XDATA
-        EXTERN ?BANKED_LEAVE_XDATA
         EXTERN ?BDISPATCH
         EXTERN ?BRET
         EXTERN __INIT_XDATA_Z
@@ -147,8 +155,6 @@
         FUNCTION ??HalLcdWriteStringValueValue?relay,0203H
         PUBLIC ??HalLcdWriteValue?relay
         FUNCTION ??HalLcdWriteValue?relay,0203H
-        PUBLIC ??SET_DDRAM_ADDR?relay
-        FUNCTION ??SET_DDRAM_ADDR?relay,0203H
         PUBLIC ASCIITAB_DZK
         PUBLIC HalLcdDisplayPercentBar
         FUNCTION HalLcdDisplayPercentBar,0203H
@@ -172,10 +178,6 @@
         PUBLIC HalLcdWriteValue
         FUNCTION HalLcdWriteValue,0203H
         ARGFRAME XSTACK, 1, STACK
-        PUBLIC SET_DDRAM_ADDR
-        FUNCTION SET_DDRAM_ADDR,021203H
-        ARGFRAME XSTACK, 0, STACK
-        LOCFRAME XSTACK, 10, STACK
         
         CFI Names cfiNames0
         CFI StackFrame CFA_SP SP IDATA
@@ -265,8 +267,6 @@
         CFI ?RET_LOW Frame(CFA_SP, 1)
         CFI EndCommon cfiCommon0
         
-HalLcd_HW_Control   SYMBOL "HalLcd_HW_Control"
-??HalLcd_HW_Control?relay SYMBOL "?relay", HalLcd_HW_Control
 HalLcdDisplayPercentBar SYMBOL "HalLcdDisplayPercentBar"
 ??HalLcdDisplayPercentBar?relay SYMBOL "?relay", HalLcdDisplayPercentBar
 HalLcdInit          SYMBOL "HalLcdInit"
@@ -281,20 +281,8 @@ HalLcdWriteStringValueValue SYMBOL "HalLcdWriteStringValueValue"
 ??HalLcdWriteStringValueValue?relay SYMBOL "?relay", HalLcdWriteStringValueValue
 HalLcdWriteValue    SYMBOL "HalLcdWriteValue"
 ??HalLcdWriteValue?relay SYMBOL "?relay", HalLcdWriteValue
-SET_DDRAM_ADDR      SYMBOL "SET_DDRAM_ADDR"
-??SET_DDRAM_ADDR?relay SYMBOL "?relay", SET_DDRAM_ADDR
 
-        EXTERN HalLcd_HW_Control
-        FUNCTION HalLcd_HW_Control,0200H
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 10, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        EXTERN ??HalLcd_HW_Control?relay
-        FUNCTION ??HalLcd_HW_Control?relay,00H
-
-// H:\project\SmartHome\Components\hal\target\CC2530EB\hal_lcd.c
+// H:\project\SmartHome_Execute_Layer\Components\hal\target\CC2530EB\hal_lcd.c
 //    1 /**************************************************************************************************
 //    2   Filename:       hal_lcd.c
 //    3   Revised:        $Date: 2010-8-31$
@@ -1804,92 +1792,12 @@ HalLcdInit:
 //  318  *************************************************************************************************/
 //  319 
 //  320 /* 30/8/2010 ++ by feibit */
-
-        RSEG BANKED_CODE:CODE:NOROOT(0)
-//  321 void SET_DDRAM_ADDR(uint8 x, uint8 y)
-SET_DDRAM_ADDR:
-        CFI Block cfiBlock1 Using cfiCommon0
-        CFI Function SET_DDRAM_ADDR
-        CODE
-//  322 {
-        FUNCALL SET_DDRAM_ADDR, HalLcd_HW_Control
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 10, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 10, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL SET_DDRAM_ADDR, HalLcd_HW_Control
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 10, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 10, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        FUNCALL SET_DDRAM_ADDR, HalLcd_HW_Control
-        LOCFRAME ISTACK, 0, STACK
-        LOCFRAME PSTACK, 0, STACK
-        LOCFRAME XSTACK, 10, STACK
-        LOCFRAME IOVERLAY, 0, STATIC
-        LOCFRAME DOVERLAY, 0, STATIC
-        ARGFRAME ISTACK, 0, STACK
-        ARGFRAME PSTACK, 0, STACK
-        ARGFRAME XSTACK, 10, STACK
-        ARGFRAME IOVERLAY, 0, STATIC
-        ARGFRAME DOVERLAY, 0, STATIC
-        MOV     A,#-0xa
-        LCALL   ?BANKED_ENTER_XDATA
-        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
-        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
-        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
-        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
-        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
-        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
-        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
-        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
-        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
-        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
-        CFI CFA_SP SP+0
-        CFI CFA_XSP16 add(XSP16, 10)
-        ; Saved register size: 10
-        ; Auto size: 0
-        MOV     A,R1
-        MOV     R7,A
-        MOV     A,R2
-//  323 	HalLcd_HW_Control(y|0xb0);
-        ; Setup parameters for call to function HalLcd_HW_Control
-        ORL     A,#0xb0
-        MOV     R2,A
-        MOV     R3,#0x0
-        LCALL   ??HalLcd_HW_Control?relay
-//  324 	HalLcd_HW_Control((x >> 4)|0x10);
-        ; Setup parameters for call to function HalLcd_HW_Control
-        MOV     A,R7
-        SWAP    A
-        ANL     A,#0xf
-        ORL     A,#0x10
-        MOV     R2,A
-        MOV     R3,#0x0
-        LCALL   ??HalLcd_HW_Control?relay
-//  325 	HalLcd_HW_Control(x&0x0f);
-        ; Setup parameters for call to function HalLcd_HW_Control
-        MOV     A,R7
-        ANL     A,#0xf
-        MOV     R2,A
-        MOV     R3,#0x0
-        LCALL   ??HalLcd_HW_Control?relay
-//  326 }
-        MOV     R7,#0x2
-        LJMP    ?BANKED_LEAVE_XDATA
-        CFI EndBlock cfiBlock1
+//  321 //void SET_DDRAM_ADDR(uint8 x, uint8 y)
+//  322 //{
+//  323 //	HalLcd_HW_Control(y|0xb0);
+//  324 //	HalLcd_HW_Control((x >> 4)|0x10);
+//  325 //	HalLcd_HW_Control(x&0x0f);
+//  326 //}
 //  327 
 //  328 /**************************************************************************************************
 //  329  * @fn      HalLcdWriteString
@@ -1905,7 +1813,7 @@ SET_DDRAM_ADDR:
         RSEG BANKED_CODE:CODE:NOROOT(0)
 //  338 void HalLcdWriteString ( char *str, uint8 option)
 HalLcdWriteString:
-        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Block cfiBlock1 Using cfiCommon0
         CFI Function HalLcdWriteString
         CODE
 //  339 {
@@ -1971,7 +1879,7 @@ HalLcdWriteString:
 //  397 
 //  398 }
         LJMP    ?BRET
-        CFI EndBlock cfiBlock2
+        CFI EndBlock cfiBlock1
 //  399 
 //  400 /**************************************************************************************************
 //  401  * @fn      HalLcdWriteValue
@@ -1988,7 +1896,7 @@ HalLcdWriteString:
         RSEG BANKED_CODE:CODE:NOROOT(0)
 //  411 void HalLcdWriteValue ( uint32 value, const uint8 radix, uint8 option)
 HalLcdWriteValue:
-        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Block cfiBlock2 Using cfiCommon0
         CFI Function HalLcdWriteValue
         CODE
 //  412 {
@@ -2002,7 +1910,7 @@ HalLcdWriteValue:
 //  418 #endif
 //  419 }
         LJMP    ?BRET
-        CFI EndBlock cfiBlock3
+        CFI EndBlock cfiBlock2
 //  420 
 //  421 /**************************************************************************************************
 //  422  * @fn      HalLcdWriteScreen
@@ -2018,7 +1926,7 @@ HalLcdWriteValue:
         RSEG BANKED_CODE:CODE:NOROOT(0)
 //  431 void HalLcdWriteScreen( char *line1, char *line2 )
 HalLcdWriteScreen:
-        CFI Block cfiBlock4 Using cfiCommon0
+        CFI Block cfiBlock3 Using cfiCommon0
         CFI Function HalLcdWriteScreen
         CODE
 //  432 {
@@ -2030,7 +1938,7 @@ HalLcdWriteScreen:
 //  436 #endif
 //  437 }
         LJMP    ?BRET
-        CFI EndBlock cfiBlock4
+        CFI EndBlock cfiBlock3
 //  438 
 //  439 /**************************************************************************************************
 //  440  * @fn      HalLcdWriteStringValue
@@ -2048,7 +1956,7 @@ HalLcdWriteScreen:
         RSEG BANKED_CODE:CODE:NOROOT(0)
 //  451 void HalLcdWriteStringValue( char *title, uint16 value, uint8 format, uint8 line )
 HalLcdWriteStringValue:
-        CFI Block cfiBlock5 Using cfiCommon0
+        CFI Block cfiBlock4 Using cfiCommon0
         CFI Function HalLcdWriteStringValue
         CODE
 //  452 {
@@ -2068,7 +1976,7 @@ HalLcdWriteStringValue:
 //  464 #endif
 //  465 }
         LJMP    ?BRET
-        CFI EndBlock cfiBlock5
+        CFI EndBlock cfiBlock4
 //  466 
 //  467 /**************************************************************************************************
 //  468  * @fn      HalLcdWriteStringValue
@@ -2088,7 +1996,7 @@ HalLcdWriteStringValue:
         RSEG BANKED_CODE:CODE:NOROOT(0)
 //  481 void HalLcdWriteStringValueValue( char *title, uint16 value1, uint8 format1,
 HalLcdWriteStringValueValue:
-        CFI Block cfiBlock6 Using cfiCommon0
+        CFI Block cfiBlock5 Using cfiCommon0
         CFI Function HalLcdWriteStringValueValue
         CODE
 //  482                                   uint16 value2, uint8 format2, uint8 line )
@@ -2123,7 +2031,7 @@ HalLcdWriteStringValueValue:
 //  509 #endif
 //  510 }
         LJMP    ?BRET
-        CFI EndBlock cfiBlock6
+        CFI EndBlock cfiBlock5
 //  511 
 //  512 /**************************************************************************************************
 //  513  * @fn      HalLcdDisplayPercentBar
@@ -2139,7 +2047,7 @@ HalLcdWriteStringValueValue:
         RSEG BANKED_CODE:CODE:NOROOT(0)
 //  522 void HalLcdDisplayPercentBar( char *title, uint8 value )
 HalLcdDisplayPercentBar:
-        CFI Block cfiBlock7 Using cfiCommon0
+        CFI Block cfiBlock6 Using cfiCommon0
         CFI Function HalLcdDisplayPercentBar
         CODE
 //  523 {
@@ -2183,19 +2091,13 @@ HalLcdDisplayPercentBar:
 //  559 
 //  560 }
         LJMP    ?BRET
-        CFI EndBlock cfiBlock7
+        CFI EndBlock cfiBlock6
 
         RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
 ??HalLcdInit?relay:
         LCALL   ?BDISPATCH
         DATA
         DC24    HalLcdInit
-
-        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
-??SET_DDRAM_ADDR?relay:
-        LCALL   ?BDISPATCH
-        DATA
-        DC24    SET_DDRAM_ADDR
 
         RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
 ??HalLcdWriteString?relay:
@@ -2548,13 +2450,13 @@ HalLcdDisplayPercentBar:
 //  872 
 //  873 
 // 
-//    78 bytes in segment BANKED_CODE
-//    48 bytes in segment BANK_RELAYS
+//    36 bytes in segment BANKED_CODE
+//    42 bytes in segment BANK_RELAYS
 // 1 152 bytes in segment CODE_C
 //     2 bytes in segment XDATA_Z
 // 
-// 1 278 bytes of CODE  memory
+// 1 230 bytes of CODE  memory
 //     2 bytes of XDATA memory
 //
 //Errors: none
-//Warnings: 2
+//Warnings: 1
